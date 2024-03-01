@@ -1,0 +1,174 @@
+name: Test 7 Repo
+
+on:
+  pull_request:
+    branches: [ master, fixbugL6Painter ]
+    paths-ignore:
+      - '.github/workflows/**'
+      - '**/mainTest.cpp'
+
+jobs:
+  get_changed_files:
+    runs-on: ubuntu-latest
+    name: Get changed files
+    steps:
+    - name: Changed Files
+      id: thuytt_files
+      uses: Ana06/get-changed-files@v2.2.0
+    - name: Printing
+      run: |
+        echo "Modified:"
+        echo "${{ steps.thuytt_files.outputs.modified }}"
+    outputs:
+      abc: ${{ steps.thuytt_files.outputs.modified }}
+
+#   check_in_folder:
+#     needs: get_changed_files
+#     runs-on: ubuntu-latest
+#     name: Check pattern
+#     steps:
+#     - name: Check pattern L1
+#       if: ${{ contains(needs.get_changed_files.outputs.abc, 'AdvProg_L1-GuessIt') }}
+#       run: |
+#         echo "bingo contain ${{needs.get_changed_files.outputs.abc}}"
+#     - name: Check L0
+#       if: ${{ contains(needs.get_changed_files.outputs.abc, 'AdvProg_L0-Hello') }}
+#       run: |
+#         echo "bingo contain ${{needs.get_changed_files.outputs.abc}}"
+
+  check_AdvProg_L0:
+    needs: get_changed_files
+    runs-on: ubuntu-latest
+    name: Check AdvProg_L0-Hello
+    if: ${{ contains(needs.get_changed_files.outputs.abc, 'AdvProg_L0-Hello') }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: install package
+        run: |
+          sudo apt-get update
+          sudo apt install -y libcppunit-dev
+      - name: make & test
+        working-directory: ./AdvProg_L0-Hello
+        run: |
+          ./configure
+          make
+          make test
+
+  # AdvProg_L1-GuessIt
+  check_AdvProg_L1:
+    needs: get_changed_files
+    runs-on: ubuntu-latest
+    name: Check AdvProg_L1-GuessIt
+    if: ${{ contains(needs.get_changed_files.outputs.abc, 'AdvProg_L1-GuessIt') }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: install package
+        run: |
+          sudo apt-get update
+          sudo apt install -y libcppunit-dev
+      - name: make & test
+        working-directory: ./AdvProg_L1-GuessIt
+        run: |
+          ./configure
+          make
+          make test
+
+  # AdvProg_L2_Calculus
+  check_AdvProg_L2:
+    needs: get_changed_files
+    runs-on: ubuntu-latest
+    name: Check AdvProg_L2-Calculus
+    if: ${{ contains(needs.get_changed_files.outputs.abc, 'AdvProg_L2-Calculus') }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: install package
+        run: |
+          sudo apt-get update
+          sudo apt install -y libcppunit-dev
+      - name: make & test
+        working-directory: ./AdvProg_L2-Calculus
+        run: |
+          ./configure
+          make
+          make test
+
+  # AdvProg_L3_HangMan
+  check_AdvProg_L3:
+    needs: get_changed_files
+    runs-on: ubuntu-latest
+    name: Check AdvProg_L3-HangMan
+    if: ${{ contains(needs.get_changed_files.outputs.abc, 'AdvProg_L3-HangMan') }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: install package
+        run: |
+          sudo apt-get update
+          sudo apt install -y libcppunit-dev
+      - name: make & test
+        working-directory: ./AdvProg_L3-HangMan
+        run: |
+          ./configure
+          make
+          make test
+
+  # AdvProg_L4-SimpleAI
+  check_AdvProg_L4:
+    needs: get_changed_files
+    runs-on: ubuntu-latest
+    name: Check AdvProg_L4-SimpleAI
+    if: ${{ contains(needs.get_changed_files.outputs.abc, 'AdvProg_L4-SimpleAI') }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: install package
+        run: |
+          sudo apt-get update
+          sudo apt install -y libcppunit-dev
+      - name: make & test
+        working-directory: ./AdvProg_L4-SimpleAI
+        run: |
+          ./configure
+          make
+          make test
+
+  # AdvProg_L6-Painter
+  check_AdvProg_L6:
+    needs: get_changed_files
+    runs-on: ubuntu-latest
+    name: Check AdvProg_L6-Painter
+    if: ${{ contains(needs.get_changed_files.outputs.abc, 'AdvProg_L6-Painter') }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: install package
+        run: |
+          sudo apt-get update
+          sudo apt install -y libcppunit-dev
+          sudo apt install libsdl2-dev
+          sudo apt install libsdl2-image-dev
+      - name: make & test
+        working-directory: ./AdvProg_L6-Painter
+        run: |
+          ./configure
+          make
+          make test
+
+  # AdvProg_L7-Snake
+  check_AdvProg_L7:
+    needs: get_changed_files
+    runs-on: ubuntu-latest
+    name: Check AdvProg_L7-Snake
+    if: ${{ contains(needs.get_changed_files.outputs.abc, 'AdvProg_L7-Snake') }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: install package
+        run: |
+          sudo apt-get update
+          sudo apt install -y libcppunit-dev
+          sudo apt install libsdl2-dev
+          sudo apt install libsdl2-image-dev
+      - name: make & test
+        working-directory: ./AdvProg_L7-Snake
+        run: |
+          chmod +x configure
+          ./configure
+          make
+          make test

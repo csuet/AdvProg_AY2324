@@ -1,0 +1,23 @@
+name: L00_Hello CI
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths-ignore:
+      - '.github/workflows/**'
+      - '**/mainTest.cpp'
+      
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: Hello world job
+    steps:
+      - uses: actions/checkout@v2
+      - name: install cppunit
+        run: sudo apt install -y libcppunit-dev
+      - name: configure
+        run: ./configure
+      - name: make
+        run: make
+      - name: make test
+        run: make test
