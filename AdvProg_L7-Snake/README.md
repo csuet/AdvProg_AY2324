@@ -22,7 +22,7 @@
         * `eatCherry()`
         * `move(Direction direction)`
 
-* Step 4: Commit & push the modified file using the command: `git commit -m "[Insert_your_own_message]" & git push origin main`
+* Step 4: Commit & push the modified file using the command: `git commit -m "[Insert_your_own_message]" & git push origin master`
 * Step 5: Create a pull request:
     * In the tab "Pull requests", click on "New pull request"
     * Set the pull request's title with the format as: [Your_student_ID]_[Your_full_name]

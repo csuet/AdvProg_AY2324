@@ -13,7 +13,7 @@ You are required to implement several functions of Painter class. They could be 
 	* void Painter::turnLeft(double degree);
 	* void Painter::turnRight(double degree);
 	* void Painter::randomColor();
-* Step 4: Commit & push the modified file using the command: *git commit -m "[Insert_your_own_message]" & git push origin main*
+* Step 4: Commit & push the modified file using the command: *git commit -m "[Insert_your_own_message]" & git push origin master*
 * Step 5: Create a pull request:
   - In the tab "Pull requests", click on "New pull request"
   - Set the pull request's title with the format as: [Your_student_ID]_[Your_full_name]
