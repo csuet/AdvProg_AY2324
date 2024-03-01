@@ -4,8 +4,8 @@ This is the simple lesson of the Advanced Programming course with the two follow
 * ii) Learn automated testing with Github Actions
 
 You are required to implement several functions of Painter class. They could be done via the instructions as follows:
-* Step 1: Fork this repo to your own account
-* Step 2: Clone the forked repo to your local via the command: *git clone https://github.com/[YOUR_USERNAME]/AdvProg_L6-Painter.git*
+* Step 1: Fork this repo to your own account (Ignore if you did it before)
+* Step 2: Clone the forked repo (Ignore if you did it before)
 * Step 3: Modify the following functions to complete the requirement.:
 	* void Painter::setColor(SDL_Color color);
 	* void Painter::jumpForward(int numPixel);
