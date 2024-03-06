@@ -15,7 +15,7 @@ You are required to implement several functions of HangMan game. They could be d
 	* bool isCorrectChar(char ch, const string& mask);
 	* bool isWholeWord(const string& mask);
 	*  vector<string> filterWordsByMask(const vector<string>& words, const string& mask, char ch);
-* Step 4: Commit & push the modified file using the command: *git commit -m "[Insert_your_own_message]" & git push origin master*
+* Step 4: Commit & push the modified file using the command: *git commit -m "[Insert_your_own_message]" & git push origin main*
 * Step 5: Create a pull request:
   - In the tab "Pull requests", click on "New pull request"
   - Set the pull request's title with the format as: [Your_student_ID]_[Your_full_name]
