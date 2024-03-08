@@ -2,5 +2,6 @@
 #include "hello.h"
 
 int main(){
-    std::cout << printGameOver() << std::endl ;
+    std::cout << printGameOver << std::endl ;
+    return 0;
 }
