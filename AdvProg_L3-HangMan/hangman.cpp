@@ -75,7 +75,6 @@ string chooseWordFromList(const vector<string>& wordList, int index)
     for(int i = 0; i < cnt; i++){
         answer.push_back(tolower(wordList[index][i]));
     }
-    answer = wordList[index];
     return answer;
 }
 
