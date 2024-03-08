@@ -51,7 +51,8 @@ vector<string> readWordListFromFile(const string& filePath)
 bool isCharInWord(const char ch, const string& word)
 {
     // TODO: return true if ch is in word else return false
-    for(int i = 0; i < word.size()){
+    int cnt = word.size();
+    for(int i = 0; i < cnt; i++){
         if(tolower(ch) != word[i]){
             return false;
         }
@@ -72,8 +73,9 @@ string chooseWordFromList(const vector<string>& wordList, int index)
     string answer;
     int cnt = wordList[index].size();
     for(int i = 0; i < cnt; i++){
-        answer = answer + tolower(wordList[index][i]);
+        answer.push_back(tolower(wordList[index][i]));
     }
+    answer = wordList[index];
     return answer;
 }
 
