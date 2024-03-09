@@ -3,4 +3,6 @@
 
 int main(){
     std::cout << printGameOver() << std::endl ;
+    cout << "xin chao tuan anh";
+    return 0; 
 }
