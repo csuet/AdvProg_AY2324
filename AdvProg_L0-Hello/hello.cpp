@@ -2,6 +2,6 @@
 #include "hello.h"
 
 std::string printGameOver(){
-	std::cout << "GAME OVER\n";
+	std::cout << "Game Over\n";
 	return "";
 }
