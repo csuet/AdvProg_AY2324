@@ -26,14 +26,13 @@
   * $ git add
   * $ git commit
   * $ git push origin "name_branch"
-  * # Nếu sau khi PR, có hiện ra "Continuous integration has not been set up"
-      => vào Actions
-      => chọn "i understand...enable"
-  * # Lỡ sau khi ấn merge => origin đã thay đổi code, nhưng local chưa thay đổi
-      => muốn lấy về thì nhấn gõ '$ git pull'
+ ## After PR => "Continuous integration has not been set up"
+      => open Actions
+      => choose "i understand...enable"
+ ## After merging, the origin has changed the code but your local copy hasn't been updated
+      => To retrieve the changes, type '$ git pull'
       => git add 
       => git commit -m "recommend"
-      =>git pull origin "tên nhánh"
-      => (có thể hiện ra màn hình xanh)
-      => close(quit)
-      => đã lấy được về
+      =>git pull origin "name_branch"
+      => Close or quit the screen(see a green screen)
+   ==> The changes have now been successfully retrieved
