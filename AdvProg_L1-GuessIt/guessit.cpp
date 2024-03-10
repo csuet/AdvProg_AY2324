@@ -97,7 +97,7 @@ char getPlayerOpinion() {
     do {
         cout << "Play again? (Y/N): " << endl;
         cin >> isContinued;
-        toupper(isContinued);
+        isContinued = toupper(isContinued);
     } while (isContinued != 'Y' && isContinued != 'N');
     return isContinued;
 }
