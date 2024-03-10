@@ -1,5 +1,6 @@
 #include <iostream>
 #include "hangman.h"
+#include <ctime>
 
 using std::string;
 using std::vector;
@@ -47,8 +48,6 @@ string chooseWordFromList(const vector<string>& wordList, int index)
     string answer;
     if (index >= 0 && index < wordList.size())
         answer = wordList[index];
-    else
-        answer = "invalid";
     return answer;
 }
 
