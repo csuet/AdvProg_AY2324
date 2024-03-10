@@ -1,6 +1,9 @@
 #include <iostream>
 #include "hangman.h"
 #include <ctime>
+#include <iostream>
+#include <fstream>
+#include <vector>
 
 using std::string;
 using std::vector;
@@ -11,10 +14,7 @@ using std::tolower;
 
 int generateRandomNumber(const int min, const int max)
 {
-    // TODO: Return a random integer number between min and max
-    srand(time(NULL));
-    int n = rand() % (max-min) + min +1;
-    return n;
+    return rand() % (max - min + 1) + min;
 }
 
 vector<string> readWordListFromFile(const string& filePath)
@@ -36,31 +36,16 @@ vector<string> readWordListFromFile(const string& filePath)
 
 bool isCharInWord(const char ch, const string& word)
 {
-    for (char c : word) {
-        if (tolower(c) == tolower(ch))
-            return true;
-    }
-    return false;
+    return word.find(ch) != string::npos;
 }
 
 string chooseWordFromList(const vector<string>& wordList, int index) 
 {
-    string answer;
-    if (index >= 0 && index < wordList.size())
-        answer = wordList[index];
-    return answer;
+    return wordList[index];
 }
 
-string generateHiddenCharacters(string answerWord)
-{
-    string secretWord;
-    for (char c : answerWord) {
-        if (isalpha(c)) {
-            secretWord += '-';
-        } else {
-            secretWord += c;
-        }
-    }
+string generateHiddenCharacters(string answerWord){
+    string secretWord(answerWord.length(), '-');
     return secretWord;
 }
 
@@ -72,20 +57,19 @@ char getInputCharacter() {
 
 void updateSecretWord(string& secretWord, const char ch, const string& word)
 {
-    for (int i = 0; i < word.size(); i++) {
-        if (tolower(ch) == tolower(word[i]))
-            secretWord[i] = word[i];
+    for (size_t i = 0; i < word.length(); ++i) {
+        if (word[i] == ch) {
+            secretWord[i] = ch;
+        }
     }
 }
 
-void updateEnteredChars(const char ch, string& chars)
-{
+void updateEnteredChars(const char ch, string& chars){
     chars += ch;
 }
 
-void updateIncorrectGuess(int& incorrectGuess)
-{
-    incorrectGuess++;
+void updateIncorrectGuess(int& incorrectGuess){
+    ++incorrectGuess;
 }
 
 void processData(const char ch, const string& word, 
