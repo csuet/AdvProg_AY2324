@@ -13,7 +13,7 @@ using namespace std;
         number (int) : random number in range 1-100
 ***/
 int generateRandomNumber() {
-    // srand(time(NULL));
+    srand(time(NULL));
     int n = rand() % 100 + 1;
     return n;
 }
@@ -103,7 +103,7 @@ bool checkContinuePlaying(char isContinued) {
 char getPlayerOpinion() {
     // TODO: Ask the player about continue playing and return the player's choice
     char isContinued;
-    cin >> char;
+    cin >> isContinued;
     return isContinued;
 }
 
