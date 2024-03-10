@@ -19,8 +19,8 @@ double mySqrt(double x);
 ***/
 double myCos(double x)
 {
-    int a;
-    double ans = 1 - (1 / 2) * pow(x, 2) + (1 / 24) * pow(x, 4) - (1 / 720) * pow(x, 6);
+
+    double ans = 1 - (1 / 2) * pow(x, 2) + (1 / 24) * pow(x, 4) - (1 / 720) * pow(x, 6) +1/40320 *pow(x,8);
     return ans;
 }
 
@@ -50,7 +50,7 @@ double mySqrt(double x)
         exit(1);
     }
     double ans = 10;
-    for (int i = 0; i < 6; i++)
+    for (int i = 0; i < 8; i++)
     {
 
         ans = ans - ((pow(ans, 2) - x) / (2 * ans));
