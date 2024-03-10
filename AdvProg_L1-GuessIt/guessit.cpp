@@ -81,7 +81,11 @@ bool checkSuccess(string answer) {
 bool checkContinuePlaying(char isContinued) {
     // TODO: return result after checking player continue playing or not
     bool result = false;
-    if(isContinued == 'y') result = true;
+    if(isContinued == 'y'){
+         result = true;
+        cout<<"Player's choice is countinue.";  
+    }
+    else cout<<"Player's choice is end.";
 
     return result;
 }
