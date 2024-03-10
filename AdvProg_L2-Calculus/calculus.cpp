@@ -19,8 +19,16 @@ double mySqrt(double x);
 ***/
 double myCos(double x)
 {
-
-    double ans = 1 - (1 / 2) * pow(x, 2) + (1 / 24) * pow(x, 4) - (1 / 720) * pow(x, 6) +1/40320 *pow(x,8);
+    double ans =0;
+    for(int i = 0;i<13;i++){
+        double ok =1;
+        for(int j =1;j<=i*2;j++){
+            ok*=x / j;
+        }
+        
+        if(i%2==1) ok*=-1;
+        ans+=ok;
+    }
     return ans;
 }
 
@@ -32,7 +40,15 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    double ans = x - (1 / 6) * pow(x, 3) + (1 / 120) * pow(x, 5) - (1 / 5040) * pow(x, 7);
+    double ans =0;
+    for(int i = 0;i<13;i++){
+        double ok =1;
+        for(int j =1;j<=i*2+1;j++){
+            ok*=x / j;
+        }
+        if(i%2==1) ok*=-1;
+        ans+=ok;
+    }
     return ans;
 }
 
