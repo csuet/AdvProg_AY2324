@@ -13,7 +13,7 @@ int generateRandomNumber(const int min, const int max)
 {
     // TODO: Return a random integer number between min and max
     srand(time(NULL));
-    int n = rand() % (max - min + 1) + min;
+    int n = rand() % (min-max) + min +1;
     return n;
 }
 
