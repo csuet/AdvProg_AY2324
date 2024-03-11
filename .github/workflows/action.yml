@@ -6,6 +6,8 @@ on:
     paths-ignore:
       - '.github/workflows/**'
       - '**/mainTest.cpp'
+  push:
+    branches: [ master ]
 
 jobs:
   get_changed_files:
