@@ -101,7 +101,7 @@ char getInputCharacter() {
 void updateSecretWord(string& secretWord, const char ch, const string& word)
 {
     // TODO: Update the secret word if the character ch is in the answer word.
-    for(int i=0;i<word;i++) if(ch==word[i]) {sercetWord[i]=word[i];}
+    for(int i=0;i<word.size();i++) if(ch==word[i]) {sercetWord[i]=word[i];}
 }
 
 /***
@@ -114,7 +114,6 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 void updateEnteredChars(const char ch, string& chars){
     // TODO: append the character ch is in end of the text chars
     chars = chars + ch + " ";
-    return chars;
 }
 
 /***
@@ -126,7 +125,6 @@ void updateEnteredChars(const char ch, string& chars){
 void updateIncorrectGuess(int& incorrectGuess){
     // TODO: increase the value of incorrectGuess by 1
     incorrectGuess = incorrectGuess + 1;
-    return incorrectGuess;
 }
 
 /***
@@ -153,7 +151,7 @@ void processData(const char ch, const string& word,
             update incorrectGuess: call updateIncorrectGuess() function
             update incorrectChars: call updateEnteredChars() function
     ***/
-    for(int i=0;i<word.size();i++) if(ch==word[i]){updateSercetWord();updateEnteredChars();return;}
-    updateIncorrectGuess();updateEnteredChars();return;
+    for(int i=0;i<word.size();i++) if(ch==word[i]){updateSercetWord(sercetWord, ch, word);updateEnteredChars(ch,correctChars);return;}
+    updateIncorrectGuess(incorrectGuess);updateEnteredChars(ch,incorrectChars);return;
 }
 
