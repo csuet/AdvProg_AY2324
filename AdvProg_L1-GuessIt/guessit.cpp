@@ -48,7 +48,7 @@ string getAnswer(int number, int randomNumber) {
               If number is lower than randomNumber, the answer is "Your number is lower."
               If number is equal randomNumber, the answer is "Congratulation! You win."
     ***/
-    string her
+    string her;
     if (number > randomNumber) {
         her = "Your number is higher.";
     }
