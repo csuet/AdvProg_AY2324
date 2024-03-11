@@ -72,7 +72,7 @@ string chooseWordFromList(const vector<string>& wordList, int index)
     int n = wordList[index].size();
     for(int i=0;i<n;i++){
         if(int(wordList[index][i]) >=97 && int(wordList[index][i])<=122){
-            answer.push_back(wordList[index-1][i]);
+            answer.push_back(wordList[index][i]);
         }
     }
 
