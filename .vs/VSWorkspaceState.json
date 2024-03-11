@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\AdvProg_L0-Hello"
+    "\\AdvProg_L0-Hello",
+    "\\AdvProg_L1-GuessIt",
+    "\\AdvProg_L2-Calculus",
+    "\\AdvProg_L3-HangMan"
   ],
-  "SelectedNode": "\\AdvProg_L0-Hello\\README.md",
+  "SelectedNode": "\\AdvProg_L2-Calculus\\README.md",
   "PreviewInSolutionExplorer": false
 }
