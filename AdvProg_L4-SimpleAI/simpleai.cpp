@@ -50,9 +50,10 @@ vector<string> filterWordsByLen(int wordLen, const vector<string> &vocabulary)
 char nextCharWhenWordIsNotInDictionary(const set<char> &selectedChars)
 {
     char answer = 'a';
-    for (auto i : selectedChars)
+    for (char i : selectedChars)
     {
-        if(i != answer) return answer;
+        if (i != answer)
+            return answer;
         answer++;
     }
     // Write your code here
@@ -87,21 +88,26 @@ map<char, int> countOccurrences(const vector<string> &candidateWords)
     Returns:
         answer (char) : The most frequent character
 ***/
+// cd C:\AdvProg_AY2324
+// git add .
+// git commit -m "first"
+// git push origin develop
 
 char findMostFrequentChar(const map<char, int> &occurrences, const set<char> &selectedChars)
 {
-    char answer ;
-    for(auto i:selectedChars){
-        answer = i;
-        break;
+    char answer;
+    map<char, int> aj;
+    for (char i : selectedChars){
+        aj[i] =1;
     }
-    map<char, int> ok = occurrences;
+    int a =0;
+    for (auto i : occurrences){
+        if(aj[i.first] != 1 && i.second > a){
+            answer = i.first;
+            a= i.second;
+        }
+    }
 
-    for (char i : selectedChars)
-    {
-        if (ok[answer] < ok[i])
-            answer = i;
-    }
     // Write your code here
 
     return answer;
