@@ -151,7 +151,7 @@ void processData(const char ch, const string& word,
             update incorrectGuess: call updateIncorrectGuess() function
             update incorrectChars: call updateEnteredChars() function
     ***/
-    for(int i=0;i<word.size();i++) if(ch==word[i]){updateSecretWord(sercetWord, ch, word);updateEnteredChars(ch,correctChars);return;}
+    for(int i=0;i<word.size();i++) if(ch==word[i]){updateSecretWord(secretWord, ch, word);updateEnteredChars(ch,correctChars);return;}
     updateIncorrectGuess(incorrectGuess);updateEnteredChars(ch,incorrectChars);return;
 }
 
