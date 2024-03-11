@@ -127,7 +127,8 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
     Returns:
         void
 ***/
-void updateEnteredChars(const char ch, string& chars){
+void updateEnteredChars(const char ch, string& chars)
+{
     // TODO: append the character ch is in end of the text chars
     chars.push_back(ch);
 }
@@ -169,13 +170,13 @@ void processData(const char ch, const string& word,
     ***/
     if (word.find(ch) != string::npos)
     {
-        updateSecretWord();
-        updateEnteredChars();
+        updateSecretWord(secretWord, ch, word);
+        updateEnteredChars(ch, correctChars);
     }
     else
     {
-        updateIncorrectGuess();
-        updateEnteredChars();
+        updateIncorrectGuess(incorrectGuess);
+        updateEnteredChars(ch, incorrectChars);
     }
 }
 
