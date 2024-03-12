@@ -57,10 +57,10 @@ vector<Position> Snake::getPositions() const
 void Snake::growAtFront(Position newPosition)
 {
     // head of snake grow at new position
-    *head->next = SnakeNode(newPosition);
-    head = head->next;
     // game.setCellType(head->position, CELL_SNAKE);
     /* YOUR CODE HERE */
+    head->next = new SnakeNode(newPosition);
+    head = head->next;
 }
 
 
