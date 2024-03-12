@@ -45,7 +45,8 @@ double mySin(double x)
     double y = myCos(x);
     double ans = 1;
     ans -= y * y;
-    return mySqrt(ans);
+    ans = mySqrt(ans);
+    return ans;
 }
 
 
@@ -61,6 +62,8 @@ double mySqrt(double x) {
         exit(1);
     }
 
+    if(x == 0) return 0;
+
     double ans = 0;
     double guess = x;
     while(1)
@@ -72,3 +75,4 @@ double mySqrt(double x) {
 
     return ans;
 }
+
