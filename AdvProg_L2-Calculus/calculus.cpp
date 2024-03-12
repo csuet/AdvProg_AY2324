@@ -20,8 +20,8 @@ double mySqrt(double x);
 ***/
 double myCos(double x)
 {
-    double pi = 3.14159265358979323846;
-    x = x * pi / 180;
+//    double pi = 3.14159265358979323846;
+//    x = x * pi / 180;
     double res = 1;
     double add = 1;
     for(int i = 1;; i++)
