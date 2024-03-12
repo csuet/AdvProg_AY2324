@@ -72,12 +72,13 @@ void Game::snakeMoveTo(Position pos) {
 	if (pos == getCherryPosition()) {
 		++ score;
 		snake.eatCherry();
+		addCherry();
 		// snake.growAtFront(pos);
 	}
-	else {
-		setCellType(pos, CELL_SNAKE);
+	// else {
+	setCellType(pos, CELL_SNAKE);
 		// snake.slideTo(pos);
-	}
+	// }
 }
 
 

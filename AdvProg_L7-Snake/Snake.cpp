@@ -59,7 +59,7 @@ void Snake::growAtFront(Position newPosition)
     // head of snake grow at new position
 	SnakeNode temp = SnakeNode(newPosition, head);
     *head = temp;
-    game.setCellType(head->position, CELL_SNAKE);
+    // game.setCellType(head->position, CELL_SNAKE);
     /* YOUR CODE HERE */
 }
 
@@ -91,7 +91,7 @@ void Snake::slideTo(Position newPosition)
 	if (tail->next == nullptr) { 
         // position is assigned by new position.
 		/* YOUR CODE HERE */
-        game.setCellType(tail->position, CELL_EMPTY);
+        // game.setCellType(tail->position, CELL_EMPTY);
         tail->position = newPosition;
         // game.setCellType(tail->position, CELL_SNAKE);
 	}
