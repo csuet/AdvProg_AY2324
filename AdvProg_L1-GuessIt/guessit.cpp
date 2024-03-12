@@ -8,7 +8,7 @@ using namespace std;
 
 /***
     Args:
-        
+
     Returns:
         number (int) : random number in range 1-100
 ***/
@@ -106,7 +106,7 @@ void playGuessIt() {
     int randomNumber = generateRandomNumber();
     int number;
     string answer;
-
+    
     do {
         number = getPlayerGuess();
         answer = getAnswer(number, randomNumber);
