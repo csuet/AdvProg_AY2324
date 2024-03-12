@@ -25,6 +25,11 @@ Snake::~Snake()
             p = nextNode;
     }
     */
+    for (SnakeNode* p = tail; p != nullptr; ) {
+        SnakeNode* nxt = p->next;
+        delete p;
+        p = nxt;
+    }
 }
 
 // DO NOT CHANGE METHOD
@@ -52,7 +57,9 @@ vector<Position> Snake::getPositions() const
 void Snake::growAtFront(Position newPosition)
 {
     // head of snake grow at new position
-	
+	SnakeNode temp = SnakeNode(newPosition, head);
+    *head = temp;
+    game.setCellType(head->position, CELL_SNAKE);
     /* YOUR CODE HERE */
 }
 
@@ -84,15 +91,26 @@ void Snake::slideTo(Position newPosition)
 	if (tail->next == nullptr) { 
         // position is assigned by new position.
 		/* YOUR CODE HERE */
+        game.setCellType(tail->position, CELL_EMPTY);
+        tail->position = newPosition;
+        // game.setCellType(tail->position, CELL_SNAKE);
 	}
 	else {
-		SnakeNode *oldTailNode = tail;
 		//cut the old tail off the snake
+		SnakeNode *oldTailNode = tail;
+        tail = tail->next;
+
+        oldTailNode->next = nullptr;
+        oldTailNode->position = newPosition;
+        // troll!!! this handle makes oldTailNode become the head
+
+        head->next = oldTailNode;
         /* YOUR CODE HERE */
 		
 		// move it to the head of the snake
         /* YOUR CODE HERE */
 		head = oldTailNode;
+        // game.setCellType(head->position, CELL_SNAKE);
 	}
 }
 
@@ -111,6 +129,7 @@ void Snake::slideTo(Position newPosition)
 void Snake::eatCherry()
 {
 	/* YOUR CODE HERE */
+    ++ cherry;
 }
 
 /*** 
@@ -144,16 +163,20 @@ void Snake::move(Direction direction)
     Position newPosition = head->position.move(direction);
 
     /* YOUR CODE HERE */
-    
+    game.snakeMoveTo(newPosition);
     // If gameOver, return ; 
+    if (game.isGameOver()) return;
     /* YOUR CODE HERE */
 
     // If cherry > 0, cherry descrease one and growAtFront() with newPosition
     if (cherry > 0) {
         /* YOUR CODE HERE */
+        -- cherry;
+        growAtFront(newPosition);
     } else {
     	game.snakeLeave(tail->position);
         /* YOUR CODE HERE */        
+        slideTo(newPosition);
     }
 }
 
