@@ -20,7 +20,8 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    long double ans = 1.0 - pow(x,2)/2 + pow(x,4)/24 - pow(x,6)/720 + pow(x,8)/40320;
+    long double ans = 1.0 - pow(x,2)/2 + pow(x,4)/24 - pow(x,6)/720 + pow(x,8)/40320; // Taylor cosx
+
     return ans;
 }
 
@@ -32,7 +33,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    long double ans = x - pow(x,3)/6 + pow(x,5)/120 - pow(x,7)/5040 + pow(x,9)/362880;
+    long double ans = x - pow(x,3)/6 + pow(x,5)/120 - pow(x,7)/5040 + pow(x,9)/362880; //Taylor sinx
     return ans;
 }
 
@@ -49,14 +50,14 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-    double x0 = 10;
+    double x0 = 10; // initial guess
     while (true){
-        double y = x0*x0 - x;
-        double y_prime = 2*x0;
-        if (abs(y_prime) < eps) break;
-        double x1 = x0 - y/y_prime;
-        if (abs(x1 - x0) <= eps) return x1;
-        x0 = x1;
+        double y = x0*x0 - x; // function f(x) = x0^2 - x
+        double y_prime = 2*x0; //derivatives of f(x)
+        if (abs(y_prime) < eps) break; // if derivatives is too small then terminate to avoid further error
+        double x1 = x0 - y/y_prime; // calculate new guess
+        if (abs(x1 - x0) <= eps) return x1; // if new guess is not different from old guess then take
+        x0 = x1; // start again
     }
     return 0;
 }
