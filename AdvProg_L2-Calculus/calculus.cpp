@@ -19,8 +19,20 @@ double mySqrt(double x);
         double: cosine of x
 ***/
 double myCos(double x) 
-{
-    return 0.0;
+{    
+    double sum = 0.0;
+    double term = 1.0;
+    double pow_x = -x * x;
+    int n = 2;
+
+    while (fabs(term) > 1e-8) 
+    {
+        sum += term;
+        n += 2;
+        term = -term * pow_x / (n * (n - 1));
+    }
+
+    return sum;
 }
 
 /***
@@ -31,13 +43,24 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    double sum = 0.0;
+    double term = x;
+    int n = 1;
+
+    while (fabs(term) > 1e-8) 
+    {
+        sum += term;
+        n += 2;
+        term = term * x * x / (n * (n - 1));
+    }
+
+    return sum;
 }
 
 
 /***
     Args:
-        x (double): a number
+        x (double): a non-negative number
     Returns:
         double: square root of x
 ***/
@@ -47,6 +70,13 @@ double mySqrt(double x) {
         exit(1);
     }
 
-    
-    return 0;
+    double guess = x / 2.0;
+    const double EPSILON = 1e-8; 
+
+    while (fabs(guess * guess - x) > EPSILON)
+    {
+        guess = (guess + x / guess) / 2.0;
+    }
+
+    return guess;
 }
