@@ -1,4 +1,8 @@
-angle
+mom
+dad
+father
+mother
+family
 ant
 apple
 arch
