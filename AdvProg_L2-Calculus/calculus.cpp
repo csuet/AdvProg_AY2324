@@ -20,7 +20,7 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 1 - 1/2*x*x + 1/24*x*x*x*x - 1/720 * x * x * x * x * x * x + 1/40320 * (x * x * x * x * x * x * x * x);
+    return 1 - 1/2*x*x + 1/24*pow(x,4) - 1/720 * pow(x,6) + 1/40320 * pow(x,8);
 }
 
 /***
@@ -31,7 +31,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return x - 1/6*x * x * x + 1/120 * x * x * x * x * x - 1/5040 * x * x * x * x * x * x * x;
+    return x - 1/6*pow(x,3) + 1/120 * pow(x,5) - 1/5040 * pow(x,7);
 }
 
 
