@@ -20,7 +20,7 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 1 - 1/2*x*x + 1/24*x*x*x*x - 1/720 * x * x * x * x * x * x;
+    return 1 - 1/2*x*x + 1/24*x*x*x*x - 1/720 * x * x * x * x * x * x + 1/40320 * (x * x * x * x * x * x * x * x);
 }
 
 /***
