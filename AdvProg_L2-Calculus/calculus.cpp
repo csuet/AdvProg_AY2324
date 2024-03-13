@@ -6,7 +6,9 @@ using std::string;
 using std::cout;
 using std::endl;
 using std::stod;
+using std::abs;
 
+const long double eps = 1e-144;
 
 double mySin(double x);
 double myCos(double x);
@@ -18,9 +20,15 @@ double mySqrt(double x);
     Returns:
         double: cosine of x
 ***/
-double myCos(double x) 
+double myCos(double x)
 {
-    return 0.0;
+    double res = 1, add = 1;
+    for (int i = 1; ; ++ i) {
+        add *= -((x * x) / (i * 2 * (i * 2 - 1)));
+        if (abs(add) < eps) break;
+        res += add;
+    }
+    return res;
 }
 
 /***
@@ -31,7 +39,8 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    double Cos = myCos(x);
+    return mySqrt(double(1) - Cos * Cos);
 }
 
 
@@ -47,6 +56,14 @@ double mySqrt(double x) {
         exit(1);
     }
 
-    
-    return 0;
+    if (x == 0) return 0;
+
+    double ans = 0, pre = x;
+    while (1) {
+        ans = 0.5 * (pre + (x / pre));
+        if (abs(ans - pre) < eps) break;
+        pre = ans;
+    }
+
+    return ans;
 }
