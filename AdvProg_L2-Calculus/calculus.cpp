@@ -5,22 +5,34 @@
 using std::string;
 using std::cout;
 using std::endl;
-using std::stod;
 
 
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
 
-/***
-    Args:
-        x (double): a number
-    Returns:
-        double: cosine of x
-***/
-double myCos(double x) 
-{
-    return 0.0;
+double gt(int n){
+	if(n==0 || n==1){
+		return 1;
+	}
+	else{
+		return n*gt(n-1);
+	}
+}
+double luythua(int x, int n){ 
+    if(n==0) return 1;
+    double result = 1;
+    for (int i = 1; i < 1000; ++i) {
+        result *= x;
+    }
+    return result;
+}
+double myCos(double x) {
+    double result = 0;
+    for (int i = 0; i < 1000; i++) {
+        result += luythua(-1, i) * luythua(x, 2 * i) / gt(2 * i);
+    }
+    return result;
 }
 
 /***
@@ -31,7 +43,11 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+     double result = 0;
+    for (int i = 0; i < 1000; i++) {
+        result += luythua(-1, i) * luythua(x, 2 * i + 1) / gt(2 * i + 1);
+    }
+    return result;
 }
 
 
@@ -46,7 +62,14 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
+    else{
+	
+      double result = 0;
+      for (int i = 0; i < 1000; ++i) {
+        result += luythua(-1, i) * luythua(gt(2 * i), 2) * luythua(x - 1, i) / (gt(i) * gt(i) * luythua(4, i) * (2 * i + 1));
+      }
+   }
+}
 
     
-    return 0;
-}
+
