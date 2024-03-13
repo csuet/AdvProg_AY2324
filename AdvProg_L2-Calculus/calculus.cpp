@@ -20,7 +20,7 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    return 1 - 1/2*x*x + 1/24*x*x*x*x - 1/720 * x * x * x * x * x * x;
 }
 
 /***
@@ -31,7 +31,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    return x - 1/6*x * x * x + 1/120 * x * x * x * x * x - 1/5040 * x * x * x * x * x * x * x;
 }
 
 
@@ -41,12 +41,20 @@ double mySin(double x)
     Returns:
         double: square root of x
 ***/
+const double eps = 1e-6;
 double mySqrt(double x) {
     if (x < 0) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
-    
+    double x0 = 10;
+    while (true){
+        double y = x0*x0 - x;
+        double y_prime = 2*x0;
+        if (abs(y_prime) < eps) break;
+        double x1 = x0 - y/y_prime;
+        if (abs(x1 - x0) <= eps) return x1;
+        x0 = x1;
+    }
     return 0;
 }
