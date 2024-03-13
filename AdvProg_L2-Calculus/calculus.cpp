@@ -32,7 +32,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    long double ans = x - pow(x,3)/6 + pow(x,5)/120 - pow(x,7)/5040;
+    long double ans = x - pow(x,3)/6 + pow(x,5)/120 - pow(x,7)/5040 + pow(x,9)/362880;
     return ans;
 }
 
