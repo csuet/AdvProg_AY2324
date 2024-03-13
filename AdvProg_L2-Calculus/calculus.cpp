@@ -7,6 +7,7 @@ using std::cout;
 using std::endl;
 using std::stod;
 
+const double PI = 3.141592653;
 
 double mySin(double x);
 double myCos(double x);
@@ -20,7 +21,7 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    return std::cos(x * PI / 180);
 }
 
 /***
@@ -31,7 +32,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    return std::sin(x * PI / 180);
 }
 
 
@@ -46,7 +47,7 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
+    else return std::sqrt(x);
     
     return 0;
 }
