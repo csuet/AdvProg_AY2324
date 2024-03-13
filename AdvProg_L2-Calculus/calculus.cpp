@@ -7,6 +7,8 @@ using std::cout;
 using std::endl;
 using std::stod;
 
+//const double pi = 3.14159265359;
+
 
 double mySin(double x);
 double myCos(double x);
@@ -23,7 +25,7 @@ double myCos(double x)
     double res=0;
     int j=0;
     int fac=1;
-    for(int i=0;i<=10;++i)
+    for(int i=0;i<=8;++i)
     {
         while(j<2*i)
         {
@@ -49,7 +51,7 @@ double mySin(double x)
     double res=0;
     int j=0;
     int fac=1;
-    for(int i=0;i<=10;++i)
+    for(int i=0;i<=8;++i)
     {
         while(j<2*i+1)
         {
@@ -86,4 +88,8 @@ double mySqrt(double x) {
 
     return an;
 }
-
+//
+//int main()
+//{
+//    cout<<mySin(pi-pi/3)<<" "<<sin(pi-pi/3);
+//}
