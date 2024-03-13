@@ -3,7 +3,6 @@ dad
 father
 mother
 family
-angle
 ant
 apple
 arch
