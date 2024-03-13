@@ -20,8 +20,16 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
-}
+	
+double result = 0.0;
+    double term = 1;
+    int sign = 1;
+    for (int i = 0; i <= 10; ++i) { // Number of terms in the series (adjust as needed)
+        result += sign * term;
+        term *= -1 * x * x / ((2 * i + 1) * (2 * i + 2));
+        sign *= -1;
+    }
+    return result;}
 
 /***
     Args:
@@ -31,8 +39,15 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
-}
+double result = 0.0;
+    double term = x;
+    int sign = 1;
+    for (int i = 1; i <= 10; ++i) { 
+        result += sign * term;
+        term *= -1 * x * x / ((2 * i) * (2 * i + 1));
+        sign *= -1;
+    }
+    return result;}
 
 
 /***
@@ -47,6 +62,10 @@ double mySqrt(double x) {
         exit(1);
     }
 
-    
-    return 0;
+    double guess = x / 2; // Initial guess (can be arbitrary)
+    double threshold = 1e-6; // Threshold for convergence (adjust as needed)
+    while (abs(guess * guess - x) > threshold) {
+        guess = (guess + x / guess) / 2;
+    }
+    return guess;
 }
