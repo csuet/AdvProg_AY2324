@@ -137,6 +137,10 @@ void updateIncorrectGuess(int& incorrectGuess){
     incorrectGuess++;
 }
 
+
+
+
+
 /***
     Args:
         ch (char): a character that player enter to console
