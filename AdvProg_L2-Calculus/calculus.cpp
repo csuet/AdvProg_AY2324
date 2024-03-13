@@ -41,7 +41,7 @@ double mySin(double x)
     Returns:
         double: square root of x
 ***/
-const double eps = 1e-6;
+const double eps = 1e-7;
 double mySqrt(double x) {
     if (x < 0) {
         cout << "Invalid argument" << endl;
