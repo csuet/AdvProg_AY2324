@@ -77,8 +77,8 @@ bool checkSuccess(string answer) {
 bool checkContinuePlaying(char isContinued) {
     // TODO: return result after checking player continue playing or not
     bool result;
-    if (isContinued == 'Y') result = true;
-    if (isContinued == 'N') result = false;
+    if (isContinued == 'Y' || isContinued == 'y') result = true;
+    if (isContinued == 'N' || isContinued == 'n') result = false;
     return result;
 }
 
