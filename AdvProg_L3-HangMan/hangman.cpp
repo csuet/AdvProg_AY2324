@@ -1,6 +1,6 @@
 #include <iostream>
 #include "hangman.h"
-
+//using namespace std;
 using std::string;
 using std::vector;
 using std::ifstream;
@@ -105,13 +105,12 @@ char getInputCharacter() {
 void updateSecretWord(string& secretWord, const char ch, const string& word)
 {
     // TODO: Update the secret word if the character ch is in the answer word.
-    if(isCharInWord(ch,word))
-    {
+
         for(int i=0;i<(int)word.size();++i)
         {
             if(ch==word[i]) secretWord[i]=ch;
         }
-    }
+
 }
 
 /***
@@ -123,7 +122,8 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 ***/
 void updateEnteredChars(const char ch, string& chars){
     // TODO: append the character ch is in end of the text chars
-    chars+=ch+" ";
+    chars+=ch;
+    chars+=" ";
 }
 
 /***
@@ -174,3 +174,20 @@ void processData(const char ch, const string& word,
     }
 }
 
+//int main()
+//{
+//    string word="strange";
+//    string secretWord = generateHiddenCharacters("strange"); cout<<secretWord<<"\n";
+//
+//    string correctChars = "";
+//    string incorrectChars = "";
+//    int incorrectGuess = 0;
+//
+//    char ch='a';
+//    processData(ch,word,secretWord,correctChars,incorrectGuess,incorrectChars);
+//
+//    cout<<secretWord<<"\n";
+//    cout<<correctChars<<"\n";
+//    cout<<incorrectChars<<"\n";
+//    cout<<1;
+//}
