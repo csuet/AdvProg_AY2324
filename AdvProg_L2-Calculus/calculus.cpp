@@ -63,11 +63,11 @@ double mySqrt(double x) {
 
     
     else{
-        double temp, a=1.0;
+        double temp = 0.0, a = 1.0;
         while( abs(temp*temp - x) > 0.000001 ){
             temp = 0.5*(a+x/a);
             a=temp;
         }
-    }
     return temp;
+    }
 }
