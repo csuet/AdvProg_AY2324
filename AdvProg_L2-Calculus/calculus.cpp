@@ -26,7 +26,7 @@ double myCos(double x)
         result += temp;
         n++;
         temp *= -x*x/((2*n-1)*2*n);
-    }while( abs(temp) >0.001);
+    }while( abs(temp) >0.000000001);
     return result;
 }
 
@@ -44,7 +44,7 @@ double mySin(double x)
         result += temp;
         n++;
         temp *= -x*x/(2*n*(2*n+1));
-    }while (abs (temp) > 0.001);
+    }while (abs (temp) > 0.000000001);
     return result;
 }
 
@@ -64,7 +64,7 @@ double mySqrt(double x) {
     
     else{
         double temp = 0.0, a = 1.0;
-        while( abs(temp*temp - x) > 0.001 ){
+        while( abs(temp*temp - x) > 0.000000001 ){
             temp = 0.5*(a+x/a);
             a=temp;
         }
