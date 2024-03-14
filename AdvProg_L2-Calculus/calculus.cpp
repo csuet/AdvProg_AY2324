@@ -1,20 +1,11 @@
 #include <iostream>
-#include <string>
-#include <cmath>
+#include <cmath> // Include cmath for M_PI constant
 
 using std::cout;
 using std::endl;
-using std::string;
-
-double mySin(double x);
-double myCos(double x);
-double mySqrt(double x);
 
 /***
-    Args:
-        x (double): a number
-    Returns:
-        double: cosine of x
+    Computes the cosine of x using Taylor series expansion.
 ***/
 double myCos(double x)
 {
@@ -36,21 +27,16 @@ double myCos(double x)
 }
 
 /***
-    Args:
-        x (double): a number
-    Returns:
-        double: sine of x
+    Computes the sine of x using Taylor series expansion.
 ***/
 double mySin(double x)
 {
-    return myCos(x - M_PI / 2);
+    // Sine can be directly calculated using Taylor series
+    return x - x * x * x / 6 + x * x * x * x * x / 120 - x * x * x * x * x * x * x / 5040;
 }
 
 /***
-    Args:
-        x (double): a number
-    Returns:
-        double: square root of x
+    Computes the square root of x using binary search.
 ***/
 double mySqrt(double x)
 {
@@ -77,4 +63,13 @@ double mySqrt(double x)
     }
 
     return low;
+}
+
+int main()
+{
+    // Example usage
+    cout << "Square root of 25: " << mySqrt(25) << endl;
+    cout << "Sine of 0.5: " << mySin(0.5) << endl;
+    cout << "Cosine of 0.5: " << myCos(0.5) << endl;
+    return 0;
 }
