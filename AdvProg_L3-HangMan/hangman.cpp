@@ -56,7 +56,7 @@ bool isCharInWord(const char ch, const string& word)
 	for(int i = 0; i < s; i++){
 		if(ch == word[i]) return true;
 	}
-    return true;
+    return false;
 }
 
 /***
