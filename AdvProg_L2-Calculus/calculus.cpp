@@ -26,7 +26,7 @@ double myCos(double x)
         result += temp;
         n++;
         temp *= -x*x/((2*n-1)*2*n);
-    }while( abs(temp) >0.000000001);
+    }while( fabs(temp) >0.000001);
     return result;
 }
 
@@ -44,7 +44,7 @@ double mySin(double x)
         result += temp;
         n++;
         temp *= -x*x/(2*n*(2*n+1));
-    }while (abs (temp) > 0.000000001);
+    }while (fabs (temp) > 0.000001);
     return result;
 }
 
@@ -57,14 +57,7 @@ double mySin(double x)
 ***/
 double mySqrt(double x) {
     if (x < 0) {
-        cout << "Invalid argument" << endl;
-        exit(1);
-    }
-
-    
-    else{
-        double temp = 0.0, a = 1.0;
-        while( abs(temp*temp - x) > 0.000000001 ){
+        cout << "Invalid argument" << endlfabs(temp*temp - x) > 0.000001 ){
             temp = 0.5*(a+x/a);
             a=temp;
         }
