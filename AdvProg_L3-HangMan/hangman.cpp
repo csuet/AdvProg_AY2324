@@ -55,6 +55,7 @@ bool isCharInWord(const char ch, const string& word)
     return true;
 }
 
+
 /***
     Args:
         wordList (vector<string>): A list of words
@@ -113,6 +114,8 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
     }
 }
 
+
+// test test test
 /***
     Args:
         ch (char): a character
