@@ -107,7 +107,7 @@ void playGuessIt() {
     } while (!checkSuccess(answer));
 }
 
-int run) {
+int run() {
     srand(time(0));
     char isContinued;
     do {
