@@ -72,7 +72,7 @@ string chooseWordFromList(const vector<string>& wordList, int index)
     string answer;
 	answer = wordList[index];
 	int s = answer.size();
-	for(int i = 0; i< s; i++){
+	for(int i = 0; i < s; i++){
 		answer[i] = tolower(answer[i]);
 	}
     return answer;
@@ -128,7 +128,7 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 ***/
 void updateEnteredChars(const char ch, string& chars){
     // TODO: append the character ch is in end of the text chars
-    chars += ch;
+    chars.push_back(ch);
     
 }
 
