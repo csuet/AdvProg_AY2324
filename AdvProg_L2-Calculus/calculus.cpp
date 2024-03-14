@@ -20,7 +20,14 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    int n=0;
+    double temp=1,result=0.0;
+    do{
+        result += temp;
+        n++;
+        temp *= -x*x/((2*n-1)*2*n);
+    }while( abs(temp) >0.0000001);
+    return result;
 }
 
 /***
@@ -31,7 +38,14 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    double temp=x,result=0.0;
+    int n=0;
+    do {
+        result += temp;
+        n++;
+        temp *= -x*x/(2*n*(2*n+1));
+    }while (abs (temp) > 0.0000001);
+    return result;
 }
 
 
@@ -48,5 +62,12 @@ double mySqrt(double x) {
     }
 
     
-    return 0;
+    else{
+        double temp, a=1.0;
+        while( abs(temp*temp - x) > 0.000001 ){
+            temp = 0.5*(a+x/a);
+            a=temp;
+        }
+    }
+    return temp;
 }
