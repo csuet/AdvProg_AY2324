@@ -83,8 +83,9 @@ string generateHiddenCharacters(string answerWord){
     // TODO: Based on answerWord's length, generate hidden characters in form of "---"
     string secretWord;
     
-    for(int i=0;i<answerWord.length();i++){
-        secretWord[i]="-";
+    int size = answerWord.length();
+    for(int i=0;i<size;i++){
+        secretWord[i]='-';
     }
     return secretWord;
 }
