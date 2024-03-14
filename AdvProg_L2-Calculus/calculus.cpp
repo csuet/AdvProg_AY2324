@@ -32,7 +32,7 @@ double myCos(double x)
 double mySin(double x)
 {
     return sin(x);
-
+}
 
 /***
     Args:
