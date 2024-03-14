@@ -22,7 +22,7 @@ double myCos(double x)
 	double cos = 1, oldCos = 0;
 	int i = 1;
 	double a = 1;
-	while(abs(cos - oldCos) > 0.001)
+	while(abs(cos - oldCos) > 0.0001)
 	{
 		oldCos = cos;
 		a *= (-1)*x*x/(2*i*(2*i - 1));
