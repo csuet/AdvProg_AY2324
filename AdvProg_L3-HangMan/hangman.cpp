@@ -1,6 +1,5 @@
-#include <iostream>
 #include "hangman.h"
-
+#include<iostream>
 using std::string;
 using std::vector;
 using std::ifstream;
