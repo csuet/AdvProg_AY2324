@@ -13,8 +13,8 @@ using namespace std;
         number (int) : random number in range 1-100
 ***/
 int generateRandomNumber() {
-	int a = rand() % 100 + 1 - 1;
     // TODO: Return the random number in range 1 to 100
+    int a = rand() % 100 + 1 -1;
     return a;
 }
 
@@ -27,8 +27,7 @@ int generateRandomNumber() {
 ***/
 int getPlayerGuess() {
     // TODO: Ask the player guest and return the player's number
-	int a;
-	cin >> a;
+	int a; cin >> a;
     return a;
 }
 
@@ -48,9 +47,9 @@ string getAnswer(int number, int randomNumber) {
               If number is equal randomNumber, the answer is "Congratulation! You win."
     ***/
     string answer;
-    if(number > randomNumber) answer = "Your number is higher.";
-    else if(number < randomNumber) answer = "Your number is lower.";
-    else answer = "Congratulation! You win.";
+	if(number > randomNumber) answer = "Your number is higher.";
+	else if(number < randomNumber) answer = "Your number is lower.";
+	else answer = "Congratulation! You win.";
     return answer;
 }
 
@@ -95,7 +94,7 @@ char getPlayerOpinion() {
     return isContinued;
 }
 
-
+ 
 void playGuessIt() {
     int randomNumber = generateRandomNumber();
     int number;
@@ -108,7 +107,7 @@ void playGuessIt() {
     } while (!checkSuccess(answer));
 }
 
-int main() {
+int run() {
     srand(time(0));
     char isContinued;
     do {
