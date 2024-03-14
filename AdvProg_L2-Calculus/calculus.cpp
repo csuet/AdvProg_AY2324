@@ -40,9 +40,17 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-	double sin;
-	sin = mySqrt(1-myCos(x)*myCos(x));
-    return sin;
+	double sin = x, oldSin = 0;
+	int i = 1;
+	double a = x;
+	while(abs(sin - oldSin) > 0.0001)
+	{
+		oldSin = sin;
+		a *= (-1)*x*x/(2*i*(2*i+1));
+		sin += a;
+		i++;
+	}
+	return sin;
 }
 
 
