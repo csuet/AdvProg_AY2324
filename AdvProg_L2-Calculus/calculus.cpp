@@ -31,7 +31,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return six(x);
+    return sin(x);
 }
 
 
