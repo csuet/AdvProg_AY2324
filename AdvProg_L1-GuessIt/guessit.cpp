@@ -43,11 +43,11 @@ int getPlayerGuess() {
 string getAnswer(int number, int randomNumber) {  
     string answer;
     if (number > randomNumber) {
-        answer = "Your Number is too big";
+        answer = "Your number is higher.";
     } else if (number < randomNumber) {
-        answer = "Your Number is too small";
+        answer = "Your number is lower.";
     } else {
-        answer = "Congratulation! You Win.";
+        answer = "Congratulation! You win.";
     }
     return answer;
 }
@@ -62,7 +62,7 @@ string getAnswer(int number, int randomNumber) {
 bool checkSuccess(string answer) {   
     // TODO: return the result after checking that player guessed right or wrong
     bool result = true;
-    if (answer != "Congratulation! You Win.") {
+    if (answer != "Congratulation! You win.") {
         result = false;
     }
     return result;

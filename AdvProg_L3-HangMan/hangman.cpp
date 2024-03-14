@@ -166,7 +166,3 @@ void processData(const char ch, const string& word,
         updateEnteredChars(ch, incorrectChars);
     }
 }
-
-int main() {
-    
-}
