@@ -49,7 +49,7 @@ vector<string> readWordListFromFile(const string& filePath)
 ***/
 bool isCharInWord(const char ch, const string& word)
 {
-   if(word.find(ch) != string::npos) return true;
+   if(count(word.begin(),word.end(),ch) !=0) return true;
 
     return false;
 }
@@ -156,7 +156,7 @@ void processData(const char ch, const string& word,
             update incorrectGuess: call updateIncorrectGuess() function
             update incorrectChars: call updateEnteredChars() function
     ***/
-  if(word.find(ch) != string::npos)
+  if(count(word.begin(),word.end(),ch) !=0)
   {
       updateSecretWord(secretWord,ch,word);
       updateEnteredChars(ch,correctChars);
