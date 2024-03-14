@@ -88,7 +88,6 @@ bool checkContinuePlaying(char isContinued) {
         isContinues (char) : player's choice (continue playing or not)
 ***/
 
-
 char getPlayerOpinion() {
     // TODO: Ask the player about continue playing and return the player's choice
     char isContinued;
