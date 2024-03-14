@@ -69,7 +69,7 @@ bool checkSuccess(string answer)
 {
     // TODO: return the result after checking that player guessed right or wrong
 
-    return (answer == "Congratulation! You win");
+    return (answer == "Congratulation! You win.");
 }
 
 /***
