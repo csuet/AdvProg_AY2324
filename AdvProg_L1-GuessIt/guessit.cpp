@@ -40,8 +40,8 @@ int getPlayerGuess() {
 string getAnswer(int number, int randomNumber) {
     string answer;
   if(number == randomNumber) answer="Congratulation! You win.";
-  else if(number>randomNumber) answer ="Your number is lower.";
-  else answer ="Your number is higher.";
+  else if(number>randomNumber) answer ="Your number is higher.";
+  else answer ="Your number is lower.";
     return answer;
 }
 
