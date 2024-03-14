@@ -57,7 +57,14 @@ double mySin(double x)
 ***/
 double mySqrt(double x) {
     if (x < 0) {
-        cout << "Invalid argument" << endlfabs(temp*temp - x) > 0.000001 ){
+        cout << "Invalid argument" << endl;
+        exit(1);
+    }
+    
+
+    else{
+        double temp, a=1.0;
+        while( fabs(temp*temp - x) > 0.000001 ){
             temp = 0.5*(a+x/a);
             a=temp;
         }
