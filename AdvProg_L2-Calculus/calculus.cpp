@@ -6,7 +6,7 @@ using std::string;
 using std::cout;
 using std::endl;
 using std::stod;
-
+// ttesdf
 
 double mySin(double x);
 double myCos(double x);
