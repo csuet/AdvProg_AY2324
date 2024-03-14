@@ -51,7 +51,7 @@ string getAnswer(int number, int randomNumber) {
     } else if (number < randomNumber) {
         answer = "Your number is lower.";
     } else {
-        answer = "Congratulations! You win.";
+        answer = "Congratulation! You win.";
     }
 
     return answer;
@@ -65,7 +65,7 @@ string getAnswer(int number, int randomNumber) {
         result (bool) : player win or not
 ***/
 bool checkSuccess(std::string answer) {
-    if (answer == "Congratulations! You win.") {
+    if (answer == "Congratulation! You win.") {
         return true;
     }
     return false;
