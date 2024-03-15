@@ -4,8 +4,8 @@
     "\\AdvProg_L0-Hello",
     "\\AdvProg_L1-GuessIt",
     "\\AdvProg_L2-Calculus",
-    "\\AdvProg_L3-HangMan"
+    "\\AdvProg_L3-HangMan",
+    "\\AdvProg_L3-HangMan\\data"
   ],
-  "SelectedNode": "\\AdvProg_L1-GuessIt\\guessit.cpp",
   "PreviewInSolutionExplorer": false
 }
