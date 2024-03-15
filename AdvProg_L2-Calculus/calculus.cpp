@@ -26,7 +26,7 @@ double myCos(double x)
         if (i == 0)
         {
             giai_thua = 1;
-            ket_qua += pow(x, i) / giai_thua;
+            ket_qua += 1;
         }
         else if (i % 2 == 0)
         {
