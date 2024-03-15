@@ -20,7 +20,7 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-        double ans=0.0;
+    double ans=0.00;
     double sh=1.0;
     for (int i=1;i<=16;i++)
     {
