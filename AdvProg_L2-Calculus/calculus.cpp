@@ -1,20 +1,53 @@
-#include<bits/stdc++.h>
-using namespace std;
-int a[1005][1005];
-int main(){
-    int n,m,k;
-    int tong=0;
-    cin>>n>>m;
-    for (int i=0;i<n;i++){
-        for(int j=0;j<m;j++)
-        cin>>a[i][j];
+#include <iostream>
+#include <string>
+#include <cmath>
+
+using std::string;
+using std::cout;
+using std::endl;
+using std::stod;
+
+
+double mySin(double x);
+double myCos(double x);
+double mySqrt(double x);
+
+/***
+    Args:
+        x (double): a number
+    Returns:
+        double: cosine of x
+***/
+double myCos(double x)
+{
+
+    cout<<cos(x);
+    return cos(x);
+}
+
+/***
+    Args:
+        x (double): a number
+    Returns:
+        double: sine of x
+***/
+double mySin(double x)
+{
+    cout<<sin(x);
+    return sin(x);
+}
+
+
+/***
+    Args:
+        x (double): a number
+    Returns:
+        double: square root of x
+***/
+double mySqrt(double x) {
+    if (x < 0) {
+        cout << "Invalid argument" << endl;
+        exit(1);
     }
-    cin>>k;
-    for(int x=0;x<k;x++){
-        tong=0;
-        for(int j=0;j<m;j++)
-        tong+=a[x][j];
-        cout<<fixed<<setprecision(2)<<tong<<" ";
-    }
-    return 0;
+    return sqrt(x);
 }
