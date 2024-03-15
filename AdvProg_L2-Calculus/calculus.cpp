@@ -14,13 +14,21 @@ double mySqrt(double x);
 
 /***
     Args:
-        x (double): a number
+        x (double): a 
     Returns:
-        double: cosine of x
+        double: cosiof x
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    double ans=0.00;
+    double sh=1.0;
+    for (int i=1;i<=16;i++)
+    {
+        
+        ans+=sh;
+        sh*=x*x/(2*i)/(2*i-1)*(-1);
+    }
+    return ans;
 }
 
 /***
@@ -31,7 +39,15 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    double ans=0.0;
+    double sh=x;
+    for (int i=1;i<=16;i++)
+    {
+        
+        ans+=sh;
+        sh*=x*x/(2*i)/(2*i+1)*(-1);
+    }
+    return ans;
 }
 
 
@@ -46,7 +62,13 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
+    double ans=x;
+    for(int i=0;i<=15;i++)
+    {
+        ans=(ans+1.0*x/ans)/2;
+    }
+
 
     
-    return 0;
+    return ans;
 }
