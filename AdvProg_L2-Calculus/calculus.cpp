@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include "calculas.h"
 
 using std::string;
 using std::cout;
@@ -22,12 +23,12 @@ double myCos(double x)
 {
     double result = 1.0;
   double term = 1.0;
-  int factorial = 2;
+  int factorial = 1; 
 
-  for (int i = 2; i <= 10; ++i) {  
-    term *= -x * x / factorial;
-    result += term;
-    factorial *= (i + 1);
+  for (int i = 2; i <= 100; ++i) { 
+    term *= -x * x;
+    factorial *= (i + 1) * i; 
+    result += term / factorial;
   }
 
   return result;
