@@ -76,7 +76,7 @@ string chooseWordFromList(const vector<string>& wordList, int index)
     for (int i = 0; i < t; i++)
     {
         answer[i] = tolower(answer[i]);
-   }
+    }
     return answer;
 }
 
@@ -89,7 +89,7 @@ string chooseWordFromList(const vector<string>& wordList, int index)
 string generateHiddenCharacters(string answerWord){
     // TODO: Based on answerWord's length, generate hidden characters in form of "---"
     int n = answerWord.size();
-    string secretWord(n,'-');
+    string secretWord(n-1,'-');
 
 
     return secretWord;
