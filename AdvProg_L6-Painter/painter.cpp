@@ -22,9 +22,9 @@ void Painter::setColor(SDL_Color color)
 void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
-    // double radians = angle * M_PI / 180.0;
-    x = x + numPixel;
-    y = y + numPixel;
+    double radians = angle * M_PI / 180.0;
+    x = x + (int)(numPixel * cos(radians));
+    y = y + (int)(numPixel * sin(radians));
 }
 
 
@@ -75,9 +75,9 @@ void Painter::turnRight(double degree)
 void Painter::randomColor()
 {
     // TODO: set random color    
-    int randomRed = rand() % 256;
-    int randomGreen = rand() % 256;
-    int randomBlue = rand() % 256;
+    Uint8 randomRed = rand() % 256;
+    Uint8 randomGreen = rand() % 256;
+    Uint8 randomBlue = rand() % 256;
 
     SDL_Color result = {randomRed, randomGreen, randomBlue};
     setColor(result);
