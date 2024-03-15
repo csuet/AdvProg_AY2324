@@ -20,9 +20,9 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    int sh=1;
-    int ans=0;
-    for (int i=1;i<=16;i++)
+    double sh=1;
+    double ans=0;
+    for (int i=1;i<=10;i++)
     {
         ans+=sh;
         sh *= x*x/(2*i)/(2*i-1)*(-1);
@@ -38,9 +38,9 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    int sh=x;
-    int ans=0;
-    for (int i=1;i<=16;i++)
+    double sh=x;
+    double ans=0;
+    for (int i=1;i<=10;i++)
     {
         ans+=sh;
         sh *= x*x/(2*i)/(2*i+1)*(-1);
