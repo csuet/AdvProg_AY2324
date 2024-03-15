@@ -28,6 +28,13 @@ vector<string> filterWordsByLen(int wordLen, const vector<string>& vocabulary)
 {
     vector<string> answer;
     //Write your code here
+    for (size_t i = 0; i < vocabulary.size(); i++)
+    {
+        if (vocabulary[i].length() == wordLen) {
+            answer.push_back(vocabulary[i]);
+        }
+    }
+    
     return answer;
 }
 
@@ -86,6 +93,27 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
 {
     char answer;
     //Write your code here
+    map<char, int> charCounts;
+    for (auto& word : candidateWords)
+    {
+        map<char, bool> charExistedInWord;
+        for (auto c : word)
+        {
+            if (selectedChars.find(c) == selectedChars.end() && charExistedInWord.find(c) == charExistedInWord.end()) {
+                charCounts[c]++;
+                charExistedInWord[c] = true;
+            }
+        }
+    }
+
+    int maxCount = 0;
+    for (const auto& it : charCounts) {
+        if (it.second > maxCount) {
+            answer = it.first;
+            maxCount = it.second;
+        }
+    }
+    
     return answer;
 }
 
@@ -108,8 +136,14 @@ string getWordMask(char nextChar)
 
 bool isCorrectChar(char ch, const string& mask)
 {
-    bool answer;
+    bool answer = false;
     //Write your code here
+    for (size_t i = 0; i < mask.length(); i++) {
+        if (mask[i] == ch) {
+            answer = true;
+            break;
+        }
+    }
     return answer;
 }
 
@@ -123,8 +157,14 @@ bool isCorrectChar(char ch, const string& mask)
 ***/
 bool isWholeWord(const string& mask)
 {
-     bool answer;
+     bool answer = true;
     //Write your code here
+    for (size_t i = 0; i < mask.length(); i++) {
+        if (mask[i] == '_') {
+            answer = false;
+            break;
+        }
+    }
     return answer;
 }
 
@@ -163,5 +203,21 @@ vector<string> filterWordsByMask(const vector<string>& words, const string& mask
 {
     vector<string> answer;
     //Write your code here
+    for (auto& word : words) {
+        if (word.length() != mask.length()) 
+            continue;
+        
+        bool match = true;
+        for (size_t i = 0; i < mask.length(); ++i) {
+            if (mask[i] != '_' && mask[i] != word[i]) {
+                match = false;
+                break;
+            }
+        }
+        if (match) {
+            answer.push_back(word);
+        }  
+    }
+
     return answer;
 }
