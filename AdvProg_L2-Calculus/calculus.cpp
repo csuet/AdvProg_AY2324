@@ -14,7 +14,7 @@ double mySqrt(double x);
 
 /***
     Args:
-        x (double): a number
+        x (double): a 
     Returns:
         double: cosiof x
 ***/
