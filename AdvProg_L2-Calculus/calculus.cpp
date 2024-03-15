@@ -18,9 +18,20 @@ double mySqrt(double x);
     Returns:
         double: cosine of x
 ***/
-double myCos(double x) 
+
+double giaithua(int x){
+    double ans = 1;
+    for(int i = 1; i <= x; i ++)
+        ans *= i;
+    return ans;
+}
+
+double myCos(double x)
 {
-    return 0.0;
+    double ans = 0;
+    for(int n = 0; n < 10; n ++)
+        ans += (pow(-1, n) / giaithua(2 * n)) * pow(x, 2 * n);
+    return ans;
 }
 
 /***
@@ -31,7 +42,10 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    double ans = 0;
+    for(int n = 0; n < 10; n ++)
+        ans += (pow(-1, n) / giaithua(2 * n + 1)) * pow(x, 2 * n + 1);
+    return ans;
 }
 
 
@@ -46,7 +60,8 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
+    int i;
+    for(i = 1; i * i <= x; i ++);
 
-    
-    return 0;
+    return i;
 }
