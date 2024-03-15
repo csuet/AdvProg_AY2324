@@ -31,7 +31,7 @@ double myCos(double x)
         else if (i % 2 == 0)
         {
             giai_thua *= i;
-            ket_qua += pow(x, i) / giai_thua;
+            ket_qua += pow(-1, i / 2) * pow(x, i) / giai_thua;
         }
         else
         {
@@ -63,7 +63,7 @@ double mySin(double x)
         }
         if (i % 2 == 1)
         {
-            ket_qua += pow(x, i) / giai_thua;
+            ket_qua += pow(-1, (i - 1) / 2) * pow(x, i) / giai_thua;
         }
         else
         {
