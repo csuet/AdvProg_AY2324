@@ -23,8 +23,8 @@ void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
     double radians = angle * M_PI / 180.0;
-    x = x + (int)(numPixel * cos(radians));
-    y = y + (int)(numPixel * sin(radians));
+    x = x + (int)(numPixel * sin(radians));
+    y = y + (int)(numPixel * cos(radians));
 }
 
 
