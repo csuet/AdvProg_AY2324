@@ -27,7 +27,7 @@ vector<string> readWordListFromFile(const string& filePath)
 {
     vector<string> wordList;
     string word;
-    ifstream wordFile (filePath);
+    ifstream wordFile(filePath);
     if (!wordFile.is_open()) {
         throw domain_error("Unable to open file");
     }
@@ -55,8 +55,7 @@ bool isCharInWord(const char ch, const string& word)
 {
 
     // TODO: return true if ch is in word else return false
-    int n = word.size();
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < (int)word.size(); ++i) {
         if (word[i] == ch) return true;
     }
     return false;
@@ -141,7 +140,7 @@ void updateEnteredChars(const char ch, string& chars){
 ***/
 void updateIncorrectGuess(int& incorrectGuess){
     // TODO: increase the value of incorrectGuess by 1
-    incorrectGuess ++;
+    ++incorrectGuess ;
 }
 
 /***
@@ -168,7 +167,7 @@ void processData(const char ch, const string& word,
             update incorrectGuess: call updateIncorrectGuess() function
             update incorrectChars: call updateEnteredChars() function
     ***/
-    if (isCharInWord(ch, word) == true)
+    if (isCharInWord(ch, word))
     {
         updateSecretWord(secretWord, ch, word);
         updateEnteredChars(ch, correctChars);
