@@ -19,14 +19,14 @@ double mySqrt(double x);
 ***/
 double myCos(double x)
 {
-    double ket_qua = 0;
+    double ket_qua = 0.0;
     int giai_thua = 1;
     for (int i = 0; i < 20; i++)
     {
         if (i == 0)
         {
             giai_thua = 1;
-            ket_qua += 1;
+            ket_qua += 1.0;
         }
         else if (i % 2 == 0)
         {
@@ -49,7 +49,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    double ket_qua = x - pow(x, 3) / 6 + pow(x, 5) / 120 - pow(x, 7) / 5040;
+    double ket_qua = 0.0;
     int giai_thua = 1;
     for (int i = 0; i < 20; i++)
     {
