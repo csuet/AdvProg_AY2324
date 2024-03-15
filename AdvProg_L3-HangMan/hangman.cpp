@@ -54,7 +54,10 @@ bool isCharInWord(const char ch, const string& word)
     bool flag = false;
     int n = word.size();
     for (int i = 0; i < n; i++) {
-        if (word[i] == ch) flag = true;
+        if (word[i] == ch) {
+            flag = true;
+            break;
+        }
     }
     return flag;
     // TODO: return true if ch is in word else return false
@@ -137,7 +140,7 @@ void updateEnteredChars(const char ch, string& chars){
 ***/
 void updateIncorrectGuess(int& incorrectGuess){
     // TODO: increase the value of incorrectGuess by 1
-    incorrectGuess++;
+    incorrectGuess += 1;
 }
 
 /***
