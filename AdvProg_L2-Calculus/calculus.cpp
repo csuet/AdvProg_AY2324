@@ -22,16 +22,25 @@ double mySqrt(double x);
 double myCos(double x) 
 {
     double result = 1.0;
-  double term = 1.0;
-  int factorial = 1; 
+    double term = 1.0;
+    int factorial = 1; 
+    int i = 2; 
 
-  for (int i = 2; i <= 100; ++i) { 
-    term *= -x * x;
-    factorial *= (i + 1) * i; 
-    result += term / factorial;
-  }
+    double prevSequence = 1;
+    double currentSequence = 1 - (x * x) / 2; 
 
-  return result;
+    while (std::abs(prevSequence - currentSequence) >= 0.001) { 
+        prevSequence = currentSequence;
+
+        term *= -x * x;
+        factorial *= (i + 1) * i; 
+        currentSequence += term / factorial;
+
+        result += currentSequence; 
+        i++;
+    }
+
+    return result;
 }
 
 /***
@@ -42,17 +51,23 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-double result = x;
-  double term = x;
-  int factorial = 3;
+ double result = x;
+    double term = x;
+    int factorial = 3;
 
-  for (int i = 2; i <= 10; ++i) {
-    term *= -x * x / factorial;
-    result += term;
-    factorial *= (i + 1);
-  }
+    double prevSequence = x; 
+    double currentSequence = x;
 
-  return result;
+    for (int i = 2; i <= 10; ++i) {
+        term *= -x * x / factorial;
+        prevSequence = currentSequence;
+        currentSequence += term;
+
+        result = currentSequence; 
+        factorial *= (i + 1);
+    }
+
+    return result;
 }
 
 
