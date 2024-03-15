@@ -5,7 +5,6 @@
 
 using namespace std;
 
-//diu thoi
 /***
     Args:
 
@@ -14,7 +13,6 @@ using namespace std;
 ***/
 int generateRandomNumber() {
     // TODO: Return the random number in range 1 to 100
-    srand(time(0));
     return rand() % 100 + 1;
 }
 
@@ -28,7 +26,6 @@ int generateRandomNumber() {
 int getPlayerGuess() {
     // TODO: Ask the player guest and return the player's number
     int guess ;
-    cout << endl << "Enter your guess (1..100): ";
     cin >> guess;
     return guess;
 }
