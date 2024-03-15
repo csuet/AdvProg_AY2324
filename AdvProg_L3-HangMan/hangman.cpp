@@ -121,18 +121,17 @@ char getInputCharacter()
 void updateSecretWord(string &secretWord, const char ch, const string &word)
 {
     // TODO: Update the secret word if the character ch is in the answer word.
-    int l = word.size();
-    vector<int> check;
-    for (int i = 0; i < l; i++)
+    int wordLength = word.size();
+
+    // Lặp qua từng ký tự trong từ
+    for (int i = 0; i < wordLength; i++)
     {
+        // Nếu ký tự tại vị trí i trong từ giống với ký tự ch
         if (word[i] == ch)
         {
-            check.push_back(i);
+            // Cập nhật ký tự tại vị trí tương ứng trong secretWord
+            secretWord[i] = ch;
         }
-    }
-    for (auto i : check)
-    {
-        secretWord[i] = ch;
     }
 }
 
@@ -146,7 +145,8 @@ void updateSecretWord(string &secretWord, const char ch, const string &word)
 void updateEnteredChars(const char ch, string &chars)
 {
     // TODO: append the character ch is in end of the text chars
-    chars.push_back(ch);
+    if (chars.find(ch) == string::npos){
+    chars.push_back(ch);}
 }
 
 /***
@@ -172,10 +172,12 @@ void updateIncorrectGuess(int &incorrectGuess)
     Returns:
         void
 ***/
-void processData(const char ch, const string &word,
+void processData(const char ch, 
+                const string &word,
                  string &secretWord,
                  string &correctChars,
-                 int &incorrectGuess, string &incorrectChars)
+                 int &incorrectGuess,
+                 string &incorrectChars)
 {
     /*** TODO
         If ch in word:
