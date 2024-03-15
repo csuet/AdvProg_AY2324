@@ -70,7 +70,7 @@ double mySqrt(double x) {
         double kq = x ;
         for (int i = 1; i <= 10; i++)
         {
-            kq = (kq + x * x / kq) / 2;
+            kq = (kq +  x / kq) / 2;
 
         }
         return kq;
