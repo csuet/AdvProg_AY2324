@@ -52,5 +52,5 @@ double mySqrt(double x) {
     else{
         cout<<sqrt(x)<<endl;
     }
-    return 0;
+    return sqrt(x);
 }
