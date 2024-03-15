@@ -14,7 +14,7 @@ using namespace std;
 ***/
 int generateRandomNumber() {
     // TODO: Return the random number in range 1 to 100
-    return rand() % 100  ;
+    return rand() % 100 + 1;
 }
 
 
@@ -26,7 +26,6 @@ int generateRandomNumber() {
 ***/
 int getPlayerGuess() {
     // TODO: Ask the player guest and return the player's number
-    
     int number;
     cout << "The number you guess is (0 - 100): ";
     cin >> number
@@ -48,7 +47,6 @@ string getAnswer(int number, int randomNumber) {
               If number is lower than randomNumber, the answer is "Your number is lower."
               If number is equal randomNumber, the answer is "Congratulation! You win."
     ***/
-    string answer;
     if (number > randomNumber)
       {
       	answer = "Your number is higher";
@@ -73,6 +71,7 @@ string getAnswer(int number, int randomNumber) {
 ***/
 bool checkSuccess(string answer) {
     // TODO: return the result after checking that player guessed right or wrong
+    
     if (answer == "Congratulation! You win.") {
         return true; 
     } 
