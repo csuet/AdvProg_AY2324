@@ -16,7 +16,7 @@ double mySqrt(double x);
     Args:
         x (double): a number
     Returns:
-        double: cosine of x.
+        double: cosine of x
 ***/
 double myCos(double x) 
 {
