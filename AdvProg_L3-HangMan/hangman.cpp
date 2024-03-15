@@ -77,7 +77,7 @@ string chooseWordFromList(const vector<string>& wordList, int index)
         answer = wordList[index];
         
         // Convert the word to lowercase
-        for (char c : answer){
+        for (char &c : answer){
             c = tolower (c);
         }
     }
