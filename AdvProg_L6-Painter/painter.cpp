@@ -23,8 +23,11 @@ void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
     double radians = angle * M_PI / 180.0;
-    x = x + static_cast<int>(round(numPixel * cos(radians)));
-    y = y + static_cast<int>(round(numPixel * sin(radians)));
+    int deltaX = static_cast<int>(round(numPixel * cos(radians)));
+    int deltaY = static_cast<int>(round(numPixel * sin(radians)));
+
+    x += deltaX;
+    y -= deltaY;
 }
 
 
