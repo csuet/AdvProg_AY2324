@@ -30,6 +30,7 @@ vector<string> readWordListFromFile(const string& filePath)
     }
 
     while ( getline (wordFile, word) ){  // Thong thuong doc tung line. 
+            
             wordList.push_back(word);
         std::cout << word << '\n';
     }
@@ -130,6 +131,7 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 ***/
 void updateEnteredChars(const char ch, string& chars){
     // TODO: append the character ch is in end of the text chars
+    chars.push_back(" ");
     chars.push_back(ch);
 }
 
