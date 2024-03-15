@@ -13,7 +13,7 @@ using namespace std;
 ***/
 int generateRandomNumber() {
     // TODO: Return the random number in range 1 to 100
-    return rand() % 100 + 1;
+    return (rand() % 100 + 1);
 }
 
 
@@ -61,9 +61,7 @@ string getAnswer(int number, int randomNumber) {
 ***/
 bool checkSuccess(string answer) {
     // TODO: return the result after checking that player guessed right or wrong
-    if ( answer == "Congratulation! You win." )
-    return true;
-    return false;
+    return ( answer == "Congratulation! You win." );
 }
 
 
@@ -115,4 +113,10 @@ int run() {
         isContinued = getPlayerOpinion();
     } while (checkContinuePlaying(isContinued));
     return 0;
+}
+
+
+int main(int argc, char* argv[])
+{
+    run();
 }
