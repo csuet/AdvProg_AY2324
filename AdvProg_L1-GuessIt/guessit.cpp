@@ -139,5 +139,5 @@ int run() {
         playGuessIt();
         isContinued = getPlayerOpinion();
     } while (checkContinuePlaying(isContinued));
-    return 0;
+    return 0
 }
