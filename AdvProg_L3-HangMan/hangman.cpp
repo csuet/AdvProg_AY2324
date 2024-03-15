@@ -30,7 +30,9 @@ vector<string> readWordListFromFile(const string& filePath)
     }
 
     while ( getline (wordFile, word) ){  // Thong thuong doc tung line. 
-    
+            wordList.push_back(word);
+        std::cout << word << '\n';
+    }
                                
                                 // Chuong trinh nay cung chay.
     while (wordFile >> word) {  // Nhung voi chuong trinh nay, doc tung word cung duoc
@@ -38,7 +40,7 @@ vector<string> readWordListFromFile(const string& filePath)
         wordList.push_back(word);
         std::cout << word << '\n';
     }
-    }
+    
     wordFile.close();
 
     return wordList;
