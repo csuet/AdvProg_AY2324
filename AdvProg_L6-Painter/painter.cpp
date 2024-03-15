@@ -23,8 +23,8 @@ void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
     double radians = angle * M_PI / 180.0;
-    int deltaX = static_cast<int>(round(numPixel * cos(radians)));
-    int deltaY = static_cast<int>(round(numPixel * sin(radians)));
+    int deltaX = (int)(numPixel * cos(radians));
+    int deltaY = (int)(numPixel * sin(radians));
 
     x += deltaX;
     y -= deltaY;
@@ -54,6 +54,8 @@ void Painter::turnLeft(double degree)
 {
     // TODO: rotate left the painter   
     angle += degree;
+    while (angle > 180)
+        angle -= 360;
 }
 
 
