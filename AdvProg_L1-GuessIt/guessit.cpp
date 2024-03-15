@@ -67,7 +67,7 @@ bool checkSuccess(string answer) {
     // TODO: return the result after checking that player guessed right or wrong
     if(answer[0] == 'C') return true;
 
-    return true;
+    return false;
 }
 
 
