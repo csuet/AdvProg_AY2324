@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cmath>
-#include "calculas.h"
+#include "calculus.h"
 
 using std::string;
 using std::cout;

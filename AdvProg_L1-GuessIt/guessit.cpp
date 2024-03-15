@@ -33,7 +33,7 @@ int getPlayerGuess() {
         cout << "Enter your guess (1-100): ";
         if (!(cin >> guess)) {
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear input buffer
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "Invalid input. Please enter a number." << endl;
         } else if (guess < 1 || guess > 100) {
             cout << "Guess must be between 1 and 100." << endl;
@@ -63,7 +63,7 @@ string getAnswer(int number, int randomNumber) {
     } else if (number < randomNumber) {
         answer = "Your guess is lower.";
     } else {
-        answer = "Congratulations! You win.";
+        answer = "Congratulation! You win.";
     }
     return answer;
 }
