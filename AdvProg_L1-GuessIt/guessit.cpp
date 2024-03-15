@@ -51,15 +51,15 @@ string getAnswer(int number, int randomNumber)
     string answer;
     if (number > randomNumber)
     {
-        cout << "Your number is higher." << endl;
+        cout << "Your number is higher.";
     }
     else if (number < randomNumber)
     {
-        cout << "Your number is lower." << endl;
+        cout << "Your number is lower.";
     }
     else
     {
-        cout << "Congratulation! You win." << endl;
+        cout << "Congratulation! You win.";
     }
 
     return answer;
