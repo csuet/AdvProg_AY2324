@@ -13,9 +13,7 @@ using namespace std;
         number (int) : random number in range 1-100
 ***/
 int generateRandomNumber() {
-    int a= rand()%100+1;
-    dsgdfsgdf
-    return a;
+    return (rand()%100+1);
 }
 
 
@@ -26,9 +24,9 @@ int generateRandomNumber() {
         number (int) : the number that player guessed
 ***/
 int getPlayerGuess() {
-    // TODO: Ask the player guest and return the player's number
-
-    return 1;
+    int n;
+    cin>>n;
+    return  n;
 }
 
 
@@ -40,14 +38,10 @@ int getPlayerGuess() {
         answer (string) : answer of computer after checking result
 ***/
 string getAnswer(int number, int randomNumber) {
-    /*** 
-        TODO: check number with randomNumber and return the result.
-              If number is higher than randomNumber, the answer is "Your number is higher."
-              If number is lower than randomNumber, the answer is "Your number is lower."
-              If number is equal randomNumber, the answer is "Congratulation! You win."
-    ***/
     string answer;
-
+   if (number > randomNumber) answer = "Your number is higher.";
+   if (number < randomNumber) answer = "Your number is lower.";
+   if (number == randomNumber) answer = "Congratulation! You win.";
     return answer;
 }
 
@@ -60,8 +54,9 @@ string getAnswer(int number, int randomNumber) {
 ***/
 bool checkSuccess(string answer) {
     // TODO: return the result after checking that player guessed right or wrong
-    
+    if (answer == "Congratulation! You win.")
     return true;
+    else return false;
 }
 
 
@@ -74,7 +69,7 @@ bool checkSuccess(string answer) {
 bool checkContinuePlaying(char isContinued) {
     // TODO: return result after checking player continue playing or not
     bool result = false;
-
+    if (isContinued=='Y' or isContinued== 'y' ) result = true;
     return result;
 }
 
@@ -88,7 +83,7 @@ bool checkContinuePlaying(char isContinued) {
 char getPlayerOpinion() {
     // TODO: Ask the player about continue playing and return the player's choice
     char isContinued;
-
+    if (isContinued=='Y' or isContinued== 'y' ) isContinued = true;
     return isContinued;
 }
 
