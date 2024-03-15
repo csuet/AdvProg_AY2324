@@ -21,7 +21,7 @@ double myCos(double x)
 {
     double ket_qua = 0;
     int giai_thua = 1;
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < 20; i++)
     {
         if (i == 0)
         {
@@ -51,7 +51,7 @@ double mySin(double x)
 {
     double ket_qua = x - pow(x, 3) / 6 + pow(x, 5) / 120 - pow(x, 7) / 5040;
     int giai_thua = 1;
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < 20; i++)
     {
         if (i == 0)
         {
@@ -90,7 +90,7 @@ double mySqrt(double x)
     else
     {
         double ket_qua = x;
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 20; i++)
         {
             ket_qua = (ket_qua + x / ket_qua) / 2;
         }
