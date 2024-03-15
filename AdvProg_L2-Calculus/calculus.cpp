@@ -61,10 +61,10 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-    int ans=x;
+    double ans=x;
     for(int i=1;i<=15;i++)
     {
-        ans=(ans+x/ans)/2;
+        ans=1.00*(ans+x/ans)/2;
     }
     return ans;
 
