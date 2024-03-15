@@ -3,5 +3,5 @@
 
 std::string printGameOver(){
 	// TODO: Return the required s
-	return "Game Overm!";
+	return "Game Over!";
 }
