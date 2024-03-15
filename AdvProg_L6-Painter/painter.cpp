@@ -9,6 +9,11 @@
 void Painter::setColor(SDL_Color color) 
 { 
     // TODO: set the color value for the Painter and set Render Draw Color
+     // Set the color value for the Painter
+        painterColor = color;
+
+        // Set Render Draw Color
+        SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 }
 
 
@@ -21,6 +26,7 @@ void Painter::setColor(SDL_Color color)
 void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
+    x += numPixel;
 }
 
 
@@ -33,6 +39,7 @@ void Painter::jumpForward(int numPixel)
 void Painter::jumpBackward(int numPixel)
 {
     // TODO: jump the painter backward
+    x -= numPixel;
 }
 
 
@@ -45,6 +52,7 @@ void Painter::jumpBackward(int numPixel)
 void Painter::turnLeft(double degree)
 {
     // TODO: rotate left the painter   
+    angle += degree;
 }
 
 
@@ -57,6 +65,7 @@ void Painter::turnLeft(double degree)
 void Painter::turnRight(double degree)
 {
     // TODO: rotate right the painter   
+    angle -= degree;
 }
 
 /***  
@@ -68,6 +77,16 @@ void Painter::turnRight(double degree)
 void Painter::randomColor()
 {
     // TODO: set random color    
+    // Seed the random number generator
+        srand(time(NULL));
+
+        // Generate random values for RGB components
+        Uint8 r = rand() % 256; // Random value for red component
+        Uint8 g = rand() % 256; // Random value for green component
+        Uint8 b = rand() % 256; // Random value for blue component
+
+        // Set the random color
+        SDL_Color randomColor = {r, g, b, 255}; // Alpha value set to 255 (fully opaque)
 }
 
 
