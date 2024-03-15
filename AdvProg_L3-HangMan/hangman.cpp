@@ -74,10 +74,6 @@ string chooseWordFromList(const vector<string> &wordList, int index)
     {
         return wordList[index];
     }
-    else
-    {
-        return "";
-    }
 }
 
 /***
