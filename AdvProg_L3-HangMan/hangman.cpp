@@ -29,11 +29,7 @@ vector<string> readWordListFromFile(const string& filePath)
         throw domain_error("Unable to open file");
     }
 
-    while ( getline (wordFile, word) ){  // Thong thuong doc tung line. 
-            
-            wordList.push_back(word);
-        std::cout << word << '\n';
-    }
+
                                
                                 // Chuong trinh nay cung chay.
     while (wordFile >> word) {  // Nhung voi chuong trinh nay, doc tung word cung duoc
