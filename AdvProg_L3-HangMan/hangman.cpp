@@ -46,12 +46,12 @@ bool isCharInWord(const char ch, const string &word)
     return false;
 }
 
-string chooseWordFromList(const vector<string>& wordList, int index) 
+string chooseWordFromList(const vector<string> &wordList, int index)
 {
     if (index >= 0 && index < wordList.size())
     {
         string word = wordList[index];
-      
+
         transform(word.begin(), word.end(), word.begin(), ::tolower);
         return word;
     }
@@ -60,7 +60,6 @@ string chooseWordFromList(const vector<string>& wordList, int index)
         return "";
     }
 }
-
 
 string generateHiddenCharacters(string answerWord)
 {
@@ -89,7 +88,7 @@ void updateSecretWord(string &secretWord, const char ch, const string &word)
 
 void updateEnteredChars(const char ch, string &chars)
 {
-    chars += ch;
+    chars.push_back(ch);
 }
 
 void updateIncorrectGuess(int &incorrectGuess)
