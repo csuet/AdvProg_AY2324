@@ -20,7 +20,7 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    return (1 - pow(x, 2)/2 + pow(x, 4)/24 - pow(x, 6)/720);
 }
 
 /***
@@ -31,7 +31,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    return (x - pow(x, 3)/6 + pow(x, 5)/120 - pow(x, 7)/5040);
 }
 
 
@@ -46,7 +46,12 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
-    
-    return 0;
+    double lastSequence = x;
+    double newSequence = x/2;
+    while (std::abs(lastSequence - newSequence) >= 0.001)
+    {
+        lastSequence = newSequence;
+        newSequence = lastSequence - (lastSequence * lastSequence - x)/(2 * lastSequence);
+    }
+    return newSequence;
 }
