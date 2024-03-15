@@ -23,8 +23,8 @@ void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
     double radians = angle * M_PI / 180.0;
-    x = x + (int)(numPixel * sin(radians));
-    y = y + (int)(numPixel * cos(radians));
+    x = x + (int)(numPixel * cos(radians));
+    y = y + (int)(numPixel * sin(radians));
 }
 
 
@@ -50,7 +50,7 @@ void Painter::jumpBackward(int numPixel)
 void Painter::turnLeft(double degree)
 {
     // TODO: rotate left the painter   
-    angle -= degree;
+    angle += degree;
 }
 
 
@@ -63,7 +63,7 @@ void Painter::turnLeft(double degree)
 void Painter::turnRight(double degree)
 {
     // TODO: rotate right the painter   
-    angle += degree;
+    angle -= degree;
 }
 
 /***  
