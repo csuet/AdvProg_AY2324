@@ -10,7 +10,7 @@ using namespace std;
     Args:
         
     Returns:
-        number (int) : random number in range 1-100
+        number (int) : random numrange 1-100
 ***/
 int generateRandomNumber() {
     int n = rand() % 100 + 1;
