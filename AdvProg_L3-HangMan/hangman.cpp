@@ -14,10 +14,10 @@ using std::cin;
     Returns:
         number (int) : random number in range [min; max]
 ***/
-int generateRandomNumber(const int min, const int max)
+int generateRandomNumber(const int mmin, const int mmax)
 {
     // TODO: Return a random integer number between min and max
-    return rand()%min + (max-min+1);
+    return rand()%mmin + (mmax-mmin+1);
 }
 
 vector<string> readWordListFromFile(const string& filePath)
