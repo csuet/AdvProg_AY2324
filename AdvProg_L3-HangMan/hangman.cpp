@@ -130,7 +130,7 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 ***/
 void updateEnteredChars(const char ch, string& chars){
     // TODO: append the character ch is in end of the text chars
-    ch=" "+ch+ " ";
+    ch=' '+ch+' ';
     chars.push_back(ch);
 }
 
