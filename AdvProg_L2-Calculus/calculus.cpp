@@ -20,7 +20,18 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    double acc = 0.0001, temp, denominator, cosx, realCos;
+    temp = 1;
+    cosx = temp;          
+    realCos = cos(x);
+    int i = 1;
+    do {
+        denominator = 2 * i * (2 * i - 1);
+        temp = -temp * x * x / denominator;
+        cosx = cosx + temp;
+        i = i + 1;
+    } while (acc <= fabs(realCos - cosx));
+    return cosx;
 }
 
 /***
@@ -31,7 +42,18 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    double error = 0.0001, denominator, sinx, realSin;
+    double temp = x;
+    sinx = x;          
+    realSin = sin(x);    
+    int i = 1;
+    do {
+        denominator = 2 * i * (2 * i + 1);
+        temp = -temp * x * x / denominator;
+        sinx = sinx + temp;
+        i = i + 1;
+    } while (error <= fabs(realSin - sinx));
+    return sinx;
 }
 
 
@@ -46,7 +68,17 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
+ 
+    // considering the equation values
+    double guess = x;
+    double closerGuess = (x + 1)/2;
+ 
+    // as we want to get upto 5 decimal digits, the absolute
+    // difference should not exceed 0.00001
+    while (fabs(guess - closerGuess) >= 0.00001) {
+        guess = closerGuess;
+        closerGuess = (guess + (x / guess)) / 2;
+    }
     
-    return 0;
+    return closerGuess;
 }
