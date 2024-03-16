@@ -58,7 +58,6 @@ bool isCharInWord(const char ch, const string& word)
         {
 
            check=true;
-           break;
         }
         else
         {
