@@ -51,11 +51,22 @@ vector<string> readWordListFromFile(const string& filePath)
 bool isCharInWord(const char ch, const string& word)
 {
     // TODO: return true if ch is in word else return false
+    int check=false;
     for(int i=0;i<word.size();i++)
     {
-        if(ch==word[i]){return true;}
+        if(ch==word[i])
+        {
+
+           check=true;
+           break;
+        }
+        else
+        {
+            check=false;
+        }
     }
-    return false;
+    return check;
+
 }
 
 /***
