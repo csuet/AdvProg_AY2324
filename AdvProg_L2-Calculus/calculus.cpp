@@ -21,7 +21,8 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    double result = 1.0;
+    
+     double result = 1.0;
     double term = 1.0;
     int factorial = 1; 
     int i = 2; 
@@ -29,15 +30,18 @@ double myCos(double x)
     double prevSequence = 1;
     double currentSequence = 1 - (x * x) / 2; 
 
-    while (std::abs(prevSequence - currentSequence) >= 0.001) { 
+    const double tolerance = 0.001;
+
+    while (std::abs(prevSequence - currentSequence) >= tolerance) { 
         prevSequence = currentSequence;
 
         term *= -x * x;
-        factorial *= (i + 1) * i; 
+        factorial *= (2 * i - 1) * (2 * i); 
         currentSequence += term / factorial;
 
-        result += currentSequence; 
-        i++;
+        i += 2;
+
+        result = currentSequence; 
     }
 
     return result;
