@@ -12,6 +12,16 @@ double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
 
+const int terms = 30;
+
+unsigned long long factorial(int n) {
+    unsigned long long result = 1;
+    for (int i = 2; i <= n; ++i) {
+        result *= i;
+    }
+    return result;
+}
+
 /***
     Args:
         x (double): a number
@@ -20,7 +30,22 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    while (x > M_PI)
+        x -= M_PI * 2;
+
+    while (x < -M_PI)
+        x += M_PI * 2;
+
+    int i = 4;
+    double lr = 1, res = 1 - pow(x, 2)/2;
+    while (std::abs(lr - res) >= 0.001)
+    {
+        lr = res;
+        res += pow(-1, i/2) * pow(x, i)/factorial(i);
+        i += 2;
+    }
+    
+    return res;
 }
 
 /***
@@ -31,7 +56,22 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    while (x > M_PI)
+        x -= M_PI * 2;
+
+    while (x < -M_PI)
+        x += M_PI * 2;
+
+    int i = 5;
+    double lr = x, res = x - pow(x, 3)/6;
+    while (std::abs(lr - res) >= 0.001)
+    {
+        lr = res;
+        res += pow(-1, (i-1)/2) * pow(x, i)/factorial(i);
+        i += 2;
+    }
+    
+    return res;
 }
 
 
@@ -46,7 +86,12 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
-    
-    return 0;
+    double lr = x;
+    double res = x/2;
+    while (std::abs(lr - res) >= 0.001)
+    {
+        lr = res;
+        res = lr - (lr * lr - x)/(2 * lr);
+    }
+    return res;
 }
