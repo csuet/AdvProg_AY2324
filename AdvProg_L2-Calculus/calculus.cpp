@@ -21,7 +21,8 @@ double mySqrt(double x);
 
 double myCos(double x)
 {
-    return cos(x);
+    double ans = 1.0 * cos(x);
+    return ans;
 }
 
 /***
@@ -32,7 +33,8 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return sin(x);
+    double ans = 1.0 * sin(x);
+    return ans;
 }
 
 
@@ -43,5 +45,6 @@ double mySin(double x)
         double: square root of x
 ***/
 double mySqrt(double x) {
-    return sqrt(x);
+    double ans 1.0 * sqrt(x);
+    return ans;
 }
