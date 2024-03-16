@@ -14,10 +14,11 @@ double mySqrt(double x);
 
 const int terms = 30;
 
-int factorial(int n) {
-    int result = 1;
-    for (int i = 2; i <= n; ++i)
+unsigned long long factorial(int n) {
+    unsigned long long result = 1;
+    for (int i = 2; i <= n; ++i) {
         result *= i;
+    }
     return result;
 }
 
@@ -29,10 +30,22 @@ int factorial(int n) {
 ***/
 double myCos(double x) 
 {
-    double result = 0;
-    for (int n = 0; n <= 5; ++n)
-        result += ((n % 2 == 0 ? 1 : -1) * x * x) / factorial(2 * n);
-    return result;
+    while (x > M_PI)
+        x -= M_PI * 2;
+
+    while (x < -M_PI)
+        x += M_PI * 2;
+
+    int i = 4;
+    double lr = 1, res = 1 - pow(x, 2)/2;
+    while (std::abs(lr - res) >= 0.001)
+    {
+        lr = res;
+        res += pow(-1, i/2) * pow(x, i)/factorial(i);
+        i += 2;
+    }
+    
+    return res;
 }
 
 /***
@@ -43,10 +56,22 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    double result = 0;
-    for (int n = 0; n <= 5; ++n)
-        result += ((n % 2 == 0 ? 1 : -1) * x) / factorial(2 * n + 1);
-    return result;
+    while (x > M_PI)
+        x -= M_PI * 2;
+
+    while (x < -M_PI)
+        x += M_PI * 2;
+
+    int i = 5;
+    double lr = x, res = x - pow(x, 3)/6;
+    while (std::abs(lr - res) >= 0.001)
+    {
+        lr = res;
+        res += pow(-1, (i-1)/2) * pow(x, i)/factorial(i);
+        i += 2;
+    }
+    
+    return res;
 }
 
 
@@ -61,9 +86,12 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
-    if (x == 0)
-        return 0;
-
-    return exp(0.5 * log2(x)/log2(2.71828182846));
+    double lr = x;
+    double res = x/2;
+    while (std::abs(lr - res) >= 0.001)
+    {
+        lr = res;
+        res = lr - (lr * lr - x)/(2 * lr);
+    }
+    return res;
 }
