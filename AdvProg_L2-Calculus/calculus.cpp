@@ -45,6 +45,6 @@ double mySin(double x)
         double: square root of x
 ***/
 double mySqrt(double x) {
-    double ans 1.0 * sqrt(x);
+    double ans = 1.0 * sqrt(x);
     return ans;
 }
