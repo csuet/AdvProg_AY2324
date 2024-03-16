@@ -113,9 +113,7 @@ int run() {
     srand(time(0));
     char isContinued;
     do {
-        cout << "Play!" << endl << "Guess a number (1 -> 100)" << endl;
         playGuessIt();
-        cout << "Do you want to play again? (y/n)\n";
         isContinued = getPlayerOpinion();
     } while (checkContinuePlaying(isContinued));
     return 0;
