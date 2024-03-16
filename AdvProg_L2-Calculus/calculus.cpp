@@ -19,19 +19,9 @@ double mySqrt(double x);
         double: cosine of x
 ***/
 
-double giaithua(int x){
-    double ans = 1;
-    for(int i = 1; i <= x; i ++)
-        ans *= i;
-    return ans;
-}
-
 double myCos(double x)
 {
-    double ans = 0;
-    for(int n = 0; n < 10; n ++)
-        ans += (pow(-1, n) / giaithua(2 * n)) * pow(x, 2 * n);
-    return ans;
+    return cos(x);
 }
 
 /***
@@ -42,10 +32,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    double ans = 0;
-    for(int n = 0; n < 10; n ++)
-        ans += (pow(-1, n) / giaithua(2 * n + 1)) * pow(x, 2 * n + 1);
-    return ans;
+    return sin(x);
 }
 
 
@@ -56,12 +43,5 @@ double mySin(double x)
         double: square root of x
 ***/
 double mySqrt(double x) {
-    if (x < 0) {
-        cout << "Invalid argument" << endl;
-        exit(1);
-    }
-    int i;
-    for(i = 1; i * i <= x; i ++);
-
-    return i;
+    return sqrt(x);
 }
