@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <ctime>
 #include "guessit.h"
+#include <bits/stdc++.h>
 
 using namespace std;
 
