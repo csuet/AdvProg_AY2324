@@ -70,8 +70,9 @@ string chooseWordFromList(const vector<string>& wordList, int index)
     string answer;
 
     answer = wordList[index];
-    for(auto u : answer)
-        if(u >= 'A' && u <= 'Z') u = char(u - 'A' + 'a');
+    int l = answer.size();
+    for(int i = 0; i < l; i++)
+        if(answer[i] >= 'A' && answer[i] <= 'Z') answer[i] = char(answer[i] - 'A' + 'a');
 
     return answer;
 }
