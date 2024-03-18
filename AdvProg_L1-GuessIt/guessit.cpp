@@ -16,7 +16,7 @@ int generateRandomNumber() {
     // TODO: Return the random number in range 1 to 100
     int ran_num;
     srand ((int)time(0));
-    ran_num = rand() % 100 + 1;
+    ran_num = rand() % (100 - 0 + 1) + 0;
     return ran_num;
 }
 
