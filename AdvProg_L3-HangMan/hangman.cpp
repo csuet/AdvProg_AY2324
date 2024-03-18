@@ -122,6 +122,8 @@ void updateSecretWord(string& secretWord, const char ch, const string& word) {
     Returns:
         void
 ***/
+// The input is a string that have a space between each character
+// Therefore, we need to add a space after the character ch
 void updateEnteredChars(const char ch, string& chars) {
   // TODO: append the character ch is in end of the text chars
   chars = chars + ch + " ";
