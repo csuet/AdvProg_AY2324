@@ -14,13 +14,14 @@ using std::vector;
 void updateEnteredChars(const char ch, string& correctChars);
 void updateIncorrectGuess(int& incorrectGuess);
 
+string chooseWord();
 string chooseWordFromList(const vector<string>& wordList, int index);
-string generateHiddenCharacters(string word);
+string generateHiddenCharacters(const string& answerWord);
 char getInputCharacter();
 void updateSecretWord(string& secretWord, const char ch, const string& word);
-void processData(const char ch, const string& word, 
-                string& secretWord, 
-                string& correctChars, 
+void processData(const char ch, const string& word,
+                string& secretWord,
+                string& correctChars,
                 int& incorrectGuess, string& incorrectChars);
 
 int generateRandomNumber(const int min, const int max);
