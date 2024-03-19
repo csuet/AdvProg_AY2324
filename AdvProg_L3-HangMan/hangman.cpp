@@ -64,7 +64,11 @@ bool isCharInWord(const char ch, const string& word)
 string chooseWordFromList(const vector<string>& wordList, int index) 
 {
     // TODO: Return a lowercase word in the index position of the vector wordList.
-    return wordList[index];
+    string kq=wordList[index];
+    for(auto x:kq){
+        x = tolower(x);
+    }
+    return kq;
 }
 
 /***
@@ -113,7 +117,8 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 ***/
 void updateEnteredChars(const char ch, string& chars){
     // TODO: append the character ch is in end of the text chars
-    chars += ch;
+    chars = chars + ch + " ";
+    
 }
 
 /***
