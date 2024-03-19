@@ -7,6 +7,7 @@ using std::vector;
 using std::ifstream;
 using std::domain_error;
 using std::cin;
+using std::cout;
 
 /***
     Args:
@@ -88,7 +89,8 @@ string chooseWordFromList(const vector<string>& wordList, int index)
 string generateHiddenCharacters(string answerWord){
     // TODO: Based on answerWord's length, generate hidden characters in form of "---"
     string secretWord;
-
+    for(int i = 0; i < answerWord.size(); i++)
+        secretWord += "_";
     return secretWord;
 }
 
@@ -109,6 +111,14 @@ char getInputCharacter() {
 void updateSecretWord(string& secretWord, const char ch, const string& word)
 {
     // TODO: Update the secret word if the character ch is in the answer word.
+    if( isCharInWord( ch, word) )
+    {
+        for(int i = 0 ; i < word.size(); i++)
+        {
+            if (word[i] == ch)
+                secretWord[i] = ch;
+        }
+    }
 }
 
 /***
