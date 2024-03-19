@@ -93,7 +93,7 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
     char answer;
     //Write your code here
     int max_frequency = 0;
-    for (auto c : selectedChars)
+    for (const char c : selectedChars)
     {
         if (occurrences.find(c) != occurrences.end() && occurrences[c] > max_frequency)
         {
