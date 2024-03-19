@@ -115,29 +115,19 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
 
 char findBestChar(const vector<string>& candidateWords, const set<char>& selectedChars)
 {
-    char answer = '\0';
     //Write your code here
-    map<char, int> char_not_exist;
-    for (const string& s : candidateWords)
+    map<char, int> freq = countOccurrences(candidateWords);
+
+    set<char> char_not_exist;
+    for (char c = 'a'; c <= 'z'; ++c)
     {
-        for (const char& c : s)
+        if (selectedChars.find(c) == selectedChars.end())
         {
-            if (s.find(c) == string::npos)
-            {
-                ++char_not_exist[c];
-            }
+            char_not_exist.insert(c);
         }
     }
 
-    int max_freq = 0;
-    for (const pair<char, int>& ite : char_not_exist)
-    {
-        if (ite.second > max_freq)
-        {
-            answer = ite.first;
-            max_freq = ite.second;
-        }
-    }
+    char answer = findMostFrequentChar(freq, char_not_exist);
     return answer;
 }
 
