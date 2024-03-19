@@ -113,13 +113,14 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
     // TODO: Update the secret word if the character ch is in the answer word.
     if( isCharInWord( ch, word) )
     {
-        for(int i = 0 ; i < word.size(); i++)
+        for(int i = 0 ; i < secretWord.size(); i++)
         {
             if (word[i] == ch)
                 secretWord[i] = ch;
         }
     }
 }
+
 
 /***
     Args:
@@ -130,6 +131,7 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 ***/
 void updateEnteredChars(const char ch, string& chars){
     // TODO: append the character ch is in end of the text chars
+    chars.push_back(ch);
 }
 
 /***
