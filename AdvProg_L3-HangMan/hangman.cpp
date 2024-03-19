@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <cctype>
 #include "hangman.h"
 
 using std::string;
@@ -18,7 +18,7 @@ using std::cin;
 int generateRandomNumber(const int min, const int max)
 {
     // TODO: Return a random integer number between min and max
-    return min + rand()%(max-min+1); //generate random number in the range [min; max]
+    return min + rand()%(max-min+1); //GENERATE A RANDOM NUMBER WITHIN THE RANGE [min; max]
     
 }
 
@@ -72,7 +72,10 @@ string chooseWordFromList(const vector<string>& wordList, int index)
 {
     // TODO: Return a lowercase word in the index position of the vector wordList.
     string answer;
-
+    string str = wordList[index];
+    for(char ch : str){
+        answer += std::tolower(ch); //inclued cctype (header) for tolower() func
+    }
     return answer;
 }
 
