@@ -67,8 +67,7 @@ bool isCharInWord(const char ch, const string& word)
 ***/
 string chooseWordFromList(const vector<string>& wordList, int index) 
 {
-    // TODO: Return a lowercase word in the index position of the vector wordList.
-    string answer;
+    string answer = wordList[index];
     for(size_t i=0;i<answer.size();i++) answer[i]=tolower(answer[i]);
     return answer;
 }
@@ -81,7 +80,6 @@ string chooseWordFromList(const vector<string>& wordList, int index)
         secretWord (string): answerWord in hidden form (form of ---)
 ***/
 string generateHiddenCharacters(string answerWord){
-    // TODO: Based on answerWord's length, generate hidden characters in form of "---"
     string secretWord(answerWord.length(), '-');
 
     return secretWord;
@@ -103,8 +101,7 @@ char getInputCharacter() {
 ***/
 void updateSecretWord(string& secretWord, const char ch, const string& word)
 {
-    // TODO: Update the secret word if the character ch is in the answer word.
-     for (int i = 0; i < word.length(); i++) {
+    for (int i = 0; i < word.length(); i++) {
         if (word[i] == ch) {
             secretWord[i] = ch;
         }
@@ -119,7 +116,6 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
         void
 ***/
 void updateEnteredChars(const char ch, string& chars){
-    // TODO: append the character ch is in end of the text chars
     chars = chars + ch + ' ';
 }
 
@@ -130,7 +126,6 @@ void updateEnteredChars(const char ch, string& chars){
         void
 ***/
 void updateIncorrectGuess(int& incorrectGuess){
-    // TODO: increase the value of incorrectGuess by 1
     incorrectGuess += 1;
 }
 
@@ -150,15 +145,7 @@ void processData(const char ch, const string& word,
                 string& correctChars, 
                 int& incorrectGuess, string& incorrectChars)
 {
-    /*** TODO
-        If ch in word:
-            update secretWord: call updateSecretWord() function
-            update correctChars: call updateEnteredChars() function
-        else:
-            update incorrectGuess: call updateIncorrectGuess() function
-            update incorrectChars: call updateEnteredChars() function
-    ***/
-   if (isCharInWord(ch, word)){
+    if (isCharInWord(ch, word)){
         updateSecretWord(secretWord, ch, word);
         updateEnteredChars(ch, correctChars);
    }else {
@@ -167,3 +154,42 @@ void processData(const char ch, const string& word,
    }
 }
 
+int main() {
+    const string filePath = "words.txt"; 
+    const int min_index = 0;
+    const int max_index = 499;
+
+    // Initialize the game
+    vector<string> wordList = readWordListFromFile(filePath);
+    int index = generateRandomNumber(min_index, max_index);
+    string answerWord = chooseWordFromList(wordList, index);
+    string secretWord = generateHiddenCharacters(answerWord);
+    string correctChars = "";
+    string incorrectChars = "";
+    int incorrectGuess = 0;
+
+    // Game loop
+    while (incorrectGuess < 7 && secretWord != answerWord) {
+        // Display the game state
+        cout << "Secret word: " << secretWord << endl;
+        cout << "Correct characters: " << correctChars << endl;
+        cout << "Incorrect characters: " << incorrectChars << endl;
+        cout << "Incorrect guesses remaining: " << 7 - incorrectGuess << endl;
+
+        // Get a character from the player
+        cout << "Enter a character: ";
+        char ch = getInputCharacter();
+
+        // Process the player's input
+        processData(ch, answerWord, secretWord, correctChars, incorrectGuess, incorrectChars);
+    }
+
+    // Display the game result
+    if (secretWord == answerWord) {
+        cout << "Congratulations! You guessed the word." << endl;
+    } else {
+        cout << "Game over! The word was: " << answerWord << endl;
+    }
+
+    return 0;
+}
