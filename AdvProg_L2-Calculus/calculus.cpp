@@ -26,7 +26,7 @@ double myCos(double x)
     while (true) {
         n += 2;
         term *= -(x * x) / (n * (n - 1));
-        if (fabs(term) < 1e - 10) break;
+        if (fabs(term) < 1 * pow(10 , - 9)) break;
         sum += term;
     }
     return sum;
@@ -43,7 +43,7 @@ double mySin(double x)
     double result = 0;
     double term = x;
     int n = 1;
-    while (fabs(term) >= 1e - 10) {
+    while (fabs(term) >= 1 * pow(10, -9)) {
         result += term;
         term *= -(x * x) / ((2 * n) * (2 * n + 1));
         n++;
