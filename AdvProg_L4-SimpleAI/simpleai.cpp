@@ -121,7 +121,7 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
     {
         for (const char& c : word)
         {
-            if (s.find(c) == s.end())
+            if (s.find(c) == string::npos)
             {
                 ++char_not_exist[c];
             }
