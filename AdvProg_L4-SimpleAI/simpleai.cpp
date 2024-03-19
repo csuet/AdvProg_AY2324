@@ -93,9 +93,9 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
     char answer;
     //Write your code here
     int max_frequency = 0;
-    for (const char& c : selectedChars)
+    for (auto c : selectedChars)
     {
-        if (occurrences[c] > max_frequency)
+        if (occurrences.find(c) != occurrences.end() && occurrences[c] > max_frequency)
         {
             answer = c;
             max_frequency = occurrences[c];
@@ -119,7 +119,7 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
     map<char, int> char_not_exist;
     for (const string& s : candidateWords)
     {
-        for (const char& c : word)
+        for (const char& c : s)
         {
             if (s.find(c) == string::npos)
             {
@@ -221,7 +221,7 @@ bool wordConformToMask(const string& word, const string& mask, char ch)
         {
             if (mask[i] == '_')
             {
-                if (mask[i] != char)
+                if (mask[i] != ch)
                 {
                     answer = false;
                 }
