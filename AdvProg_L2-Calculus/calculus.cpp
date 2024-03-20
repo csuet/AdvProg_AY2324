@@ -11,6 +11,7 @@ using std::stod;
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
+double factorial(int n);
 
 /***
     Args:
@@ -18,15 +19,14 @@ double mySqrt(double x);
     Returns:
         double: cosine of x
 ***/
+double factorial(int n) {
+        return (n==0)? 1 : n*factorial(n - 1);
+    }
 double myCos(double x)
 {
-     static double factorial(int n) {
-        return (n==0) ? 1 : n *factorial(n-1);
-    }
-
     double result =0;
     int n=0;
-    for (int  =0;i<10;i++) {
+    for (int i=0;i<10;i++) {
         result += std::pow(-1, n)*std::pow(x, 2 * n)/factorial(2 * n);
         n++;
     }
@@ -41,10 +41,6 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    static double factorial(int n) {
-        return (n==0) ? 1 : n * factorial(n-1);
-    }
-
     double result =0;
     int n=0;
     for (int i=0;i<10;i++) {
@@ -68,9 +64,6 @@ double mySqrt(double x) {
     }
     else
     {
-    static double factorial(int n) {
-        return (n==0)? 1 : n*factorial(n - 1);
-    }
     if (x==0||x==1)
         return x;
     double epsilon = 0.001;

@@ -1,4 +1,4 @@
- #include <iostream>
+#include <iostream>
 #include <cstdlib>
 #include <ctime>
 #include "guessit.h"
@@ -95,7 +95,7 @@ bool checkContinuePlaying(char isContinued) {
     // TODO: return result after checking player continue playing or not
     bool result = false;
 
-    if(isContinued == 'y') result = true;
+    if(isContinued == 'y'&&isContinued == 'Y') result = true;
 
     return result;
 }
