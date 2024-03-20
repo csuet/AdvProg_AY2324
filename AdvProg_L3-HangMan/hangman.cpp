@@ -62,9 +62,8 @@ bool isCharInWord(const char ch, const string& word)
 ***/
 string chooseWordFromList(const vector<string>& wordList, int index) 
 {
-    int n = rand() % index;
-    string answer;
-    answer = wordList[n];
+    
+    string answer = wordList[index];
     for(int i = 0; i < answer.size(); ++i){
         answer[i] = tolower(answer[i]);
     }
