@@ -19,7 +19,7 @@ int generateRandomNumber(const int min, const int max)
 {
     // TODO: Return a random integer number between min and max
     int result;
-    result=rand()%min+(max-min+1);
+    result=rand() % (max - min + 1) + min;
     return result;
 }
 
