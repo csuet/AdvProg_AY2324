@@ -44,7 +44,7 @@ string chooseWordFromList(const vector<string>& wordList, int index)
 	string s1;
 	for(int i = 0;i < wordList[index].size() ; i++)
 	{
-		s1+=tolower(wordList[index][i]);
+		s1 += tolower(wordList[index][i]);
 	}
     return s1;
 }
@@ -70,9 +70,8 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 }
 
 void updateEnteredChars(const char ch, string& chars){
-	chars += "s ";
-    chars.push_back(ch);
-    chars +=" ";
+    chars += "_";
+    chars += ch;
 }
 
 void updateIncorrectGuess(int& incorrectGuess){
