@@ -67,12 +67,10 @@ bool isCharInWord(const char ch, const string& word)
 ***/
 string chooseWordFromList(const vector<string>& wordList, int index) 
 {
-    if (index < 0 || index >= wordList.size()) {
-        throw std::out_of_range("Invalid index");
-    }
-
     string answer = wordList[index];
-
+    for (char& c : answer) {
+        c = tolower(c); // Convert to lowercase
+    }
     return answer;
 }
 
