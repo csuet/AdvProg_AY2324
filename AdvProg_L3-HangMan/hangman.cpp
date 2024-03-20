@@ -50,12 +50,7 @@ vector<string> readWordListFromFile(const string& filePath)
 ***/
 bool isCharInWord(const char ch, const string& word)
 {
-    int l = word.size();
-    for(int i = 0; i < l; ++i){
-        if(word[i] == ch) return true;
-        break;
-    }
-    return false;
+    return word.find(ch) != string::npos;
 }
 
 /***
