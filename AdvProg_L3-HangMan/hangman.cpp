@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 #include "hangman.h"
 
 using std::string;
@@ -17,7 +18,7 @@ using std::cin;
 int generateRandomNumber(const int min, const int max)
 {
     // TODO: Return a random integer number between min and max
-    int range = max - min;
+    int range = max - min + 1;
     srand(time(0));
     return ( rand() % range ) + min;
 }
@@ -128,7 +129,8 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 ***/
 void updateEnteredChars(const char ch, string& chars){
     // TODO: append the character ch is in end of the text chars
-    chars += ch;
+    string tmp = ch;
+    chars += tmp;
 }
 
 /***
