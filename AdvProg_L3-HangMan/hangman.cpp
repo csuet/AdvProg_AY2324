@@ -92,7 +92,11 @@ string generateHiddenCharacters(string answerWord){
     }
     return secretWord;
 }
-
+char getInputCharacter() {
+    char ch;
+    cin >> ch;
+    return tolower(ch); 
+}
 /***
     Args:
         secretWord (string): secret word in hidden form
