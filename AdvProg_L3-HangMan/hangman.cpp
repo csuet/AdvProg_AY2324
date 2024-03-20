@@ -70,9 +70,9 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 }
 
 void updateEnteredChars(const char ch, string& chars){
-	chars += " ";
+	chars += "s ";
     chars.push_back(ch);
-    chars += " ";
+    chars +=" ";
 }
 
 void updateIncorrectGuess(int& incorrectGuess){
