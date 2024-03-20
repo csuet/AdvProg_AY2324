@@ -116,7 +116,7 @@ void playGuessIt() {
     int number;
     string answer;
 
-    do{
+    do {
         number = getPlayerGuess();
         answer = getAnswer(number, randomNumber);
         cout << answer << endl;
