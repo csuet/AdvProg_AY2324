@@ -70,10 +70,8 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 }
 
 void updateEnteredChars(const char ch, string& chars){
-    if (!chars.empty()) {
-        chars += ' ';
-    }
     chars += ch;
+    chars += " ";
 }
 
 void updateIncorrectGuess(int& incorrectGuess){
