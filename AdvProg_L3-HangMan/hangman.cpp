@@ -116,7 +116,7 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
         }
     }
 }
-}
+
 
 /***
     Args:
