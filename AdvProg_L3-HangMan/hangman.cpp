@@ -71,6 +71,7 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 
 void updateEnteredChars(const char ch, string& chars){
     chars.push_back(ch);
+    chars.push_back(" ");
 }
 
 void updateIncorrectGuess(int& incorrectGuess){
