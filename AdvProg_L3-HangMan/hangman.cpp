@@ -41,7 +41,12 @@ bool isCharInWord(const char ch, const string& word)
 
 string chooseWordFromList(const vector<string>& wordList, int index) 
 {
-    return wordList[index];
+	string s1;
+	for(int i = 0;i < wordList[index].size() ; i++)
+	{
+		s1+=tolower(wordList[index][i]);
+	}
+    return s1;
 }
 
 string generateHiddenCharacters(string answerWord){
