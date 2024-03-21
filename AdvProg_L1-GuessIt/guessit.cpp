@@ -50,11 +50,11 @@ string getAnswer(int number, int randomNumber) {
     ***/
     if(number > randomNumber)
     {
-        return "Your number is too big.";
+        return "Your number is higher.";
     }
     else if(number < randomNumber)
     {
-        return "Your number is too small.";
+        return "Your number is lower.";
     }
     else
     {
