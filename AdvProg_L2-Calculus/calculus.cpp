@@ -11,7 +11,6 @@ using std::stod;
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
-
 /***
     Args:
         x (double): a number
@@ -20,7 +19,17 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+	double cos = 1, oldCos = 0;
+	int i = 1;
+	double a = 1;
+	while(i<100)
+	{
+		oldCos = cos;
+		a *= (-1)*x*x/(2*i*(2*i - 1));
+		cos += a;
+		i++;
+	}	
+    return cos;
 }
 
 /***
@@ -31,7 +40,17 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+	double sin = x, oldSin = 0;
+	int i = 1;
+	double a = x;
+	while(i<100)
+	{
+		oldSin = sin;
+		a *= (-1)*x*x/(2*i*(2*i+1));
+		sin += a;
+		i++;
+	}
+	return sin;
 }
 
 
@@ -43,10 +62,18 @@ double mySin(double x)
 ***/
 double mySqrt(double x) {
     if (x < 0) {
-        cout << "Invalid argument" << endl;
-        exit(1);
+        throw "Invalid argument"; 
+    } else {
+        double sqrt = x; 
+        double oldSqrt = 0;
+        int i = 0; 
+        while(i < 100) 
+        {
+            oldSqrt = sqrt;
+            sqrt = (oldSqrt + x/oldSqrt) / 2;
+            i++;
+        }
+        return sqrt;
     }
-
-    
-    return 0;
 }
+
