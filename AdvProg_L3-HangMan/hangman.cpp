@@ -73,16 +73,12 @@ string chooseWordFromList(const vector<string>& wordList, int index)
     // TODO: Return a lowercase word in the index position of the vector wordList.
     string answer;
     if (index >= 0 && index < wordList.size()) {
-        // Get the word at the given index
         answer = wordList[index];
-        
-        // Convert the word to lowercase
         for (char &c : answer){
             c = tolower (c);
         }
     }
     else {
-        // If index is out of bounds, return an empty string
         answer = "";
     }
     return answer;
@@ -97,10 +93,8 @@ string chooseWordFromList(const vector<string>& wordList, int index)
 string generateHiddenCharacters(string answerWord){
     // TODO: Based on answerWord's length, generate hidden characters in form of "---"
     string secretWord;
-    // Xác định độ dài của từ answerWord
     int wordLength = answerWord.length();
 
-    // Thêm dấu gạch ngang vào chuỗi secretWord tương ứng với độ dài của từ answerWord
     for(int i = 0; i < wordLength; ++i) {
         secretWord += "-";
     }
@@ -178,7 +172,6 @@ void processData(const char ch, const string& word,
             update incorrectGuess: call updateIncorrectGuess() function
             update incorrectChars: call updateEnteredChars() function
     ***/
-    // Kiểm tra xem ký tự ch có xuất hiện trong từ word không
     bool found = false;
     for (char c : word) {
         if (c == ch) {
@@ -187,13 +180,12 @@ void processData(const char ch, const string& word,
         }
     }
 
-    // Nếu ký tự ch xuất hiện trong từ word
     if (found) {
-        // Cập nhật secretWord và correctChars
+        
         updateSecretWord(secretWord, ch, word);
         updateEnteredChars(ch, correctChars);
     } else {
-        // Nếu ký tự ch không xuất hiện trong từ word, tăng incorrectGuess lên 1 và cập nhật incorrectChars
+        
         updateIncorrectGuess(incorrectGuess);
         updateEnteredChars(ch, incorrectChars);
     }

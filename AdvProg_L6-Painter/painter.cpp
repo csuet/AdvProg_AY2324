@@ -28,8 +28,6 @@ void Painter::setColor(SDL_Color color)
 void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
-    int x; // X coordinate of the painter's position
-    int y; // Y coordinate of the painter's position
     x += numPixel;
 }
 
