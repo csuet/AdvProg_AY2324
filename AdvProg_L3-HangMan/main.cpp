@@ -12,7 +12,7 @@ int main()
 {
     srand((int)time(0));
 
-    string vocabularyFile = "data/Ogden_Picturable_200.txt";
+    string vocabularyFile = "Ogden_Picturable_200.txt";
     //string vocabularyFile = "data/ErrorOpenFileTest.txt";
     //string vocabularyFile = "data/EmptyTest.txt";
     vector<string> wordList;
@@ -37,16 +37,16 @@ int main()
     int incorrectGuess = 0;
     string correctChars = "";
     string incorrectChars = "";
-    
-    printScreen(word, secretWord, correctChars, incorrectGuess, incorrectChars); 
-    
+
+    printScreen(word, secretWord, correctChars, incorrectGuess, incorrectChars);
+
     do {
         char ch = getInputCharacter();
 
-        processData(ch, word, secretWord, 
+        processData(ch, word, secretWord,
                     correctChars, incorrectGuess, incorrectChars);
-        
-        printScreen(word, secretWord, correctChars, incorrectGuess, incorrectChars); 
+
+        printScreen(word, secretWord, correctChars, incorrectGuess, incorrectChars);
 
     } while (secretWord != word && incorrectGuess != MAX_MISTAKES-1);
 

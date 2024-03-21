@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1710940772 source:c:\users\hp victus\desktop\new folder\advprog_ay2324\advprog_l3-hangman\draw.cpp
+	<iostream>
+	<thread>
+	<chrono>
+	"hangman.h"
+
+1711006740 c:\users\hp victus\desktop\new folder\advprog_ay2324\advprog_l3-hangman\hangman.h
+	<fstream>
+	<string>
+	<vector>
+	<stdexcept>
+	<algorithm>
+
+1711006818 source:c:\users\hp victus\desktop\new folder\advprog_ay2324\advprog_l3-hangman\main.cpp
+	<iostream>
+	<string>
+	<vector>
+	<ctime>
+	<stdexcept>
+	<algorithm>
+	"hangman.h"
+	"draw.h"
+
+1710940772 c:\users\hp victus\desktop\new folder\advprog_ay2324\advprog_l3-hangman\draw.h
+	<string>
+
+1711006746 source:c:\users\hp victus\desktop\new folder\advprog_ay2324\advprog_l3-hangman\hangman.cpp
+	<iostream>
+	"hangman.h"
+
