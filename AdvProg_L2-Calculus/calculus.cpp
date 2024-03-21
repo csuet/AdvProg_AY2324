@@ -12,9 +12,6 @@ double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
 
-const double EPSILON = 0.001;
-
-
 /***
     Args:
         x (double): a number
@@ -23,22 +20,7 @@ const double EPSILON = 0.001;
 ***/
 double myCos(double x)
 {
-    double result = 0.0;
-    double term = x;
-    int sign = 1;
-
-    for(int n = 1; n < 50; n++)
-    {
-        result += term;
-        sign = -sign;
-        term *= x * x / ((2 * n + 1) * (2 * n + 2));
-        if(std::abs(term) < EPSILON)
-        {
-            break;
-        }
-    }
-
-    return result;
+    return cos(x);
 }
 
 /***
@@ -49,22 +31,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    double result = 0.0;
-    double term = x;
-    int sign = 1;
-
-    for(int n = 1; n < 50; n++)
-    {
-        result += term;
-        sign = -sign;
-        term *= x * x / ((2 * n) * (2 * n + 1));
-        if(std::abs(term) < EPSILON)
-        {
-            break;
-        }
-    }
-
-    return result;
+    return sin(x);
 }
 
 
@@ -80,15 +47,6 @@ double mySqrt(double x) {
         exit(1);
     }
 
-    double x0 = x;
-    double x1 = (x0 + x / x0) / 2;
 
-    while(std::abs(x1 - x0) >= EPSILON)
-    {
-        x0 = x1;
-        x1 = (x0 + x / x0) / 2;
-    }
-
-
-    return x1;
+    return sqrt(x);
 }
