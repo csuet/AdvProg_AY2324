@@ -108,8 +108,8 @@ char getInputCharacter() {
 void updateSecretWord(string& secretWord, const char ch, const string& word)
 {
     // TODO: Update the secret word if the character ch is in the answer word.
-    for (size_t i = 0; i < word.size(); ++i) {
-        if (tolower(word[i]) == ch) {
+    for (int i = 0; i < word.size(); ++i) {
+        if (word[i] == ch) {
             secretWord[i] = word[i];
         }
     }
