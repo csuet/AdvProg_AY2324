@@ -69,7 +69,7 @@ string chooseWordFromList(const vector<string>& wordList, int index)
     return answer;
 }
 
-}
+
 
 /***
     Args:
