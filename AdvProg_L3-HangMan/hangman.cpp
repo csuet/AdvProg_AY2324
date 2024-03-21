@@ -55,7 +55,7 @@ bool isCharInWord(const char ch, const string& word)
     // TODO: return true if ch is in word else return false
     int len=word.length();
     for(int i=0;i<len;i++){
-        if (s[i]==ch) {
+        if (word[i]==ch) {
             return true;
         }
     }
@@ -118,7 +118,7 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
     for(int i=0;i<word.length();i++){
         if(word[i]==ch) secretWord[i]=ch;
     }
-    return secretWord;
+   
 }
 
 /***
@@ -142,7 +142,7 @@ void updateEnteredChars(const char ch, string& chars){
 void updateIncorrectGuess(int& incorrectGuess){
     // TODO: increase the value of incorrectGuess by 1
     incorrectGuess++;
-    return incorrectGuess;
+    
 }
 
 /***
