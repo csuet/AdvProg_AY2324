@@ -21,9 +21,14 @@ double mySqrt(double x);
 double myCos(double x)
 {
     double result = 0.0;
-    for(int n = 0; n < 10; n++)
+    double term = x;
+    int sign = 1;
+
+    for(int n = 1; n < 50; n++)
     {
-        result += pow(-1, n) * pow(x, 2 * n) / tgamma(2 * n + 1);
+        result += term;
+        sign = -sign;
+        term *= x * x / ((2 * n + 1) * (2 * n + 2));
     }
     return result;
 }
@@ -37,9 +42,14 @@ double myCos(double x)
 double mySin(double x)
 {
     double result = 0.0;
-    for(int n = 0; n < 10; n++)
+    double term = x;
+    int sign = 1;
+
+    for(int n = 1; n < 50; n++)
     {
-        result += pow(-1, n) * pow(x, 2 * n + 1) / tgamma(2 * n + 2);
+        result += term;
+        sign = -sign;
+        term *= x * x / ((2 * n) * (2 * n + 1));
     }
     return result;
 }
@@ -56,5 +66,10 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-    return 0;
+
+    double x0 = x;
+    double x1 = (x0 + x / x0) / 2;
+
+
+    return x1;
 }
