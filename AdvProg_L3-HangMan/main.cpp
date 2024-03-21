@@ -12,7 +12,7 @@ int main()
 {
     srand((int)time(0));
 
-    string vocabularyFile = "data/Ogden_Picturable_200.txt";
+    string vocabularyFile = "Ogden_Picturable_200.txt";
     //string vocabularyFile = "data/ErrorOpenFileTest.txt";
     //string vocabularyFile = "data/EmptyTest.txt";
     vector<string> wordList;
