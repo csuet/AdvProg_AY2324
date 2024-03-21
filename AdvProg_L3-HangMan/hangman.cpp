@@ -1,18 +1,11 @@
 #include <iostream>
-#include <cstdlib>
-#include <vector>
 #include "hangman.h"
-#include "draw.h"
 
 using std::string;
 using std::vector;
 using std::ifstream;
 using std::domain_error;
 using std::cin;
-using std::cout;
-using std::endl;
-
-extern const int MAX_MISTAKES;
 
 /***
     Args:
@@ -31,7 +24,7 @@ vector<string> readWordListFromFile(const string& filePath)
 {
     vector<string> wordList;
     string word;
-    ifstream wordFile(filePath);
+    ifstream wordFile (filePath);
     if (!wordFile.is_open()) {
         throw domain_error("Unable to open file");
     }
@@ -68,14 +61,6 @@ bool isCharInWord(const char ch, const string& word)
     Returns:
         answer (string) : the lowercase word is in the position index of wordList
 ***/
-
-string chooseWord()
-{
-    vector<string> wordList = readWordListFromFile("Ogden_Picturable_200.txt");
-    int randomIndex = generateRandomNumber(0, wordList.size() - 1);
-    return chooseWordFromList(wordList, randomIndex);
-}
-
 string chooseWordFromList(const vector<string>& wordList, int index)
 {
     // TODO: Return a lowercase word in the index position of the vector wordList.
@@ -88,9 +73,11 @@ string chooseWordFromList(const vector<string>& wordList, int index)
     Returns:
         secretWord (string): answerWord in hidden form (form of ---)
 ***/
-string generateHiddenCharacters(const string& answerWord){
+string generateHiddenCharacters(string answerWord){
     // TODO: Based on answerWord's length, generate hidden characters in form of "---"
-    return string(answerWord.length(), '-') ;
+    string secretWord(answerWord.length(), '-');
+
+    return secretWord;
 }
 
 char getInputCharacter() {
@@ -158,31 +145,19 @@ void processData(const char ch, const string& word,
                 string& correctChars,
                 int& incorrectGuess, string& incorrectChars)
 {
-    // Kiem tra xem ky tu da duoc doan truoc do chua
-    if(correctChars.find(ch) != string::npos || incorrectChars.find(ch) != string::npos)
-    {
-        cout << "Ban da doan ky tu nay truoc do. Hay chon ky tu khac: ";
-        return;
-    }
-
-    // Kiem tra xem ky tu co xuat hien trong tu hay khong
-    if(isCharInWord(ch, word))
-    {
-        // Cap nhat secretWord neu ky tu dung
+    /*** TODO
+        If ch in word:
+            update secretWord: call updateSecretWord() function
+            update correctChars: call updateEnteredChars() function
+        else:
+            update incorrectGuess: call updateIncorrectGuess() function
+            update incorrectChars: call updateEnteredChars() function
+    ***/
+    if(isCharInWord(ch, word)){
         updateSecretWord(secretWord, ch, word);
-        // Cap nhat correctChars
         updateEnteredChars(ch, correctChars);
-    }
-    else
-    {
-        // Cap nhat incorrectGuess va incorrectChars neu ky tu sai
+    } else {
         updateIncorrectGuess(incorrectGuess);
         updateEnteredChars(ch, incorrectChars);
-
-        // Kiem tra xem da doan sai qua so lan cho phep chua
-        if(incorrectGuess >= MAX_MISTAKES)
-        {
-            cout << "Game over! Ban da doan sai qua " << MAX_MISTAKES << " lan. Tu dung la: " << word << endl;
-        }
     }
 }

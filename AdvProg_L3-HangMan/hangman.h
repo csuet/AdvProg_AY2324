@@ -15,7 +15,7 @@ void updateEnteredChars(const char ch, string& correctChars);
 void updateIncorrectGuess(int& incorrectGuess);
 
 string chooseWordFromList(const vector<string>& wordList, int index);
-string generateHiddenCharacters(const string& answerWord);
+string generateHiddenCharacters(string word);
 char getInputCharacter();
 void updateSecretWord(string& secretWord, const char ch, const string& word);
 void processData(const char ch, const string& word,
