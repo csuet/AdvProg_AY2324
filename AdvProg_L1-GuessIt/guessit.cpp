@@ -28,6 +28,7 @@ int generateRandomNumber() {
 ***/
 int getPlayerGuess() {
     // TODO: Ask the player guest and return the player's number
+    int num; 
     cin >> num;
 
     return num;
