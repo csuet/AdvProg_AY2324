@@ -123,8 +123,7 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
         void
 ***/
 void updateEnteredChars(const char ch, string& chars){
-    chars += " ";
-    chars.push_back(ch);
+    chars += ch;
     chars += " ";
 }
 
