@@ -76,7 +76,7 @@ string chooseWordFromList(const vector<string>& wordList, int index)
     answer=wordList[index];
     int siz=wordList[index].size();
     for(int i=0;i<siz;i++){
-        tolower(answer[i]);
+        answer[i]=tolower(answer[i]);
     }
     
     return answer;
