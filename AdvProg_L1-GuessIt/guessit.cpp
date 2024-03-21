@@ -53,6 +53,7 @@ string getAnswer(int number, int randomNumber) {
     return answer;
 }
 
+
 /***
     Args:
         answer (string): answer from computer after compare numbers
