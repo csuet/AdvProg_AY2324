@@ -53,18 +53,6 @@ string getAnswer(int number, int randomNumber) {
     return answer;
 }
 
-void printAnswer(int guess, int secretNumber)
-{
-    if (guess > secretNumber) {
-        cout << "Your number is too big." << endl;
-    } else if (guess < secretNumber) {
-        cout << "Your number is too small." << endl;
-    } else {
-        cout << "Congratulation! You win." << endl;
-    }
-}
-
-
 /***
     Args:
         answer (string): answer from computer after compare numbers
@@ -105,38 +93,17 @@ char getPlayerOpinion() {
     return isContinued;
 }
 
-int tinhDiem(int thua)
-{
-    return (10000 - 2 * (100 - thua));
-}
-
-bool choiLai()
-{
-    char luaChon;
-    cout << "Ban co muon choi lai khong? (y/n): ";
-    cin >> luaChon;
-    return (luaChon == 'y');
-}
 
 void playGuessIt() {
-    int guess, secretNumber, thua, diemTong = 0;
-    bool choiNua;
-    do
-    {
-        secretNumber = generateRandomNumber();
-        thua = 0;
-        do
-        {
-            guess = getPlayerGuess();
-            printAnswer(guess, secretNumber);
-            thua++;
-        }while(guess != secretNumber);
-        int diemVong = tinhDiem(thua);
-        diemTong += diemVong;
-        cout << "Diem cua ban cho vong nay: " << diemVong << endl;
-        cout << "Tong diem: " << diemTong << endl;
-        choiNua = choiLai();
-    }while(choiNua);
+    int randomNumber = generateRandomNumber();
+    int number;
+    string answer;
+
+    do {
+        number = getPlayerGuess();
+        answer = getAnswer(number, randomNumber);
+        cout << answer << endl;
+    } while (!checkSuccess(answer));
 }
 
 int run() {
