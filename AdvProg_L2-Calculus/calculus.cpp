@@ -20,7 +20,7 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return acos( x );
+    return cos( x );
 }
 
 /***
@@ -31,7 +31,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return asin(x);
+    return sin(x);
 }
 
 
