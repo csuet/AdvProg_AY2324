@@ -16,10 +16,8 @@ using std::cin;
 ***/
 int generateRandomNumber(const int min, const int max)
 {
-     srand(time(nullptr));
-
-    // Tính toán số ngẫu nhiên trong phạm vi từ min đến max
-    return rand() % (max - min + 1) + min;
+    // TODO: Return a random integer number between min and max
+    return (rand() % (max - min+1)) +min;
 }
 
 vector<string> readWordListFromFile(const string& filePath)
@@ -53,17 +51,10 @@ vector<string> readWordListFromFile(const string& filePath)
 bool isCharInWord(const char ch, const string& word)
 {
     // TODO: return true if ch is in word else return false
-    return true;
-}
-    bool isCharInWord(const char ch, const string& word) {
-    // Duyệt qua từng ký tự trong từ word
-    for (char c : word) {
-
-        if (c == ch) {
-            return true;
-        }
+    for (const char x : word)
+    {
+        if (x == ch) return true;
     }
-
     return false;
 }
 
@@ -77,15 +68,14 @@ bool isCharInWord(const char ch, const string& word)
 string chooseWordFromList(const vector<string>& wordList, int index)
 {
     // TODO: Return a lowercase word in the index position of the vector wordList.
-     if (index >= 0 && index < wordList.size()) {
-            string word = wordList[index];
-      for (char& c : word) {
-            c = std::tolower(c);
-        }
-        return word;
-     }
+    string answer;
+    answer = wordList[index];
+    for (char &c : answer)
+    {
+        c = tolower(c);
+    }
 
-    else return "";
+    return answer;
 }
 
 /***
@@ -96,11 +86,10 @@ string chooseWordFromList(const vector<string>& wordList, int index)
 ***/
 string generateHiddenCharacters(string answerWord){
     // TODO: Based on answerWord's length, generate hidden characters in form of "---"
-    string secretWord;
-    for (size_t i = 0; i < answerWord.length(); ++i) {
 
-        secretWord += '-';
-    }
+
+    // Create the secret word with dashes
+    string secretWord(answerWord.length(), '-');
 
     return secretWord;
 }
@@ -121,14 +110,12 @@ char getInputCharacter() {
 ***/
 void updateSecretWord(string& secretWord, const char ch, const string& word)
 {
-    // duyen word
-    for (size_t i = 0; i < word.length(); ++i) {
-      // kiem tra
-        if (word[i] == ch) {
-          // cap nhat
-            secretWord[i] = ch;
-        }
+    // TODO: Update the secret word if the character ch is in the answer word.
+    for (int i = 0 ; i < word.length(); i++)
+    {
+        if (word[i]==ch) secretWord[i] = ch;
     }
+
 }
 
 /***
@@ -140,7 +127,7 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 ***/
 void updateEnteredChars(const char ch, string& chars){
     // TODO: append the character ch is in end of the text chars
-      chars.push_back(ch);
+     chars += ch;
 }
 
 /***
@@ -170,12 +157,18 @@ void processData(const char ch, const string& word,
                 string& correctChars,
                 int& incorrectGuess, string& incorrectChars)
 {
-    if (word.find(ch) != string::npos) {
-        // Nếu ch xuất hiện trong word
+    /*** TODO
+        If ch in word:
+            update secretWord: call updateSecretWord() function
+            update correctChars: call updateEnteredChars() function
+        else:
+            update incorrectGuess: call updateIncorrectGuess() function
+            update incorrectChars: call updateEnteredChars() function
+    ***/
+    if (isCharInWord(ch, word)) {
         updateSecretWord(secretWord, ch, word);
         updateEnteredChars(ch, correctChars);
     } else {
-        // Nếu ch không xuất hiện trong word
         updateIncorrectGuess(incorrectGuess);
         updateEnteredChars(ch, incorrectChars);
     }
