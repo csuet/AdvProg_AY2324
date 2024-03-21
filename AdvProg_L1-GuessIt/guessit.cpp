@@ -133,7 +133,7 @@ void playGuessIt() {
     } while (!checkSuccess(answer));
 }
 
-int run() {
+int main() {
     srand(time(0));
     char isContinued;
     do {
