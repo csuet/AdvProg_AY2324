@@ -126,7 +126,7 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
                     if(j == x)
                     {
                         dem++;
-                        break;
+                        //break;
                     }
                 }
             }
@@ -233,12 +233,12 @@ vector<string> filterWordsByMask(const vector<string>& words, const string& mask
     }
     return answer;
 }
-
+//
 //int main()
 //{   string fileNameCandidateWords, fileNameSelectedChars, fileNameNextChar;
-//    fileNameCandidateWords = "test_data/find_best_char/candidate_words/3.txt";
-//    fileNameSelectedChars = "test_data/find_best_char/selected_chars/3.txt";
-//    fileNameNextChar = "test_data/find_best_char/next_char/3.txt";
+//    fileNameCandidateWords = "test_data/find_best_char/candidate_words/7.txt";
+//    fileNameSelectedChars = "test_data/find_best_char/selected_chars/7.txt";
+//    fileNameNextChar = "test_data/find_best_char/next_char/7.txt";
 //
 //    ifstream fileCandidateWords(fileNameCandidateWords);
 //        ifstream fileSelectedChars(fileNameSelectedChars);
