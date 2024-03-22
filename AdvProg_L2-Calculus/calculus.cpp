@@ -20,7 +20,19 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    double x1 = 1;
+    float def;
+    double coss = 1;
+    double oldcoss = 1;
+    int i = 1;
+    do{
+        def = 2*i*(2*i-1);
+        x1 = -x1*x*x/def;
+        oldcoss = coss;
+        coss += x1;
+        i++;
+    }while(abs(coss-oldcoss)>=0.0001);
+    return coss;
 }
 
 /***
@@ -31,7 +43,19 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    double x1 = x;
+    float def;
+    double sinn = x;
+    double oldsinn = 1;
+    int i = 1;
+    do{
+        def = 2*i*(2*i+1);
+        x1 = -x1*x*x/def;
+        oldsinn = sinn;
+        sinn += x1;
+        i++;
+    }while(abs(sinn-oldsinn)>=0.0001);
+    return sinn;
 }
 
 
@@ -46,7 +70,16 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
-    
-    return 0;
+    else
+    {
+    	double x1 = x;
+        double root;
+        while(1)
+        {
+            root = 0.5*(x1 + x/x1);
+            if(abs(root-x1)<0.0001) break;
+            x1 = root;
+        }
+        cout<<root;
+	}
 }
