@@ -11,7 +11,7 @@ using namespace std;
 ***/
 int generateRandomNumber(const int min, const int max)
 {
-    int n = min + rand()%(max - min + 1);
+    int n = min + rand()  % (max - min + 1);
     return n;
 }
 
