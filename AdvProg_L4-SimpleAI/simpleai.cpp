@@ -113,8 +113,30 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
 {
     char answer;
     //Write your code here
-    map<char, int> occ = countOccurrences(candidateWords);
-    return findMostFrequentChar(occ, selectedChars);
+    int best = 0;
+    for(char x='a'; x<='z'; ++x)
+    {
+        if(selectedChars.count(x)==0)
+        {
+            int dem = 0;
+            for(auto i: candidateWords)
+            {
+                for(auto j: i)
+                {
+                    if(j == x)
+                    {
+                        dem++;
+                        break;
+                    }
+                }
+            }
+            if(dem > best)
+            {
+                best = dem;
+                answer = x;
+            }
+        }
+    }
     return answer;
 }
 
@@ -211,3 +233,37 @@ vector<string> filterWordsByMask(const vector<string>& words, const string& mask
     }
     return answer;
 }
+
+//int main()
+//{   string fileNameCandidateWords, fileNameSelectedChars, fileNameNextChar;
+//    fileNameCandidateWords = "test_data/find_best_char/candidate_words/3.txt";
+//    fileNameSelectedChars = "test_data/find_best_char/selected_chars/3.txt";
+//    fileNameNextChar = "test_data/find_best_char/next_char/3.txt";
+//
+//    ifstream fileCandidateWords(fileNameCandidateWords);
+//        ifstream fileSelectedChars(fileNameSelectedChars);
+//        ifstream fileNextChar(fileNameNextChar);
+//        vector<string> candidateWords;
+//        set<char> selectedChars;
+//        char nextChar;
+//
+//        string tmpWord;
+//        char tmpChar;
+//
+//        while(getline(fileCandidateWords, tmpWord)){
+//            candidateWords.push_back(tmpWord);
+//        }
+//
+//        while(fileSelectedChars >> tmpChar){
+//            selectedChars.insert(tmpChar);
+//        }
+//
+//        fileNextChar >> nextChar;
+//
+//        fileCandidateWords.close();
+//        fileSelectedChars.close();
+//        fileNextChar.close();
+//        //cout<<1;
+//        cout<<findBestChar(candidateWords, selectedChars);
+//
+//}
