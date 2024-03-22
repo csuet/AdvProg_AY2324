@@ -1,6 +1,5 @@
 #include <iostream>
 #include "hangman.h"
-
 using std::string;
 using std::vector;
 using std::ifstream;
@@ -126,6 +125,7 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 ***/
 void updateEnteredChars(const char ch, string& chars){
     chars += ch;
+    chars += " ";
     // TODO: append the character ch is in end of the text chars
 }
 
