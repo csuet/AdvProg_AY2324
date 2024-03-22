@@ -56,7 +56,7 @@ bool isCharInWord(const char ch, const string& word)
     if (word.find(ch) != string::npos)
        return true;
     else
-       return false
+       return false;
 }
 
 /***
@@ -70,7 +70,7 @@ string chooseWordFromList(const vector<string>& wordList, int index)
 {
     // TODO: Return a lowercase word in the index position of the vector wordList.
     string answer = wordList[index];
-    std::transform(answer.begin(), answer.end(), answer.begin(), ::tolower)
+    std::transform(answer.begin(), answer.end(), answer.begin(), ::tolower);
     return answer;
 }
 
@@ -86,7 +86,7 @@ string generateHiddenCharacters(string answerWord){
     int wordLen = answerWord.length();
     while(wordLen--)
      {
-     	secretWord += "-"
+     	secretWord += "-";
 	 }
     return secretWord;
 }
