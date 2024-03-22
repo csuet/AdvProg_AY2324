@@ -18,9 +18,11 @@ double mySqrt(double x);
     Returns:
         double: cosine of x
 ***/
-double myCos(double x) 
+double myCos(double x)
 {
-    return 0.0;
+    double result1;
+    result1=cos(x);
+    return result1;
 }
 
 /***
@@ -31,7 +33,9 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    double result2;
+    result2=sin(x);
+    return result2;
 }
 
 
@@ -42,11 +46,13 @@ double mySin(double x)
         double: square root of x
 ***/
 double mySqrt(double x) {
+    double rs3;
     if (x < 0) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
+    else rs3=sqrt(x);
 
-    
-    return 0;
+
+    return rs3;
 }
