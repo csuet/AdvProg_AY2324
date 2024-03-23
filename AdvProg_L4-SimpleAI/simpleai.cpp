@@ -127,9 +127,9 @@ bool isCorrectChar(char ch, const string& mask) {
   for (size_t i = 0; i < mask.length(); ++i) {
     if (mask[i] == '-' && mask[i] == ch) {
       return true;
+    }
   }
   return false;
-  }
 }
 
 
