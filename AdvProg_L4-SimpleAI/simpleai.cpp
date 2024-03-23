@@ -125,12 +125,21 @@ string getWordMask(char nextChar)
 
 bool isCorrectChar(char ch, const string& mask) {
   for (size_t i = 0; i < mask.length(); ++i) {
-    if (mask[i] != '-' && mask[i] != ch) {
+    if (mask[i] == '-' && mask[i] == ch) {
+      return true;
+    } else if (mask[i] != '-' && mask[i] != ch) {
       return false;
     }
   }
-  return true;
+  return false;
 }
+
+
+
+
+
+
+
 
 /***
     Args:
@@ -140,12 +149,12 @@ bool isCorrectChar(char ch, const string& mask) {
         (Example: -False: g__d
                   -True:  good)
 ***/
-bool isWholeWord(const string& mask)
-{
-    //Write your code here
-    if (mask.find('-') != -1) return false;
-    return true;
-    
+bool isWholeWord(const string& mask) {
+  if (mask.empty() || mask[0] == '-' || mask[mask.length() - 1] == '-') {
+    return false;
+  }
+
+  return true;
 }
 
 /***
@@ -160,14 +169,20 @@ bool isWholeWord(const string& mask)
                  - True: mask(-ood), char 'd'  vs word(good)
 
 ***/
-bool wordConformToMask(const string& word, const string& mask, char ch) 
-{
-    
-    //Write your code here
-    for (int i = 0; i < word.size(); i++)
-        if (mask[i] != '-' && word[i] != mask[i]) return false;
-    return true;
-    
+bool wordConformToMask(const string& word, const string& mask, char ch) {
+  if (word.length() != mask.length()) {
+    return false;
+  }
+
+  for (size_t i = 0; i < word.length(); ++i) {
+    if (mask[i] == '-' && word[i] != ch) {
+      return false;
+    } else if (mask[i] != '-' && mask[i] != word[i]) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 /***
@@ -182,12 +197,13 @@ bool wordConformToMask(const string& word, const string& mask, char ch)
                   predicted char: d
                   Return: good,hood
 ***/
-vector<string> filterWordsByMask(const vector<string>& words, const string& mask, char ch)
-{
-    vector<string> answer;
-    //Write your code here
-    for (int i = 0; i < words.size(); i++) {
-        if (wordConformToMask(words[i], mask, ch)) answer.push_back(words[i]);
+vector<string> filterWordsByMask(const vector<string>& words, const string& mask, char ch) {
+  vector<string> answer;
+  for (const string& word : words) {
+    if (wordConformToMask(word, mask, ch)) {
+      answer.push_back(word);
     }
-    return answer;
+  }
+
+  return answer;
 }
