@@ -233,6 +233,8 @@ vector<string> filterWordsByMask(const vector<string>& words, const string& mask
     }
     return answer;
 }
+
+
 //
 //int main()
 //{   string fileNameCandidateWords, fileNameSelectedChars, fileNameNextChar;
