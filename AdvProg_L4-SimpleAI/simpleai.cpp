@@ -129,6 +129,7 @@ bool isCorrectChar(char ch, const string& mask) {
       return true;
   }
   return false;
+  }
 }
 
 
