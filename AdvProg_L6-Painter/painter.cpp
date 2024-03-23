@@ -15,32 +15,32 @@ void Painter::setColor(SDL_Color color)
 
 
 /***
-    Args:  (int): number of pixel for jumping forward
+    Args: numPixel (int): number of pixel for jumping forward
 
     Returns:
         None
 ***/
-void Painter::jumpForward(int )
+void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
     double rad= (angle/180)*pi;
-    x += cos(rad) * length;
-    y -= sin(rad) * length;
+    x += cos(rad) * numPixel;
+    y -= sin(rad) * numPixel;
 }
 
 
 /***
-    Args:  (int): number of pixel for jumping backward
+    Args: numPixel (int): number of pixel for jumping backward
 
     Returns:
         None
 ***/
-void Painter::jumpBackward(int )
+void Painter::jumpBackward(int numPixel)
 {
     // TODO: jump the painter backward
     double rad= (angle/180)*pi;
-    x -= cos(rad) * length;
-    y += sin(rad) * length;
+    x -= cos(rad) * numPixel;
+    y += sin(rad) * numPixel;
 }
 
 
@@ -166,16 +166,16 @@ void Painter::createSquare(int size)
 }
 
 
-void Painter::moveForward(int )
+void Painter::moveForward(int numPixel)
 {
     int preX = x, preY = y;
-    jumpForward();
+    jumpForward(numPixel);
     SDL_RenderDrawLine(renderer, preX, preY, x, y);
 }
 
 
-void Painter::moveBackward(int )
+void Painter::moveBackward(int numPixel)
 {
-    moveForward(-);
+    moveForward(-numPixel);
 }
 
