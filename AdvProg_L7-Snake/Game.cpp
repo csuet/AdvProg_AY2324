@@ -57,11 +57,11 @@ void Game::snakeMoveTo(Position pos) {
 	//
 	//
 	// END CODE HERE
-	if (squares[pos.x][pos.y] == CELL_OFF_BOARD || squares[pos.x][pos.y] == CELL_SNAKE) {
+	if (squares[pos.y][pos.x] == CELL_OFF_BOARD || squares[pos.y][pos.x] == CELL_SNAKE || !pos.isInsideBox(0, 0, width, height)) {
         setGameStatus(GAME_OVER);
         return;
 	}
-	if (squares[pos.x][pos.y] == CELL_CHERRY) {
+	if (squares[pos.y][pos.x] == CELL_CHERRY) {
         score ++;
         snake.eatCherry();
         addCherry();
@@ -215,7 +215,7 @@ void Game::setCellType(Position pos, CellType cellType)
 	//
 	// END CODE HERE
 	if (pos.isInsideBox(0, 0, width, height)) {
-        squares[pos.x][pos.y] = cellType;
+        squares[pos.y][pos.x] = cellType;
 	}
 }
 
