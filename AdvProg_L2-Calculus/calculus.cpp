@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 #include <string>
 #include <cmath>
 
@@ -6,6 +6,8 @@ using std::string;
 using std::cout;
 using std::endl;
 using std::stod;
+
+const double pi = 3.14159265359;
 
 
 double mySin(double x);
@@ -18,9 +20,24 @@ double mySqrt(double x);
     Returns:
         double: cosine of x
 ***/
-double myCos(double x) 
+double myCos(double x)
 {
-    return 0.0;
+    double res=0;
+    int j=0;
+    long long fac=1;
+    for(int i=0;i<=12;++i)
+    {
+        while(j<2*i)
+        {
+            j++;
+            fac*=j;
+        }
+        double add = pow(x,2*i)/fac;
+        if(i%2==1) add=-add;
+        res+=add;
+    }
+
+    return res;
 }
 
 /***
@@ -31,7 +48,23 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    double res=0;
+    int j=0;
+    long long fac=1;
+    for(int i=0;i<=12;++i)
+    {
+        while(j<2*i+1)
+        {
+            j++;
+            fac*=j;
+            //cout<<fac<<" ";
+        }
+        double add = pow(x,2*i+1)/fac;
+        if(i%2==1) add=-add;
+        res+=add;
+    }
+
+    return res;
 }
 
 
@@ -47,6 +80,17 @@ double mySqrt(double x) {
         exit(1);
     }
 
-    
-    return 0;
+    double an=10;
+    for(int i=0;i<15;++i)
+    {
+        an=(an+x/an)/2;
+        //cout<<an<<" ";
+    }
+
+    return an;
 }
+//
+//int main()
+//{
+//    cout<<mySin(pi-pi/3)<<" "<<sin(pi/3);
+//}
