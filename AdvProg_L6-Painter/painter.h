@@ -43,7 +43,7 @@ class Painter
         int getX() { return x; }
         int getY() { return y; }
         SDL_Renderer* getRenderer() { return this->renderer; }
-        void setAngle(double angle) { this->angle = angle}
+        void setAngle(double angle) { this->angle = angle; }
         double getAngle() { return angle; }
         int getWidth() { return width; }
         int getHeight() { return height; }
