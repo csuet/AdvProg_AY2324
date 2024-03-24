@@ -60,30 +60,30 @@ protected:
   void testMyCos(void){
       int testSize = 4;
       std::string sharedName = "[Cos test] ";
-      TestStruct cosTestCases[testSize]  = 
+      TestStruct cosTestCases[testSize]  =
       {
         {
-            sharedName + "test normal 1", 
-            isClose(myCos(0), cos(0)), 
-            true, 
+            sharedName + "test normal 1",
+            isClose(myCos(0), cos(0)),
+            true,
             "cos(0) should be close to 1.0 \n"
         },
         {
-            sharedName + "test normal 2", 
-            isClose(myCos(PI_TEST/4), cos(PI_TEST/4)), 
-            true, 
+            sharedName + "test normal 2",
+            isClose(myCos(PI_TEST/4), cos(PI_TEST/4)),
+            true,
             "cos(PI/4) should be close to" + std::to_string(cos(PI_TEST/4)) + " \n"
         },
         {
-            sharedName + "test opposite angle", 
-            isClose(myCos(-1 * PI_TEST/3), cos(PI_TEST/3)), 
-            true, 
+            sharedName + "test opposite angle",
+            isClose(myCos(-1 * PI_TEST/3), cos(PI_TEST/3)),
+            true,
             "cos(-1 * PI/3) be should close to cos(PI/3)"
         },
         {
-            sharedName + "test cos(60) and cos(30)", 
-            isClose(myCos(PI_TEST/3), cos(PI_TEST/6)), 
-            false, 
+            sharedName + "test cos(60) and cos(30)",
+            isClose(myCos(PI_TEST/3), cos(PI_TEST/6)),
+            false,
             "cos(PI/3) should not be close to cos(PI/6)\n"
         },
       };
@@ -94,30 +94,30 @@ protected:
   void testMySin(void){
       int testSize = 4;
       std::string sharedName = "[Sin test] ";
-      TestStruct sinTestCases[testSize]  = 
+      TestStruct sinTestCases[testSize]  =
       {
         {
-            sharedName + "test normal 1", 
-            isClose(mySin(0), sin(0)), 
-            true, 
+            sharedName + "test normal 1",
+            isClose(mySin(0), sin(0)),
+            true,
             "sin(0) should be close to 0.0 \n"
         },
         {
-            sharedName + "test normal 2", 
-            isClose(mySin(PI_TEST/4), sin(PI_TEST/4)), 
-            true, 
+            sharedName + "test normal 2",
+            isClose(mySin(PI_TEST/4), sin(PI_TEST/4)),
+            true,
             "sin(0) should be close to" + std::to_string(sin(PI_TEST/4)) +  " \n"
         },
         {
-            sharedName + "supplementary angles", 
-            isClose(mySin(PI_TEST - PI_TEST/3), sin(PI_TEST/3)), 
+            sharedName + "supplementary angles",
+            isClose(mySin(PI_TEST - PI_TEST/3), sin(PI_TEST/3)),
             true,
             "sin(PI - PI/3) should be close to sin(PI/3)\n"
         },
         {
-            sharedName + "test sin(60) and sin(30)", 
-            isClose(mySin(PI_TEST/3), sin(PI_TEST/6)), 
-            false, 
+            sharedName + "test sin(60) and sin(30)",
+            isClose(mySin(PI_TEST/3), sin(PI_TEST/6)),
+            false,
             "sin(PI/3) should not be close to sin(PI/6)\n"
         },
       };
@@ -128,28 +128,28 @@ protected:
   void testMySqrt(void){
       int testSize = 4;
       std::string sharedName = "[Sqrt test] ";
-      TestStruct sinTestCases[testSize]  = 
+      TestStruct sinTestCases[testSize]  =
       {
         {
-            sharedName + "test normal 1", 
-            isClose(mySqrt(4), 2.0), 
-            true, 
+            sharedName + "test normal 1",
+            isClose(mySqrt(4), 2.0),
+            true,
             "sqrt(4) should be 2 \n"
         },
         {
-            sharedName + "test normal 2", 
-            isClose(mySqrt(10), sqrt(10)),  
+            sharedName + "test normal 2",
+            isClose(mySqrt(10), sqrt(10)),
             true,
             "sqrt(10) should be close to " + std::to_string(sqrt(10)) +  " \n"
         },
         {
-            sharedName + "test normal 3 ", 
+            sharedName + "test normal 3 ",
             isClose(mySqrt(10), sqrt(11)),
             false,
             "sqrt(10) should not be close to sqrt(11). Maximum difference: " + std::to_string(EPSILON)+ "\n"
         },
         {
-            sharedName + "test normal 4 ", 
+            sharedName + "test normal 4 ",
             isClose(mySqrt(100), sqrt(100)),
             true,
             "sqrt(100) must be 10\n"
