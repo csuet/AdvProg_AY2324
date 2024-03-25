@@ -18,7 +18,7 @@ using std::cin;
 ***/
 int generateRandomNumber(const int min, const int max)
 {
-    int genNum = rand() % (max - min) + min;
+    int genNum = rand() % (max - min + 1) + min;
     return genNum;
 }
 
