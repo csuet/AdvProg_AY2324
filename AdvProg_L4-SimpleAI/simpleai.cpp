@@ -136,9 +136,14 @@ string getWordMask(char nextChar)
 
 bool isCorrectChar(char ch, const string& mask)
 {
-    bool answer;
+    bool answer = false;
     //Write your code here
-    answer = (find(mask.begin(), mask.end(), ch) != mask.end());
+    for(auto it : mask){
+        if (it == ch){
+            answer = true;
+            break;
+        }
+    }
     return answer;
 }
 
@@ -152,9 +157,14 @@ bool isCorrectChar(char ch, const string& mask)
 ***/
 bool isWholeWord(const string& mask)
 {
-     bool answer;
+     bool answer = true;
     //Write your code here
-    answer = (find(mask.begin(), mask.end(), MASK_CHAR) == mask.end());
+    for(auto it : mask){
+        if (it == MASK_CHAR){
+            answer = false;
+            break;
+        }
+    }
     return answer;
 }
 
