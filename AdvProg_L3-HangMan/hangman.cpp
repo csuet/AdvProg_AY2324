@@ -139,7 +139,7 @@ void updateEnteredChars(const char ch, string& chars)
 void updateIncorrectGuess(int& incorrectGuess)
 {
     // TODO: increase the value of incorrectGuess by 1
-    if ( !word.find(ch)) incorrectGuess++;
+    incorrectGuess++;
 }
 
 /***
@@ -169,12 +169,12 @@ void processData(const char ch, const string& word,
     if(isCharInWord(ch,word))
     {
         updateSecretWord(secretWord,ch,word);
-        updateEnteredChars(ch, chars);
+        updateEnteredChars(ch, correctChars);
     }
     else
     {
         updateIncorrectGuess(incorrectGuess);
-        updateEnteredChars(ch,chars);
+        updateEnteredChars(ch,incorrectChars);
     }
 }
 
