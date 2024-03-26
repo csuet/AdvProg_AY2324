@@ -18,10 +18,9 @@ double mySqrt(double x);
     Returns:
         double: cosine of x
 ***/
-
 double myCos(double x)
 {
-    double sum=1, oldsum=0;
+    double sum=1, oldSum=0;
     double k=1, h=1;
     int i=2;
     while ( fabs(sum-oldSum) > 0.001 )
@@ -43,8 +42,6 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    double x;
-    cin >> x;
     double sum=x, oldSum=0;
     double k=1, h=x;
     int i=3;
@@ -74,6 +71,6 @@ double mySqrt(double x)
     }
     double result = 1.0;
     while (fabs(result * result - x) / x >= 0.0001)
-        result = (xs / result  - result) / 2 + result;
+        result = (x / result  - result) / 2 + result;
     return result;
 }
