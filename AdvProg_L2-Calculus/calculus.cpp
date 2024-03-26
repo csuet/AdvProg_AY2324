@@ -20,7 +20,16 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    double term = 1.0;
+    double sum = term;
+    int n = 0;
+    while (true) {
+        n += 2;
+        term *= -(x * x) / (n * (n - 1));
+        if (fabs(term) < 1 * pow(10 , - 9)) break;
+        sum += term;
+    }
+    return sum;
 }
 
 /***
@@ -31,7 +40,15 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    double result = 0;
+    double term = x;
+    int n = 1;
+    while (fabs(term) >= 1 * pow(10, -9)) {
+        result += term;
+        term *= -(x * x) / ((2 * n) * (2 * n + 1));
+        n++;
+    }
+    return result;
 }
 
 
@@ -48,5 +65,5 @@ double mySqrt(double x) {
     }
 
     
-    return 0;
+    return sqrt(x);
 }
