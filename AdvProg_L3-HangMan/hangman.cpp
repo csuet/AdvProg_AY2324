@@ -7,8 +7,6 @@
 #include <cstdlib>
 #include <ctime>
 using namespace std;
-srand(time(NULL));
-
 /***
     Args:
         min (int): left margin of a range
