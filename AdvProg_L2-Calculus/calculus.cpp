@@ -22,13 +22,14 @@ double mySqrt(double x);
 double myCos(double x)
 {
     double sum=1, oldsum=0;
-    double k=1;
+    double k=1, h=1;
     int i=2;
     while ( fabs(sum-oldSum) > 0.001 )
     {
         oldSum=sum;
         k=k*i*(i-1);
-        sum+=pow(-1,i/2)*pow(x,i)/k;
+        h=h*(-x*x);
+        sum+=h/k;
         i+=2;
     }
     return sum;
@@ -69,6 +70,6 @@ double mySqrt(double x)
 {
     double result = 1.0;
     while (fabs(result * result - x) / x >= 0.0001)
-        result = (x / result  - result) / 2 + result;
+        result = (xs / result  - result) / 2 + result;
     return result;
 }
