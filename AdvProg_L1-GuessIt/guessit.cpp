@@ -91,7 +91,7 @@ char getPlayerOpinion() {
 
     return isContinued;
 }
-
+  
 
 void playGuessIt() {
     int randomNumber = generateRandomNumber();

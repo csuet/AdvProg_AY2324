@@ -15,7 +15,7 @@ int readWordLen()
     cin >> wordLen;
     return wordLen;
     
-}
+}  
 
 /***
     Args:
