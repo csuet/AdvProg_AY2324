@@ -1,11 +1,12 @@
 #include <iostream>
 #include "hangman.h"
-
-using std::string;
-using std::vector;
-using std::ifstream;
-using std::domain_error;
-using std::cin;
+#include <string>
+#include <vector>
+#include <fstream>
+#include <stdexcept>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
 
 /***
     Args:
@@ -18,7 +19,7 @@ int generateRandomNumber(const int min, const int max)
 {
     // TODO: Return a random integer number between min and max
     srand(time(NULL));
-    int num=rand()%(max-min)+min;
+    int num=rand()%(max-min+1)+min;
     return num;
 }
 
@@ -27,14 +28,16 @@ vector<string> readWordListFromFile(const string& filePath)
     vector<string> wordList;
     string word;
     ifstream wordFile (filePath);
-    if (!wordFile.is_open()) {
+    if (!wordFile.is_open())
+    {
         throw domain_error("Unable to open file");
     }
 
     //while ( getline (wordFile, word) ){  // Thong thuong doc tung line.
-                                           // Chuong trinh nay cung chay.
-    while (wordFile >> word) {  // Nhung voi chuong trinh nay, doc tung word cung duoc
-                                // Tuc ca 2 cach doc deu chay.
+    // Chuong trinh nay cung chay.
+    while (wordFile >> word)    // Nhung voi chuong trinh nay, doc tung word cung duoc
+    {
+        // Tuc ca 2 cach doc deu chay.
         wordList.push_back(word);
         //cout << word << '\n';
         cout << word <<'\n';
@@ -79,18 +82,21 @@ string chooseWordFromList(const vector<string>& wordList, int index)
     Returns:
         secretWord (string): answerWord in hidden form (form of ---)
 ***/
-string generateHiddenCharacters(string answerWord){
+string generateHiddenCharacters(string answerWord)
+{
     // TODO: Based on answerWord's length, generate hidden characters in form of "---"
     string secretWord;
     int n = answerWord.length();
     while(n>0)
     {
         secretWord+='_';
+        n--;
     }
     return secretWord;
 }
 
-char getInputCharacter() {
+char getInputCharacter()
+{
     char ch;
     cin >> ch;
     return tolower(ch);
@@ -118,7 +124,8 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
     Returns:
         void
 ***/
-void updateEnteredChars(const char ch, string& chars){
+void updateEnteredChars(const char ch, string& chars)
+{
     // TODO: append the character ch is in end of the text chars
     chars+=ch;
 }
@@ -129,7 +136,8 @@ void updateEnteredChars(const char ch, string& chars){
     Returns:
         void
 ***/
-void updateIncorrectGuess(int& incorrectGuess){
+void updateIncorrectGuess(int& incorrectGuess)
+{
     // TODO: increase the value of incorrectGuess by 1
     if ( !word.find(ch)) incorrectGuess++;
 }
@@ -146,9 +154,9 @@ void updateIncorrectGuess(int& incorrectGuess){
         void
 ***/
 void processData(const char ch, const string& word,
-                string& secretWord,
-                string& correctChars,
-                int& incorrectGuess, string& incorrectChars)
+                 string& secretWord,
+                 string& correctChars,
+                 int& incorrectGuess, string& incorrectChars)
 {
     /*** TODO
         If ch in word:
@@ -158,9 +166,15 @@ void processData(const char ch, const string& word,
             update incorrectGuess: call updateIncorrectGuess() function
             update incorrectChars: call updateEnteredChars() function
     ***/
-    updateSecretWord(secretWord,ch,word);
-    updateEnteredChars(ch, chars);
-    updateIncorrectGuess(incorrectGuess);
-    updateEnteredChars(ch,chars);
+    if(isCharInWord(ch,word))
+    {
+        updateSecretWord(secretWord,ch,word);
+        updateEnteredChars(ch, chars);
+    }
+    else
+    {
+        updateIncorrectGuess(incorrectGuess);
+        updateEnteredChars(ch,chars);
+    }
 }
 
