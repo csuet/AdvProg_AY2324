@@ -17,6 +17,17 @@ int readWordLen()
     
 }
 
+bool find(const string &s, const char &c)
+{
+    for (auto &i : s) {
+        if (i == c) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 /***
     Args:
         wordLen (int): The desired length of input word
@@ -136,7 +147,7 @@ bool isCorrectChar(char ch, const string& mask)
 {
     bool answer;
     //Write your code here
-    answer = (find(mask.begin(), mask.end(), ch) != mask.end());
+    answer = find(mask, ch);
     return answer;
 }
 
@@ -152,7 +163,7 @@ bool isWholeWord(const string& mask)
 {
      bool answer;
     //Write your code here
-     answer = !(find(mask.begin(), mask.end(), '_') != mask.end());
+     answer = !find(mask, '-');
      return answer;
 }
 
@@ -179,7 +190,7 @@ bool wordConformToMask(const string& word, const string& mask, char ch)
             break;
         }
     }
-    if (find(word.begin(), word.end(), ch) == word.end()) {
+    if (find(word, ch)) {
         answer = false;
     }
     return answer;
