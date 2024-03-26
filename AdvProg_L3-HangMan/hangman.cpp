@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <ctime>
 using namespace std;
+srand(time(NULL));
 
 /***
     Args:
@@ -18,7 +19,6 @@ using namespace std;
 int generateRandomNumber(const int min, const int max)
 {
     // TODO: Return a random integer number between min and max
-    srand(time(NULL));
     int num=rand()%(max-min+1)+min;
     return num;
 }
