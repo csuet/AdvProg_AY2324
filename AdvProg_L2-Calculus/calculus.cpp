@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <cmath>
-#include "calculus.h"
 
 using std::string;
 using std::cout;
@@ -21,30 +20,17 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    
-     double result = 1.0;
-    double term = 1.0;
-    int factorial = 1; 
-    int i = 2; 
+    double a = 2, giaiThua = 1;
+    double sum = 1;
+    double temp;
+    do {
+        giaiThua *= a * (a-1);
+        temp = pow(-1, a/2) * pow(x, a) / giaiThua;
+        sum += temp;
+        a += 2;
+    } while(a <= 300);
 
-    double prevSequence = 1;
-    double currentSequence = 1 - (x * x) / 2; 
-
-    const double tolerance = 0.001;
-
-    while (std::abs(prevSequence - currentSequence) >= tolerance) { 
-        prevSequence = currentSequence;
-
-        term *= -x * x;
-        factorial *= (2 * i - 1) * (2 * i); 
-        currentSequence += term / factorial;
-
-        i += 2;
-
-        result = currentSequence; 
-    }
-
-    return result;
+    return sum;
 }
 
 /***
@@ -55,23 +41,17 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
- double result = x;
-    double term = x;
-    int factorial = 3;
+    double a = 2, giaiThua = 1;
+    double sum = x;
+    double temp;
+    do {
+        giaiThua *= (2*a-1) * (2*a-2);
+        temp = pow(-1, a+1) * pow(x, 2*a - 1) / giaiThua;
+        sum += temp;
+        a++;
+    } while(a <= 300);
 
-    double prevSequence = x; 
-    double currentSequence = x;
-
-    for (int i = 2; i <= 10; ++i) {
-        term *= -x * x / factorial;
-        prevSequence = currentSequence;
-        currentSequence += term;
-
-        result = currentSequence; 
-        factorial *= (i + 1);
-    }
-
-    return result;
+    return sum;
 }
 
 
@@ -86,12 +66,14 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-    double guess = 1.0;
-  double epsilon = 0.00001; 
 
-  while (std::abs(guess * guess - x) > epsilon) {
-    guess = (guess + x / guess) / 2.0;
-  }
+    int a = 0;
+    double temp = x;
 
-  return guess;
+    do{
+        temp = temp - (pow(temp, 2)-x)/(2*temp);
+        a++;
+    } while (a <= 100);
+
+    return temp;
 }
