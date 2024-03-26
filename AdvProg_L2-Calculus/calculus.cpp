@@ -68,6 +68,10 @@ double mySin(double x)
 ***/
 double mySqrt(double x)
 {
+    if (x < 0) {
+        cout << "Invalid argument" << endl;
+        exit(1);
+    }
     double result = 1.0;
     while (fabs(result * result - x) / x >= 0.0001)
         result = (xs / result  - result) / 2 + result;
