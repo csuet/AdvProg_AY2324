@@ -23,7 +23,7 @@ void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
     x += numPixel * cos(angle);
-    y += numPixel * sin(angle);
+    y += numPixel * -sin(angle);
 }
 
 
