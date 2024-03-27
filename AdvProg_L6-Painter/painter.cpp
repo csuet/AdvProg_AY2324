@@ -22,7 +22,7 @@ void Painter::setColor(SDL_Color color)
 void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
-    double radian = angle * 3.141592654 / 180.0;
+    double radian = angle * 3.141592653589793 / 180.0;
     x += numPixel * (int)cos(radian);
     y += numPixel * -(int)sin(radian);
 }
