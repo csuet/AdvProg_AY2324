@@ -51,7 +51,6 @@ void Painter::turnLeft(double degree)
     // TODO: rotate left the painter
     angle+= degree;
     angle = fmod(angle,360.0);
-    if ( angle < 0 ) angle += 360.0;
 }
 
 
