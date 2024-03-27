@@ -49,7 +49,7 @@ void Painter::jumpBackward(int numPixel)
 void Painter::turnLeft(double degree)
 {
     // TODO: rotate left the painter
-    this->angle=(this->angle+degree)%360;
+    this->angle=(this->angle+(int)degree)%360;
 }
 
 /***
@@ -61,7 +61,7 @@ void Painter::turnLeft(double degree)
 void Painter::turnRight(double degree)
 {
     // TODO: rotate right the painter
-    this->angle=(this->angle-degree+360)%360;
+    this->angle=(this->angle-(int) degree+360)%360;
 }
 
 /***
@@ -74,7 +74,7 @@ void Painter::randomColor()
 {
     // TODO: set random color
     int r=rand()%256,g=rand()%256,b=rand()%256;
-    Painter.color={r,g,b};
+    this->color={r,g,b};
 }
 
 /***
