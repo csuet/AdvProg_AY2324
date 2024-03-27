@@ -204,7 +204,7 @@ bool wordConformToMask(const string& word, const string& mask, char ch)
             if (mask[i]=='-' && word[i]==ch)
             {
                 answer=false;
-                break;
+                break;  
             }
             if (mask[i]!='-' && mask[i]!=word[i])
             {
