@@ -49,6 +49,7 @@ void Painter::jumpBackward(int numPixel)
 void Painter::turnLeft(double degree)
 {
     // TODO: rotate left the painter
+    if ( degree == 0 ) return;
     double rad = degree *(M_PI/180.0);
     double x1=x, y1=y;
     x = x1*cos(rad)-y1*sin(rad);
