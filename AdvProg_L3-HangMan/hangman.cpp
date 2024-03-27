@@ -16,8 +16,9 @@ using std::cin;
 ***/
 int generateRandomNumber(const int min, const int max)
 {
-    // TODO: Return a random integer number between min and max
-    return 1;
+    srand(time(0));
+    int x = rand()% min + max;
+    return x;
 }
 
 vector<string> readWordListFromFile(const string& filePath)
@@ -50,7 +51,14 @@ vector<string> readWordListFromFile(const string& filePath)
 ***/
 bool isCharInWord(const char ch, const string& word)
 {
-    // TODO: return true if ch is in word else return false
+    bool found = false;
+
+    for (char c : word) {
+        if (c == ch) {
+            found = true;
+            break;
+        }
+    }
     return true;
 }
 
