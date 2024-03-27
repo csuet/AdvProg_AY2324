@@ -22,8 +22,8 @@ void Painter::setColor(SDL_Color color)
 void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
-    x -= numPixel;
-    y -= numPixel;
+    x += numPixel * cos(angle * (M_PI / 180.0));
+    y -= numPixel * sin(angle * (M_PI / 180.0));
 }
 
 
