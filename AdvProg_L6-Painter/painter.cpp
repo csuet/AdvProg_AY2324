@@ -51,7 +51,7 @@ void Painter::turnLeft(double degree)
     // TODO: rotate left the painter
     double rad = degree *(M_PI/180.0);
     double x1=x, y1=y;
-    x = x*cos(rad)-y*sin(rad);
+    x = x1*cos(rad)-y1*sin(rad);
     y = x1*sin(rad)+y1*cos(rad);
 }
 
