@@ -7,7 +7,6 @@ using std::cout;
 using std::endl;
 using std::stod;
 
-
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
@@ -46,6 +45,5 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-    
-    return sqrt(x);
+    return sqrt(x);       
 }
