@@ -105,7 +105,7 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 {
     // TODO: Update the secret word if the character ch is in the answer word.
     string tmp = "";
-    for ( int i = 0; i < secretWord.length(); i++ )
+    for ( int i = 0; i < word.length(); i++ )
     {
         if ( word[i] == ch )
         {
@@ -168,8 +168,8 @@ void processData(const char ch, const string& word,
     ***/
    if ( isCharInWord(ch, word))
    {
-    updateEnteredChars(ch, correctChars);
     updateSecretWord(secretWord, ch, word);
+    updateEnteredChars(ch, correctChars);
    }
    else
    {
