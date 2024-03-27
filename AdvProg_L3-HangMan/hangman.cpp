@@ -1,6 +1,7 @@
 #include <iostream>
 #include "hangman.h"
 
+using namespace std;
 using std::string;
 using std::vector;
 using std::ifstream;
@@ -59,7 +60,7 @@ bool isCharInWord(const char ch, const string& word)
             break;
         }
     }
-    return true;
+    return found;
 }
 
 /***
@@ -74,6 +75,13 @@ string chooseWordFromList(const vector<string>& wordList, int index)
     // TODO: Return a lowercase word in the index position of the vector wordList.
     string answer;
 
+    if (index >= 0 && index < wordList.size()) {
+        answer = wordList[index];
+        for (char& c : answer) {
+            c = tolower(c);
+        }
+    }
+
     return answer;
 }
 
@@ -85,7 +93,7 @@ string chooseWordFromList(const vector<string>& wordList, int index)
 ***/
 string generateHiddenCharacters(string answerWord){
     // TODO: Based on answerWord's length, generate hidden characters in form of "---"
-    string secretWord;
+    string secretWord(answerWord.length(), '-');
 
     return secretWord;
 }
@@ -107,6 +115,11 @@ char getInputCharacter() {
 void updateSecretWord(string& secretWord, const char ch, const string& word)
 {
     // TODO: Update the secret word if the character ch is in the answer word.
+    for (size_t i = 0; i < word.length(); ++i) {
+        if (word[i] == ch) {
+            secretWord[i] = ch;
+        }
+    }
 }
 
 /***
@@ -118,6 +131,7 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 ***/
 void updateEnteredChars(const char ch, string& chars){
     // TODO: append the character ch is in end of the text chars
+    chars.push_back(ch);
 }
 
 /***
@@ -128,6 +142,7 @@ void updateEnteredChars(const char ch, string& chars){
 ***/
 void updateIncorrectGuess(int& incorrectGuess){
     // TODO: increase the value of incorrectGuess by 1
+    ++incorrectGuess;
 }
 
 /***
