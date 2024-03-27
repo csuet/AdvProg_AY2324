@@ -26,7 +26,7 @@ void initSDLsoftware(SDL_Window **window, SDL_Renderer **renderer) {
 }
 
 void initSDL(SDL_Window **window, SDL_Renderer **renderer) {
-  if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
+  if (SDL_Init(SDL_INIT_VIDEO) != 0) {
 		logSDLError(std::cout, "SDL_Init");
 		std::cout << "The program will still continue without a video device!" << std::endl;
 		initSDLsoftware(window, renderer);
