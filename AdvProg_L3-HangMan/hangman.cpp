@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <stdlib.h>
 #include <string.h>
@@ -72,7 +73,7 @@ string chooseWordFromList(const vector<string>& wordList, int index)
     string answer;
     answer = wordList[index];
     for (int i = 0; i < answer.size(); i++) {
-        tolower(answer[i]);
+        answer[i]=tolower(answer[i]);
     }
     return answer;
 }
@@ -172,4 +173,3 @@ void processData(const char ch, const string& word,
         updateEnteredChars (ch, incorrectChars);
     }
 }
-
