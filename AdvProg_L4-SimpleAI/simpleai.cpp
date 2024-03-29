@@ -153,17 +153,7 @@ bool isCorrectChar(char ch, const string& mask)
 ***/
 bool isWholeWord(const string& mask)
 {
-     bool answer = true;
-    //Write your code here
-    for(int i=0;i<mask.size();i++)
-    {
-    	if(mask[i]=='_') 
-    	{
-    		answer = false;
-    		break;
-		}
-	}
-    return answer;
+   return mask.find('_') == string::npos;
 }
 
 /***
