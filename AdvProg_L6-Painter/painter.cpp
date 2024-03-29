@@ -28,8 +28,7 @@ void Painter::jumpForward(int numPixel)
     x += deltaX;
     y += deltaY;
 }
-    
-}
+
 
 
 /***
