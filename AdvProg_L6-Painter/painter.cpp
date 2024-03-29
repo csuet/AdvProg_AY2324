@@ -55,7 +55,7 @@ void Painter::turnLeft(double degree)
 {
     // TODO: rotate left the painter  
   	degree += this->angle ;
-  	this->angle = degree - floor(degree/360)*360;
+  	this->angle = fmod(this->angle, 360.0);
 
  
 }
