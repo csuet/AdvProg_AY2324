@@ -44,12 +44,11 @@ vector<string> filterWordsByLen(int wordLen, const vector<string>& vocabulary)
 
 char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
 {
-    char answer;
-    if (selectedChars.empty()) {
-       answer =' ';
+if (selectedChars.empty()) {
+        return ' ';
+    } else {
+        return *selectedChars.rbegin();
     }
-    else answer = *selectedChars.rbegin();
-    return answer;
 }
 
 /***
@@ -61,18 +60,12 @@ char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
 
 map<char, int> countOccurrences(const vector<string>& candidateWords)
 {
-    map<char, int> mp;
-    for(int i = 0 ;i <candidateWords.size() ;i++)
-    {
-    	for(int j = 0; j<candidateWords[i].size() ; i++)
-    	{
-    		if(mp.find(candidateWords[i][j]) == mp.end())
-    		{
-    			mp[candidateWords[i][j]] = 1;
-			}
-			else mp[candidateWords[i][j]]++;
-		}
-	}
+ map<char, int> mp;
+    for (const string& word : candidateWords) {
+        for (char ch : word) {
+            mp[ch]++;
+        }
+    }
     return mp;
 }
 
@@ -85,15 +78,15 @@ map<char, int> countOccurrences(const vector<string>& candidateWords)
 ***/
 char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& selectedChars)
 {
-    char answer;
-    int max1 = 0 ;
-    for(auto it :selectedChars)
-    {
-    	if(occurrences.find(it) != occurrences.end()){
-    	max1 = max(occurrences.at(it),max1);
-    	if(max1 < occurrences.at(it)) answer = it;	}
-	}
-    return answer;
+   char mostFrequent = '\0';
+    int maxCount = 0;
+    for (const auto& pair : occurrences) {
+        if (selectedChars.find(pair.first) == selectedChars.end() && pair.second > maxCount) {
+            mostFrequent = pair.first;
+            maxCount = pair.second;
+        }
+    }
+    return mostFrequent;
 }
 
 /***
@@ -107,8 +100,15 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
 char findBestChar(const vector<string>& candidateWords, const set<char>& selectedChars)
 {
     map<char, int> occurrences = countOccurrences(candidateWords);
-   char answer = findMostFrequentChar(occurrences, selectedChars);
-   return answer;
+    char bestChar = '\0';
+    int maxCount = 0;
+    for (const auto& pair : occurrences) {
+        if (selectedChars.find(pair.first) == selectedChars.end() && pair.second > maxCount) {
+            bestChar = pair.first;
+            maxCount = pair.second;
+        }
+    }
+    return bestChar;
 }
 
 string getWordMask(char nextChar)
