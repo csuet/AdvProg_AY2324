@@ -153,12 +153,14 @@ bool isCorrectChar(char ch, const string& mask)
 ***/
 bool isWholeWord(const std::string& mask) {
     bool answer = true;
-    for (char c : mask) {
-        if (c == '_') {
-            answer = false;
-            break;
-        }
-    }
+    for(int i = 0 ; i < mask.size() ; i++ )
+    {
+    	if(mask[i] == '_')
+    	{
+    		answer = false ;
+    		break;
+		}
+	}
     return answer;
 }
 
