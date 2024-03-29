@@ -151,9 +151,15 @@ bool isCorrectChar(char ch, const string& mask)
         (Example: -False: g__d
                   -True:  good)
 ***/
-bool isWholeWord(const string& mask)
-{
-    return mask.find('_') == string::npos;
+bool isWholeWord(const std::string& mask) {
+    bool answer = true;
+    for (char c : mask) {
+        if (c == '_') {
+            answer = false;
+            break;
+        }
+    }
+    return answer;
 }
 
 /***
