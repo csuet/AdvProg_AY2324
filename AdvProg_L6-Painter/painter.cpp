@@ -59,12 +59,6 @@ void Painter::turnLeft(double degree)
 
  
 }
-void Painter::turnRight(double degree)
-{
-    // TODO: rotate right the painter
-    degree -= this->angle;
-    this->angle = 360 - fmod(degree, 360);
-}
 
 /***
     Args: degree (double): the value of rotation angle
@@ -72,11 +66,11 @@ void Painter::turnRight(double degree)
     Returns:
         None
 ***/     
-//void Painter::turnRight(double degree)
-//{
-//    // TODO: rotate right the painter 
-//   turnLeft(-degree);
-//}
+void Painter::turnRight(double degree)
+{
+    // TODO: rotate right the painter 
+   turnLeft(-degree);
+}
 
 /***  
     Args: 
