@@ -54,7 +54,8 @@ void Painter::jumpBackward(int numPixel)
 void Painter::turnLeft(double degree)
 {
     // TODO: rotate left the painter  
-  	turnLeft(-degree);
+  	degree += this->angle ;
+  	this->angle = degree - floor(degree/360)*360;
 
  
 }
@@ -68,8 +69,7 @@ void Painter::turnLeft(double degree)
 void Painter::turnRight(double degree)
 {
     // TODO: rotate right the painter 
-   degree = this -> angle - degree ;
-   this -> angle = degree - floor(degree/360)*360;
+   turnLeft(-degree);
 }
 
 /***  
@@ -83,7 +83,7 @@ void Painter::randomColor()
     Uint8 red = rand() % 256;
     Uint8 green = rand() % 256;
     Uint8 blue = rand() % 256;
-    color = {red, green, blue, 255};
+    color = {red, green, blue, 0};
 }
 
 
