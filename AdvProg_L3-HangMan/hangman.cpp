@@ -75,7 +75,7 @@ string chooseWordFromList(const vector<string>& wordList, int index)
 for (int i = 0; i < wordList[index].length(); i++)
 {
    if (answer[i]>='A'||answer[i]<='Z')
-    annswer[i]=answer[i]-'A'+'a';
+    answer[i]=answer[i]-'A'+'a';
 }
 return answer;
 }
