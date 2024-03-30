@@ -26,7 +26,7 @@ double myCos(double x)
     double term = x;
     double sign = -1.0;
 
-    for (int i = 1; i < 10; ++i) {
+    for (int i = 1; i < 100; ++i) {
         term *= x * x / ((2 * i) * (2 * i + 1));
         result += sign * term;
         sign *= -1.0;
@@ -48,7 +48,7 @@ double mySin(double x)
     double term = 1.0;
     double sign = -1.0;
 
-    for (int i = 1; i < 10; ++i) {
+    for (int i = 1; i < 100; ++i) {
         term *= x * x / ((2 * i - 1) * (2 * i));
         result += sign * term;
         sign *= -1.0;
