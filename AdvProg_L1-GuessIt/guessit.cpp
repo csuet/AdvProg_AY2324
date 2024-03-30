@@ -26,10 +26,9 @@ int generateRandomNumber() {
 ***/
 int getPlayerGuess() {
     // TODO: Ask the player guest and return the player's number
-    cout << "Guess a number: ";
-    int x; 
-    cin >> x;
-    return x;
+    cout << "What is your guest?\n";
+    int number; cin >> number;
+    return number;
 }
 
 
@@ -47,13 +46,9 @@ string getAnswer(int number, int randomNumber) {
               If number is lower than randomNumber, the answer is "Your number is lower."
               If number is equal randomNumber, the answer is "Congratulation! You win."
     ***/
-    string answer;
 
-    if (number == randomNumber) answer = "Congratulation! You win.";
-    else if (number > randomNumber) answer = "Your number is higher.";
-    else answer = "Your number is lower.";
-
-    return answer;
+    if( number == randomNumber ) return = string("Congratulation! You win.");
+    return ( (number < randomNumber) ? string("Your number is lower.") : string("Your number is higher.") );
 }
 
 
@@ -65,10 +60,7 @@ string getAnswer(int number, int randomNumber) {
 ***/
 bool checkSuccess(string answer) {
     // TODO: return the result after checking that player guessed right or wrong
-    string cmp = "Congratulation! You win.";
-    if (answer != cmp) return false;
-
-    return true;
+    return (answer == string("Congratulation! You win.") ? true : false );
 }
 
 
@@ -81,8 +73,7 @@ bool checkSuccess(string answer) {
 bool checkContinuePlaying(char isContinued) {
     // TODO: return result after checking player continue playing or not
     bool result = false;
-    cout << "Continue? (y/)";
-    if (isContinued == 'y') result = true;
+    if( isContinued == 'Y' ) result = true;
     return result;
 }
 
@@ -96,6 +87,7 @@ bool checkContinuePlaying(char isContinued) {
 char getPlayerOpinion() {
     // TODO: Ask the player about continue playing and return the player's choice
     char isContinued;
+    cout << "Do you want to play again?\n" << "Y/N\n";
     cin >> isContinued;
     return isContinued;
 }
@@ -105,7 +97,7 @@ void playGuessIt() {
     int randomNumber = generateRandomNumber();
     int number;
     string answer;
-    
+
     do {
         number = getPlayerGuess();
         answer = getAnswer(number, randomNumber);
