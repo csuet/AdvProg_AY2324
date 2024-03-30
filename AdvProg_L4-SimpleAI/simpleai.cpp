@@ -25,9 +25,14 @@ int readWordLen()
         answer (vector<string>) : A set or word from the vocabulary where the number of character is equal to wordLen
 ***/
 vector<string> filterWordsByLen(int wordLen, const vector<string>& vocabulary)
-{
+{   //push vao word co do dai cho truoc
     vector<string> answer;
     //Write your code here
+    for (const string& word : vocabulary) {
+        if (word.length() == wordLen) {
+            answer.push_back(word);
+        }
+    }
     return answer;
 }
 
@@ -39,9 +44,15 @@ vector<string> filterWordsByLen(int wordLen, const vector<string>& vocabulary)
 ***/
 
 char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
-{
+{   //Tim chu cai sao cho chu cai do k co trong selected
     char answer;
-    //Write your code here
+    char answer = '\0'; 
+    for (char ch = 'a'; ch <= 'z'; ++ch) {
+        if (selectedChars.find(ch) == selectedChars.end()) {
+            answer = ch;
+            break;
+        }
+    }
     return answer;
 }
 
@@ -53,10 +64,15 @@ char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
 ***/
 
 map<char, int> countOccurrences(const vector<string>& candidateWords)
-{
+{   //Tra ve so lan xuat hien o trong tu duoc chon
     map<char, int> answer;
-    //Write your code here
+    for (const string& word : candidateWords) { 
+        for (char ch : word) {
+            answer[ch]++; 
+        }
+    }
     return answer;
+
 }
 
 /***
@@ -70,7 +86,14 @@ map<char, int> countOccurrences(const vector<string>& candidateWords)
 char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& selectedChars)
 {
     char answer;
-    //Write your code here
+    int max = 0; 
+    for (const auto& pair : occurrences) {
+    
+        if (selectedChars.find(pair.first) == selectedChars.end() && pair.second > max) {
+            max = pair.second; // Cập nhật số lần xuất hiện lớn nhất
+            answer = pair.first; // Lưu ký tự có số lần xuất hiện lớn nhất
+        }
+    }
     return answer;
 }
 
