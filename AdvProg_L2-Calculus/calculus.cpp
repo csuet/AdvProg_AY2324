@@ -21,18 +21,8 @@ double mySqrt(double x);
 double myCos(double x) 
 {
     
-     x = x * M_PI / 180.0;
-    double result = x;
-    double term = x;
-    double sign = -1.0;
 
-    for (int i = 1; i < 100; ++i) {
-        term *= x * x / ((2 * i) * (2 * i + 1));
-        result += sign * term;
-        sign *= -1.0;
-    }
-
-    return result;
+    return cos(x);
 }
 
 /***
@@ -43,18 +33,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    x = x * M_PI / 180.0;
-    double result = 1.0;
-    double term = 1.0;
-    double sign = -1.0;
-
-    for (int i = 1; i < 100; ++i) {
-        term *= x * x / ((2 * i - 1) * (2 * i));
-        result += sign * term;
-        sign *= -1.0;
-    }
-
-    return result;
+  return sin(x);
 }
 
 
