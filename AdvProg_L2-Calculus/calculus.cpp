@@ -45,15 +45,7 @@ double mySin(double x)
 ***/
 double mySqrt(double x) {
    
-    double guess = x / 2.0; // Ước đoán ban đầu
-    double oldGuess = 0.0;
-
-    while (abs(guess - oldGuess) > 1e-6) {
-        oldGuess = guess;
-        guess = 0.5 * (guess + x / guess); // Lặp Newton-Raphson
-    }
-
-    return guess;
+   return sqrt(x);
 
     
 }
