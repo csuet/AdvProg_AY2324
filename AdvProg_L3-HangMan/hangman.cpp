@@ -55,7 +55,7 @@ vector<string> readWordListFromFile(const string& filePath)
 bool isCharInWord(const char ch, const string& word)
 {
     // TODO: return true if ch is in word else return false
-    for (int i = 0; i < word.size(); i++) {
+    for (size_t i = 0; i < word.size(); i++) {
         if (ch == word[i]) {
             return true;
         }
@@ -78,7 +78,7 @@ string chooseWordFromList(const vector<string>& wordList, int index)
         throw std::out_of_range("Index out of range");
     }
     string answer = wordList[index];
-    for (int i = 0; i < answer.size(); i++) {
+    for (size_t i = 0; i < answer.size(); i++) {
         answer[i] = tolower(answer[i]);
     }
 
@@ -94,7 +94,7 @@ string chooseWordFromList(const vector<string>& wordList, int index)
 string generateHiddenCharacters(string answerWord){
     // TODO: Based on answerWord's length, generate hidden characters in form of "---"
     string secretWord;
-    for (int i = 0;i<answerWord.size();i++ {
+    for (size_t i = 0;i<answerWord.size();i++ {
         if (answerWord[i] == ' ') {
             secretWord += ' ';
         }
