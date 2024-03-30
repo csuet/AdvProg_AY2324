@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include "hangman.h"
-
+#include<cctype>
+using namespace std;
 using std::string;
 using std::vector;
 using std::ifstream;
