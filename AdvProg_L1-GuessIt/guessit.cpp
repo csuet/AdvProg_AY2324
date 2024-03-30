@@ -49,6 +49,7 @@ string getAnswer(int number, int randomNumber) {
               If number is lower than randomNumber, the answer is "Your number is lower."
               If number is equal randomNumber, the answer is "Congratulation! You win."
     ***/
+    string answer
     if (number>randomNumber)
        answer =  "Your number is higher.";
     else if(number<randomNumber)
@@ -72,7 +73,7 @@ bool checkSuccess(string answer) {
     bool result;
     if (answer.compare("Congratulation! You win.")==0)
 
-    result = true
+    result = true;
 else
     result = false;
     return result;
@@ -103,7 +104,7 @@ if (isContinued=='Y')
 char getPlayerOpinion() {
     // TODO: Ask the player about continue playing and return the player's choice
     char isContinued;
-    cout << "Do you want to continue playing? If you want, press Y , if not press N"
+    cout << "Do you want to continue playing? If you want, press Y , if not press N" << endl;
 cin >> isContinued;
     return isContinued;
 }
