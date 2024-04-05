@@ -28,7 +28,7 @@ vector<string> filterWordsByLen(int wordLen, const vector<string>& vocabulary)
 {
     vector<string> answer;
     for(auto x : vocabulary){
-        if(x.length() == wordlen){
+        if(x.length() == wordLen){
             answer.push_back(x);
         }
     }
@@ -61,7 +61,7 @@ map<char, int> countOccurrences(const vector<string>& candidateWords)
     map<char, int> answer;
     for(auto x : candidateWords){
         for(auto ch : x){
-            mp[ch]++;
+            answer[ch]++;
         }
     }
     return answer;
@@ -80,7 +80,7 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
     char answer;
     int max = 0;
     for(auto ch : selectedChars){
-        if(occurrences[ch] > max){
+        if(occurrences.find(ch) != occurrences.end() && occurrences[ch] > max){
             answer = ch;
             max = occurrences[ch];
         }
@@ -157,7 +157,8 @@ bool isWholeWord(const string& mask)
 {
      bool answer;
     answer = true;
-    for(auto ch : mask){
+    string tmp = mask;
+    for(auto ch : tmp){
         if(ch == "_"){
             answer = false;
             break;
@@ -207,7 +208,7 @@ bool wordConformToMask(const string& word, const string& mask, char ch)
 vector<string> filterWordsByMask(const vector<string>& words, const string& mask, char ch)
 {
     vector<string> answer;
-    for(auto word : word){
+    for(auto word : words){
         if(wordConformToMask(word,mask,ch)){
             answer,push_back(word);
         }
