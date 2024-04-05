@@ -75,14 +75,14 @@ map<char, int> countOccurrences(const vector<string>& candidateWords)
         answer (char) : The most frequent character
 ***/
 
-char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& selectedChars)
+char findMostFrequentChar( map<char, int>& occurrences, const set<char>& selectedChars)
 {
     char answer;
     int max = 0;
     for(auto ch : selectedChars){
-        if(occurrences.find(ch) != occurrences.end() && occurrences[ch] > max){
+        if(occurrences.find(ch) != occurrences.end() && occurrences.at(ch) > max){
             answer = ch;
-            max = occurrences[ch];
+            max = occurrences.at(ch);
         }
     }
     return answer;
@@ -157,9 +157,8 @@ bool isWholeWord(const string& mask)
 {
      bool answer;
     answer = true;
-    string tmp = mask;
-    for(auto ch : tmp){
-        if(ch == "_"){
+    for(int i = 0 ; i < mask.length() ; i++){
+        if(mask[i] == "_"){
             answer = false;
             break;
         }
@@ -183,8 +182,8 @@ bool wordConformToMask(const string& word, const string& mask, char ch)
 {
     bool answer;
     string tmp = "";
-    for(auto ch : mask){
-        if(ch != "-") tmp += ch;
+    for(int i = 0 ; i < mask.length() ; i++){
+        if(mask[i] != "-") tmp += ch;
     }
     if(word.find(tmp) != string::npos){
         answer = true;
@@ -210,7 +209,7 @@ vector<string> filterWordsByMask(const vector<string>& words, const string& mask
     vector<string> answer;
     for(auto word : words){
         if(wordConformToMask(word,mask,ch)){
-            answer,push_back(word);
+            answer.push_back(word);
         }
     }
     return answer;
