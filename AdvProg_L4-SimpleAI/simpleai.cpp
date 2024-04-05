@@ -68,7 +68,7 @@ map<char, int> countOccurrences(const vector<string>& candidateWords)
     {
         for(int j = 0; j < (int)candidateWords[i].size(); ++j)
         {
-            map[i][j]++;
+            answer[i][j]++;
         }
     }
     //Write your code here
@@ -178,7 +178,7 @@ bool isWholeWord(const string& mask)
      {
         if(c == '-') 
         {
-            bool = false;
+            answer = false;
             break;
         }
      } 
