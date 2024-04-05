@@ -157,7 +157,7 @@ bool isWholeWord(const string& mask)
 {
      bool answer;
     //Write your code here
-    if(mask.find('-') != string::npos) answer = true;
+    if(mask.find('-') == string::npos) answer = true;
     else answer = false;
     return answer;
 }
