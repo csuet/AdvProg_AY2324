@@ -155,10 +155,10 @@ bool isCorrectChar(char ch, const string& mask)
 ***/
 bool isWholeWord(const string& mask)
 {
-     bool answer;
+    bool answer;
     answer = true;
     for(int i = 0 ; i < mask.length() ; i++){
-        if(mask[i] == "_"){
+        if(mask[i] == '_'){
             answer = false;
             break;
         }
@@ -183,7 +183,7 @@ bool wordConformToMask(const string& word, const string& mask, char ch)
     bool answer;
     string tmp = "";
     for(int i = 0 ; i < mask.length() ; i++){
-        if(mask[i] != "-") tmp += ch;
+        if(mask[i] != '-') tmp += ch;
     }
     if(word.find(tmp) != string::npos){
         answer = true;
