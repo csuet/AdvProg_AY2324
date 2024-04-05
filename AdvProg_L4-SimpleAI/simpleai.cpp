@@ -111,31 +111,25 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
 {
     char answer;
     //Write your code here
-    for(auto it : selectedChars)
+    int highest = 0;
+    map<char, int> mp = countOccurrences(candidateWords);
+    for(auto it : mp)
     {
-        int cnt = 0;
-        for(string s : candidateWords)
-            {
-                bool contain = false;
-                for(char c : s)
-                {
-                    if(c == it)
-                    {
-                        contain = true;
-                        break;
-                    }
-                    if(contain)
-                    {
-                        cnt++;
-                        break;
-                    }
-                }
-            }
-
-        if(cnt == selectedChars.size());
+        bool have = false;
+        for(auto iri : selectedChars)
         {
-            answer = it;
-            break;
+            
+            if(it.first == iri)
+            {
+                have = true;
+                break;
+            }
+        }
+        if(have) continue;
+        if(it.second > highest)
+        {
+            answer = it.first;
+            highest = it.second;
         }
     }
     return answer;
