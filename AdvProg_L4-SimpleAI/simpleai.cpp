@@ -58,7 +58,7 @@ char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
     char answer;
     for (char i = 'a'; i <= 'z'; i++) {
         if (selectedChars.count(i) == 0) {
-            selectedChars.insert(i);
+            answer = i;
             break;
         }
     }
@@ -75,7 +75,7 @@ map<char, int> countOccurrences(const vector<string>& candidateWords)
 {
     map<char, int> answer;
     for (string word : candidateWords) {
-        for (char c : word) mp[c]++;
+        for (char c : word) answer[c]++;
     }
     return answer;
 }
@@ -133,7 +133,7 @@ string getWordMask(char nextChar)
 ***/
 bool isCorrectChar(char ch, const string& mask)
 {
-    for (char& x : mask) {
+    for (char x : mask) {
         if (ch == x) return true;
     }
     return false;
@@ -199,7 +199,7 @@ bool wordConformToMask(const string& word, const string& mask, char ch)
 vector<string> filterWordsByMask(const vector<string>& words, const string& mask, char ch)
 {
     vector<string> answer;
-    for (string& word : words) {
+    for (string word : words) {
         if (wordConformToMask(word, mask, ch)) answer.push_back(word);
     }
     return answer;
