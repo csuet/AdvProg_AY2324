@@ -90,7 +90,7 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
     int highest = 0;
     for(auto& [c, count] : occurrences)
     {
-        if(selectedChars.count(c) > 0 && count > highest)
+        if(selectedChars.count(c) <= 0 && count > highest)
         {
             highest = count;
             answer = c;
@@ -113,25 +113,7 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
     //Write your code here
     int highest = 0;
     map<char, int> mp = countOccurrences(candidateWords);
-    for(auto it : mp)
-    {
-        bool have = false;
-        for(auto iri : selectedChars)
-        {
-            
-            if(it.first == iri)
-            {
-                have = true;
-                break;
-            }
-        }
-        if(have) continue;
-        if(it.second > highest)
-        {
-            answer = it.first;
-            highest = it.second;
-        }
-    }
+    answer = findMostFrequentChar(mp, selectedChars);
     return answer;
 }
 
