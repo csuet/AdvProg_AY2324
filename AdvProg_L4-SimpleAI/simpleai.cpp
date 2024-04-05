@@ -80,7 +80,7 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
     char answer;
     int mostfreq = 0;
     for (auto x : occurrences) {
-        if (selectedChars.find(x.first) == selectedChars.end() && x.second >= mostfreq) {
+        if (selectedChars.find(x.first) == selectedChars.end() && x.second > mostfreq) {
             answer = x.first;
             mostfreq = x.second;
         }
@@ -157,16 +157,9 @@ bool isWholeWord(const string& mask)
 ***/
 bool wordConformToMask(const string& word, const string& mask, char ch) 
 {
-    if (word.length() != mask.length()) {
-        return false;
-    }
 
     for (int i = 0; i < word.length(); i++) {
-        if (mask[i] != '_' && word[i] != mask[i]) return false;
-    }
-
-    for (int i = 0; i < word.length(); i++) {
-        if (word[i] == ch) return true;
+        if (mask[i] != '_' && word[i] != mask[i] && word[i] != ch) return false;
     }
 
     return true;   
