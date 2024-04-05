@@ -45,8 +45,16 @@ char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
 {
     char answer;
     //Write your code here
-
+    // Duyệt qua các ký tự từ 'a' đến 'z'
+    for (char ch = 'a'; ch <= 'z'; ++ch) {
+        // Nếu ký tự chưa được dự đoán
+        if (selectedChars.find(ch) == selectedChars.end()) {
+            answer = ch;
+            break;
+        }
+    }
     return answer;
+
 }
 
 /***
@@ -83,7 +91,7 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
     //Write your code here
     int times = 0;
     for(auto x : occurrences){
-    	if(x.second > times){
+    	if(x.second > times&&selectedChars.find(x.first)!= selectedChars.end()){
     		times = x.second;
     		answer = x.first;
 		}
