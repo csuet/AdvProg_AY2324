@@ -17,7 +17,7 @@ using std::cin;
 int generateRandomNumber(const int min, const int max)
 {
     // TODO: Return a random integer number between min and max
-    return min + rand()%(max+1=min);
+    return min + rand()%(max+1-min);
 }
 
 vector<string> readWordListFromFile(const string& filePath)
