@@ -11,13 +11,11 @@
 
 using namespace std;
 
-int generateRandomNumber(const int min, const int max);
 int readMaxGuess();
 int readWordLen();
 vector<string> filterWordsByLen(int wordLen, const vector<string>& vocabulary);
 char findBestChar(const vector<string>& candidateWords, const set<char>& selectedChars);
 string getWordMask(char nextChar);
-bool isCharInWord(const char ch, const string& word);
 bool isCorrectChar(char ch, const string& mask);
 bool isWholeWord(const string& mask);
 vector<string> filterWordsByMask(const vector<string>& words, const string& mask, char ch);

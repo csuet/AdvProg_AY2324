@@ -17,18 +17,6 @@ int readWordLen()
     
 }
 
-int generateRandomNumber(const int min, const int max) {
-    int num = rand() % (max - min + 1) + min;
-    return num;
-}
-
-bool isCharInWord(const char ch, const string& word) {
-    for (int i = 0; i < word.length(); i++) {
-        if (word[i] == ch) return true;
-    }
-    return false;
-}
-
 /***
     Args:
         wordLen (int): The desired length of input word
