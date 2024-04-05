@@ -45,7 +45,13 @@ vector<string> filterWordsByLen(int wordLen, const vector<string>& vocabulary)
 char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
 {
     char answer;
-    
+    for(int = 0 ; i < 26 ; i++){
+        char x = 'a' + i;
+        if(selectedChars.count(x) == 0){
+            answer = x;
+            break;
+        }
+    }
     return answer;
 }
 
@@ -105,13 +111,7 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
             mp[ch]++;
         }
     }
-    int max = 0;
-    for(auto ch : selectedChars){
-        if(mp[ch] > max){
-            answer = ch;
-            max = mp[ch];
-        }
-    }
+    answer = findMostFrequentChar(mp,selectedChars);
     return answer;
 }
 
