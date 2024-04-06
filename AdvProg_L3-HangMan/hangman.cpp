@@ -1,12 +1,7 @@
-#include <iostream>
+#include <bits/stdc++.h>
 #include "hangman.h"
 
-using std::string;
-using std::vector;
-using std::ifstream;
-using std::domain_error;
-using std::cin;
-
+using namespace std;
 /***
     Args:
         min (int): left margin of a range
@@ -138,7 +133,6 @@ void updateEnteredChars(const char ch, string& chars){
 void updateIncorrectGuess(int& incorrectGuess){
     // TODO: increase the value of incorrectGuess by 1
     incorrectGuess++;
-    return incorrectGuess;
 }
 
 /***
