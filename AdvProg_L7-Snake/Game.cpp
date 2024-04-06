@@ -46,7 +46,9 @@ Game::~Game()
  * 		// none
  *
 ***/
-
+void Game::setGameStatus(GameStatus newStatus) {
+    status = newStatus;
+}
 void Game::snakeMoveTo(Position pos) {
     if (pos.x < 0 || pos.x >= width || pos.y < 0 || pos.y >= height) {
         setGameStatus(GAME_OVER);
