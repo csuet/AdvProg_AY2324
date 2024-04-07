@@ -14,13 +14,11 @@ Snake::Snake(Game& _game, Position start)
 // set some attributes as default value
 // PLEASE UPDATE THIS METHOD
 
-Snake::~Snake()
-{
-    SnakeNode* current = head;
-    while (current != nullptr) {
-        SnakeNode* nextNode = current->next;
-        delete current;
-        current = nextNode;
+Snake::~Snake(){
+    for (SnakeNode *p = tail; p != nullptr;){
+        SnakeNode *nextNode = p->next;
+        delete p;
+        p = nextNode;
     }
 }
 
@@ -47,10 +45,11 @@ vector<Position> Snake::getPositions() const
  *
 ***/
 
-void Snake::growAtFront(Position newPosition){
-    SnakeNode* newNode = new SnakeNode(newPosition);
-    newNode->next = head;
-    head = newNode;
+void Snake::growAtFront(Position newPosition)
+{
+    SnakeNode *newHead = new SnakeNode(newPosition, nullptr);
+    head->next = newHead;
+    head = newHead;
 }
 
 /***
@@ -75,15 +74,17 @@ void Snake::growAtFront(Position newPosition){
  *
 ***/
 
-void Snake::slideTo(Position newPosition) {
-    if (tail->next == nullptr) {
+void Snake::slideTo(Position newPosition){
+    if (tail->next == nullptr){
         tail->position = newPosition;
-    } else {
-        SnakeNode* oldTailNode = tail;
+    }
+    else{
+        SnakeNode *oldTailNode = tail;
         tail = tail->next;
         oldTailNode->next = nullptr;
         oldTailNode->position = newPosition;
         head->next = oldTailNode;
+        head = oldTailNode;
     }
 }
 
@@ -99,10 +100,9 @@ void Snake::slideTo(Position newPosition) {
  * 		// none
  *
 ***/
-void Snake::eatCherry()
-{
+void Snake::eatCherry(){
     cherry++;
-    game.addCherry();
+
 }
 
 /***
@@ -131,17 +131,17 @@ void Snake::eatCherry()
  *
 ***/
 
-void Snake::move(Direction direction)
-{
+void Snake::move(Direction direction){
     Position newPosition = head->position.move(direction);
     game.snakeMoveTo(newPosition);
-    if (game.isGameOver()) {
+    if (game.isGameOver())
         return;
-    }
-    if (cherry > 0) {
+    if (cherry > 0){
         cherry--;
         growAtFront(newPosition);
-    } else {
+    }
+    else{
+        game.snakeLeave(tail->position);
         slideTo(newPosition);
     }
 }
