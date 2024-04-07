@@ -153,24 +153,7 @@ void processData(const char ch, const string& word,
                 string& correctChars,
                 int& incorrectGuess, string& incorrectChars)
 {
-    if (find(word.begin(), word.end(), ch) != word.end()) {
-    updateSecretWord(secretWord, ch, word);
-    if (!correctChars.empty() && correctChars.back() != ch) {
-        updateEnteredChars(ch, correctChars);
-        } else if (correctChars.empty()) {
-        updateEnteredChars(ch, correctChars);
-        }
-
-    } else {
-        updateIncorrectGuess(incorrectGuess);
-        if (!incorrectChars.empty() && incorrectChars.back() != ch) {
-        updateEnteredChars(ch, incorrectChars);
-        } else if (incorrectChars.empty()) {
-        updateEnteredChars(ch, incorrectChars);
-    }
-  }
-}
-    /*** TODO
+     /*** TODO
         If ch in word:
             update secretWord: call updateSecretWord() function
             update correctChars: call updateEnteredChars() function
@@ -178,5 +161,13 @@ void processData(const char ch, const string& word,
             update incorrectGuess: call updateIncorrectGuess() function
             update incorrectChars: call updateEnteredChars() function
     ***/
+    if (isCharInWord(ch, word)) {
+        updateSecretWord(secretWord, ch, word);
+        updateEnteredChars(ch, correctChars);
+    } else {
+        updateIncorrectGuess(incorrectGuess);
+        updateEnteredChars(ch, incorrectChars);
+    }
+}
 
 
