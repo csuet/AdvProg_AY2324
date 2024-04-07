@@ -121,9 +121,9 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
                 mp[s[j]]++;
         }
     }
+    int cnt=0;
     for(auto it=mp.begin();it!=mp.end();it++){
         char c=it->first;
-        int cnt=0;
         if(selectedChars.find(c)==selectedChars.end()&&it->second>cnt){
                 answer=c;
                 cnt=it->second;
