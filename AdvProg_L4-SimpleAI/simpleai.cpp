@@ -43,12 +43,19 @@ vector<string> filterWordsByLen(int wordLen, const vector<string>& vocabulary)
         answer (char) : The next character given the provided word is not in the vocabulary
 ***/
 
-//char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
-//{
-//    char answer;
-//    //Write your code here
-//    return answer;
-//}
+char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
+{
+    char answer;
+    //Write your code here
+    for (char i = 'a'; i <= 'z'; ++i)
+    {
+        if (selectedChars.find(i) == selectedChars.end())
+        {
+            answer = i;
+        }
+    }
+    return answer;
+}
 
 /***
     Args:
@@ -99,7 +106,7 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
             }
         }
         map<char, int>::const_iterator it = max_element(occurrences.begin(), occurrences.end(), comp);
-        answer = it->first;
+        else answer = it->first;
     }
     //Write your code here
     return answer;
@@ -117,6 +124,10 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
 {
     // please use the function right above 
     char answer;
+    if (candidateWords.empty()) {
+        answer = nextCharWhenWordIsNotInDictionary(selectedChars);
+        return answer;
+    }
     map<char, int> occ = countOccurrences(candidateWords);
     answer = findMostFrequentChar(occ, selectedChars);
     //Write your code here
