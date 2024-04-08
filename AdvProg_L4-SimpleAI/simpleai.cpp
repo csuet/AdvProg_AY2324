@@ -1,4 +1,5 @@
 #include "simpleai.h"
+#include "algorithm"
 
 int readMaxGuess()
 {
@@ -88,12 +89,12 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
 {
     char answer;
     int maxx = 0;
-    size_t charsz = selectedChars.size();
+    //size_t charsz = selectedChars.size();
     size_t mapsz = occurrences.size();
     for (size_t i = 0; i < mapsz; i++) {
         int flag = false;
-        for (size_t j = 0; j < charsz; j++) {
-            if (occurrences.find(selectedChars[j]) != occurrences.end() ) {
+        for (char c : selectedChars) {
+            if (occurrences.find(c) != occurrences.end() ) {
                 flag = true; break;
             }
         }
@@ -225,7 +226,7 @@ vector<string> filterWordsByMask(const vector<string>& words, const string& mask
     vector<string> answer;
     int n = words.size();
     for (int i = 0; i < n; i++) {
-        if (wordConformToMask(words[i], mask, ch)
+        if (wordConformToMask(words[i], mask, ch))
             answer.push_back(words[i]);
     }
     //Write your code here
