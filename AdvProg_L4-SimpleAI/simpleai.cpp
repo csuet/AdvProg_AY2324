@@ -67,9 +67,6 @@ char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
 map<char, int> countOccurrences(const vector<string>& candidateWords)
 {
     map<char, int> answer;
-    for (int i = 0; i < 26; i++) {
-        answer[char('a' + i)] = 0;
-    }
     size_t range = candidateWords.size();
     for (size_t i = 0; i < range; i++) {
         int n = candidateWords[i].size();
@@ -89,6 +86,7 @@ map<char, int> countOccurrences(const vector<string>& candidateWords)
     Returns:
         answer (char) : The most frequent character
 ***/
+
 bool comp(const pair<char, int> &p1, const pair<char, int> &p2) {
     return p1.second < p2.second;
 }
