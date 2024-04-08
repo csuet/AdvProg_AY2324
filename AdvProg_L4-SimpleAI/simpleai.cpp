@@ -106,7 +106,7 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
             }
         }
         map<char, int>::const_iterator it = max_element(occurrences.begin(), occurrences.end(), comp);
-        else answer = it->first;
+        answer = it->first;
     }
     //Write your code here
     return answer;
