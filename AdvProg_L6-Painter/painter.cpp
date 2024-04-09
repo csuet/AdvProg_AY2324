@@ -53,6 +53,8 @@ void Painter::turnLeft(double degree)
 {
     // TODO: rotate left the painter
      angle += degree;
+     if(angle>=360) angle-=360;
+     else if(angle<=-360) angle+=360;
 }
 
 
@@ -77,6 +79,18 @@ void Painter::turnRight(double degree)
 void Painter::randomColor()
 {
     // TODO: set random color
+    srand (time(0));
+    int numberRandom = rand()%10;
+    if( numberRandom == 0) this->color = CYAN_COLOR;
+    else if(numberRandom == 1) this->color = BLUE_COLOR;
+    else if(numberRandom == 2) this->color = ORANGE_COLOR;
+    else if(numberRandom == 3) this->color = YELLOW_COLOR;
+    else if(numberRandom == 4) this->color = LIME_COLOR;
+    else if(numberRandom == 5) this->color = PURPLE_COLOR;
+    else if(numberRandom == 6) this->color = RED_COLOR;
+    else if(numberRandom == 7) this->color = WHITE_COLOR;
+    else if(numberRandom == 8) this->color = BLACK_COLOR;
+    else if(numberRandom == 9) this->color = GREEN_COLOR;
 }
 
 
