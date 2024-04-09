@@ -174,7 +174,7 @@ bool isWholeWord(const string& mask)
      }
      for (int i = 0; i < (int)mask.size(); i++)
      {
-         if (mask[i] <= 'a' || mask[i] >= 'z')
+         if (mask[i] <= 'a' || mask[i] >= 'z' || mask[i] == '_')
          {
              answer = false;
          }
