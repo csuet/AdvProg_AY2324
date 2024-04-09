@@ -79,7 +79,7 @@ void Painter::turnRight(double degree)
 void Painter::randomColor()
 {
     // TODO: set random color
-    srand (time(0));
+    srand (time(nullptr));
     int numberRandom = rand()%10;
     if( numberRandom == 0) this->color = CYAN_COLOR;
     else if(numberRandom == 1) this->color = BLUE_COLOR;
