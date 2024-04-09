@@ -94,16 +94,12 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
 {
     char answer = '\0';
     //Write your code here
-    map <char, int>::iterator it;
-    int mx = 0;
-    for (it = occurrences.begin(); it != occurrences.end(); it++)
-    {
-        if (selectedChars.find(it->first) == selectedChars.end())
-        {
-            if (it->second > mx)
-            {
-                mx = it->second;
-                answer = it->first;
+    int max = 0;
+    for (const auto& pair : occurrences) {
+        if (selectedChars.find(pair.first) == selectedChars.end()) {
+            if (pair.second > max) {
+                max = pair.second;
+                answer = pair.first;
             }
         }
     }
