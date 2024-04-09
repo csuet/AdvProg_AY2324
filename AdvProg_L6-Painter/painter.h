@@ -3,6 +3,7 @@
 
 #include <cmath>
 #include <cstdlib>
+#include <ctime>
 
 //Mac
 #include <SDL2/SDL.h>
@@ -23,7 +24,7 @@ const SDL_Color GREEN_COLOR = {0, 128, 0};
 const SDL_Color DEFAULT_COLOR = BLACK_COLOR;
 
 /***
-   An Implementation of Code.org Painter 
+   An Implementation of Code.org Painter
 ***/
 class Painter
 {
