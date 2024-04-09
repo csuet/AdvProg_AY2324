@@ -19,7 +19,7 @@ int readWordLen()
 
 /***
     Args:
-        wordLen (int): The desired length of input word
+        wordLen (int): The desired length of input word**
         vocabulary (vector<string>): The vocabulary
     Returns:
         answer (vector<string>) : A set or word from the vocabulary where the number of character is equal to wordLen
@@ -100,7 +100,7 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
 
 /***
     Args:
-        candidateWords (vector<string>): The candidate words for the current given string 
+        candidateWords #(vector<string>): The candidate words for the current given string 
         selectedChars (set<char>): The predicted characters
     Returns:
         answer (char) : The most suitable character for prediction
