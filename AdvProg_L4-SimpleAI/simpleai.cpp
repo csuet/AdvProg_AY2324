@@ -174,7 +174,7 @@ bool isWholeWord(const string& mask)
      bool answer=true;
     for(char x:mask)
     {
-        if(x=='_') return false;
+        if(x=='-') return false;
     }
     return answer;
 }
@@ -198,11 +198,11 @@ bool wordConformToMask(const string& word, const string& mask, char ch)
     if(word.length()!= mask.length()) return false;
     for (int i=0;i<word.length();i++)
     {
-        if(mask[i]=='_')
+        if(mask[i]=='-')
         {
             if(word[i]==ch) return false;
         }
-        else if(mask[i]!='_' && mask[i] != word[i] ) return false;
+        else if(mask[i]!='-' && mask[i] != word[i] ) return false;
     }
     return answer;
 }
