@@ -94,18 +94,15 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
 {
     char answer;
     int maxx = 0;
+    map<char, int> unoccur;
     //size_t charsz = selectedChars.size();
-    size_t mapsz = occurrences.size();
-    for (size_t i = 0; i < mapsz; i++) {
-        int flag = false;
-        for (char c : selectedChars) {
-            if (occurrences.find(c) != occurrences.end() ) {
-                flag = true; break;
+        for (pair c : occurrences){
+            if (selectedChars.find(c.first) == selectedChars.end() ) {
+                unoccur.insert(c);
             }
         }
-        map<char, int>::const_iterator it = max_element(occurrences.begin(), occurrences.end(), comp);
+        map<char, int>::const_iterator it = max_element(unoccur.begin(),unoccur.end(), comp);
         answer = it->first;
-    }
     //Write your code here
     return answer;
 }
