@@ -178,6 +178,10 @@ bool isWholeWord(const string& mask)
          {
              answer = false;
          }
+         if (!(mask[i] >= 'a' && mask[i] <= 'z'))
+         {
+             answer = false;
+         }
      }
     return answer;
 }
