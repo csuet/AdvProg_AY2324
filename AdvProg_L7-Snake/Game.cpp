@@ -65,7 +65,7 @@ void Game::snakeMoveTo(Position pos) {
     vector<Position>ps=getSnakePositions();
    for (const auto& part : ps)
    {
-       if(part=pos)
+       if(part==pos)
        {
            status=GAME_OVER;
            return;
