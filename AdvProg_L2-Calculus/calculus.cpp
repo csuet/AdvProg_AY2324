@@ -39,8 +39,6 @@ double myCos(double x)
             result-=gt(i,x);
 
         }
-
-
     }
     return result;
 
