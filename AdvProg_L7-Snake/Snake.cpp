@@ -194,3 +194,4 @@ SnakeNode* Snake::getHead(){
 SnakeNode* Snake::getTail(){
     return tail;
 }
+
