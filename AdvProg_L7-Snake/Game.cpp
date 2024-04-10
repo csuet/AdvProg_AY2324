@@ -197,8 +197,8 @@ void Game::addCherry()
         if (getCellType(randomPos) == CELL_EMPTY) {
 
         	// assign the cherry position as randomPos, and set randomPos type as CELL_CHERRY
-        	getCherryPosition(randomPos);
-        	setCellType(randomPos,CELL_CHERRY;
+        	//getCherryPosition(randomPos);
+        	setCellType(randomPos,CELL_CHERRY);
 
 
 			// YOUR CODE HERE
