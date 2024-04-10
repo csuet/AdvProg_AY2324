@@ -57,29 +57,23 @@ void Game::snakeMoveTo(Position pos) {
 	//
 	//
 	// END CODE HERE
-	if(getCellType(pos)==CELL_OFF_BOARD)
+	getCellType(pos);
+	if(getCellType(pos)==CELL_OFF_BOARD||getCellType(pos)==CELL_SNAKE)
     {
         status=GAME_OVER;
         return;
     }
-    vector<Position>ps=getSnakePositions();
-   for (const auto& part : ps)
-   {
-       if(part==pos)
-       {
-           status=GAME_OVER;
-           return;
-       }
-   }
-    if(pos==getCherryPosition())
+
+    if(getCellType(pos)==CELL_CHERRY)
     {
         score=score+1;
         snake.eatCherry();
+        addCherry();
     }
-    else
+    *else
     {
         setCellType(pos,CELL_SNAKE);
-    }
+    }*
 }
 
 
@@ -275,4 +269,3 @@ int Game::getHeight(){
 Snake Game::getSnake(){
 	return snake;
 }
-
