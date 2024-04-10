@@ -25,7 +25,7 @@ Snake::~Snake()
             p = nextNode;
     }
     */
-    for(SnakeNode* p = tail; p != nullptr)
+    for(SnakeNode* p = tail; p != nullptr;)
     {
         SnakeNode* nextNode = p->next;
              delete p;
@@ -59,7 +59,7 @@ void Snake::growAtFront(Position newPosition)
 {
     // head of snake grow at new position
     SnakeNode abc= SnakeNode(newPosition,head);
-    head=abc;
+    *head=abc;
     game.setCellType(head->position,CELL_SNAKE);
     /* YOUR CODE HERE */
 }
@@ -99,7 +99,7 @@ void Snake::slideTo(Position newPosition)
 		SnakeNode *oldTailNode = tail;
 		//cut the old tail off the snake
         /* YOUR CODE HERE */
-        SnakeNode*oldTailNode=tail;
+
         tail=tail->next;
 
 
@@ -165,7 +165,7 @@ void Snake::move(Direction direction)
     game.snakeMoveTo(newPosition);
 
     // If gameOver, return ;
-    if(game.status==GAME_OVER)return;
+    if(game.isGameOver())return;
     /* YOUR CODE HERE */
 
     // If cherry > 0, cherry descrease one and growAtFront() with newPosition
