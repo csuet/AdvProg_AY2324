@@ -189,13 +189,13 @@ bool isWholeWord(const string& mask)
 {
      bool answer;
     //Write your code here
-    if(mask.find('_') == string::npos)
+    if(mask.find('-') == string::npos)
     {
-        answer = false;
+        answer = true;
     }
     else
     {
-        answer = true;
+        answer = false;
     }
     return answer;
 }
