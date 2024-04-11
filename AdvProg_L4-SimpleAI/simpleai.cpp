@@ -63,7 +63,6 @@ map<char, int> countOccurrences(const vector<string>& candidateWords)
     for (auto word: candidateWords)
         for (auto ch: word)
         {
-            // cout << ch << " " << answer[ch] << "\n";
             answer[ch] ++;
         }
 
@@ -87,7 +86,6 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
         if (selectedChars.find(ch) != selectedChars.end()) continue;
         for (auto mapPair: occurrences)
         {
-            // cout << maxOccurence << " " << answer << "\n";
             if (mapPair.first == ch && mapPair.second > maxOccurence)
             {
 
