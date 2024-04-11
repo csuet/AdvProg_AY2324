@@ -49,7 +49,7 @@ char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
 {
     char answer;
     //Write your code here
-    for(int i = 0; i < 26, i++)
+    for(int i = 0; i < 26; i++)
     {
         if(selectedChars.find(char(i + 'a')) == selectedChars.end())
         {
