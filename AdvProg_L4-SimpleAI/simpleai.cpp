@@ -28,7 +28,7 @@ vector<string> filterWordsByLen(int wordLen, const vector<string>& vocabulary)
 {
     vector<string> answer;
     //Write your code here
-    for(string&i : vocabulary){
+    for(stringi : vocabulary){
         int len=i.size();
         if(len==wordLen);
         answer.push_back(i);
@@ -68,8 +68,8 @@ map<char, int> countOccurrences(const vector<string>& candidateWords)
     map<char, int> answer;
     //Write your code here
 
-    for(string &i:candidateWords){
-        for(char&j:i){
+    for(string i:candidateWords){
+        for(charj:i){
             answer[j]++;
         }
     }
