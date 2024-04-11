@@ -136,9 +136,10 @@ bool isCorrectChar(char ch, const string& mask)
 {
     bool answer=false;
     //Write your code here
-    for(char i : mask)
-        if(ch==i)
+    for(int i=0 ;i<(int)mask.size();i++)
+        if(ch==mask[i]){
             answer = true;
+        }
     return answer;
 }
 
