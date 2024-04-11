@@ -191,11 +191,11 @@ bool isWholeWord(const string& mask)
     //Write your code here
     if(mask.find('_') == string::npos)
     {
-        answer = true;
+        answer = false;
     }
     else
     {
-        answer = false;
+        answer = true;
     }
     return answer;
 }
