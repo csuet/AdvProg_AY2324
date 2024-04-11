@@ -16,7 +16,7 @@ int readWordLen()
     return wordLen;
     
 }
-
+//test
 /***
     Args:
         wordLen (int): The desired length of input word
