@@ -51,7 +51,7 @@ vector<string> readWordListFromFile(const string& filePath)
 bool isCharInWord(const char ch, const string& word)
 {
     // TODO: return true if ch is in word else return false
-    return word.find(ch)!=npos;
+    return word.find(ch)!=string::npos;
 }
 
 /***
@@ -81,11 +81,8 @@ string chooseWordFromList(const vector<string>& wordList, int index)
 ***/
 string generateHiddenCharacters(string answerWord){
     // TODO: Based on answerWord's length, generate hidden characters in form of "---"
-    string secretWord;
+    string secretWord(answerWord.length(), '-');
 
-    for(int i=0;i<answerWord.length();i++){
-        secretWord[i]="-";
-    }
     return secretWord;
 }
 
@@ -106,7 +103,7 @@ char getInputCharacter() {
 void updateSecretWord(string& secretWord, const char ch, const string& word)
 {
     // TODO: Update the secret word if the character ch is in the answer word.
-    for(int i=0;i<secretWord.length;i++){
+    for(int i=0;i<secretWord.length();i++){
         if(ch == word[i]) secretWord[i] = ch;
     }
 }
@@ -120,7 +117,7 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 ***/
 void updateEnteredChars(const char ch, string& chars){
     // TODO: append the character ch is in end of the text chars
-    chars += ch;
+    chars = chars + ch + ' ';
 }
 
 /***
@@ -160,9 +157,10 @@ void processData(const char ch, const string& word,
     ***/
     if(isCharInWord(ch,word)){
         updateSecretWord(secretWord,ch,word);
-        updateEnteredChars(ch,chars);
+        updateEnteredChars(ch,correctChars);
     }
     else{
         updateIncorrectGuess(incorrectGuess);
-        updateEnteredChars(ch,chars);
+        updateEnteredChars(ch,incorrectChars);
     }
+}
