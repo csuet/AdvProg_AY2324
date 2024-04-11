@@ -126,7 +126,7 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
     map<char, int> occurrences;
     for(int i = 0; i < candidateWords.size(); i++)
     {
-        for(int j = 0; j < candidateWords[i].size(); i++)
+        for(int j = 0; j < candidateWords[i].size(); j++)
         {
             occurrences[candidateWords[i][j]]++;
         }
