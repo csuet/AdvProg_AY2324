@@ -89,10 +89,10 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
     char answer;
     int max=0;
     set < char > :: iterator it;
-    for(it=selectedChars.begin();it!=selectedChars.end();it++){
-        if( occurrences[*it]>max){
-            answer=*it;
-            max=occurrences[*it];
+    for(auto& it:selectedChars){
+        if( occurrences[it]>max){
+            answer=it;
+            max=occurrences[it];
         }
     }
     return answer;
@@ -137,7 +137,7 @@ bool isCorrectChar(char ch, const string& mask)
     bool answer=false;
     //Write your code here
     for(char i : mask)
-        if(char==i)
+        if(ch==i)
             answer = true;
     return answer;
 }
@@ -155,7 +155,7 @@ bool isWholeWord(const string& mask)
      bool answer = true;
     //Write your code here
     for(char i: mask)
-        if(i=="_")
+        if(i=='_')
             answer = false;
     return answer;
 }
