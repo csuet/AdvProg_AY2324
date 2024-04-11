@@ -30,7 +30,7 @@ vector<string> filterWordsByLen(int wordLen, const vector<string>& vocabulary)
     //Write your code here
     for(string i : vocabulary){
         int len=i.size();
-        if(len==wordLen);
+        if(len==wordLen)
         answer.push_back(i);
     }
     return answer;
