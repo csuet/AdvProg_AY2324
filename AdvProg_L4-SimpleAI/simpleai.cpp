@@ -173,7 +173,10 @@ bool isCorrectChar(char ch, const string& mask)
     {
         answer = true;
     }
-    answer = false;
+    else
+    {
+        answer = false;
+    }
     return answer;
 }
 
