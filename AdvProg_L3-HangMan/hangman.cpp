@@ -89,7 +89,7 @@ string generateHiddenCharacters(string answerWord){
     string secretWord;
     for(int i=0; i<secretWord.size(); i++)
     {
-        secretWord[i]='_';
+        secretWord[i]='-';
     }
     return secretWord;
 }
