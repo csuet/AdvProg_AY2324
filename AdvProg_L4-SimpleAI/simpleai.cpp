@@ -83,7 +83,7 @@ map<char, int> countOccurrences(const vector<string>& candidateWords)
 
 char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& selectedChars)
 {
-    char answer = '';
+    char answer;
     int lonNhat = 0;
 
     for (auto dem : occurrences) {
@@ -181,11 +181,11 @@ bool wordConformToMask(const string& word, const string& mask, char ch)
     if (word.size() != mask.size()) {
         return answer = false;
     }
-    for (int i = 0; i  < (int) word.size()){
-        if (maskChar == '-' || maskChar == ch) {
+    for (int i = 0; i  < (int) word.size(); i ++){
+        if (mask[i] == '-' || mask[i] == ch) {
             continue;
         }
-        if (maskChar != ch && wordChar != ch) {
+        if (mask[i] != ch && word[i] != ch) {
             answer = false;
         }
     }
