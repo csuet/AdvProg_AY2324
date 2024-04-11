@@ -123,6 +123,28 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
 {
     char answer;
     //Write your code here
+    map<char, int> occurrences;
+    for(int i = 0; i < candidateWords.size(); i++)
+    {
+        for(int j = 0; j < candidateWords[i].size(); i++)
+        {
+            occurrences[candidateWords[i][j]]++;
+        }
+    }
+    int Max = 0;
+    for(auto x: occurrences)
+    {
+        char ch = x.first;
+        int cnt = x.second;
+        if(selectedChars.find(ch) == selectedChars.end())
+        {
+            if(cnt > Max)
+            {
+                answer = ch;
+                Max = cnt;
+            }
+        }
+    }
     return answer;
 }
 
@@ -147,6 +169,11 @@ bool isCorrectChar(char ch, const string& mask)
 {
     bool answer;
     //Write your code here
+    if(mask.find(ch) != string::npos)
+    {
+        answer = true;
+    }
+    answer = false;
     return answer;
 }
 
