@@ -90,9 +90,9 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
     int max=0;
     set < char > :: iterator it;
     for(auto& it:selectedChars){
-        if( occurrences[it]>max){
+        if( occurrences.at(it)>max){
             answer=it;
-            max=occurrences[it];
+            max=occurrences.at(it);
         }
     }
     return answer;
