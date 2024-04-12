@@ -34,7 +34,6 @@ vector<string> filterWordsByLen(int wordLen, const vector<string> &vocabulary)
         if ((int)vocabulary[i].size() == wordLen)
         {
             answer.push_back(vocabulary[i]);
-            break;
         }
     }
     return answer;
@@ -128,8 +127,6 @@ char findBestChar(const vector<string> &candidateWords, const set<char> &selecte
 {
     char answer;
     // Write your code here
-    int l = candidateWords.size();
-    int l2 = selectedChars.size();
     map<char, int> a;
     a = countOccurrences(candidateWords);
     answer = findMostFrequentChar(a, selectedChars);
