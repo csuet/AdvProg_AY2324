@@ -1,4 +1,4 @@
-P#include "simpleai.h"
+#include "simpleai.h"
 
 int readMaxGuess()
 {
