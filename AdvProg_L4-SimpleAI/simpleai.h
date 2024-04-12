@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SIMPLEAI_H
+#define SIMPLEAI_H
 #include <iostream>
 #include <string>
 #include <vector>
@@ -20,3 +21,4 @@ bool isWholeWord(const string& mask);
 vector<string> filterWordsByMask(const vector<string>& words, const string& mask, char ch);
 
 const char MASK_CHAR = '-';
+#endif
