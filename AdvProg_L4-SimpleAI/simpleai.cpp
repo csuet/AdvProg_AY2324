@@ -102,15 +102,13 @@ char findMostFrequentChar(const map<char, int> &occurrences, const set<char> &se
             {
                 if (i.first != j)
                     dem++;
-                if (dem == l2)
-                {
-                    answer = i.first;
-                    break;
-                }
+            }
+            if (dem == l2)
+            {
+                answer = i.first;
+                break;
             }
         }
-        if (dem == l2)
-            break;
     }
     return answer;
 }
@@ -242,8 +240,9 @@ vector<string> filterWordsByMask(const vector<string> &words, const string &mask
     // Write your code here
     for (int i = 0; i < words.size(); i++)
     {
-        if (wordConformToMask(words[i],mask,ch))answer.push_back(words[i]);
+        if (wordConformToMask(words[i], mask, ch))
+            answer.push_back(words[i]);
     }
-    
+
     return answer;
 }
