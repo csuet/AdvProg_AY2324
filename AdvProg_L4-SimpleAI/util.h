@@ -1,5 +1,4 @@
-#ifndef GUARD_util
-#define GUARD_util
+#pragma once
 
 #include <fstream>
 #include <string>
@@ -10,5 +9,3 @@
 int generateRandomNumber(const int min, const int max);
 bool isCharInWord(const char ch, const std::string& word);
 std::vector<std::string> readWordListFromFile(const std::string& filePath);
-
-#endif
