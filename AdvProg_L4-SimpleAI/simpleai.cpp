@@ -68,8 +68,10 @@ map<char, int> countOccurrences(const vector<string>& candidateWords)
     map<char, int> answer;
     //Write your code here
     for (char c = 'a'; c <= 'z'; c++) {
-        for (const string& word : candidateWords) {
-            answer[c] += (word.find(c) != -1);
+        for (string word : candidateWords) {
+            for (int i = 0; i < word.size(); i++) {
+                answer[c] += (word[i] == c);
+            }
         }
     }
     return answer;
