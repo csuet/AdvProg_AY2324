@@ -156,7 +156,7 @@ bool isWholeWord(const string& mask)
     for(const auto& ch : mask){
         if('a' > ch || ch > 'z'){
             answer = false;
-            break;
+            // break;
         }
     }
     answer = true;
