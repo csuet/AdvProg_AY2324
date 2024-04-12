@@ -53,11 +53,17 @@ vector<string> filterWordsByLen(int wordLen, const vector<string>& vocabulary)
          câu trả lời (char): Ký tự tiếp theo của từ được cung cấp không có trong từ vựng
 ***/
 // tìm kí tự chưa xuất hiện trong selectedChars để đoán
-char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
-{
+char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars) {
     char answer;
+    for (char ch = 'a'; ch <= 'z'; ch++) {
+        if (selectedChars.find(ch) == selectedChars.end()) {
+            answer = ch;
+        }
+    }
+    // Nếu tất cả các ký tự đều có trong selectedChars, thì không có ký tự nào để trả về
     return answer;
 }
+
 
 /***
     Args:
@@ -65,9 +71,10 @@ char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
     Returns:
         answer (map) : The map which count the occurences of character in the set of candidate words
 ***/
-// đếm số lần xuất hiện của từng ký tự trong danh sách từ ứng cử. Một bản đồ được sử dụng để lưu trữ tần số ký tự.
+// đếm số lần xuất hiện của từng ký tự trong candidateWords. Một bản đồ được sử dụng để lưu trữ tần số ký tự.
 map<char, int> countOccurrences(const vector<string>& candidateWords)
 {
+    
     map<char, int> answer;
     for (const string& word : candidateWords) {
         for (char ch : word) {
@@ -138,13 +145,7 @@ string getWordMask(char nextChar)
         answer (bool) : return False if the predicted character is the wrong one, True otherwise
 ***/
 
-/***
-     Lập luận:
-         ch (char): Ký tự được AI dự đoán
-         mặt nạ (chuỗi): Mặt nạ phản hồi của người chơi
-     Trả về:
-         câu trả lời (bool): trả về Sai nếu ký tự được dự đoán sai, nếu không thì đúng
-***/
+
 // xac dinh xem ki tu du doan co dung hay khong dua tren mask
 bool isCorrectChar(char ch, const string& mask)
 {
