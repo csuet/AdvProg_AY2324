@@ -68,7 +68,7 @@ int main()
     int wordLen = readWordLen();
 
     vector<string> candidateWords = filterWordsByLen(wordLen, vocabulary);
-    // save_filter(1, wordLen, candidateWords, "-", '-');
+    save_filter(1, wordLen, candidateWords, "-", '-');
     set<char> selectedChars;
     int incorrectGuess = 0;
     string finalMessage = "";
