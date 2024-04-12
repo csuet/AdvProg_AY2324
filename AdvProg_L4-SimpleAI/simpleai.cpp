@@ -118,6 +118,8 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
 {
     char answer;
     //Write your code here
+
+
     return answer;
 }
 
@@ -140,10 +142,16 @@ string getWordMask(char nextChar)
 
 bool isCorrectChar(char ch, const string& mask)
 {
-    bool answer;
+    bool answer = false;
+    for(int i=0; i<(int)mask.size();i++){
+        if(ch == mask[i]){
+            answer = true;
+        }
+    }
     //Write your code here
     return answer;
 }
+
 
 /***
     Args:
@@ -155,7 +163,12 @@ bool isCorrectChar(char ch, const string& mask)
 ***/
 bool isWholeWord(const string& mask)
 {
-     bool answer;
+     bool answer = false;
+     for(char ch : mask){
+        if (ch == '_'){
+            answer = true; break;
+        }
+     }
     //Write your code here
     return answer;
 }
@@ -174,7 +187,13 @@ bool isWholeWord(const string& mask)
 ***/
 bool wordConformToMask(const string& word, const string& mask, char ch) 
 {
-    bool answer;
+    bool answer = false;
+    for(int i=0; i< word.size(); i++){
+        if(ch == mask[i]){
+            if(ch == word[i])
+                answer = true;
+        }
+    }
     //Write your code here
     return answer;
 }
@@ -194,6 +213,11 @@ bool wordConformToMask(const string& word, const string& mask, char ch)
 vector<string> filterWordsByMask(const vector<string>& words, const string& mask, char ch)
 {
     vector<string> answer;
+    for(const string& word : words){
+        if(wordConformToMask(word,mask,ch)){
+            answer.push_back(word);
+        }
+    }
     //Write your code here
     return answer;
 }
