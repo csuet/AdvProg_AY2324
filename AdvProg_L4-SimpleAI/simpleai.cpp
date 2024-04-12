@@ -78,7 +78,7 @@ map<char, int> countOccurrences(const vector<string>& candidateWords)
     for(int i=0;i<n;i++)
     {
         string word=candidateWords[i];
-        int m=candidateWords[i].size()
+        int m=candidateWords[i].size();
         for(int i=0;i<m;i++)
         {
            answer[word[i]]++;
@@ -149,10 +149,10 @@ bool isCorrectChar(char ch, const string& mask)
 {
     bool answer=false;
     //Write your code here
-    int n=mark.size();
+    int n=mask.size();
     for(int i=0;i<n;i++)
     {
-        if(mark[i]==ch)
+        if(mask[i]==ch)
         {
             answer=true;
 
@@ -206,7 +206,7 @@ bool wordConformToMask(const string& word, const string& mask, char ch)
     {
         if(mask[i]!='-'&&mask[i]!='_')
         {
-            if(mask[i]!=work[i])
+            if(mask[i]!=word[i])
             {
                 answer=false;
             }
