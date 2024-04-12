@@ -1,0 +1,9 @@
+boot
+coot
+foot
+hoot
+loot
+moot
+root
+soot
+toot
