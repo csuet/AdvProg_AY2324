@@ -49,9 +49,13 @@ char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
     char answer;
         //Write your code here
     srand(time(0));
-        answer = 'a'+rand()%26;
-        if(selectedChars.find(answer)!=selectedChars.end()){
+    bool end =true;
+        while(end){
+            answer = 'a'+rand()%26;
+            if(selectedChars.find(answer)!=selectedChars.end()){
+                end = false;
             break;
+            }
         }
 
     return answer;
