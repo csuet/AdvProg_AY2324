@@ -124,8 +124,6 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
         answer = nextCharWhenWordIsNotInDictionary(selectedChars);
     }
     return answer;
-
-    return answer;
 }
 
 string getWordMask(char nextChar)
