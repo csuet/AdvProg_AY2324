@@ -51,23 +51,21 @@ void Game::snakeMoveTo(Position pos)
 	//  START CODE HERE
 	CellType a = getCellType(pos);
 	Position a1;
-	if ( a == CELL_SNAKE)
+	if (a == CELL_OFF_BOARD || a == CELL_SNAKE)
 		status = GAME_OVER;
 	else if (a == CELL_CHERRY)
 	{
 		score++;
 		snake.eatCherry();
 		snake.growAtFront(pos);
-		squares[pos.y][pos.x] = CELL_SNAKE;
-
+		setCellType(pos,CELL_SNAKE);
 		addCherry();
 	}
 	else{
-		a1 = snake.getTail()->position;
-		squares[a1.y][a1.x] = CELL_EMPTY;
+		// a1 = snake.getTail()->position;
+		// squares[a1.y][a1.x] = CELL_EMPTY;
 		snake.slideTo(pos);
-		a1 = pos;
-		squares[a1.y][a1.x] = CELL_SNAKE;
+		setCellType(pos,CELL_SNAKE);
 	}
 	// END CODE HERE
 }
