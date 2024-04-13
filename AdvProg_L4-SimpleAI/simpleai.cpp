@@ -47,7 +47,7 @@ vector<string> filterWordsByLen(int wordLen, const vector<string> &vocabulary)
 
 char nextCharWhenWordIsNotInDictionary(const set<char> &selectedChars)
 {
-    char answer;
+
     vector<char> englishAlphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
                                     'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
@@ -56,11 +56,9 @@ char nextCharWhenWordIsNotInDictionary(const set<char> &selectedChars)
 
         if (selectedChars.find(ch) == selectedChars.end())
         {
-
             return ch;
         }
     }
-    return answer;
 }
 
 /***
@@ -170,7 +168,7 @@ bool isWholeWord(const string &mask)
 
     for (char ch : mask)
     {
-        if (!((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || ch == '_'))
+        if (!((ch >= 'a' && ch <= 'z') || ch == '_'))
         {
             return false;
         }
@@ -194,11 +192,10 @@ bool wordConformToMask(const string &word, const string &mask, char ch)
 {
     if (mask.length() != word.length())
     {
-        return false; // Trả về false nếu không cùng độ dài
+        return false;
     }
     for (size_t i = 0; i < mask.length(); ++i)
     {
-        // Nếu ký tự trong mask là dấu gạch dưới, tiếp tục với ký tự tiếp theo
         if (mask[i] == '_')
         {
             continue;
