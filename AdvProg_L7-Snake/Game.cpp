@@ -49,11 +49,9 @@ Game::~Game()
 void Game::snakeMoveTo(Position pos)
 {
 	//  START CODE HERE
-	CellType a = getCellType(pos);
-	Position a1;
-	if (a == CELL_OFF_BOARD || a == CELL_SNAKE)
+	if (getCellType(pos) == CELL_OFF_BOARD || getCellType(pos) == CELL_SNAKE)
 		status = GAME_OVER;
-	else if (a == CELL_CHERRY)
+	else if (getCellType(pos) == CELL_CHERRY)
 	{
 		score++;
 		snake.eatCherry();
