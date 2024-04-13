@@ -1,3 +1,4 @@
+
 LIBFLAGS = -lSDL2 -lSDL2_image
 all:
 	g++ -std=c++17 -c utils.cpp $(LIBFLAGS)
@@ -6,7 +7,6 @@ all:
 	g++ -std=c++17 utils.o  painter.o main.o -o main $(LIBFLAGS)
 	g++ -std=c++17 -c painterTest.cpp $(LIBFLAGS)
 	g++ -std=c++17 utils.o  painter.o painterTest.o  -lcppunit -o painterTest $(LIBFLAGS)
-	g++ -I src/include -L src/lib -o main main.cpp -lmingw32 -lSDL2main -lSDL2
 run:
 	chmod +x main
 	./main
