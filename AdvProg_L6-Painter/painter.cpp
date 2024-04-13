@@ -71,7 +71,7 @@ void Painter::randomColor()
 {
     // TODO: set random color
     color.r = rand() % 256;
-    color.g = rang() % 256;
+    color.g = rand() % 256;
     color.a = rand() % 256;
     color.b = rand() % 256;
 }
