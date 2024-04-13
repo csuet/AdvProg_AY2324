@@ -133,7 +133,7 @@ bool isWholeWord(const string& mask)
 {
     for(auto c: mask)
         if( !('a'<=c && c<='z') && !('A'<=c && c<='Z') ) return false;
-    return false;
+    return true;
 }
 
 /***
