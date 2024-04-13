@@ -124,6 +124,7 @@ void Snake::slideTo(Position newPosition)
 void Snake::eatCherry()
 {
     /* YOUR CODE HERE */
+    // growAtFront()
     cherry++;
 }
 
@@ -161,7 +162,7 @@ void Snake::move(Direction direction)
     game.snakeMoveTo(newPosition);
     // If gameOver, return ;
     /* YOUR CODE HERE */
-    if(GAME_OVER)return;
+    if(game.isGameOver())return;
     // If cherry > 0, cherry descrease one and growAtFront() with newPosition
     else if (cherry > 0)
     {
