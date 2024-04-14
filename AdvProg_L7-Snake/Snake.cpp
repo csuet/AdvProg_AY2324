@@ -95,7 +95,7 @@ void Snake::slideTo(Position newPosition)
 	// if (tail->next == nullptr) { 
     //     // position is assigned by new position.
 	// 	/* YOUR CODE HERE */
-    
+
 	// }
 	// else {
 	// 	SnakeNode *oldTailNode = tail;
@@ -167,10 +167,7 @@ void Snake::move(Direction direction)
 {
     Position newPosition = head->position.move(direction);
     game.snakeMoveTo(newPosition);
-    if (game.getStatus() == GAME_OVER) {
-        return;
-    }
-
+    if(game.getGameStatus() == GAME_OVER) return;
     if (cherry > 0) {
         cherry--;
         growAtFront(newPosition);
