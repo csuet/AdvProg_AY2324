@@ -52,21 +52,19 @@ Game::~Game()
 
 void Game::snakeMoveTo(Position pos) {
 	//  START CODE HERE
-	//
-	//
+	// CellType cellType = getCellType(pos);
+	// if (cellType == CELL_OFF_BOARD || cellType == CELL_SNAKE) {
+	// 	status = GAME_OVER;
+	// } else if (cellType == CELL_CHERRY) {
+	// 	score++;
+	// 	snake.eatCherry();
+	// 	addCherry();
+	// } else {
+	// 	snake.move(pos);
+	// }
 	//
 	//
 	// END CODE HERE
-	CellType cellType = getCellType(pos);
-    if (cellType == CELL_OFF_BOARD || cellType == CELL_SNAKE) {
-        status = GAME_OVER;
-    } else if (cellType == CELL_CHERRY) {
-        score++;
-        snake.eat(pos);
-        addCherry();
-    } else {
-        snake.move(pos);
-    }
 }
 
 
@@ -84,11 +82,10 @@ void Game::snakeLeave(Position position)
 {
 	// Suggestion: use setCellType() method in Game class
 	// START CODE HERE
-	//  
+	// setCellType(position, CELL_EMPTY);
 	//
 	//
 	// END CODE HERE
-	 setCellType(position, CELL_EMPTY);
 }
 
 
@@ -114,16 +111,12 @@ void Game::processUserInput(Direction direction)
  * 
  ***/
 bool Game::canChange(Direction current, Direction next) const {
-	// if (current == UP || current == DOWN) 
-	// 	return 0; // YOUR CODE HERE
-	// return 0;// YOUR CODE HERE
-
-	if ((current == UP || current == DOWN) && (next != LEFT && next != RIGHT)) {
-        return false;
-    } else if ((current == LEFT || current == RIGHT) && (next != UP && next != DOWN)) {
-        return false;
-    }
-    return true;
+	if (current == UP || current == DOWN) 
+		return next != UP && next != DOWN; 
+	if (current == LEFT || current == RIGHT)
+		return next != LEFT && next != RIGHT; 
+		return 0; // YOUR CODE HERE
+	return 0;// YOUR CODE HERE
 }
 
 
@@ -144,31 +137,23 @@ bool Game::canChange(Direction current, Direction next) const {
 
 void Game::nextStep()
 {
-	// while (!inputQueue.empty()) {
-	// // 	// get the input direction from input queue
-    // //     Direction next ; // YOUR CODE HERE
-
-	// // 	// remove the front of input queue
-    // //     // YOUR CODE HERE
-
-	// // 	// check if snake can move to the next direction, set current direction as next
-    // //     if (canChange(currentDirection, next)) {
-    // //     	// YOUR CODE HERE
-    // //     	break;
-	// // 	}
-    // }
-
-    // snake.move(currentDirection);
 	while (!inputQueue.empty()) {
-        Direction next = inputQueue.front();
-        inputQueue.pop();
+		// get the input direction from input queue
+        Direction next ; // YOUR CODE HERE
+		inputQueue.pop();
+
+		// remove the front of input queue
+        // YOUR CODE HERE
+
+		// check if snake can move to the next direction, set current direction as next
         if (canChange(currentDirection, next)) {
-            currentDirection = next;
-            break;
-        }
+        	// YOUR CODE HERE
+			currentDirection = next;
+        	break;
+		}
     }
+
     snake.move(currentDirection);
-	
 }
 
 
@@ -190,22 +175,16 @@ void Game::addCherry()
 		// init a random position inside the play screen (width, height)
 		// Suggestion: use rand() function
 
-        // Position randomPos; // YOUR CODE HERE
+        Position randomPos(rand() % width,rand() % height); // YOUR CODE HERE
 		
-		// // check if the randomPos is EMPTY 
-        // if (getCellType(randomPos) == CELL_EMPTY) {
-
-        // 	// assign the cherry position as randomPos, and set randomPos type as CELL_CHERRY
-
-		// 	// YOUR CODE HERE
-		// 	// YOUR CODE HERE
-
-       	// 	break;
-		Position randomPos(rand() % width, rand() % height);
+		// check if the randomPos is EMPTY 
         if (getCellType(randomPos) == CELL_EMPTY) {
-            cherry = randomPos;
-            setCellType(randomPos, CELL_CHERRY);
-            break;
+			cherryPosition = randomPos;
+        	// assign the cherry position as randomPos, and set randomPos type as CELL_CHERRY
+			setCellType(randomPos, CELL_CHERRY);
+			// YOUR CODE HERE
+			// YOUR CODE HERE
+       		break;
         }
     } while (true);
 }
@@ -231,10 +210,10 @@ void Game::setCellType(Position pos, CellType cellType)
 	//
 	// START CODE HERE
 	//  
+	// if (pos.isInsideBox(0, 0, width, height)) {
+	// 	squares[pos.y][pos.x] = cellType;
+	// }
 	// END CODE HERE
-	if (pos.isInsideBox(0, 0, width, height)) {
-		squares[pos.y][pos.x] = cellType;
-	}
 }
 
 

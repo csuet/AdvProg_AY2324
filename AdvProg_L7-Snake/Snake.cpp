@@ -25,7 +25,12 @@ Snake::~Snake()
             p = nextNode;
     }
     */
-
+    SnakeNode* p = tail;
+    while (p != nullptr) {
+        SnakeNode* nextNode = p->next;
+        delete p;
+        p = nextNode;
+    }
 }
 
 // DO NOT CHANGE METHOD
@@ -55,9 +60,11 @@ void Snake::growAtFront(Position newPosition)
     // head of snake grow at new position
 	
     /* YOUR CODE HERE */
+
     SnakeNode* newNode = new SnakeNode(newPosition);
     newNode->next = head;
     head = newNode;
+
 }
 
 
@@ -88,6 +95,7 @@ void Snake::slideTo(Position newPosition)
 	// if (tail->next == nullptr) { 
     //     // position is assigned by new position.
 	// 	/* YOUR CODE HERE */
+    
 	// }
 	// else {
 	// 	SnakeNode *oldTailNode = tail;
