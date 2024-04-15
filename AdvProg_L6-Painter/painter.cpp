@@ -69,7 +69,10 @@ void Painter::turnRight(double degree)
 ***/
 void Painter::randomColor()
 {
-    setColor({(Uint8)rand() % 256, (Uint8)rand() % 256, (Uint8)rand() % 256, 255});
+    setColor({static_cast<Uint8>(rand() % 256), 
+              static_cast<Uint8>(rand() % 256), 
+              static_cast<Uint8>(rand() % 256), 
+              255});
 }
 
 /***
