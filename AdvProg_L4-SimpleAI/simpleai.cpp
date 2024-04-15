@@ -105,23 +105,22 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
 
 char findBestChar(const vector<string>& candidateWords, const set<char>& selectedChars)
 {
-    unordered_map<char, int> charFreq;
-
+    map<char, int> charOccurrences;
     for (const string& word : candidateWords) {
-        for (char c : word) {
-            if (selectedChars.find(c) == selectedChars.end()) { // Check if the character is not selected
-                charFreq[c]++;
+        for (char ch : word) {
+            if (selectedChars.find(ch) == selectedChars.end()) {
+                charOccurrences[ch]++;
             }
         }
     }
-
-    // Find the character with the highest frequency
-    char bestChar = '\0'; // Default character
-    int maxFreq = 0;
-    for (const auto& entry : charFreq) {
-        if (entry.second > maxFreq) {
-            maxFreq = entry.second;
-            bestChar = entry.first;
+    char bestChar = '\0';
+    int maxOccurrences = 0;
+    for (const pair<char, int>& p : charOccurrences) {
+        char ch = p.first;
+        int occurrences = p.second;
+        if (occurrences > maxOccurrences) {
+            maxOccurrences = occurrences;
+            bestChar = ch;
         }
     }
 
