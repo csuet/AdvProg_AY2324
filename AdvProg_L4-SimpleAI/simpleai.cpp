@@ -127,7 +127,6 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
     return bestChar;
 }
 
-}
 
 string getWordMask(char nextChar)
 {
