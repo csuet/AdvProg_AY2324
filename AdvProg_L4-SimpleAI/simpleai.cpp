@@ -105,21 +105,29 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
 
 char findBestChar(const vector<string>& candidateWords, const set<char>& selectedChars)
 {
-    map<char, int> charOccurrences = countOccurrences(candidateWords);
+    unordered_map<char, int> charFreq;
 
-    //Tìm kí tự xh nhiều nhất
-    char bestChar = '\0';
-    int maxOccurrences = 0;
-    for (const pair<char, int>& p : charOccurrences) {
-        char ch = p.first;
-        int occurrences = p.second;
-        if (occurrences > maxOccurrences) {
-            maxOccurrences = occurrences;
-            bestChar = ch;
+    for (const string& word : candidateWords) {
+        for (char c : word) {
+            if (selectedChars.find(c) == selectedChars.end()) { // Check if the character is not selected
+                charFreq[c]++;
+            }
+        }
+    }
+
+    // Find the character with the highest frequency
+    char bestChar = '\0'; // Default character
+    int maxFreq = 0;
+    for (const auto& entry : charFreq) {
+        if (entry.second > maxFreq) {
+            maxFreq = entry.second;
+            bestChar = entry.first;
         }
     }
 
     return bestChar;
+}
+
 }
 
 string getWordMask(char nextChar)
