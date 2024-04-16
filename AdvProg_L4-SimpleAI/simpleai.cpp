@@ -45,9 +45,9 @@ char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
 {
     char answer;
     //Write your code here
-    // Duyệt qua các ký tự từ 'a' đến 'z'
+   
     for (char ch = 'a'; ch <= 'z'; ++ch) {
-        // Nếu ký tự chưa được dự đoán
+        
         if (selectedChars.find(ch) == selectedChars.end()) {
             answer = ch;
             break;
