@@ -25,7 +25,7 @@ void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
    x += static_cast<int>(numPixel * cos(angle * M_PI / 180));
-    y += static_cast<int>(numPixel * sin(angle * M_PI / 180));
+    y -= static_cast<int>(numPixel * sin(angle * M_PI / 180));
 }
 
 
