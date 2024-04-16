@@ -119,7 +119,7 @@ void Snake::slideTo(Position newPosition)
 ***/
 void Snake::eatCherry()
 {
-	if(head->position == game.getCherryPosition()) cherry++;
+	if(head->position == game.getCherryPosition()) cherry = 1;
 }
 
 /***
