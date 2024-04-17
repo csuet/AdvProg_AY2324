@@ -119,7 +119,7 @@ void Snake::slideTo(Position newPosition)
 ***/
 void Snake::eatCherry()
 {
-	if(head->position == game.getCherryPosition()) cherry = 1;
+	cherry++;
 }
 
 /***
@@ -160,9 +160,8 @@ void Snake::move(Direction direction)
 
     // If cherry > 0, cherry descrease one and growAtFront() with newPosition
     if (cherry > 0) {
-        cherry=0;
+        cherry--;
         growAtFront(newPosition);
-
     } else {
     	game.snakeLeave(tail->position);
         slideTo(newPosition);
