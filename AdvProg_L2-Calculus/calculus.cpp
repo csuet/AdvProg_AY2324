@@ -5,12 +5,14 @@
 using std::string;
 using std::cout;
 using std::endl;
+using std::cin;
 using std::stod;
 
 
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
+const double eps = 0.001;
 
 /***
     Args:
@@ -18,9 +20,18 @@ double mySqrt(double x);
     Returns:
         double: cosine of x
 ***/
-double myCos(double x) 
+double myCos(double x)
 {
-    return 0.0;
+    double sum=1, pso=1;
+    int i=1;
+    while( fabs(pso) > eps )
+    {
+        pso *= -(x*x)/(2*i*(2*i-1));
+        sum += pso;
+        i++;
+    }
+
+    return sum;
 }
 
 /***
@@ -31,7 +42,16 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    double sum=x, pso=x;
+    int i=1;
+    while( fabs(pso) > eps )
+    {
+        pso *= -(x*x)/(2*i*(2*i+1));
+        sum += pso;
+        i++;
+    }
+
+    return sum;
 }
 
 
@@ -47,6 +67,8 @@ double mySqrt(double x) {
         exit(1);
     }
 
-    
-    return 0;
+    double res = 1.0;
+    while( fabs( res*res-x )/x > eps )
+        res = (x/res - res)/2 + res;
+    return res;
 }

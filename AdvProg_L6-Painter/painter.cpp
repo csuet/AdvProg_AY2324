@@ -1,73 +1,85 @@
 #include "painter.h"
 
 /***
-    Args: color (SDL_Color): color value 
-        
+    Args: color (SDL_Color): color value
+
     Returns:
         None
 ***/
-void Painter::setColor(SDL_Color color) 
-{ 
-    // TODO: set the color value for the Painter and set Render Draw Color
+void Painter::setColor(SDL_Color color)
+{
+    this->color = color;
+    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, 0);
 }
 
 
 /***
     Args: numPixel (int): number of pixel for jumping forward
-        
+
     Returns:
         None
 ***/
 void Painter::jumpForward(int numPixel)
 {
-    // TODO: jump the painter forward
+    float rad = (angle/180)*M_PI;
+    x += cos(rad)*numPixel;
+    y -= sin(rad)*numPixel;
 }
 
 
 /***
     Args: numPixel (int): number of pixel for jumping backward
-        
+
     Returns:
         None
 ***/
 void Painter::jumpBackward(int numPixel)
 {
-    // TODO: jump the painter backward
+    float rad = (angle/180)*M_PI;
+    x -= cos(rad)*numPixel;
+    y += sin(rad)*numPixel;
 }
 
 
 /***
     Args: degree (double): the value of rotation angle
-        
+
     Returns:
         None
-***/       
+***/
 void Painter::turnLeft(double degree)
 {
-    // TODO: rotate left the painter   
+    if(angle == 360.0) angle = 0;
+    angle += degree;
 }
 
 
 /***
     Args: degree (double): the value of rotation angle
-        
+
     Returns:
         None
-***/     
+***/
 void Painter::turnRight(double degree)
 {
-    // TODO: rotate right the painter   
+    if(angle == 360.0) angle = 0;
+    angle -= degree;
 }
 
-/***  
-    Args: 
+/***
+    Args:
         None
     Returns:
         None
 ***/
 void Painter::randomColor()
 {
-    // TODO: set random color    
+    SDL_Color color;
+    color.r = rand()%256;
+    color.g = rand()%256;
+    color.b = rand()%256;
+
+    setColor(color);
 }
 
 
@@ -78,7 +90,7 @@ void Painter::clearWithBgColor(SDL_Color bgColor)
 {
     SDL_Color curColor = color;
     setColor(bgColor);
-	SDL_RenderClear(renderer);    
+	SDL_RenderClear(renderer);
     setColor(curColor);
 }
 
@@ -140,7 +152,7 @@ void Painter::createParallelogram(int size)
         turnLeft(60);
         moveForward(size);
         turnLeft(120);
-    }	
+    }
 }
 
 
