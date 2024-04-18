@@ -85,10 +85,10 @@ char findMostFrequentChar( map<char, int>& occurrences, const set<char>& selecte
 {
     char answer;
     int max = 0;
-    for(char ch : selectedChars){
-        if(occurrences[ch] > max){
-            max = occurrences[ch];
-            answer = ch;
+    for(auto x : occurrences){
+        if(selectedChars.find(x.first) == selectedChars.end() && x.second > max){
+            answer = x.first;
+            max = x.second;
         }
     }
     return answer;
@@ -129,15 +129,10 @@ string getWordMask(char nextChar)
 
 bool isCorrectChar(char ch, const string& mask)
 {
-    bool answer;
-    answer = false;
-    for(auto chr : mask){
-        if(chr == ch){
-            answer = true;
-            break;
-        }
+    for(char x : mask){
+        if(ch == x) return true;
     }
-    return answer;
+    return false;
 }
 
 /***
@@ -153,7 +148,7 @@ bool isWholeWord(const string& mask)
     bool answer;
     answer = true;
     for(int i = 0 ; i < mask.length() ; i++){
-        if(mask[i] == '_'){
+        if(mask[i] == '_' || mask[i] == '-'){
             answer = false;
             break;
         }
@@ -175,16 +170,11 @@ bool isWholeWord(const string& mask)
 ***/
 bool wordConformToMask(const string& word, const string& mask, char ch) 
 {
-    bool answer;
-    string tmp = "";
-    for(int i = 0 ; i < mask.length() ; i++){
-        if(mask[i] != '-') tmp += ch;
+    for(int i = 0 ; i < word.length() ; i++){
+        if(mask[i] != '_' && word[i] != mask[i] && word[i] != ch)
+            return false;
     }
-    if(word.find(tmp) != string::npos){
-        answer = true;
-    }
-    else answer = false;
-    return answer;
+    return true;
 }
 
 /***
