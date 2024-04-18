@@ -83,6 +83,8 @@ bool verifySnakeMoveTo(CellType cellType, GameStatus expectedStatus){
   gameTest.setCellType(movingPos, cellType);
   gameTest.snakeMoveTo(movingPos);
   
+  std::cout << '\n';
+  std::cout << "gameTest.getCellType(movingPos) = " << gameTest.getCellType(movingPos) << '\n';
   std::cout << "cellType = " << cellType << '\n';
   std::cout << "gameTest.getGameStatus() = " << gameTest.getGameStatus() << '\n';
   std::cout << "expectedStatus = " << expectedStatus << '\n';
