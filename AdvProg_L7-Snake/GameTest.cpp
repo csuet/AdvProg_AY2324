@@ -83,6 +83,9 @@ bool verifySnakeMoveTo(CellType cellType, GameStatus expectedStatus){
   gameTest.setCellType(movingPos, cellType);
   gameTest.snakeMoveTo(movingPos);
   
+  std::cout << "cellType = " << cellType << '\n';
+  std::cout << "gameTest.getGameStatus() = " << gameTest.getGameStatus() << '\n';
+  std::cout << "expectedStatus = " << expectedStatus << '\n';
   if (cellType == CELL_OFF_BOARD || CELL_SNAKE){
     return gameTest.getGameStatus() == expectedStatus;
   }
