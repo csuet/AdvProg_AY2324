@@ -108,8 +108,8 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
 {
     char answer = 0;
     //Write your code here
-    // map<char,int> occurrences = countOccurrences(candidateWords);
-    // answer = findMostFrequentChar(occurrences,selectedChars);
+    map<char,int> occurrences = countOccurrences(candidateWords);
+    answer = findMostFrequentChar(occurrences,selectedChars);
     return answer;
 }
 
@@ -175,8 +175,12 @@ bool wordConformToMask(const string& word, const string& mask, char ch)
     bool answer = true;
     //Write your code here
     for(int i = 0;i < (int)word.size();++i){
-        if (mask[i] == '_' && ch == word[i]) answer = false;
-        else if (mask[i] != word[i]) answer = false;
+        if (word[i] == ch){
+            if (mask[i] != ch) answer = false;
+        }
+        else{
+            if (word[i] != mask[i] && mask[i] != '-' && mask[i] != '_') answer = false;
+        }
     }
     return answer;
 }
