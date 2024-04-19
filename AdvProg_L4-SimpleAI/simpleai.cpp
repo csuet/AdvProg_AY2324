@@ -85,12 +85,13 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
     char answer = 'a';
     //Write your code here
     int mx = 0;
-    for(char c = 'a';c <= 'z';++c){
+    for(auto Data : occurrences){
+        char c = Data.first;
+        int cnt = Data.second;
         if (selectedChars.find(c) == selectedChars.end()){
-            int tmp = occurrences.at(c);
-            if (tmp > mx){
+            if (cnt > mx){
                 answer = c;
-                mx = tmp;
+                mx = cnt;
             }
         }
     }
