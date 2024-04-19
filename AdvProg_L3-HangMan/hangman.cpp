@@ -67,9 +67,11 @@ bool isCharInWord(const char ch, const string& word)
 string chooseWordFromList(const vector<string>& wordList, int index) 
 {
     // TODO: Return a lowercase word in the index position of the vector wordList.
-    char x = (char)tolower(wordList[index]);
-
-    return x;
+    string tmp = wordList[index];
+    for(int i = 0 ; i < tmp.length();i++){
+        tmp[i] = tolower(tmp[i]);
+    }
+    return tmp;
 }
 
 /***
@@ -80,8 +82,11 @@ string chooseWordFromList(const vector<string>& wordList, int index)
 ***/
 string generateHiddenCharacters(string answerWord){
     // TODO: Based on answerWord's length, generate hidden characters in form of "---"
-    string secretWord;
-
+    string secretWord ="";
+    int leng = answerWord.length();
+    for(int i = 0 ; i < leng ; i++){
+        secretWord += "-";
+    }
     return secretWord;
 }
 
@@ -101,7 +106,12 @@ char getInputCharacter() {
 ***/
 void updateSecretWord(string& secretWord, const char ch, const string& word)
 {
-    // TODO: Update the secret word if the character ch is in the answer word.
+   int leng = word.length();
+   for(int i = 0 ; i < leng ; i++){
+    if(word[i] == ch){
+        secretWord[i] = ch;
+    }
+   }
 }
 
 /***
@@ -113,6 +123,10 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 ***/
 void updateEnteredChars(const char ch, string& chars){
     // TODO: append the character ch is in end of the text chars
+    string tmp = "";
+    tmp += ch;
+    tmp += " ";
+    chars += tmp;
 }
 
 /***
@@ -123,6 +137,7 @@ void updateEnteredChars(const char ch, string& chars){
 ***/
 void updateIncorrectGuess(int& incorrectGuess){
     // TODO: increase the value of incorrectGuess by 1
+    incorrectGuess ++;
 }
 
 /***
@@ -149,5 +164,12 @@ void processData(const char ch, const string& word,
             update incorrectGuess: call updateIncorrectGuess() function
             update incorrectChars: call updateEnteredChars() function
     ***/
+    if(isCharInWord(ch,word)){
+        updateSecretWord(secretWord,ch,word);
+        updateEnteredChars(ch,correctChars);
+    }
+    else{
+        updateIncorrectGuess(incorrectGuess);
+        updateEnteredChars(ch,incorrectChars);
+    }
 }
-
