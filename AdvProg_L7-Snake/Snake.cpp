@@ -90,24 +90,16 @@ void Snake::growAtFront(Position newPosition)
 
 void Snake::slideTo(Position newPosition)
 {
-	if (tail->next == nullptr) {
-        // position is assigned by new position.
-		/* YOUR CODE HERE */
+    if (tail->next == nullptr) {
         tail->position = newPosition;
-	}
-	else {
-		SnakeNode *oldTailNode = tail;
-		//cut the old tail off the snake
-        /* YOUR CODE HERE */
+    } else {
+        SnakeNode* oldTailNode = tail;
         tail = tail->next;
         oldTailNode->next = nullptr;
         oldTailNode->position = newPosition;
         head->next = oldTailNode;
-
-		// move it to the head of the snake
-        /* YOUR CODE HERE */
-		head = oldTailNode;
-	}
+        head = oldTailNode;
+    }
 }
 
 /***
@@ -157,6 +149,7 @@ void Snake::eatCherry()
 void Snake::move(Direction direction)
 {
     Position newPosition = head->position.move(direction);
+    game.snakeMoveTo(newPosition);
 
     /* YOUR CODE HERE */
     if (game.isGameOver())
