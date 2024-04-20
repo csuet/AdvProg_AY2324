@@ -137,24 +137,24 @@ void Painter::createCircle(int radius)
 
 
 
-void Painter::createParallelogram(int size)
-{
-	for (int i = 0; i < 2; ++i) {
-        moveForward(size);
-        turnLeft(60);
-        moveForward(size);
-        turnLeft(120);
-    }	
+void Painter::createParallelogram(int width, int height) {
+  moveForward(width);
+  turnLeft(90);
+  moveForward(height);
+  turnLeft(90);
+  moveForward(width);
+  turnLeft(90);
+  moveForward(height);
 }
 
 
 
-void Painter::createSquare(int size)
-{
-	for (int i = 0; i < 4; ++i) {
-        moveForward(size);
-	    turnLeft(90);
-    }
+
+void Painter::createSquare(int size) {
+  for (int i = 0; i < 3; ++i) {
+    moveForward(size);
+    turnLeft(90); 
+  }
 }
 
 
