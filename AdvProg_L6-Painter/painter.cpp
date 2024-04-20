@@ -6,13 +6,11 @@
     Returns:
         None
 ***/
-void Painter::setColor(SDL_Color color) 
-{ 
-    this->color = color;
-    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+void Painter::setColor(SDL_Color color)  
+{
+  this->color = color;
+  SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 }
-
-
 
 /***
     Args: numPixel (int): number of pixel for jumping forward
@@ -22,11 +20,10 @@ void Painter::setColor(SDL_Color color)
 ***/
 void Painter::jumpForward(int numPixel)
 {
-    double rad = (angle / 180) * M_PI;
-    x += (int)(numPixel * cos(rad));
-    y -= (int)(numPixel * sin(rad));
+  double rad = (angle / 180) * M_PI;
+  x += (int)(numPixel * cos(rad));
+  y -= (int)(numPixel * sin(rad)); 
 }
-
 
 /***
     Args: numPixel (int): number of pixel for jumping backward
@@ -34,20 +31,20 @@ void Painter::jumpForward(int numPixel)
     Returns:
         None
 ***/
-void Painter::jumpBackward(int numPixel)
+void Painter::jumpBackward(int numPixel)  
 {
-    jumpForward(-numPixel);
+  jumpForward(-numPixel);
 }
 
 /***
     Args: degree (double): the value of rotation angle
         
     Returns:
-        None
+        None 
 ***/       
 void Painter::turnLeft(double degree)
 {
-    angle += degree;
+  angle += degree;
 }
 
 /***
@@ -55,10 +52,10 @@ void Painter::turnLeft(double degree)
         
     Returns:
         None
-***/     
+***/   
 void Painter::turnRight(double degree)
 {
-    angle -= degree;
+  angle -= degree;
 }
 
 /***  
@@ -69,10 +66,10 @@ void Painter::turnRight(double degree)
 ***/
 void Painter::randomColor()
 {
-    setColor({static_cast<Uint8>(rand() % 256), 
-              static_cast<Uint8>(rand() % 256), 
-              static_cast<Uint8>(rand() % 256), 
-              255});
+  setColor({static_cast<Uint8>(rand() % 256), 
+            static_cast<Uint8>(rand() % 256), 
+            static_cast<Uint8>(rand() % 256), 
+            255});
 }
 
 /***
