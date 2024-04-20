@@ -20,7 +20,16 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+	double res = 1;
+    double add = 1;
+    for (int i = 1;; i++)
+    {
+        add *= -1;
+        add *= (x * x) / (2 * i * (2 * i - 1));
+        if (std::abs(add) < 0.1e-200) break;
+        res += add;
+    }
+    return res;
 }
 
 /***
@@ -31,7 +40,11 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    double y = myCos(x);
+    double ans = 1;
+    ans -= y * y;
+    ans = mySqrt(ans);
+    return ans;
 }
 
 
@@ -46,7 +59,18 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
+    if (x == 0) 
+		return 0;
 
+    double ans = 0;
+    double guess = x;
+    while (1) {
+        ans = 0.5 * (guess + (x / guess));
+        if (std::abs(ans - guess) < 1e-10) break;
+        guess = ans;
+    }
+
+    return ans;
     
     return 0;
 }
