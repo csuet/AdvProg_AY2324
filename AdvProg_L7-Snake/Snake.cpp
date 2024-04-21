@@ -16,7 +16,7 @@ Snake::Snake(Game& _game, Position start)
 
 Snake::~Snake()
 {
-    SnakeNode p = tail;
+    SnakeNode* p = tail;
     while (p != nullptr) {
         SnakeNode* nextNode = p->next;
         delete p;
