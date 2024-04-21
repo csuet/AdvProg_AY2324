@@ -105,10 +105,10 @@ void Game::processUserInput(Direction direction)
  ***/
 bool Game::canChange(Direction current, Direction next) const {
 	if (current == UP || current == DOWN) {
-		return !(next == UP || next == DOWN) 
+		return !(next == UP || next == DOWN);
 	}
 	if (current == LEFT || current == RIGHT) {
-		return !(next == LEFT || next == RIGHT)
+		return !(next == LEFT || next == RIGHT);
 	}
 }
 
@@ -131,7 +131,7 @@ bool Game::canChange(Direction current, Direction next) const {
 void Game::nextStep()
 {
 	while (!inputQueue.empty()) {
-		Direction next = inputQueue.front()
+		Direction next = inputQueue.front();
 		inputQueue.pop();
 
 		// check if snake can move to the next direction, set current direction as next
