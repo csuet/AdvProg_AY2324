@@ -68,6 +68,7 @@ void Game::snakeMoveTo(Position pos) {
 		snake.slideTo(pos);
 		setCellType(pos,CELL_SNAKE);
 	// END CODE HERE
+	}
 }
 
 
