@@ -58,6 +58,7 @@ void Painter::turnLeft(double degree)
     while (angle < 0) {
         angle += 360;
     }
+}
         
 /***
     Args: degree (double): the value of rotation angle
