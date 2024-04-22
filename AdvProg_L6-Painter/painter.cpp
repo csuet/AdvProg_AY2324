@@ -24,8 +24,8 @@ void Painter::jumpForward(int numPixel)
 {
     // di chuyển đối tượng Painter về phía trc một số pixel đc chỉ định bời numPixel
     // TODO: jump the painter forward
-    x += numPixel;
-    y += numPixel;
+    Painter.x += numPixel;
+    Painter.y += numPixel;
 }
 
 
@@ -39,8 +39,8 @@ void Painter::jumpBackward(int numPixel)
 {
     // di chuyển đối tượng Painter về phía sau một số pixel đc chỉ định bời numPixel
     // TODO: jump the painter backward
-    x -= numPixel;
-    y -= numPixel;
+    Painter.x -= numPixel;
+    Painter.y -= numPixel;
 }
 
 
