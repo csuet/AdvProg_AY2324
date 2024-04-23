@@ -1,5 +1,4 @@
 #include "simpleai.h"
-
 int readMaxGuess()
 {
     int maxGuess;
@@ -14,7 +13,7 @@ int readWordLen()
     cout << endl << "Enter the number characters of your secret word: ";
     cin >> wordLen;
     return wordLen;
-    
+
 }
 
 /***
@@ -27,7 +26,11 @@ int readWordLen()
 vector<string> filterWordsByLen(int wordLen, const vector<string>& vocabulary)
 {
     vector<string> answer;
-    //Write your code here
+    for(int i  =0 ; i < vocabulary.size() ; i++){
+        if(vocabulary[i].size() == wordLen){
+            answer.push_back(vocabulary[i]);
+        }
+    }
     return answer;
 }
 
@@ -40,14 +43,42 @@ vector<string> filterWordsByLen(int wordLen, const vector<string>& vocabulary)
 
 char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
 {
-    char answer;
-    //Write your code here
-    return answer;
+    // Create a set to store the characters that have been guessed
+    set<char> guessedChars;
+
+    // Iterate through the selected characters
+    for (char ch : selectedChars) {
+        // If the character is not in the guessed set, add it
+        if (guessedChars.find(ch) == guessedChars.end()) {
+            guessedChars.insert(ch);
+        }
+    }
+
+    // Create a map to count the occurrences of each character
+    map<char, int> charCount;
+
+    // Iterate through the guessed characters and count their occurrences
+    for (char ch : guessedChars) {
+        charCount[ch]++;
+    }
+
+    // Find the character with the highest occurrence count
+    char nextChar;
+    int maxCount = 0;
+    for (const auto& pair : charCount) {
+        if (pair.second > maxCount) {
+            nextChar = pair.first;
+            maxCount = pair.second;
+        }
+    }
+
+    // Return the character with the highest occurrence count
+    return nextChar;
 }
 
 /***
     Args:
-        candidateWords (vector<string>): The candidate words for the current given string 
+        candidateWords (vector<string>): The candidate words for the current given string
     Returns:
         answer (map) : The map which count the occurences of character in the set of candidate words
 ***/
@@ -55,7 +86,11 @@ char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
 map<char, int> countOccurrences(const vector<string>& candidateWords)
 {
     map<char, int> answer;
-    //Write your code here
+    for(const string& word : candidateWords){
+        for(char ch : word){
+            answer[ch]++;
+        }
+    }
     return answer;
 }
 
@@ -70,13 +105,21 @@ map<char, int> countOccurrences(const vector<string>& candidateWords)
 char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& selectedChars)
 {
     char answer;
-    //Write your code here
+    int maxCount = 0 ;
+    for(pair<char,int> p : occurrences){
+        char ch = p.first;
+        int count = p.second ;
+        if(selectedChars.count(ch) > count){
+            answer = ch ;
+            maxCount = count;
+        }
+    }
     return answer;
 }
 
 /***
     Args:
-        candidateWords (vector<string>): The candidate words for the current given string 
+        candidateWords (vector<string>): The candidate words for the current given string
         selectedChars (set<char>): The predicted characters
     Returns:
         answer (char) : The most suitable character for prediction
@@ -84,9 +127,30 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
 
 char findBestChar(const vector<string>& candidateWords, const set<char>& selectedChars)
 {
-    char answer;
-    //Write your code here
-    return answer;
+    // Step 1: Count occurrences of each character
+    map<char, int> charOccurrences;
+    for (const string& word : candidateWords) {
+        for (char ch : word) {
+            // Skip characters that have already been selected
+            if (selectedChars.find(ch) == selectedChars.end()) {
+                charOccurrences[ch]++;
+            }
+        }
+    }
+
+    // Step 2: Find the character with the highest occurrence
+    char bestChar = '\0';
+    int maxOccurrences = 0;
+    for (const pair<char, int>& p : charOccurrences) {
+        char ch = p.first;
+        int occurrences = p.second;
+        if (occurrences > maxOccurrences) {
+            maxOccurrences = occurrences;
+            bestChar = ch;
+        }
+    }
+
+    return bestChar;
 }
 
 string getWordMask(char nextChar)
@@ -108,8 +172,10 @@ string getWordMask(char nextChar)
 
 bool isCorrectChar(char ch, const string& mask)
 {
-    bool answer;
-    //Write your code here
+    bool answer = false;
+    for(int i = 0 ; i < mask.size() ; i++){
+        if(ch == mask[i]) answer = true;
+    }
     return answer;
 }
 
@@ -123,8 +189,10 @@ bool isCorrectChar(char ch, const string& mask)
 ***/
 bool isWholeWord(const string& mask)
 {
-     bool answer;
-    //Write your code here
+     bool answer =true;
+    for(int i = 0 ; i < mask.size() ; i++){
+        if(!isalpha(mask[i])) return false;
+    }
     return answer;
 }
 
@@ -140,11 +208,22 @@ bool isWholeWord(const string& mask)
                  - True: mask(-ood), char 'd'  vs word(good)
 
 ***/
-bool wordConformToMask(const string& word, const string& mask, char ch) 
+bool wordConformToMask(const string& word, const string& mask, char ch)
 {
-    bool answer;
-    //Write your code here
-    return answer;
+    if (word.size() != mask.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < word.size(); ++i) {
+        if (mask[i] == '-' && word[i] != ch) {
+            return false;
+        }
+        else if (mask[i] != '-' && mask[i] != word[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 /***
@@ -162,6 +241,12 @@ bool wordConformToMask(const string& word, const string& mask, char ch)
 vector<string> filterWordsByMask(const vector<string>& words, const string& mask, char ch)
 {
     vector<string> answer;
-    //Write your code here
+
+    for (const string& word : words) {
+        if (wordConformToMask(word, mask, ch)) {
+            answer.push_back(word);
+        }
+    }
+
     return answer;
 }
