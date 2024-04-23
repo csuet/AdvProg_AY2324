@@ -24,8 +24,8 @@ void Painter::jumpForward(int numPixel)
 {
     // di chuyển đối tượng Painter về phía trc một số pixel đc chỉ định bời numPixel
     // TODO: jump the painter forward
-    x += numPixel;
-    y += numPixel;
+    painter.x += numPixel;
+    painter.y += numPixel;
 }
 
 
@@ -39,8 +39,8 @@ void Painter::jumpBackward(int numPixel)
 {
     // di chuyển đối tượng Painter về phía sau một số pixel đc chỉ định bời numPixel
     // TODO: jump the painter backward
-    x -= numPixel;
-    y -= numPixel;
+    painter.x -= numPixel;
+    painter.y -= numPixel;
 }
 
 
@@ -54,9 +54,9 @@ void Painter::turnLeft(double degree)
 {
     // xoay sang trái một góc đc chỉ định
     // TODO: rotate left the painter   
-    angle -= degree;
-    while (angle < 0) {
-        angle += 360;
+    painter.angle -= degree;
+    while (painter.angle < 0) {
+        painter.angle += 360;
     }
 }
         
@@ -70,9 +70,9 @@ void Painter::turnRight(double degree)
 {
     // xoay sang phải một góc degree
     // TODO: rotate right the painter
-    angle += degree;
-    while (angle >= 360) {
-        angle -= 360;
+    painter.angle += degree;
+    while (painter.angle >= 360) {
+        painter.angle -= 360;
     }
 }
 
