@@ -10,6 +10,7 @@ void Painter::setColor(SDL_Color color)
 { 
     // hàm này để thiết lập màu cho Painter
     // TODO: set the color value for the Painter and set Render Draw Color
+    this->color = color;
     SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 }
 
@@ -24,8 +25,9 @@ void Painter::jumpForward(int numPixel)
 {
     // di chuyển đối tượng Painter về phía trc một số pixel đc chỉ định bời numPixel
     // TODO: jump the painter forward
-     x+= numPixel;
-     y += numPixel;
+    double rad = (angle / 180) * M_PI;
+    x += cos(rad) * numPixel;
+    y -= sin(rad) * numPixel;
 }
 
 
@@ -39,8 +41,9 @@ void Painter::jumpBackward(int numPixel)
 {
     // di chuyển đối tượng Painter về phía sau một số pixel đc chỉ định bời numPixel
     // TODO: jump the painter backward
-    x -= numPixel;
-     y -= numPixel;
+    double rad = (angle / 180) * M_PI;
+    x -= cos(rad) * numPixel;
+    y += sin(rad) * numPixel;
 }
 
 
@@ -54,10 +57,8 @@ void Painter::turnLeft(double degree)
 {
     // xoay sang trái một góc đc chỉ định
     // TODO: rotate left the painter   
-    angle -= degree;
-    while (angle < 0) {
-        angle += 360;
-    }
+    this->angle += degree;
+    this->angle = fmod(this->angle, 360);
 }
         
 /***
@@ -70,10 +71,8 @@ void Painter::turnRight(double degree)
 {
     // xoay sang phải một góc degree
     // TODO: rotate right the painter
-    angle += degree;
-    while (angle >= 360) {
-        angle -= 360;
-    }
+    this->angle -= degree;
+    this->angle = fmod(this->angle, 360);
 }
 
 /***  
