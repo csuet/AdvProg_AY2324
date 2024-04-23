@@ -97,6 +97,7 @@ void Snake::slideTo(Position newPosition)
 		SnakeNode *oldTailNode = tail;
 		//cut the old tail off the snake
         tail = tail->next;
+        oldTailNode->next = nullptr;
         oldTailNode->position = newPosition;
         head->next = oldTailNode;
 		head = oldTailNode;
