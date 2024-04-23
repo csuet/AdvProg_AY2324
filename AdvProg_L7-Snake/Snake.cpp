@@ -59,8 +59,9 @@ vector<Position> Snake::getPositions() const
 void Snake::growAtFront(Position newPosition)
 {
     // head of snake grow at new position
-	head->next = new SnakeNode(newPosition);   //cho head tro toi next
-    head = head->next;
+	SnakeNode *newHead = new SnakeNode(newPosition, nullptr);
+    head->next = newHead;
+    head = newHead;
 }
 
 
@@ -151,16 +152,19 @@ void Snake::move(Direction direction)
 
     /* YOUR CODE HERE */
     game.snakeMoveTo(newPosition);
-    // If gameOver, return ; 
-    /* YOUR CODE HERE */
-    if (game.isGameOver()) return;
-    // If cherry > 0, cherry descrease one and growAtFront() with newPosition
-    if (cherry > 0) {
+
+    if (game.isGameOver())
+        return;
+   
+    if (cherry > 0)
+    {
         cherry--;
         growAtFront(newPosition);
-    } else {
-    	game.snakeLeave(tail->position);
-        slideTo(newPosition);   
+    }
+    else
+    {
+        game.snakeLeave(tail->position);
+        slideTo(newPosition);
     }
 }
 
