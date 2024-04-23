@@ -55,6 +55,9 @@ void Game::snakeMoveTo(Position pos) {
 	switch (getCellType(pos))
 	{
 		case CELL_SNAKE:
+		case CELL_OFF_BOARD:
+			status = GAME_OVER;
+			break;
 		case CELL_CHERRY:
 			score++;
 			snake.eatCherry();
