@@ -2,7 +2,7 @@
 #define UTILS_H
 
 #include <iostream>
-#include <LibSdl2/SDL2-2.0.8/include/SDL.h>
+#include <SDL.h>
 
 const int SCREEN_WIDTH  = 800;
 const int SCREEN_HEIGHT = 600;
