@@ -59,7 +59,8 @@ void Painter::turnLeft(double degree)
 ***/
 void Painter::turnRight(double degree)
 {
-    angle += degree;
+    this->angle -= degree;
+    this->angle = fmod(this->angle, 360);
 }
 
 /***
