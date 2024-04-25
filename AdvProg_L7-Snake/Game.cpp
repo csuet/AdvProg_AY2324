@@ -51,20 +51,22 @@ Game::~Game()
 ***/
 
 void Game::snakeMoveTo(Position pos) {
-	if(getCellType(pos) != CELL_EMPTY && getCellType(pos) != CELL_CHERRY)
-    {
-        status = GAME_OVER;
-        return;
-    }
-
-    if(getCellType(pos) == CELL_CHERRY)
-    {
-        score++;
-        snake.getHead()->eatCherry();
-        addCherry();
-    }
-
-    snake.move(pos);
+	//  START CODE HERE
+	if (!pos.isInsideBox(0, 0, width, height) || getCellType(pos) == CELL_OFF_BOARD || getCellType(pos) == CELL_SNAKE)
+	{
+		status = GAME_OVER;
+	}
+	else if (getCellType(pos) == CELL_CHERRY)
+	{
+		++score;
+		snake.eatCherry();
+		addCherry();
+	}
+	else
+	{
+		snake.growAtFront(pos);
+	}
+	// END CODE HERE
 }
 
 
