@@ -3,7 +3,6 @@
 #include <ctime>
 #include "guessit.h"
 
-
 using namespace std;
 
 /***
