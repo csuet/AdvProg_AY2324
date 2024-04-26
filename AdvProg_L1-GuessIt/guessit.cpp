@@ -14,8 +14,10 @@ using namespace std;
 ***/
 int generateRandomNumber() {
     // TODO: Return the random number in range 1 to 100
-    int num_rand=rand()*100+1;
-    return num_rand;
+     int randomnum;
+    srand ((int)time(0));
+    ranndomnum = rand() % (100 - 0 + 1) + 0;
+    return randomnum;
 }
 
 
