@@ -30,7 +30,7 @@ class Game
 public:
 	const int width;
 	const int height;
-	
+
     Game(int _width, int _height);
     ~Game();
 
@@ -40,18 +40,20 @@ public:
     void nextStep();
     const std::vector< std::vector<CellType> >& getSquares() const { return squares; }
     CellType getCellType(Position p) const;
-    void setGameStatus(GameStatus status);
+    void setGameStatus(GameStatus status) {
+        this->status = status;
+    }
 
     std::vector<Position> getSnakePositions() const;
     Position getCherryPosition() const { return cherryPosition; }
     Direction getCurrentDirection() const { return currentDirection; }
     int getScore() const { return score; }
-    bool canChange(Direction current, Direction next) const;    
-    
+    bool canChange(Direction current, Direction next) const;
+
     void snakeMoveTo(Position position);
     void snakeLeave(Position position);
 
-    
+
     GameStatus getGameStatus();
 
     int getWidth();
@@ -59,8 +61,8 @@ public:
 
     void setCellType(Position pos, CellType cellType);
     Snake getSnake();
-	void addCherry();  
-	
+	void addCherry();
+
 };
 
 #endif // GAMEGROUND_H
