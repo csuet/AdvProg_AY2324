@@ -93,7 +93,7 @@ void Snake::slideTo(Position newPosition)
     {
         // position is assigned by new position.
         /* YOUR CODE HERE */
-        //tail->position = newPosition;
+        tail->position = newPosition;
     }
     else
     {
