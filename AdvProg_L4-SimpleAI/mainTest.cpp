@@ -378,7 +378,8 @@ class Test : public CPPUNIT_NS::TestCase
         runTestLoop(checkIsWholeWord, testSize);
     }
 
-    void testFindBestChar(void){
+    void testFindBestChar(void)
+    {
         const int testSize = 11;
         vector<vector<string>> totalCandidateWords; 
         vector<set<char>> totalSelectedChars;
@@ -386,7 +387,8 @@ class Test : public CPPUNIT_NS::TestCase
 
         string fileNameCandidateWords, fileNameSelectedChars, fileNameNextChar;
 
-        for (int i = 1; i <= testSize; i++){
+        for (int i = 1; i <= testSize; i++)
+        {
 
             fileNameCandidateWords = "test_data/find_best_char/candidate_words/" + to_string(i) + ".txt";
             fileNameSelectedChars = "test_data/find_best_char/selected_chars/" + to_string(i) + ".txt";

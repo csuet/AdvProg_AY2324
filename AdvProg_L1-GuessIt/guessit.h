@@ -5,8 +5,9 @@ int generateRandomNumber();
 int getPlayerGuess();
 std::string getAnswer(int number, int randomNumber);
 bool checkSuccess(std::string answer);
-bool checkContinuePlaying(char isContinued);
 char getPlayerOpinion();
+bool checkContinuePlaying(char isContinued);
+
 void playGuessIt();
 int run();
 
