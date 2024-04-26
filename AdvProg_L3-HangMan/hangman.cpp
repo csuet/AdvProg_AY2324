@@ -117,12 +117,15 @@ char getInputCharacter() {
 ***/
 void updateSecretWord(string& secretWord, const char ch, const string& word)
 {
-    for (size_t i = 0; i < word.size(); i++) {
-        if (tolower(word[i]) == ch) {
-            secretWord = ch;
-        }
-    }
     // TODO: Update the secret word if the character ch is in the answer word.
+    int kt=word.size();
+    for(int i=0;i<kt;i++)
+        {
+            if(word[i]==ch)
+            {
+                secretWord[i]=ch;
+            }
+        }
 }
 
 /***
