@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include <string>
+#include "guessit.h"
 using namespace std;
 
 int generateRandomNumber() {
