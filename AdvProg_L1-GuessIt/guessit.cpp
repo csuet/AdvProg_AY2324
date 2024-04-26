@@ -5,7 +5,8 @@
 using namespace std;
 
 int generateRandomNumber() {
-    return rand() % 100 + 1; 
+    int randnum = rand() % 100 + 1;
+    return randnum;
 }
 
 int getPlayerGuess() {
@@ -15,21 +16,31 @@ int getPlayerGuess() {
 }
 
 string getAnswer(int number, int randomNumber) {
+    string answer;
     if (number > randomNumber) {
-        return "Your number is higher.";
+        answer= "Your number is higher.";
     } else if (number < randomNumber) {
-        return "Your number is lower.";
+        answer=  "Your number is lower.";
     } else {
-        return "Congratulations! You win.";
+       answer=  "Congratulations! You win.";
     }
+    return answer;
 }
 
 bool checkSuccess(string answer) {
-    return answer == "Congratulations! You win.";
+    if(answer == "Congratulations! You win.")
+    {
+        return true;
+    }
+    return false;
 }
 
 bool checkContinuePlaying(char isContinued) {
-    return isContinued == 'y' || isContinued == 'Y';
+    if( isContinued == 'y' || isContinued == 'Y')
+    {
+        return true;
+    }
+    return false;
 }
 
 char getPlayerOpinion() {
