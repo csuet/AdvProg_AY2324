@@ -60,6 +60,7 @@ bool isCharInWord(const char ch, const string& word)
         else {
             return false;
         }
+    }
 }
 
 /***
@@ -175,7 +176,7 @@ void processData(const char ch, const string& word,
         updateEnteredChars(ch, correctChars);
     }
     else {
-        updateIncorrectGuess(incorrectChars);
+        updateIncorrectGuess(incorrectGuess);
         updateEnteredChars(ch, incorrectChars);
     }
 }
