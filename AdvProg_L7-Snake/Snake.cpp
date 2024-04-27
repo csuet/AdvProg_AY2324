@@ -125,6 +125,7 @@ void Snake::slideTo(Position newPosition)
 void Snake::eatCherry()
 {
 	/* YOUR CODE HERE */
+	cherry+=1;
 }
 
 /***
