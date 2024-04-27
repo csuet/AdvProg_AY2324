@@ -1,73 +1,96 @@
 #include "painter.h"
 
 /***
-    Args: color (SDL_Color): color value 
-        
+    Args: color (SDL_Color): color value
+
     Returns:
         None
 ***/
-void Painter::setColor(SDL_Color color) 
-{ 
+void Painter::setColor(SDL_Color color)
+{
     // TODO: set the color value for the Painter and set Render Draw Color
+    this->color = color;
+    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, SDL_ALPHA_OPAQUE);
 }
 
 
 /***
     Args: numPixel (int): number of pixel for jumping forward
-        
+
     Returns:
         None
 ***/
 void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
+    int dx = numPixel * cos(angle * M_PI / 180);
+    int dy = numPixel * sin(angle * M_PI / 180);
+    x += dx;
+    y -= dy;
 }
 
 
 /***
     Args: numPixel (int): number of pixel for jumping backward
-        
+
     Returns:
         None
 ***/
 void Painter::jumpBackward(int numPixel)
 {
     // TODO: jump the painter backward
+     jumpForward(-numPixel);
 }
 
 
 /***
     Args: degree (double): the value of rotation angle
-        
+
     Returns:
         None
-***/       
+***/
 void Painter::turnLeft(double degree)
 {
-    // TODO: rotate left the painter   
+    // TODO: rotate left the painter
+     angle += degree;
+     if(angle>=360) angle-=360;
+     else if(angle<=-360) angle+=360;
 }
 
 
 /***
     Args: degree (double): the value of rotation angle
-        
+
     Returns:
         None
-***/     
+***/
 void Painter::turnRight(double degree)
 {
-    // TODO: rotate right the painter   
+    // TODO: rotate right the painter
+    turnLeft(-degree);
 }
 
-/***  
-    Args: 
+/***
+    Args:
         None
     Returns:
         None
 ***/
 void Painter::randomColor()
 {
-    // TODO: set random color    
+    // TODO: set random color
+    srand (time(nullptr));
+    int numberRandom = rand()%10;
+    if( numberRandom == 0) this->color = CYAN_COLOR;
+    else if(numberRandom == 1) this->color = BLUE_COLOR;
+    else if(numberRandom == 2) this->color = ORANGE_COLOR;
+    else if(numberRandom == 3) this->color = YELLOW_COLOR;
+    else if(numberRandom == 4) this->color = LIME_COLOR;
+    else if(numberRandom == 5) this->color = PURPLE_COLOR;
+    else if(numberRandom == 6) this->color = RED_COLOR;
+    else if(numberRandom == 7) this->color = WHITE_COLOR;
+    else if(numberRandom == 8) this->color = BLACK_COLOR;
+    else if(numberRandom == 9) this->color = GREEN_COLOR;
 }
 
 
@@ -78,7 +101,7 @@ void Painter::clearWithBgColor(SDL_Color bgColor)
 {
     SDL_Color curColor = color;
     setColor(bgColor);
-	SDL_RenderClear(renderer);    
+	SDL_RenderClear(renderer);
     setColor(curColor);
 }
 
@@ -140,7 +163,7 @@ void Painter::createParallelogram(int size)
         turnLeft(60);
         moveForward(size);
         turnLeft(120);
-    }	
+    }
 }
 
 

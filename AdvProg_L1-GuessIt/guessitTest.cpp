@@ -69,25 +69,25 @@ protected:
   void testMyGenerateRandomNumber(void){
       int testSize = 4;
       std::string sharedName = "[getAnswer test] ";
-      TestStruct generateRandomNumberTestCases[testSize]  = 
+      TestStruct generateRandomNumberTestCases[testSize]  =
       {
         {
-            sharedName + "test normal 1", 
-            verifyGetRandomNumber(generateRandomNumber()), 
-            "The number must be in range 1 to 100."
-        },
-        {
-            sharedName + "test normal 2", 
-            verifyGetRandomNumber(generateRandomNumber()),  
-            "The number must be in range 1 to 100."
-        },
-        {
-            sharedName + "test opposite angle", 
+            sharedName + "test normal 1",
             verifyGetRandomNumber(generateRandomNumber()),
             "The number must be in range 1 to 100."
         },
         {
-            sharedName + "test cos(60) and cos(30)", 
+            sharedName + "test normal 2",
+            verifyGetRandomNumber(generateRandomNumber()),
+            "The number must be in range 1 to 100."
+        },
+        {
+            sharedName + "test opposite angle",
+            verifyGetRandomNumber(generateRandomNumber()),
+            "The number must be in range 1 to 100."
+        },
+        {
+            sharedName + "test cos(60) and cos(30)",
             verifyGetRandomNumber(generateRandomNumber()),
             "The number must be in range 1 to 100."
         },
@@ -99,26 +99,26 @@ protected:
   void testMyGetAnswer(void) {
       int testSize = 4;
       std::string sharedName = "[getAnswer test] ";
-      TestStruct getAnswerTestCases[testSize]  = 
+      TestStruct getAnswerTestCases[testSize]  =
       {
         {
-            sharedName + "test normal 1", 
-            verifyGetAnswer(1, 1, "Congratulation! You win."), 
+            sharedName + "test normal 1",
+            verifyGetAnswer(1,1, "Congratulation! You win."),
             "Player's number is equal with random number. The answer must be: Congratulation! You win."
         },
         {
-            sharedName + "test normal 2", 
-            verifyGetAnswer(1, 4, "Your number is lower."), 
+            sharedName + "test normal 2",
+            verifyGetAnswer(1, 4, "Your number is lower."),
             "Player's number is lower than random number. The answer must be: Your number is lower."
         },
         {
-            sharedName + "test opposite angle", 
-            verifyGetAnswer(99, 100, "Your number is lower."), 
+            sharedName + "test opposite angle",
+            verifyGetAnswer(99, 100, "Your number is lower."),
             "Player's number is lower than random number. The answer must be: Your number is lower."
         },
         {
-            sharedName + "test cos(60) and cos(30)", 
-            verifyGetAnswer(75, 50, "Your number is higher."),  
+            sharedName + "test cos(60) and cos(30)",
+            verifyGetAnswer(75, 50, "Your number is higher."),
             "Player's number is higher than random number. The answer must be: Your number is higher."
         },
       };
@@ -129,21 +129,21 @@ protected:
   void testMyCheckSuccess(void) {
       int testSize = 3;
       std::string sharedName = "[checkSuccess test] ";
-      TestStruct checkSuccessTestCases[testSize]  = 
+      TestStruct checkSuccessTestCases[testSize]  =
       {
         {
-            sharedName + "test normal 1", 
-            verifyCheckSuccess("Congratulation! You win.", true), 
+            sharedName + "test normal 1",
+            verifyCheckSuccess("Congratulation! You win.", true),
             "Player's guess is correct. Should return true."
         },
         {
-            sharedName + "test normal 2", 
-            verifyCheckSuccess("Your number is lower.", false), 
+            sharedName + "test normal 2",
+            verifyCheckSuccess("Your number is lower.", false),
             "Player's guess is lower. Should return false."
         },
         {
-            sharedName + "test normal 3", 
-            verifyCheckSuccess("Your number is higher.", false), 
+            sharedName + "test normal 3",
+            verifyCheckSuccess("Your number is higher.", false),
             "Player's guess is higher. Should return false."
         },
       };
@@ -154,26 +154,26 @@ protected:
   void testMycheckContinuePlaying(void) {
       int testSize = 4;
       std::string sharedName = "[checkContinuePlaying test] ";
-      TestStruct checkContinuePlayingTestCases[testSize]  = 
+      TestStruct checkContinuePlayingTestCases[testSize]  =
       {
         {
-            sharedName + "test normal 1", 
-            verifyCheckContinuePlaying('y', true), 
+            sharedName + "test normal 1",
+            verifyCheckContinuePlaying('y', true),
             "Player's choice is countinue. Should return true."
         },
         {
-            sharedName + "test normal 2", 
-            verifyCheckContinuePlaying('Y', true), 
+            sharedName + "test normal 2",
+            verifyCheckContinuePlaying('Y', true),
             "Player's choice is countinue. Should return true."
         },
         {
-            sharedName + "test normal 3", 
-            verifyCheckContinuePlaying('n', false), 
+            sharedName + "test normal 3",
+            verifyCheckContinuePlaying('n', false),
             "Player's choice is end. Should return false."
         },
         {
-            sharedName + "test normal 4", 
-            verifyCheckContinuePlaying('N', false), 
+            sharedName + "test normal 4",
+            verifyCheckContinuePlaying('N', false),
             "Player's choice is end. Should return false."
         },
 
