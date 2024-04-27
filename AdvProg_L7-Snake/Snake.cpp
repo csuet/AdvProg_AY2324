@@ -26,7 +26,7 @@ Snake::~Snake()
     }
     */
     SnakeNode* p = tail;
-    why( p != nullptr)
+    while( p != nullptr)
     {
         SnakeNode* nextNode = p->next;
         delete p;
@@ -100,7 +100,6 @@ void Snake::slideTo(Position newPosition)
 		SnakeNode *oldTailNode = tail;
 		//cut the old tail off the snake
         /* YOUR CODE HERE */
-        SnakeNode* oldTailNode = tail;
         tail = tail->next;
         oldTailNode->next = nullptr;
 		// move it to the head of the snake
