@@ -30,7 +30,7 @@ vector<string> filterWordsByLen(int wordLen, const vector<string>& vocabulary)
     //Write your code here
     
     for (int i = 0;i<=vocabulary.size();i++) {
-        if (vocabulary[i].length() == wordLen) {
+        if (vocabulary[i].size() == wordLen) {
             answer.push_back(vocabulary[i]);
         }
     }
@@ -73,8 +73,8 @@ map<char, int> countOccurrences(const vector<string>& candidateWords)
         answer[char(i + 'a')] = 0;
     }
     for (int i = 0; i < candidateWords.size();i++) {
-        for (int j = 0; j < candidateWords[i].length();j++) {
-            answer[candidateWords[i][j]++;
+        for (int j = 0; j < candidateWords[i].size();j++) {
+            answer[candidateWords[i][j]]++;
         }
     }
     return answer;
@@ -140,7 +140,7 @@ bool isCorrectChar(char ch, const string& mask)
 {
     bool answer = 0;
     //Write your code here
-    for (int i = 0; i < mask;i++) {
+    for (int i = 0; i < mask.size();i++) {
         if (ch == mask[i]) answer = 1;
     }
     return answer;
