@@ -124,8 +124,8 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
 {
     char answer;
     //Write your code here
-    vector<char,int> a= countOccurrences(candidateWords);
-    answer=findBestChar(a,selectedChars);
+    map<char,int> a= countOccurrences(candidateWords);
+    answer= findMostFrequentChar(a,selectedChars);
     return answer;
 }
 
@@ -227,7 +227,7 @@ vector<string> filterWordsByMask(const vector<string>& words, const string& mask
     //Write your code here
     for(string s:words)
         {
-        if(wordConformToMask(s,mask,ch)
+        if(wordConformToMask(s,mask,ch))
             {
                  answer.push_back[i];
             }
