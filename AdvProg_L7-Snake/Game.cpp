@@ -49,9 +49,6 @@ Game::~Game()
  * 		// none
  *
 ***/
-GameStatus Game::getGameStatus(){
-	return status;
-}
 
 void Game::snakeMoveTo(Position pos) {
 	//  START CODE HERE
@@ -61,7 +58,7 @@ void Game::snakeMoveTo(Position pos) {
 	//
 	// END CODE HERE
 	if (squares[pos.y][pos.x] == CELL_OFF_BOARD || squares[pos.y][pos.x] == CELL_SNAKE || !pos.isInsideBox(0, 0, width, height)) {
-        getGameStatus(GAME_OVER);
+        setGameStatus(GAME_OVER);
         return;
 	}
 	if (squares[pos.y][pos.x] == CELL_CHERRY) {
@@ -237,7 +234,9 @@ vector<Position> Game::getSnakePositions() const
 }
 
 // DO NOT change this method
-
+GameStatus Game::getGameStatus(){
+	return status;
+}
 
 // DO NOT change this method
 int Game::getWidth(){
