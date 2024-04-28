@@ -23,7 +23,7 @@ void Painter::jumpForward(int numPixel)
 {
   double rad=(angle/180)*M_PI;
 	x+=numPixel*cos(rad);
-	y+= numPixel*sin(rad);
+	y-= numPixel*sin(rad);
 }
 
 
