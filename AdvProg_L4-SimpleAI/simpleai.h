@@ -19,6 +19,5 @@ string getWordMask(char nextChar);
 bool isCorrectChar(char ch, const string& mask);
 bool isWholeWord(const string& mask);
 vector<string> filterWordsByMask(const vector<string>& words, const string& mask, char ch);
-
 const char MASK_CHAR = '-';
 #endif

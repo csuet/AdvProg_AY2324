@@ -5,7 +5,7 @@
 
 using namespace std;
 
-
+// kkk
 /***
     Args:
         
@@ -76,7 +76,7 @@ bool checkSuccess(string answer) {
 bool checkContinuePlaying(char isContinued) {
     // TODO: return result after checking player continue playing or not
     bool result = false;
-	if(isContinued == '1') result = true;
+	if(isContinued == 'y' || isContinued == 'Y') result = true;
     return result;
 }
 
@@ -87,6 +87,7 @@ bool checkContinuePlaying(char isContinued) {
     Returns:
         isContinues (char) : player's choice (continue playing or not)
 ***/
+
 char getPlayerOpinion() {
     // TODO: Ask the player about continue playing and return the player's choice
     char isContinued;
@@ -94,7 +95,7 @@ char getPlayerOpinion() {
     return isContinued;
 }
 
-
+ 
 void playGuessIt() {
     int randomNumber = generateRandomNumber();
     int number;
