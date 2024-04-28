@@ -29,7 +29,7 @@ vector<string> filterWordsByLen(int wordLen, const vector<string>& vocabulary)
     vector<string> answer;
     for(size_t i=0;i<vocabulary.size();i++)
         {
-            if(vocabulary[i].size()==wordlen)
+            if(vocabulary[i].size()==wordLen)
             {
                 answer.push_back(vocabulary[i]);
             }
@@ -53,7 +53,7 @@ char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
         {
             res=true;
             answer+=rand()%26 +'a';
-            for(char i: seclectedChars)
+            for(char i: selectedChars)
                 {
                     if(i==answer)
                     {
@@ -80,7 +80,7 @@ map<char, int> countOccurrences(const vector<string>& candidateWords)
         {
             for(char c:s)
                 {
-                    answer[c]++:
+                answer[c]++;
                 }
         }
     return answer;
@@ -124,7 +124,7 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
 {
     char answer;
     //Write your code here
-    vector<map,int> a= countOccurrences(candidateWords);
+    vector<char,int> a= countOccurrences(candidateWords);
     answer=findBestChar(a,selectedChars);
     return answer;
 }
@@ -176,9 +176,9 @@ bool isWholeWord(const string& mask)
          {
              if(c=='-')
              {
-answer=false;
-break;
-     }                                        
+                answer=false;
+                break;
+              }                                        
           }      
 
     return answer;
@@ -199,18 +199,12 @@ break;
 bool wordConformToMask(const string& word, const string& mask, char ch) 
 {
     bool answer=true;
-for(size_t i=0;i<word.size();i++)
-{
-if(word[i]='-')
-{
-word[i]=ch;
-}
 
-}
-for(int size_t i=0;i<word.size();i++)
-{if(word[i]!=mask[i])
-answer=false;
-break;
+    for( size_t i=0;i<word.size();i++)
+        {
+            if(ch==mask[i]&&ch!=word[i])
+            answer=false;
+            break;
 }
     return answer;
 }
@@ -231,11 +225,13 @@ vector<string> filterWordsByMask(const vector<string>& words, const string& mask
 {
     vector<string> answer;
     //Write your code here
-for(sting s:words)
-{if(wordConformToMask(s,mask,ch)
-{anwer.push_back[i];
-}
-}
+    for(string s:words)
+        {
+        if(wordConformToMask(s,mask,ch)
+            {
+                 answer.push_back[i];
+            }
+        }
 
     return answer;
 }
