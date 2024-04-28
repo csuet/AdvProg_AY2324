@@ -69,7 +69,10 @@ map<char, int> countOccurrences(const vector<string>& candidateWords)
     //Write your code here
     for(int i = 0; i < int(candidateWords.size()); i++)
     {
-        answer[candidateWords[i]]++;
+        for(int j = 0; j < int(candidateWords[i].size()); j++)
+        {
+            answer[candidateWords[i][j]]++;
+        }
     }
     return answer;
 }
@@ -82,15 +85,21 @@ map<char, int> countOccurrences(const vector<string>& candidateWords)
         answer (char) : The most frequent character
 ***/
 
-char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& selectedChars)
+char findMostFrequentChar( map<char, int> occurrences, const set<char>& selectedChars)
 {
-    char answer;
+    char answer = '\0';
     //Write your code here
+    int maxOccurrence = 0; // Initialize maxOccurrence to track the maximum occurrence count found
+
+    // Iterate through each character in the selectedChars set
     for(char x : selectedChars)
     {
-        if(occurrences[x] > occurrences[answer])
+        // Check if the occurrence count of the current character is greater than the maximum occurrence count found so far
+        if(occurrences[x] > maxOccurrence)
         {
+            // Update the answer to the current character and update the maximum occurrence count
             answer = x;
+            maxOccurrence = occurrences[x];
         }
     }
     return answer;
