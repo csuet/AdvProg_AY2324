@@ -9,7 +9,7 @@
 void Painter::setColor(SDL_Color color) 
 { 
     this->color=color;
-	SDL_SetRenderDrawColor(render,color.r,color.g,color.b,0)
+	SDL_SetRenderDrawColor(renderer,color.r,color.g,color.b,0)
 }
 
 
@@ -22,8 +22,8 @@ void Painter::setColor(SDL_Color color)
 void Painter::jumpForward(int numPixel)
 {
   double rad=(angle/180.0)*M_PI;
-	x+=stactic_cast<int> (numPixel*cos(rad));
-	y+=static_cast<int> (numPixel*sin(rad));
+	x+=numPixel*cos(rad);
+	y+= numPixel*sin(rad);
 }
 
 
@@ -35,7 +35,7 @@ void Painter::jumpForward(int numPixel)
 ***/
 void Painter::jumpBackward(int numPixel)
 {
-    jumpForward(-numPixelnumPixel);
+    jumpForward(-numPixel);
 }
 
 
@@ -76,7 +76,8 @@ void Painter::randomColor()
 	Uint8 r=rand()% 256;
 	Uint8 g=rand()% 256;
 	Uint8 b=rand()% 256;
-	setColor(r,g,b);
+	SDL_color co={r,g,b};
+	setColor(co);
 }
 
 
