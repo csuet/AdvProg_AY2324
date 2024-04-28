@@ -49,6 +49,9 @@ Game::~Game()
  * 		// none
  *
 ***/
+GameStatus Game::getGameStatus(){
+	return status;
+}
 
 void Game::snakeMoveTo(Position pos) {
 	//  START CODE HERE
@@ -234,9 +237,7 @@ vector<Position> Game::getSnakePositions() const
 }
 
 // DO NOT change this method
-GameStatus Game::getGameStatus(){
-	return status;
-}
+
 
 // DO NOT change this method
 int Game::getWidth(){
