@@ -49,6 +49,9 @@ Game::~Game()
  * 		// none
  *
 ***/
+void Game::setGameStatus(GameStatus status) {
+    this->status = status;
+}
 
 void Game::snakeMoveTo(Position pos) {
 	//  START CODE HERE
