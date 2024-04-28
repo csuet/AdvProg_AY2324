@@ -229,7 +229,7 @@ vector<string> filterWordsByMask(const vector<string>& words, const string& mask
         {
         if(wordConformToMask(s,mask,ch))
             {
-                 answer.push_back[s];
+                 answer.push_back(s);
             }
         }
 
