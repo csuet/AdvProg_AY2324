@@ -9,7 +9,7 @@ double pi = 3.141592653589793238462643383279502884197;
 void Painter::setColor(SDL_Color color) 
 { 
     // TODO: set the color value for the Painter and set Render Draw Color
-    SDL_SetRenderDrawColor(color);
+    SDL_SetRenderDrawColor(renderer, color);
 }
 
 
