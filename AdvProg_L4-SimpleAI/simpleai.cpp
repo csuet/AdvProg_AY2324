@@ -17,13 +17,7 @@ int readWordLen()
 
 }
 
-/***
-    Args:
-        wordLen (int): The desired length of input word
-        vocabulary (vector<string>): The vocabulary
-    Returns:
-        answer (vector<string>) : A set or word from the vocabulary where the number of character is equal to wordLen
-***/
+
 vector<string> filterWordsByLen(int wordLen, const vector<string>& vocabulary)
 {
     vector<string> answer;
@@ -39,12 +33,6 @@ vector<string> filterWordsByLen(int wordLen, const vector<string>& vocabulary)
     return answer;
 }
 
-/***
-    Args:
-        selectedChars (set<char>): The predicted characters
-    Returns:
-        answer (char) : The next character given the provided word is not in the vocabulary
-***/
 
 char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
 {
