@@ -49,11 +49,17 @@ char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
 {
     char answer;
     //Write your code here
+    bool next = 0;
     for(char x : selectedChars)
     {
-        if(answer = x)
+        if(answer == x)
         {
-            answer = x+1;
+            next = 1;
+        }
+        if(next = 1)
+        {
+            answer = x;
+            break;
         }
     }
     return answer;
