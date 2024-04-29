@@ -61,9 +61,9 @@ void Snake::growAtFront(Position newPosition)
     // head of snake grow at new position
 
     /* YOUR CODE HERE */
-    SnakeNode* newh = new SnakeNode(newPosition);
+    SnakeNode* newHead = new SnakeNode(newPosition);
     newHead->next = head;
-    head = newh;
+    head = newHead;
 }
 
 
@@ -111,94 +111,94 @@ void Snake::slideTo(Position newPosition)
         head->next = oldTailNode;
         head = oldTailNode;
     }
+}
+/***
+ * PLEASE UPDATE THIS METHOD
+ *
+ * When snake eat a Cherry,
+ *  // if snake eat cherry, number of cherries will increase one
+ * Args:
+ * 		// none
+ *
+ * Returns:
+ * 		// none
+ *
+***/
+void Snake::eatCherry()
+{
+    /* YOUR CODE HERE */
+    cherry++;
 
-    /***
-     * PLEASE UPDATE THIS METHOD
-     *
-     * When snake eat a Cherry,
-     *  // if snake eat cherry, number of cherries will increase one
-     * Args:
-     * 		// none
-     *
-     * Returns:
-     * 		// none
-     *
-    ***/
-    void Snake::eatCherry()
+}
+
+/***
+ * PLEASE UPDATE THIS METHOD
+ *
+ * When snake move in a direction,
+ *  1. Create a newPosition and move:
+ *      Position newPosition = head->position.move(direction);
+ *  2. Using snakeMoveTo method to update game with newPosition
+ *      game.snakeMoveTo(newPosition);
+ *  3.
+ *      If gameOver, return ;
+ *          return;
+ *      elif cherry > 0:
+ *          // If cherry > 0, cherry descrease one and growAtFront() with newPosition
+ *          Note: Call to funtion growAtFront()
+ *      else:
+ *          // SlideTo() newPosition.
+ *          Note: Call to function SlideTo()
+ *
+ * Args:
+ * 		pos (newPosition): head of snake grow at new position
+ *
+ * Returns:
+ * 		// none
+ *
+***/
+
+void Snake::move(Direction direction)
+{
+    Position newPosition = head->position.move(direction);
+    game.snakeMoveTo(newPosition);
+
+    /* YOUR CODE HERE */
+
+    // If gameOver, return ;
+    /* YOUR CODE HERE */
+    if (game.isGameOver())
+    {
+        return;
+    }
+    // If cherry > 0, cherry descrease one and growAtFront() with newPosition
+    if (cherry > 0)
     {
         /* YOUR CODE HERE */
-        cherry++;
-
+        cherry--;
+        growAtFront(newPosition);
     }
-
-    /***
-     * PLEASE UPDATE THIS METHOD
-     *
-     * When snake move in a direction,
-     *  1. Create a newPosition and move:
-     *      Position newPosition = head->position.move(direction);
-     *  2. Using snakeMoveTo method to update game with newPosition
-     *      game.snakeMoveTo(newPosition);
-     *  3.
-     *      If gameOver, return ;
-     *          return;
-     *      elif cherry > 0:
-     *          // If cherry > 0, cherry descrease one and growAtFront() with newPosition
-     *          Note: Call to funtion growAtFront()
-     *      else:
-     *          // SlideTo() newPosition.
-     *          Note: Call to function SlideTo()
-     *
-     * Args:
-     * 		pos (newPosition): head of snake grow at new position
-     *
-     * Returns:
-     * 		// none
-     *
-    ***/
-
-    void Snake::move(Direction direction)
+    else
     {
-        Position newPosition = head->position.move(direction);
-        game.snakeMoveTo(newPosition);
-
+        game.snakeLeave(tail->position);
+        slideTo(newPosition);
         /* YOUR CODE HERE */
-
-        // If gameOver, return ;
-        /* YOUR CODE HERE */
-        if (game.isGameOver())
-        {
-            return;
-        }
-        // If cherry > 0, cherry descrease one and growAtFront() with newPosition
-        if (cherry > 0)
-        {
-            /* YOUR CODE HERE */
-            cherry--;
-            growAtFront(newPosition);
-        }
-        else
-        {
-            game.snakeLeave(tail->position);
-            slideTo(newPosition);
-            /* YOUR CODE HERE */
-        }
     }
+}
 
 // DO NOT CHANGE METHOD
-    int Snake::getNumCherry()
-    {
-        return cherry;
-    }
+int Snake::getNumCherry()
+{
+    return cherry;
+}
 
 // DO NOT CHANGE METHOD
-    SnakeNode* Snake::getHead()
-    {
-        return head;
-    }
+SnakeNode* Snake::getHead()
+{
+    return head;
+}
 
 // DO NOT CHANGE METHOD
-    SnakeNode* Snake::getTail()
-    {
-        return tail;
-    }
+SnakeNode* Snake::getTail()
+{
+    return tail;
+}
