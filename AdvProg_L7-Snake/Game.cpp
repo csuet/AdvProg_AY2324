@@ -55,10 +55,10 @@ void Game::snakeMoveTo(Position pos) {
 	if (getCellType(pos) == CELL_SNAKE || getCellType(pos) == CELL_OFF_BOARD) status = GAME_OVER;
 	else if (getCellType(pos) == CELL_CHERRY) {
 		score++;
-
+		snake.eatCherry();
 		addCherry();
 	}
-	else(setCellType(pos, CELL_SNAKE));
+	else setCellType(pos, CELL_SNAKE);
 	// END CODE HERE
 }
 
@@ -76,10 +76,10 @@ void Game::snakeMoveTo(Position pos) {
 void Game::snakeLeave(Position position)
 {
 	// Suggestion: use setCellType() method in Game class
-	setCellType(position, CELL_SNAKE);
+	setCellType(position, CELL_EMPTY);
 	// END CODE HERE
 }
-
+	
 
 // DO NOT change this method
 void Game::processUserInput(Direction direction)
@@ -175,9 +175,6 @@ void Game::addCherry()
 			cherryPosition = randomPos;
 			//set randomPos type as cell_cherry????
 			setCellType(randomPos, CELL_CHERRY);
-			// YOUR CODE HERE
-			// YOUR CODE HERE
-
        		break;
         }
     } while (true);
@@ -205,7 +202,7 @@ void Game::setCellType(Position pos, CellType cellType)
 	// START CODE HERE
 	// ?????
 	if (pos.isInsideBox(0, 0, width, height)) {
-		setCellType(pos, cellType);
+		squares[pos.x][pos.y] = cellType;
 	}
 	// END CODE HERE
 }
