@@ -28,7 +28,7 @@ Snake::~Snake()
     SnakeNode* p = tail;
     while (p != NULL) {
         SnakeNode* nextNode = p->next;
-        delete p;
+        free(p);
         p = nextNode;
     }
 }
