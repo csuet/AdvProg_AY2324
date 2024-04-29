@@ -9,7 +9,7 @@
 using namespace std;
 
 
-
+	
 // set some attributes as default value
 // DO NOT CHANGE THIS CONSTRUCTOR
 Game::Game(int _width, int _height)
@@ -201,7 +201,7 @@ void Game::setCellType(Position pos, CellType cellType)
 	// START CODE HERE
 	// ?????
 	if (pos.isInsideBox(0, 0, width, height)) {
-		squares[pos.x][pos.y] = cellType;
+		squares[pos.y][pos.x] = cellType;
 	}
 	// END CODE HERE
 }
