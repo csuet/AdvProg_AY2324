@@ -134,7 +134,6 @@ void Game::nextStep()
 		// get the input direction from input queue
         Direction next = inputQueue.front(); // YOUR CODE HERE
 		// remove the front of input queue
-        // YOUR CODE HERE
 		inputQueue.pop();
 		// check if snake can move to the next direction, set current direction as next
         if (canChange(currentDirection, next)) {
