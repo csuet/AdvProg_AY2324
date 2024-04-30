@@ -55,10 +55,10 @@ void Game::snakeMoveTo(Position pos) {
         status = GAME_OVER;
     } else if (getCellType(pos) == CELL_CHERRY) {
         score++;
-        snake.eatCherry(); // Corrected method name
+        snake.eatCherry(); 
         addCherry();
     } else {
-        snake.move(currentDirection); // Pass the direction instead of position
+        snake.growAtFront(pos);
     }
 }
 
@@ -134,7 +134,6 @@ void Game::nextStep()
             break;
         }
     }
-    // Removed the extra snake.move(currentDirection) statement
     snake.move(currentDirection);
 }
 /***
