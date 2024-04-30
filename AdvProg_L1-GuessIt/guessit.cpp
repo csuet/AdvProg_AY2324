@@ -14,7 +14,10 @@ using namespace std;
 ***/
 int generateRandomNumber() {
     // TODO: Return the random number in range 1 to 100
-    return 100;
+     int randomnum;
+    srand ((int)time(0));
+    randomnum = rand() % (100 - 0 + 1) + 0;
+    return randomnum;
 }
 
 
@@ -27,7 +30,10 @@ int generateRandomNumber() {
 int getPlayerGuess() {
     // TODO: Ask the player guest and return the player's number
 
-    return 1;
+    int num;
+    cout << "Select your number: ";
+    cin >> num;
+    return num;
 }
 
 
@@ -47,6 +53,19 @@ string getAnswer(int number, int randomNumber) {
     ***/
     string answer;
 
+    if (number > randomNumber)
+    {
+        answer = "Your number is higher.";
+    }
+    else if (number < randomNumber)
+    {
+        answer = "Your number is lower.";
+    }
+    else if (number == randomNumber)
+    {
+        answer = "Congratulation! You win.";
+    }
+
     return answer;
 }
 
@@ -59,7 +78,14 @@ string getAnswer(int number, int randomNumber) {
 ***/
 bool checkSuccess(string answer) {
     // TODO: return the result after checking that player guessed right or wrong
-    
+    if (answer == "Your number is higher.")
+    {
+        return false;
+    }
+    else if (answer == "Your number is lower.") 
+    {
+        return false;
+    }
     return true;
 }
 
@@ -72,9 +98,13 @@ bool checkSuccess(string answer) {
 ***/
 bool checkContinuePlaying(char isContinued) {
     // TODO: return result after checking player continue playing or not
-    bool result = false;
+    bool res = false;
 
-    return result;
+    if (isContinued == 'Y' || isContinued == 'y') 
+    {
+        res = true;
+    }
+    return res;
 }
 
 
@@ -87,6 +117,8 @@ bool checkContinuePlaying(char isContinued) {
 char getPlayerOpinion() {
     // TODO: Ask the player about continue playing and return the player's choice
     char isContinued;
+    cout << "do you continue playing ?" << endl;
+    cin >> isContinued;
 
     return isContinued;
 }
@@ -113,3 +145,5 @@ int run() {
     } while (checkContinuePlaying(isContinued));
     return 0;
 }
+//Test01
+//Test02
