@@ -135,9 +135,8 @@ void Game::nextStep()
         }
     }
     // Removed the extra snake.move(currentDirection) statement
-    snake.move(currentDirection)
-
-
+    snake.move(currentDirection);
+}
 /***
  * PLEASE REPLACE LINES MARKED WITH '// YOUR CODE HERE'
  * 
