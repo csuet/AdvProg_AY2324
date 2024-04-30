@@ -51,14 +51,14 @@ Game::~Game()
 ***/
 
 void Game::snakeMoveTo(Position pos) {
-	if (!pos.isInsideBox(0, 0, width, height) || getCellType(pos) == CELL_SNAKE_BODY) {
+    if (!pos.isInsideBox(0, 0, width, height) || getCellType(pos) == CELL_SNAKE) {
         status = GAME_OVER;
     } else if (getCellType(pos) == CELL_CHERRY) {
         score++;
-        snake.eat(pos);
+        snake.eatCherry(); // Corrected method name
         addCherry();
     } else {
-        snake.move(pos);
+        snake.move(currentDirection); // Pass the direction instead of position
     }
 }
 
@@ -126,7 +126,7 @@ bool Game::canChange(Direction current, Direction next) const {
 
 void Game::nextStep()
 {
-	 while (!inputQueue.empty()) {
+  while (!inputQueue.empty()) {
         Direction next = inputQueue.front();
         inputQueue.pop();
         if (canChange(currentDirection, next)) {
@@ -134,11 +134,8 @@ void Game::nextStep()
             break;
         }
     }
-    snake.move(currentDirection);
-    }
-
-    snake.move(currentDirection);
-}
+    // Removed the extra snake.move(currentDirection) statement
+    snake.move(currentDirection)
 
 
 /***
