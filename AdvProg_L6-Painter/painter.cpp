@@ -66,7 +66,8 @@ void Painter::turnLeft(double degree)
 void Painter::turnRight(double degree)
 {
     // TODO: rotate right the painter
-    turnRight(-degree);
+    angle -= degree;
+    angle -= floor(angle/360)*360;
 }
 
 /***
