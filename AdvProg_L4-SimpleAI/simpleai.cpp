@@ -175,6 +175,7 @@ bool isWholeWord(const string &mask)
             break;
         }
     }
+    
     return answer;
 }
 
@@ -209,7 +210,7 @@ bool wordConformToMask(const string &word, const string &mask, char ch)
         answer = true;
     else
         answer = 0;
-        
+
     return answer;
 }
 
