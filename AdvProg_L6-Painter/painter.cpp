@@ -23,6 +23,10 @@ void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
     x += numPixel;
+    if(x >= width)
+    {
+        x = width;
+    }
 }
 
 
@@ -36,6 +40,10 @@ void Painter::jumpBackward(int numPixel)
 {
     // TODO: jump the painter backward
     x -= numPixel;
+    if(x <= 0)
+    {
+        x = 0;
+    }
 }
 
 
