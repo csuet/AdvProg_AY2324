@@ -53,6 +53,8 @@ void Painter::turnLeft(double degree)
 {
     // TODO: rotate left the painter
     setAngle(this->angle + degree);
+    if (this->angle > 360)
+        setAngle(this->angle - 360);
 }
 
 
