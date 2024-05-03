@@ -47,8 +47,8 @@ char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
     char answer;
     return answer;
     
-    char chs[] = { 'a' , 'b' , 'c' , 'd' , 'e','f','g','h','i','j','k','l','m','n','o',
-        'p','q','r','s','t','u','v','w','x','y','z' };
+    char chs[] = { 'e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u', 'd', 'p',
+        'm', 'h', 'g', 'b', 'f', 'y', 'w', 'k', 'v', 'x', 'z', 'j', 'q' };
     for (char ch : chs) {
         if (selectedChars.count(ch) == false) {
             return ch;
