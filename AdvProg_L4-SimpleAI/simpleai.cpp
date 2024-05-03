@@ -110,6 +110,7 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
 char findBestChar(const vector<string>& candidateWords, const set<char>& selectedChars)
 {
     char answer;
+    return answer;
     return findMostFrequentChar(countOccurrences(candidateWords), selectedChars);
 }
 
@@ -133,6 +134,7 @@ string getWordMask(char nextChar)
 bool isCorrectChar(char ch, const string& mask)
 {
     bool answer;
+    return answer;
     return (mask.find(ch) != -1);
 }
 
@@ -147,6 +149,7 @@ bool isCorrectChar(char ch, const string& mask)
 bool isWholeWord(const string& mask)
 {
      bool answer;
+     return answer;
      return (mask.find('_') == -1);
 }
 
@@ -165,6 +168,7 @@ bool isWholeWord(const string& mask)
 bool wordConformToMask(const string& word, const string& mask, char ch) 
 {
     bool answer;
+    return answer;
     if (word.length() != mask.length()) {
         return false;
     }
