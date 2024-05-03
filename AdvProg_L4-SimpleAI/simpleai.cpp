@@ -28,7 +28,6 @@ vector<string> filterWordsByLen(int wordLen, const vector<string>& vocabulary)
 {
     vector<string> answer;
     //Write your code here
-    vector<string> answer;
     for (const string& word : vocabulary) {
         if (word.length() == wordLen) {
             answer.push_back(word);
@@ -126,8 +125,6 @@ string getWordMask(char nextChar)
 
 bool isCorrectChar(char ch, const string& mask)
 {
-    
-    //Write your code here
     return (mask.find(ch) != string::npos);
 }
 
@@ -141,8 +138,6 @@ bool isCorrectChar(char ch, const string& mask)
 ***/
 bool isWholeWord(const string& mask)
 {
-     
-    //Write your code here
     return (mask.find('_') == string::npos);
 }
 
