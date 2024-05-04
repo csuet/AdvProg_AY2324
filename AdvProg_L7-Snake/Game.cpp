@@ -220,7 +220,7 @@ void Game::setCellType(Position pos, CellType cellType)
 	}
 	else
 	{
-		square[pos.y][pos.x] = cellType;
+		squares[pos.y][pos.x] = cellType;
 	}
 	// END CODE HERE
 }
