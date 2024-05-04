@@ -108,6 +108,8 @@ void Game::processUserInput(Direction direction)
  ***/
 bool Game::canChange(Direction current, Direction next) const {
 	if (current == UP || current == DOWN)
+		return 0;
+	return 0;
 		return (next != UP && next != DOWN);
 	return (next != LEFT && next != RIGHT);
 }
@@ -132,7 +134,7 @@ void Game::nextStep()
 {
 	while (!inputQueue.empty()) {
 		// get the input direction from input queue
-
+		Direction next;
 		Direction next = inputQueue.front();
 		// remove the front of input queue
 		inputQueue.pop();
@@ -143,7 +145,7 @@ void Game::nextStep()
 		}
     }
 
-    snake.move(currentDirection);
+    
 }
 
 
@@ -164,7 +166,7 @@ void Game::addCherry()
     do {
 		// init a random position inside the play screen (width, height)
 		// Suggestion: use rand() function
-
+		Position randomPos;
 		Position randomPos = Position(rand() % width, rand() % height);
 		
 		// check if the randomPos is EMPTY 
