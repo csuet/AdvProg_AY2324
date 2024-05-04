@@ -61,8 +61,11 @@ void Game::snakeMoveTo(Position pos) {
 		++score;
 		snake.eatCherry();
 		addCherry();
+		
 	}
+
 	setCellType(pos, CELL_SNAKE);
+	
 }
 
 
