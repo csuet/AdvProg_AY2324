@@ -134,7 +134,7 @@ void Game::nextStep()
 {
 	while (!inputQueue.empty()) {
 		// get the input direction from input queue
-		Direction next;
+		
 		Direction next = inputQueue.front();
 		// remove the front of input queue
 		inputQueue.pop();
@@ -166,7 +166,7 @@ void Game::addCherry()
     do {
 		// init a random position inside the play screen (width, height)
 		// Suggestion: use rand() function
-		Position randomPos;
+		
 		Position randomPos = Position(rand() % width, rand() % height);
 		
 		// check if the randomPos is EMPTY 
