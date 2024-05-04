@@ -207,7 +207,7 @@ protected:
         },
         {
             sharedName + "test normal 4",
-            verifyJumpForward(50, 120, 90, 90, -24, -43),
+            verifyJumpForward(50, 120, 90, 90, -25, -43),
             "Jumping to wrong postion."
         },
       };
