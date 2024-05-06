@@ -47,10 +47,19 @@ vector<string> filterWordsByLen(int wordLen, const vector<string>& vocabulary)
 
 char nextCharWhenWordIsNotInDictionary( set<char>& selectedChars)
 {
-    char answer;
+    char answer = 'a';
     //Write your code here
-    selectedChars.erase(selectedChars.begin());
-    answer = *selectedChars.begin();
+    for(; answer < 'z'; answer++)
+    {
+        for(char x : selectedChars)
+        {
+            if(answer == x)
+            {
+                break;
+            }
+        }
+        return answer;
+    }
     return answer;
 }
 
@@ -85,15 +94,21 @@ map<char, int> countOccurrences(const vector<string>& candidateWords)
 
 char findMostFrequentChar(map<char, int> occurrences, const set<char>& selectedChars)
 {
-    char answer = '\0';
+    char answer;
     //Write your code here
     int maxOccurrence = 0;
-    for(char x : selectedChars)
+    for(char p = 'a'; p < 'z'; p++)
     {
-        if(occurrences[x] > maxOccurrence)
+        for(char x : selectedChars)
         {
-            answer = x;
-            maxOccurrence = occurrences[x];
+            if(answer == x)
+            {
+                break;
+            }
+        }
+        if(occurrences[p] > maxOccurrence)
+        {
+            answer = p;
         }
     }
     return answer;
