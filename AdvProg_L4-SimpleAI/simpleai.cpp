@@ -45,23 +45,12 @@ vector<string> filterWordsByLen(int wordLen, const vector<string>& vocabulary)
         answer (char) : The next character given the provided word is not in the vocabulary
 ***/
 
-char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
+char nextCharWhenWordIsNotInDictionary( set<char>& selectedChars)
 {
     char answer;
     //Write your code here
-    bool next = 0;
-    for(char x : selectedChars)
-    {
-        if(answer == x)
-        {
-            next = 1;
-        }
-        if(next = 1)
-        {
-            answer = x;
-            break;
-        }
-    }
+    selectedChars.erase(selectedChars.begin());
+    answer = *selectedChars.begin();
     return answer;
 }
 
