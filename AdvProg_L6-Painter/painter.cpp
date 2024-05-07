@@ -52,7 +52,7 @@ void Painter::jumpBackward(int numPixel)
 void Painter::turnLeft(double degree)
 {
     // TODO: rotate left the painter   
-    
+    angle += degree;
 }
 
 
@@ -65,6 +65,7 @@ void Painter::turnLeft(double degree)
 void Painter::turnRight(double degree)
 {
     // TODO: rotate right the painter   
+    angle -= degree;
 }
 
 /***  
@@ -76,6 +77,11 @@ void Painter::turnRight(double degree)
 void Painter::randomColor()
 {
     // TODO: set random color    
+    Uint8 r = rand() % 256;
+    Uint8 g = rand() % 256;
+    Uint8 b = rand() % 256;
+    SDL_Color color = {r, g, b};
+    setColor(color);
 }
 
 
