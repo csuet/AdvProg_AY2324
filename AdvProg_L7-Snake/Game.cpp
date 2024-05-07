@@ -84,7 +84,7 @@ void Game::snakeLeave(Position position)
 {
 	// Suggestion: use setCellType() method in Game class
 	// START CODE HERE
-	setCellType(pos, CELL_EMPTY);
+	setCellType(position, CELL_EMPTY);
 	// END CODE HERE
 }
 
