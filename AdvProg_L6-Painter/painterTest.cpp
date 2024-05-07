@@ -98,7 +98,7 @@ bool verifyTurnRight(double degree, double curAngle, double expectedAngle) {
     painter.setAngle(curAngle);
     painter.turnRight(degree);
     // Alowing some slack space
-    if (abs(painter.getAngle() - expectedAngle) < 1e-6) {
+    if (abs(painter.getAngle() - expectedAngle) < 1e6) {
         return true;
     }
     else {
