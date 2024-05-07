@@ -130,4 +130,3 @@ int run() {
     } while (checkContinuePlaying(isContinued));
     return 0;
 }
-Viết cho Nguyễn Văn Thắng
