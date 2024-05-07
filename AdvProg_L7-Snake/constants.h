@@ -6,7 +6,7 @@
 #if defined(_WIN64) || defined(_WIN32)
     #include <SDL.h>
 #else
-    #include <SDL.h>
+    #include <SDL2/SDL.h>
 #endif
 
 
