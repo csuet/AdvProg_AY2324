@@ -6,7 +6,7 @@
 #if defined(_WIN64) || defined(_WIN32)
     #include <SDL.h>
 #else
-    #include <SDL2/SDL.h>
+    #include <SDL.h>
 #endif
 
 
@@ -24,4 +24,4 @@ const SDL_Color LINE_COLOR = {128, 128, 128};
 
 const double STEP_DELAY = 0.2;
 
-#endif 
+#endif
