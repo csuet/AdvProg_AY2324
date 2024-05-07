@@ -8,6 +8,7 @@
 ***/
 void Painter::setColor(SDL_Color color)
 {
+    this->color = color;
     SDL_SetRenderDrawColor(this->renderer, color.r, color.g, color.b, 0);
 }
 
