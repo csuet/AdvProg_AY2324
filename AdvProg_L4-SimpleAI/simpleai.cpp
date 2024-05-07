@@ -60,9 +60,11 @@ char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
 map<char, int> countOccurrences(const vector<string>& candidateWords)
 {
     map<char, int> answer;
-    for(int i = 0; i < candidateWords.size(); i++){
-    	for(int j = 0; j < candidateWords[i].size(); i++) answer[candidateWords[j]]++;
-	}
+    for (auto word : candidateWords) {
+        for (const auto& c : word) {
+            ++answer[c];
+        }
+    }
     //Write your code here
     return answer;
 }
@@ -77,7 +79,7 @@ map<char, int> countOccurrences(const vector<string>& candidateWords)
 
 char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& selectedChars)
 {
-    char answer;
+    char answer = 0;
     //Write your code here
     int cntAnswer = 0;
     for (auto [c, cnt] : occurrences) {
@@ -176,7 +178,6 @@ bool wordConformToMask(const string& word, const string& mask, char ch)
     }
     return false;
     //Write your code here
-    return answer;
 }
 
 /***
