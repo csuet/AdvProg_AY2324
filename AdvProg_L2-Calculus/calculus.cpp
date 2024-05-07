@@ -20,7 +20,17 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    double a = 2, giaiThua = 1;
+    double sum = 1;
+    double temp;
+    do {
+        giaiThua *= a * (a-1);
+        temp = pow(-1, a/2) * pow(x, a) / giaiThua;
+        sum += temp;
+        a += 2;
+    } while(a <= 300);
+
+    return sum;
 }
 
 /***
@@ -31,7 +41,17 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    double a = 2, giaiThua = 1;
+    double sum = x;
+    double temp;
+    do {
+        giaiThua *= (2*a-1) * (2*a-2);
+        temp = pow(-1, a+1) * pow(x, 2*a - 1) / giaiThua;
+        sum += temp;
+        a++;
+    } while(a <= 300);
+
+    return sum;
 }
 
 
@@ -47,6 +67,13 @@ double mySqrt(double x) {
         exit(1);
     }
 
-    
-    return 0;
+    int a = 0;
+    double temp = x;
+
+    do{
+        temp = temp - (pow(temp, 2)-x)/(2*temp);
+        a++;
+    } while (a <= 100);
+
+    return temp;
 }
