@@ -186,10 +186,11 @@ void Game::addCherry()
 		// init a random position inside the play screen (width, height)
 		// Suggestion: use rand() function
 
-		int x = rand()%width;
+        Position randomPos; // YOUR CODE HERE
+        int x = rand()%width;
 		int y = rand()%height;
-        Position randomPos(x, y); // YOUR CODE HERE
-
+		randomPos.x = x;
+		randomPos.y = y;
 
 		// check if the randomPos is EMPTY
         if (getCellType(randomPos) == CELL_EMPTY) {
