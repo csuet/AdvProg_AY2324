@@ -25,12 +25,12 @@ Snake::~Snake()
             p = nextNode;
     }
     */
-    SnakeNode* p = tail;
-    while(p != NULL)
-    {
-        SnakeNode* nextNode = p->next;
-        p = nextNode;
-    }
+//    SnakeNode* p = tail;
+//    while(p != NULL)
+//    {
+//        SnakeNode* nextNode = p->next;
+//        p = nextNode;
+//    }
 }
 
 // DO NOT CHANGE METHOD
