@@ -25,12 +25,12 @@ Snake::~Snake()
             p = nextNode;
     }
     */
-//    SnakeNode* p = tail;
-//    while(p != NULL)
-//    {
-//        SnakeNode* nextNode = p->next;
-//        p = nextNode;
-//    }
+    SnakeNode* p = tail;
+    while(p != NULL)
+    {
+        SnakeNode* nextNode = p->next;
+        p = nextNode;
+    }
 }
 
 // DO NOT CHANGE METHOD
@@ -91,25 +91,25 @@ void Snake::growAtFront(Position newPosition)
 
 void Snake::slideTo(Position newPosition)
 {
-	if (tail->next == nullptr) {
-        // position is assigned by new position.
-		/* YOUR CODE HERE */
-		tail->position = newPosition;
-	}
-	else {
-		SnakeNode *oldTailNode = tail;
-		//cut the old tail off the snake
-        /* YOUR CODE HERE */
-        tail = tail->next;
- 		oldTailNode->next = nullptr;
-
-		// move it to the head of the snake
-        /* YOUR CODE HERE */
-        oldTailNode->position = newPosition;
-        head->next = oldTailNode;
-
-		head = oldTailNode;
-	}
+//	if (tail->next == nullptr) {
+//        // position is assigned by new position.
+//		/* YOUR CODE HERE */
+//		tail->position = newPosition;
+//	}
+//	else {
+//		SnakeNode *oldTailNode = tail;
+//		//cut the old tail off the snake
+//        /* YOUR CODE HERE */
+//        tail = tail->next;
+// 		oldTailNode->next = nullptr;
+//
+//		// move it to the head of the snake
+//        /* YOUR CODE HERE */
+//        oldTailNode->position = newPosition;
+//        head->next = oldTailNode;
+//
+//		head = oldTailNode;
+//	}
 }
 
 /***
