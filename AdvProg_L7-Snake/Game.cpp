@@ -51,22 +51,22 @@ Game::~Game()
 ***/
 
 void Game::snakeMoveTo(Position pos) {
-//	//  START CODE HERE
-//	if(getCellType(pos) == CELL_SNAKE || getCellType(pos) == CELL_OFF_BOARD)
-//    {
-//        status = GAME_OVER;
-//    }
-//    else if(getCellType(pos) == CELL_CHERRY)
-//    {
-//        score++;
-//        snake.eatCherry();
-//        addCherry();
-//    }
-//    else
-//    {
-//        setCellType(pos, CELL_SNAKE);
-//    }
-//	// END CODE HERE
+	//  START CODE HERE
+	if(getCellType(pos) == CELL_SNAKE || getCellType(pos) == CELL_OFF_BOARD)
+    {
+        status = GAME_OVER;
+    }
+    else if(getCellType(pos) == CELL_CHERRY)
+    {
+        score++;
+        snake.eatCherry();
+        addCherry();
+    }
+    else
+    {
+        setCellType(pos, CELL_SNAKE);
+    }
+	// END CODE HERE
 }
 
 
@@ -229,7 +229,7 @@ void Game::setCellType(Position pos, CellType cellType)
 	// START CODE HERE
 	if(pos.isInsideBox(0, 0, width, height))
     {
-        setCellType(pos, cellType);
+        squares[pos.y][pos.x] = cellType;
     }
 	// END CODE HERE
 }
