@@ -51,22 +51,22 @@ Game::~Game()
 ***/
 
 void Game::snakeMoveTo(Position pos) {
-	//  START CODE HERE
-	if(getCellType(pos) == CELL_SNAKE || getCellType(pos) == CELL_OFF_BOARD)
-    {
-        status = GAME_OVER;
-    }
-    else if(getCellType(pos) == CELL_CHERRY)
-    {
-        score++;
-        snake.eatCherry();
-        addCherry();
-    }
-    else
-    {
-        setCellType(pos, CELL_SNAKE);
-    }
-	// END CODE HERE
+//	//  START CODE HERE
+//	if(getCellType(pos) == CELL_SNAKE || getCellType(pos) == CELL_OFF_BOARD)
+//    {
+//        status = GAME_OVER;
+//    }
+//    else if(getCellType(pos) == CELL_CHERRY)
+//    {
+//        score++;
+//        snake.eatCherry();
+//        addCherry();
+//    }
+//    else
+//    {
+//        setCellType(pos, CELL_SNAKE);
+//    }
+//	// END CODE HERE
 }
 
 
@@ -111,22 +111,22 @@ void Game::processUserInput(Direction direction)
  *
  ***/
 bool Game::canChange(Direction current, Direction next) const {
-//	if (current == UP || current == DOWN)
-//    {
-//        if(next == UP || next == DOWN)
-//        {
-//            return 0;
-//        }
-//        else return 1;
-//    }
-//    else
-//    {
-//        if(next == LEFT || next == RIGHT)
-//        {
-//            return 0;
-//        }
-//        else return 1;
-//    }
+	if (current == UP || current == DOWN)
+    {
+        if(next == UP || next == DOWN)
+        {
+            return 0;
+        }
+        else return 1;
+    }
+    else
+    {
+        if(next == LEFT || next == RIGHT)
+        {
+            return 0;
+        }
+        else return 1;
+    }
 }
 
 
@@ -147,24 +147,24 @@ bool Game::canChange(Direction current, Direction next) const {
 
 void Game::nextStep()
 {
-//	while (!inputQueue.empty()) {
-//		// get the input direction from input queue
-//        Direction next ; // YOUR CODE
-//        next = inputQueue.front();
-//
-//		// remove the front of input queue
-//        // YOUR CODE HERE
-//        inputQueue.pop();
-//
-//		// check if snake can move to the next direction, set current direction as next
-//        if (canChange(currentDirection, next)) {
-//        	// YOUR CODE HERE
-//        	currentDirection = next;
-//        	break;
-//		}
-//    }
-//
-//    snake.move(currentDirection);
+	while (!inputQueue.empty()) {
+		// get the input direction from input queue
+        Direction next ; // YOUR CODE
+        next = inputQueue.front();
+
+		// remove the front of input queue
+        // YOUR CODE HERE
+        inputQueue.pop();
+
+		// check if snake can move to the next direction, set current direction as next
+        if (canChange(currentDirection, next)) {
+        	// YOUR CODE HERE
+        	currentDirection = next;
+        	break;
+		}
+    }
+
+    snake.move(currentDirection);
 }
 
 
