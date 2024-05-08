@@ -60,9 +60,10 @@ void Snake::growAtFront(Position newPosition)
     // head of snake grow at new position
 
     /* YOUR CODE HERE */
-//    SnakeNode* oldHead = head;
-//    head->position = newPosition;
-//    head->next = oldHead;
+    SnakeNode* p;
+    p->position = newPosition;
+    p->next = head;
+    head = p;
 }
 
 
