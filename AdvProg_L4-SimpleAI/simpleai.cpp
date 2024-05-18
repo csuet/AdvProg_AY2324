@@ -52,7 +52,7 @@ char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
     bool end =true;
         while(end){
             answer = 'a'+rand()%26;
-            if(selectedChars.find(answer)!=selectedChars.end()){
+            if(selectedChars.find(answer)==selectedChars.end()){
                 end = false;
             }
         }
