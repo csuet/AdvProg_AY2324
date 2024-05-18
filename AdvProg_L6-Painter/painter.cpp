@@ -10,7 +10,7 @@ void Painter::setColor(SDL_Color color)
 { 
     // TODO: set the color value for the Painter and set Render Draw Color
     this->color=color;
-    SDL_SetRenderDrawColor(color.r,color.g,color.b,0);
+    SDL_SetRenderDrawColor(renderer,color.r,color.g,color.b,0);
 }
 
 
@@ -82,7 +82,7 @@ void Painter::randomColor()
     int g=rand()%256;
     int b=rand()%256;
     color={r,g,b};
-    SDL_SetRenderDrawColor(r,g,b,0);
+    SDL_SetRenderDrawColor(renderer,r,g,b,0);
 
 }
 
