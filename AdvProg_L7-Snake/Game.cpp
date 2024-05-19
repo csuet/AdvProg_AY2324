@@ -29,7 +29,7 @@ Game::~Game()
     //dtor
 }
 
-void setGameStatus(GameStatus status){
+void Game::setGameStatus(GameStatus status){
 	this->status=status;
 }
 
