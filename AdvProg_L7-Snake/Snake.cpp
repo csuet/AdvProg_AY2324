@@ -22,7 +22,7 @@ Snake::~Snake()
         Do:
         {
             SnakeNode* nextNode = p->next;
-            // delete p;
+             delete p;
             p = nextNode;
     }
     
