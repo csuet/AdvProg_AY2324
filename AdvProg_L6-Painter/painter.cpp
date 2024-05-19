@@ -38,9 +38,7 @@ void Painter::jumpForward(int numPixel)
 void Painter::jumpBackward(int numPixel)
 {
     // TODO: jump the painter backward
-    float r=(angle/180)*M_PI;
-    x+=cos(r)*numPixel;
-    y+=sin(r)*numPixel;
+    jumpForward(-numPixel);
 }
 
 
@@ -78,9 +76,9 @@ void Painter::turnRight(double degree)
 void Painter::randomColor()
 {
     // TODO: set random color  
-    int r=rand()%256;
-    int g=rand()%256;
-    int b=rand()%256;
+    Uint8 r=rand()%256;
+    Uint8 g=rand()%256;
+    Uint8 b=rand()%256;
     color={r,g,b};
     SDL_SetRenderDrawColor(renderer,r,g,b,0);
 
