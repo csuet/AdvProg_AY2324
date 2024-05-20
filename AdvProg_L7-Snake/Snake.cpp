@@ -16,21 +16,16 @@ Snake::Snake(Game& _game, Position start)
 
 Snake::~Snake()
 {
-    /*
-        Loop: SnakeNode p = tail; p != nullptr;
+    
+        Loop: SnakeNode* p = tail; p != nullptr;
         
         Do:
+        {
             SnakeNode* nextNode = p->next;
-            // delete p;
+            delete p;
             p = nextNode;
     }
-    */
-    SnakeNode* p = tail;
-    while (p != nullptr) {
-        SnakeNode* nextNode = p->next;
-        delete p;
-        p = nextNode;
-    }
+    
 }
 
 // DO NOT CHANGE METHOD
@@ -60,11 +55,9 @@ void Snake::growAtFront(Position newPosition)
     // head of snake grow at new position
 	
     /* YOUR CODE HERE */
-
-    SnakeNode* newNode = new SnakeNode(newPosition);
-    newNode->next = head;
-    head = newNode;
-
+    SnakeNode *newNode = new SnakeNode(newPosition);
+    head->next = newNode;
+    head = head->next;
 }
 
 
@@ -92,31 +85,23 @@ void Snake::growAtFront(Position newPosition)
 
 void Snake::slideTo(Position newPosition)
 {
-	// if (tail->next == nullptr) { 
-    //     // position is assigned by new position.
-	// 	/* YOUR CODE HERE */
-
-	// }
-	// else {
-	// 	SnakeNode *oldTailNode = tail;
-	// 	//cut the old tail off the snake
-    //     /* YOUR CODE HERE */
-		
-	// 	// move it to the head of the snake
-    //     /* YOUR CODE HERE */
-	// 	head = oldTailNode;
-	// }
-    if (tail->next == nullptr) { 
+	if (tail->next == nullptr) { 
+        // position is assigned by new position.
         tail->position = newPosition;
-    }
-    else {
-        SnakeNode *oldTailNode = tail;
-        tail = tail->next;
+	}
+	else {
+		SnakeNode *oldTailNode = tail;
+		//cut the old tail off the snake
+        /* YOUR CODE HERE */
+         tail = tail->next;
         oldTailNode->next = nullptr;
         oldTailNode->position = newPosition;
         head->next = oldTailNode;
-        head = oldTailNode;
-    }
+		
+		// move it to the head of the snake
+        /* YOUR CODE HERE */
+		head = oldTailNode;
+	}
 }
 
 /*** 
@@ -166,28 +151,22 @@ void Snake::eatCherry()
 void Snake::move(Direction direction)
 {
     Position newPosition = head->position.move(direction);
-    game.snakeMoveTo(newPosition);
-    if(game.getGameStatus() == GAME_OVER) return;
-    if (cherry > 0) {
-        cherry--;
-        growAtFront(newPosition);
-    } else {
-        game.snakeLeave(tail->position);
-        slideTo(newPosition);
-    }
 
     /* YOUR CODE HERE */
-    
+    game.snakeMoveTo(newPosition);
     // If gameOver, return ; 
     /* YOUR CODE HERE */
-
+if (game.getGameStatus() == GAME_OVER) return;
     // If cherry > 0, cherry descrease one and growAtFront() with newPosition
-    // if (cherry > 0) {
-    //     /* YOUR CODE HERE */
-    // } else {
-    // 	game.snakeLeave(tail->position);
-    //     /* YOUR CODE HERE */        
-    // }
+    if (cherry > 0) {
+        /* YOUR CODE HERE */
+         cherry --;
+        growAtFront(newPosition);
+    } else {
+    	game.snakeLeave(tail->position);
+        /* YOUR CODE HERE */        
+        slideTo(newPosition);
+    }
 }
 
 // DO NOT CHANGE METHOD

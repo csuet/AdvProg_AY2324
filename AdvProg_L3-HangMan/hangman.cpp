@@ -17,8 +17,9 @@ using std::cin;
 int generateRandomNumber(const int min, const int max)
 {
     // TODO: Return a random integer number between min and max
-    return rand() % (max - min + 1) + min;
-    // return 1;
+    int a=(rand()%(max-min+1))+min;
+    // TODO: Return a random integer number between min and max
+    return a;
 }
 
 vector<string> readWordListFromFile(const string& filePath)
@@ -52,12 +53,11 @@ vector<string> readWordListFromFile(const string& filePath)
 bool isCharInWord(const char ch, const string& word)
 {
     // TODO: return true if ch is in word else return false
-    for (int i = 0; i < word.length(); i++) {
-        if (ch == word[i]) {
+    for(char i:word)
+        if(ch==i)
             return true;
-        }
-    }
-    return true;
+    // TODO: return true if ch is in word else return false
+    return false;
 }
 
 /***
@@ -69,9 +69,13 @@ bool isCharInWord(const char ch, const string& word)
 ***/
 string chooseWordFromList(const vector<string>& wordList, int index) 
 {
-    // TODO: Return a lowercase word in the index position of the vector wordList.  
+    // TODO: Return a lowercase word in the index position of the vector wordList.
     string answer;
-    answer = wordList[index];
+    answer=wordList[index];
+    int len=answer.size();
+    for(int i=0;i<len;i++)
+        if(answer[i]>='A'&&answer[i]<='Z')
+            answer[i]=answer[i]+'a'-'A';
     return answer;
 }
 
@@ -84,10 +88,9 @@ string chooseWordFromList(const vector<string>& wordList, int index)
 string generateHiddenCharacters(string answerWord){
     // TODO: Based on answerWord's length, generate hidden characters in form of "---"
     string secretWord;
-    for (int i = 0; i < answerWord.length(); i++) {
-        secretWord += "-";
-    }
-
+ int len=answerWord.size();
+    for(int i=0;i<len;i++)
+        secretWord+='-';
     return secretWord;
 }
 
@@ -108,11 +111,10 @@ char getInputCharacter() {
 void updateSecretWord(string& secretWord, const char ch, const string& word)
 {
     // TODO: Update the secret word if the character ch is in the answer word.
-    for (int i = 0; i < word.length(); i++) {
-        if (ch == word[i]) {
-            secretWord[i] = ch;
-        }
-    }
+    int len=word.size();
+        for(int i=0;i<len;i++)
+            if(ch==word[i])
+                secretWord[i]=ch;
 }
 
 /***
@@ -124,8 +126,8 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 ***/
 void updateEnteredChars(const char ch, string& chars){
     // TODO: append the character ch is in end of the text chars
-    chars += ch;
-
+    chars.push_back(ch);
+    chars.push_back(' ');
 }
 
 /***
@@ -163,12 +165,13 @@ void processData(const char ch, const string& word,
             update incorrectGuess: call updateIncorrectGuess() function
             update incorrectChars: call updateEnteredChars() function
     ***/
-    if (isCharInWord(ch, word)) {
-        updateSecretWord(secretWord, ch, word);
-        updateEnteredChars(ch, correctChars);
-    } else {
-        updateIncorrectGuess(incorrectGuess);
-        updateEnteredChars(ch, incorrectChars);
-    }
+   if(isCharInWord(ch,word)){
+    updateSecretWord(secretWord,ch,word);
+    updateEnteredChars(ch,correctChars);
+   }
+   else{
+    updateIncorrectGuess(incorrectGuess);
+    updateEnteredChars(ch,incorrectChars);
+   }
 }
 
