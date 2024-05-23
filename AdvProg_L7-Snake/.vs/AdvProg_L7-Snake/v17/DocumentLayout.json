@@ -56,7 +56,7 @@
               "RelativeDocumentMoniker": "Game.h",
               "ToolTip": "D:\\code tung ngay\\AdvProg_AY2324\\AdvProg_L7-Snake\\Game.h",
               "RelativeToolTip": "Game.h",
-              "ViewState": "AQIAACQAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAABMAAAAAAAAAAAAqwDUAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-05-23T13:53:15.091Z",
               "EditorCaption": ""
@@ -69,7 +69,7 @@
               "RelativeDocumentMoniker": "Game.cpp",
               "ToolTip": "D:\\code tung ngay\\AdvProg_AY2324\\AdvProg_L7-Snake\\Game.cpp",
               "RelativeToolTip": "Game.cpp",
-              "ViewState": "AQIAAM8AAAAAAAAAAAAAAN4AAAAFAAAA",
+              "ViewState": "AQIAANIAAAAAAAAAAAAAAOUAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-23T13:52:55.99Z",
               "EditorCaption": ""
@@ -84,8 +84,7 @@
               "RelativeToolTip": "README.md",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2024-05-23T13:52:43.816Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-23T13:52:43.816Z"
             },
             {
               "$type": "Document",
@@ -96,8 +95,7 @@
               "ToolTip": "D:\\code tung ngay\\AdvProg_AY2324\\AdvProg_L7-Snake\\snake_vertical.png",
               "RelativeToolTip": "snake_vertical.png",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2024-05-23T13:52:41.171Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-23T13:52:41.171Z"
             },
             {
               "$type": "Document",
@@ -108,8 +106,7 @@
               "ToolTip": "D:\\code tung ngay\\AdvProg_AY2324\\AdvProg_L7-Snake\\snake_horizontal.png",
               "RelativeToolTip": "snake_horizontal.png",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2024-05-23T13:52:39.947Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-23T13:52:39.947Z"
             },
             {
               "$type": "Document",
@@ -120,8 +117,7 @@
               "ToolTip": "D:\\code tung ngay\\AdvProg_AY2324\\AdvProg_L7-Snake\\snake_head.png",
               "RelativeToolTip": "snake_head.png",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2024-05-23T13:52:38.3Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-23T13:52:38.3Z"
             },
             {
               "$type": "Document",
@@ -132,8 +128,7 @@
               "ToolTip": "D:\\code tung ngay\\AdvProg_AY2324\\AdvProg_L7-Snake\\snake_head.jpg",
               "RelativeToolTip": "snake_head.jpg",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2024-05-23T13:52:36.731Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-23T13:52:36.731Z"
             },
             {
               "$type": "Document",
@@ -144,8 +139,7 @@
               "ToolTip": "D:\\code tung ngay\\AdvProg_AY2324\\AdvProg_L7-Snake\\snake_corner.png",
               "RelativeToolTip": "snake_corner.png",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2024-05-23T13:52:32.789Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-23T13:52:32.789Z"
             }
           ]
         }
