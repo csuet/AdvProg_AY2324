@@ -52,24 +52,15 @@ Game::~Game()
 
 void Game::snakeMoveTo(Position position)
 {
-    // Method to handle snake movement
-    if (!position.isInsideBox(0, 0, width, height)) {
-        status = GAME_OVER; // Snake hit the wall
-        return;
+    //  START CODE HERE
+    if (getCellType(position) == CELL_SNAKE || getCellType(position) == CELL_OFF_BOARD) status = GAME_OVER;
+    else if (getCellType(position) == CELL_CHERRY) {
+        score++;
+        snake.eatCherry();
+        addCherry();
     }
-    if (squares[position.y][position.x] == CELL_SNAKE) {
-        status = GAME_OVER; // Snake collided with itself
-        return;
-    }
-    if (squares[position.y][position.x] == CELL_CHERRY) {
-        score += 10; // Increase score
-        snake.eatCherry(); // Make snake eat cherry
-        addCherry(); // Add new cherry
-    }
-    else {
-        squares[position.y][position.x] = CELL_SNAKE; // Move snake
-        snakeLeave(snake.getPositions()); // Leave the previous tail position
-    }
+    else setCellType(position, CELL_SNAKE);
+    // END CODE HERE
 }
 
 
@@ -86,10 +77,10 @@ void Game::snakeMoveTo(Position position)
  ***/
 void Game::snakeLeave(Position position)
 {
-    // Method to handle leaving a position
-    squares[position.y][position.x] = CELL_EMPTY; // Set position as empty
+    // Suggestion: use setCellType() method in Game class
+    setCellType(position, CELL_EMPTY);
+    // END CODE HERE
 }
-
 
 
 // DO NOT change this method
@@ -116,16 +107,13 @@ void Game::processUserInput(Direction direction)
  ***/
 bool Game::canChange(Direction current, Direction next) const
 {
-    // Determine if the snake can change direction
-    if ((current == Direction::UP || current == Direction::DOWN) && 
-        (next == Direction::UP || next == Direction::DOWN)) {
-        return false;
+    if (current == UP || current == DOWN) {
+        return (next != UP && next != DOWN);
     }
-    if ((current == Direction::LEFT || current == Direction::RIGHT) && 
-        (next == Direction::LEFT || next == Direction::RIGHT)) {
-        return false;
+    else {
+        return (next != LEFT && next != RIGHT);
     }
-    return true;
+    return 0;// YOUR CODE HERE
 }
 
 
@@ -180,7 +168,9 @@ void Game::addCherry()
     // Method to add cherry to a random empty cell
     do {
         cherryPosition = Position(rand() % width, rand() % height);
-    } while (squares[cherryPosition.y][cherryPosition.x] != CELL_EMPTY);
+    } 
+    while 
+        (squares[cherryPosition.y][cherryPosition.x] != CELL_EMPTY);
     squares[cherryPosition.y][cherryPosition.x] = CELL_CHERRY;
 }
 
