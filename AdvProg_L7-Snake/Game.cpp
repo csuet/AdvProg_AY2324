@@ -51,13 +51,38 @@ Game::~Game()
 ***/
 
 void Game::snakeMoveTo(Position pos) {
-	//  START CODE HERE
-	//
-	//
-	//
-	//
-	// END CODE HERE
+    // If the position is outside the play screen, set game status to GAME_OVER
+    if (!pos.isInsideBox(0, 0, width, height)) {
+        status = GAME_OVER;
+        return;
+    }
+
+    // If the position is already occupied by the snake body, set game status to GAME_OVER
+    if (getCellType(pos) == CELL_SNAKE_BODY) {
+        status = GAME_OVER;
+        return;
+    }
+
+    // If the position contains a cherry
+    if (getCellType(pos) == CELL_CHERRY) {
+        // Increase the score
+        score += 10;
+
+        // Let the snake eat the cherry
+        snake.eatCherry(pos);
+
+        // Add a new cherry
+        addCherry();
+    }
+    else {
+        // Set the new position as part of the snake body
+        setCellType(pos, CELL_SNAKE_BODY);
+
+        // Leave the previous tail position
+        snakeLeave(snake.getTailPosition());
+    }
 }
+
 
 
 /***
@@ -72,13 +97,10 @@ void Game::snakeMoveTo(Position pos) {
  ***/
 void Game::snakeLeave(Position position)
 {
-	// Suggestion: use setCellType() method in Game class
-	// START CODE HERE
-	//  
-	//
-	//
-	// END CODE HERE
+    // Set the position as CELL_EMPTY
+    setCellType(position, CELL_EMPTY);
 }
+
 
 
 // DO NOT change this method
@@ -103,10 +125,16 @@ void Game::processUserInput(Direction direction)
  * 
  ***/
 bool Game::canChange(Direction current, Direction next) const {
-	if (current == UP || current == DOWN) 
-		return 0; // YOUR CODE HERE
-	return 0;// YOUR CODE HERE
+    // If the current direction is UP or DOWN, the next direction should not be UP or DOWN
+    if (current == UP || current == DOWN) {
+        return (next != UP && next != DOWN);
+    }
+    // If the current direction is LEFT or RIGHT, the next direction should not be LEFT or RIGHT
+    else {
+        return (next != LEFT && next != RIGHT);
+    }
 }
+
 
 
 /***
@@ -126,22 +154,24 @@ bool Game::canChange(Direction current, Direction next) const {
 
 void Game::nextStep()
 {
-	while (!inputQueue.empty()) {
-		// get the input direction from input queue
-        Direction next ; // YOUR CODE HERE
+    while (!inputQueue.empty()) {
+        // Get the input direction from the input queue
+        Direction next = inputQueue.front();
 
-		// remove the front of input queue
-        // YOUR CODE HERE
+        // Remove the front of input queue
+        inputQueue.pop();
 
-		// check if snake can move to the next direction, set current direction as next
+        // Check if snake can move to the next direction, set current direction as next
         if (canChange(currentDirection, next)) {
-        	// YOUR CODE HERE
-        	break;
-		}
+            currentDirection = next;
+            break;
+        }
     }
 
+    // Move the snake according to the current direction
     snake.move(currentDirection);
 }
+
 
 
 /***
@@ -159,23 +189,18 @@ void Game::nextStep()
 void Game::addCherry()
 {
     do {
-		// init a random position inside the play screen (width, height)
-		// Suggestion: use rand() function
+        // Generate a random position inside the play screen
+        Position randomPos(rand() % width, rand() % height);
 
-        Position randomPos; // YOUR CODE HERE
-		
-		// check if the randomPos is EMPTY 
+        // Check if the randomPos is EMPTY 
         if (getCellType(randomPos) == CELL_EMPTY) {
-
-        	// assign the cherry position as randomPos, and set randomPos type as CELL_CHERRY
-
-			// YOUR CODE HERE
-			// YOUR CODE HERE
-
-       		break;
+            // Assign the cherry position as randomPos and set randomPos type as CELL_CHERRY
+            setCellType(randomPos, CELL_CHERRY);
+            break;
         }
     } while (true);
 }
+
 
 
 /***
@@ -190,16 +215,14 @@ void Game::addCherry()
  * 		// none
  * 
  ***/
-void Game::setCellType(Position pos, CellType cellType) 
+void Game::setCellType(Position pos, CellType cellType)
 {
-	// if position is inside the play screen (width, height), set to the cellType.
-	// Otherwise, do nothing
-	// Suggestion: use pos.isInsideBox(...) in Position class
-	//
-	// START CODE HERE
-	//  
-	// END CODE HERE
+    // If position is inside the play screen, set to the cellType
+    if (pos.isInsideBox(0, 0, width, height)) {
+        squares[pos.y][pos.x] = cellType;
+    }
 }
+
 
 
 
