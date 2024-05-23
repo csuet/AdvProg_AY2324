@@ -29,7 +29,9 @@ Game::~Game()
     //dtor
 }
 
-
+void Game::setGameStatus(GameStatus status){
+	this->status=status;
+}
 
 /*** 
  * PLEASE UPDATE THIS METHOD
@@ -140,20 +142,13 @@ bool Game::canChange(Direction current, Direction next) const {
 void Game::nextStep()
 {
 	while (!inputQueue.empty()) {
-		// get the input direction from input queue
-        Direction next = inputQueue.front(); // YOUR CODE HERE
+        Direction nextSteps = inputQueue.front();
 		inputQueue.pop();
-		// remove the front of input queue
-        // YOUR CODE HERE
-
-		// check if snake can move to the next direction, set current direction as next
-        if (canChange(currentDirection, next)) {
-        	// YOUR CODE HERE
-			currentDirection = next;
+        if (canChange(currentDirection, nextSteps)) {
+			currentDirection=nextSteps;
         	break;
 		}
     }
-
     snake.move(currentDirection);
 }
 
@@ -176,18 +171,11 @@ void Game::addCherry()
 		// init a random position inside the play screen (width, height)
 		// Suggestion: use rand() function
 
-        Position randomPos; // YOUR CODE HERE
-		randomPos = Position(rand() % width, rand() % height);
-		// check if the randomPos is EMPTY 
-        if (getCellType(randomPos) == CELL_EMPTY) {
-
-        	// assign the cherry position as randomPos, and set randomPos type as CELL_CHERRY
-
-			// YOUR CODE HERE
-			// YOUR CODE HERE
-			cherryPosition = randomPos;
-			setCellType(randomPos, CELL_CHERRY);
-
+        Position ranPosition; 
+		ranPosition = Position(rand() % width, rand() % height);
+        if (getCellType(ranPosition) == CELL_EMPTY) {
+			cherryPosition = ranPosition;
+			setCellType(ranPosition, CELL_CHERRY);
        		break;
         }
     } while (true);
