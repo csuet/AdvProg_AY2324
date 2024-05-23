@@ -68,7 +68,7 @@ void Game::snakeMoveTo(Position position)
     }
     else {
         squares[position.y][position.x] = CELL_SNAKE; // Move snake
-        snakeLeave(snake.getTailPosition()); // Leave the previous tail position
+        snakeLeave(snake.getPositions()); // Leave the previous tail position
     }
 }
 
