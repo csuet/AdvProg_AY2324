@@ -97,7 +97,7 @@ void Game::processUserInput(Direction direction)
 {
     // Add the direction to the input queue
     inputQueue.push(direction);
-
+}
 
 
 /***
