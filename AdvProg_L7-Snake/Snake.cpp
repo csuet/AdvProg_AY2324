@@ -160,7 +160,7 @@ void Snake::move(Direction direction)
         // Otherwise, slide the snake to the new position
         slideTo(newPosition);
     }
-}  }
+
 }
 
 // DO NOT CHANGE METHOD
