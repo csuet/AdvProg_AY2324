@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\code tung ngay\\AdvProg_AY2324\\AdvProg_L7-Snake\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\code tung ngay\\AdvProg_AY2324\\AdvProg_L7-Snake\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\code tung ngay\\AdvProg_AY2324\\AdvProg_L7-Snake\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\code tung ngay\\AdvProg_AY2324\\AdvProg_L7-Snake\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\code tung ngay\\AdvProg_AY2324\\AdvProg_L7-Snake\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
@@ -42,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,25 +50,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Game.h",
               "DocumentMoniker": "D:\\code tung ngay\\AdvProg_AY2324\\AdvProg_L7-Snake\\Game.h",
               "RelativeDocumentMoniker": "Game.h",
               "ToolTip": "D:\\code tung ngay\\AdvProg_AY2324\\AdvProg_L7-Snake\\Game.h",
               "RelativeToolTip": "Game.h",
-              "ViewState": "AQIAABMAAAAAAAAAAAAqwDUAAAAEAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAuwB8AAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-23T13:53:15.091Z"
+              "WhenOpened": "2024-05-23T13:53:15.091Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Game.cpp",
               "DocumentMoniker": "D:\\code tung ngay\\AdvProg_AY2324\\AdvProg_L7-Snake\\Game.cpp",
               "RelativeDocumentMoniker": "Game.cpp",
               "ToolTip": "D:\\code tung ngay\\AdvProg_AY2324\\AdvProg_L7-Snake\\Game.cpp",
               "RelativeToolTip": "Game.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFUAAAAFAAAA",
+              "ViewState": "AQIAALoAAAAAAAAAAAAAAM4AAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-23T13:52:55.99Z",
               "EditorCaption": ""

@@ -50,24 +50,24 @@ Game::~Game()
  * 
 ***/
 
-void Game::snakeMoveTo(Position pos)
+void Game::snakeMoveTo(Position position)
 {
     // Method to handle snake movement
-    if (!pos.isInsideBox(0, 0, width, height)) {
+    if (!position.isInsideBox(0, 0, width, height)) {
         status = GAME_OVER; // Snake hit the wall
         return;
     }
-    if (squares[pos.y][pos.x] == CELL_SNAKE) {
+    if (squares[position.y][position.x] == CELL_SNAKE) {
         status = GAME_OVER; // Snake collided with itself
         return;
     }
-    if (squares[pos.y][pos.x] == CELL_CHERRY) {
+    if (squares[position.y][position.x] == CELL_CHERRY) {
         score += 10; // Increase score
-        snake.eatCherry(pos); // Make snake eat cherry
+        snake.eatCherry(position); // Make snake eat cherry
         addCherry(); // Add new cherry
     }
     else {
-        squares[pos.y][pos.x] = CELL_SNAKE; // Move snake
+        squares[position.y][position.x] = CELL_SNAKE; // Move snake
         snakeLeave(snake.getTailPosition()); // Leave the previous tail position
     }
 }
@@ -198,15 +198,23 @@ void Game::addCherry()
  * 		// none
  * 
  ***/
-CellType Game::getCellType(Position pos) const
+
+
+void Game::setCellType(Position pos, CellType cellType)
 {
-    // Method to get cell type at a position
+  
     if (pos.isInsideBox(0, 0, width, height)) {
-        return squares[pos.y][pos.x];
+  
+        squares[pos.y][pos.x] = cellType;
     }
-    else {
-        return CELL_OFF_BOARD;
-    }
+}
+
+
+
+void Game::setGameStatus(GameStatus status)
+{
+    // Set the game status
+    this->status = status;
 }
 
 
