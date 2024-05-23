@@ -221,9 +221,9 @@ void Game::setGameStatus(GameStatus status)
 
 
 // DO NOT change this method
-CellType Game::getCellType(Position pos) const
+CellType Game::getCellType(Position p) const
 {
-	return pos.isInsideBox(0, 0, width, height) ? squares[pos.y][pos.x] : CELL_OFF_BOARD;
+	return pos.isInsideBox(0, 0, width, height) ? squares[p.y][p.x] : CELL_OFF_BOARD;
 }
 
 // DO NOT change this method
