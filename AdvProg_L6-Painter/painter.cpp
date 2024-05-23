@@ -74,11 +74,7 @@ void Painter::turnLeft(double degree)
 ***/     
 void Painter::turnRight(double degree)
 {
-    angle -= degree;
-
-    if (angle < 0.0) {
-        angle += 360.0;
-    }
+    turnLeft(-degree);
 }
 
 /***  
@@ -93,10 +89,9 @@ void Painter::randomColor()
 
     SDL_Color color;
 
-    color.r = static_cast<Uint8>(std::rand() % 256);
-    color.g = static_cast<Uint8>(std::rand() % 256);
-    color.b = static_cast<Uint8>(std::rand() % 256);
-    color.a = 255;
+    color.r = static_cast<Uint8>(rand() % 256);
+    color.g = static_cast<Uint8>(rand() % 256);
+    color.b = static_cast<Uint8>(rand() % 256);
 
     setColor(color);
 }
