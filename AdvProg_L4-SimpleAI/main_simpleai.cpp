@@ -51,24 +51,24 @@ void save_filter(int id, const vector<string>& words, const string& mask, char c
 int main()
 {
     // B0
-    //string wordFilePath = "data/hangman_wordlist.txt";
+    // string wordFilePath = "data/hangman_wordlist.txt";
     string wordFilePath = "data/hangman_dictionary.txt";
     vector<string> vocabulary = readWordListFromFile(wordFilePath);
-    /*
-    vector<string> vocabulary;
-    vocabulary.push_back("hello");
-    vocabulary.push_back("good");
-    vocabulary.push_back("bad");
-    vocabulary.push_back("world");
-    vocabulary.push_back("nice");
-    */
+    
+    // vector<string> vocabulary;
+    // vocabulary.push_back("hello");
+    // vocabulary.push_back("good");
+    // vocabulary.push_back("bad");
+    // vocabulary.push_back("world");
+    // vocabulary.push_back("nice");
+    
     
     // B1
     int maxGuess = readMaxGuess();
     int wordLen = readWordLen();
 
     vector<string> candidateWords = filterWordsByLen(wordLen, vocabulary);
-    //save_filter(1, wordLen, candidateWords, "-", '-');
+    // save_filter(1, wordLen, candidateWords, "-", '-');
     set<char> selectedChars;
     int incorrectGuess = 0;
     string finalMessage = "";
@@ -111,7 +111,7 @@ int main()
                 finalMessage = "Maybe, you should give me more times to guess :(";
                 break;
             } else {
-                // continue;
+                //continue;
             }
         }
     }
