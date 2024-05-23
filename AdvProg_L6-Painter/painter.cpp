@@ -22,8 +22,8 @@ void Painter::setColor(SDL_Color color)
 ***/
 void Painter::jumpForward(int numPixel)
 {
-    x += numPixel;
-    y -= numPixel;
+    x += static_cast<int> (numPixel);
+    y -= static_cast<int> (numPixel);
 }
 
 
@@ -35,8 +35,8 @@ void Painter::jumpForward(int numPixel)
 ***/
 void Painter::jumpBackward(int numPixel)
 {
-    x -= numPixel;
-    y += numPixel;
+    x -= static_cast<int> (numPixel);
+    y += static_cast<int> (numPixel);
 }
 
 
