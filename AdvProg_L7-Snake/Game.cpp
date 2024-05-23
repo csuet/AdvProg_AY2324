@@ -63,7 +63,7 @@ void Game::snakeMoveTo(Position position)
     }
     if (squares[position.y][position.x] == CELL_CHERRY) {
         score += 10; // Increase score
-        snake.eatCherry(position); // Make snake eat cherry
+        snake.eatCherry(); // Make snake eat cherry
         addCherry(); // Add new cherry
     }
     else {
