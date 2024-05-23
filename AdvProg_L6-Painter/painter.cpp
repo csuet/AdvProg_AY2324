@@ -22,8 +22,12 @@ void Painter::setColor(SDL_Color color)
 ***/
 void Painter::jumpForward(int numPixel)
 {
-    x += static_cast<int> (numPixel);
-    y -= static_cast<int> (numPixel);
+    // Convert angle to radians
+    double angleRad = angle * M_PI / 180.0;
+
+    // Calculate the new position
+    x += static_cast<int>(numPixel * cos(angleRad));
+    y -= static_cast<int>(numPixel * sin(angleRad));
 }
 
 
@@ -35,8 +39,12 @@ void Painter::jumpForward(int numPixel)
 ***/
 void Painter::jumpBackward(int numPixel)
 {
-    x -= static_cast<int> (numPixel);
-    y += static_cast<int> (numPixel);
+    // Convert angle to radians
+    double angleRad = angle * M_PI / 180.0;
+
+    // Calculate the new position
+    x -= static_cast<int>(numPixel * cos(angleRad));
+    y += static_cast<int>(numPixel * sin(angleRad));
 }
 
 
