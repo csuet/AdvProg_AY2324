@@ -57,6 +57,22 @@ void Game::snakeMoveTo(Position pos) {
 	//
 	//
 	// END CODE HERE
+	CellType cur = getCellType(pos);
+	if (cur == CELL_OFF_BOARD || cur == CELL_SNAKE) {
+		status = GAME_OVER;
+		return;
+	}
+
+	if (cur == CELL_CHERRY) {
+		++score;
+		snake.eatCherry();
+		addCherry();
+		// snake.growAtFront(pos);
+	}
+	// else {
+	setCellType(pos, CELL_SNAKE);
+	// snake.slideTo(pos);
+// }
 }
 
 
@@ -78,6 +94,7 @@ void Game::snakeLeave(Position position)
 	//
 	//
 	// END CODE HERE
+	setCellType(position, CELL_EMPTY);
 }
 
 
@@ -103,9 +120,8 @@ void Game::processUserInput(Direction direction)
  * 
  ***/
 bool Game::canChange(Direction current, Direction next) const {
-	if (current == UP || current == DOWN) 
-		return 0; // YOUR CODE HERE
-	return 0;// YOUR CODE HERE
+	return (next != UP && next != DOWN); // YOUR CODE HERE
+	return (next != LEFT && next != RIGHT);// YOUR CODE HERE
 }
 
 
@@ -128,14 +144,15 @@ void Game::nextStep()
 {
 	while (!inputQueue.empty()) {
 		// get the input direction from input queue
-        Direction next ; // YOUR CODE HERE
+		Direction next = inputQueue.front(); // YOUR CODE HERE
 
 		// remove the front of input queue
         // YOUR CODE HERE
-
+		inputQueue.pop();
 		// check if snake can move to the next direction, set current direction as next
         if (canChange(currentDirection, next)) {
         	// YOUR CODE HERE
+			currentDirection = next;
         	break;
 		}
     }
@@ -163,7 +180,7 @@ void Game::addCherry()
 		// Suggestion: use rand() function
 
         Position randomPos; // YOUR CODE HERE
-		
+		Position randomPos = Position(rand() % width, rand() % height);
 		// check if the randomPos is EMPTY 
         if (getCellType(randomPos) == CELL_EMPTY) {
 
@@ -171,7 +188,7 @@ void Game::addCherry()
 
 			// YOUR CODE HERE
 			// YOUR CODE HERE
-
+			setCellType(randomPos, CELL_CHERRY);
        		break;
         }
     } while (true);
@@ -199,6 +216,8 @@ void Game::setCellType(Position pos, CellType cellType)
 	// START CODE HERE
 	//  
 	// END CODE HERE
+	if (getCellType(pos) == CELL_OFF_BOARD) return;
+	squares[pos.y][pos.x] = cellType;
 }
 
 
