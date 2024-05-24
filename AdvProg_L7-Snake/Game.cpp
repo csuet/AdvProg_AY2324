@@ -120,7 +120,7 @@ void Game::processUserInput(Direction direction)
  * 
  ***/
 bool Game::canChange(Direction current, Direction next) const {
-	return (next != UP && next != DOWN); // YOUR CODE HERE
+	if (current == UP || current == DOWN) return (next != UP && next != DOWN); // YOUR CODE HERE
 	return (next != LEFT && next != RIGHT);// YOUR CODE HERE
 }
 
@@ -179,7 +179,6 @@ void Game::addCherry()
 		// init a random position inside the play screen (width, height)
 		// Suggestion: use rand() function
 
-        Position randomPos; // YOUR CODE HERE
 		Position randomPos = Position(rand() % width, rand() % height);
 		// check if the randomPos is EMPTY 
         if (getCellType(randomPos) == CELL_EMPTY) {
