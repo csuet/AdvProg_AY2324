@@ -1,79 +1,52 @@
 #include "painter.h"
 
-/***
-    Args: color (SDL_Color): color value 
-        
-    Returns:
-        None
-***/
+#include <cmath>
+#include <ctime>
+
+using namespace std;
 void Painter::setColor(SDL_Color color) 
 { 
-    // TODO: set the color value for the Painter and set Render Draw Color
+    this->color = color;
+    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 }
 
-
-/***
-    Args: numPixel (int): number of pixel for jumping forward
-        
-    Returns:
-        None
-***/
 void Painter::jumpForward(int numPixel)
 {
-    // TODO: jump the painter forward
+    double rad = (angle / 180.0) * M_PI;
+    x += numPixel * cos(rad);
+    y -= numPixel * sin(rad);
 }
 
-
-/***
-    Args: numPixel (int): number of pixel for jumping backward
-        
-    Returns:
-        None
-***/
 void Painter::jumpBackward(int numPixel)
 {
-    // TODO: jump the painter backward
+    jumpForward(-numPixel);
 }
 
-
-/***
-    Args: degree (double): the value of rotation angle
-        
-    Returns:
-        None
-***/       
 void Painter::turnLeft(double degree)
 {
-    // TODO: rotate left the painter   
+    angle = angle + degree;
+    if (angle >= 360) {
+        angle -= 360;
+    }
+   
 }
 
-
-/***
-    Args: degree (double): the value of rotation angle
-        
-    Returns:
-        None
-***/     
 void Painter::turnRight(double degree)
 {
-    // TODO: rotate right the painter   
+    turnLeft(-degree);
+    
 }
 
-/***  
-    Args: 
-        None
-    Returns:
-        None
-***/
 void Painter::randomColor()
 {
-    // TODO: set random color    
+    srand(time(NULL));
+    SDL_Color randomColor;
+    randomColor.r = std::rand() % 256;
+    randomColor.g = std::rand() % 256;
+    randomColor.b = std::rand() % 256;
+    randomColor.a = 255;
+    setColor(randomColor);
 }
-
-
-/***
-Part of code that not need to be implemented
-***/
 void Painter::clearWithBgColor(SDL_Color bgColor)
 {
     SDL_Color curColor = color;
@@ -166,4 +139,3 @@ void Painter::moveBackward(int numPixel)
 {
     moveForward(-numPixel);
 }
-
