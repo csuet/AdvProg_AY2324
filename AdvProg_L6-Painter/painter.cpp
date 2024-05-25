@@ -1,4 +1,8 @@
 #include "painter.h"
+#include <cstdlib>
+#include <cmath>
+#include <ctime>
+
 using namespace std;
 void Painter::setColor(SDL_Color color) 
 { 
