@@ -28,14 +28,16 @@ void Painter::turnLeft(double degree)
     if (angle >= 360) {
         angle -= 360;
     }
+    if(angle < 0)
+    {
+	    angle += 360;
+    }
 }
 
 void Painter::turnRight(double degree)
 {
-    angle = angle - degree;
-    if (angle < 0) {
-        angle += 180;
-    }
+    turnLeft(-degree);
+    
 }
 
 void Painter::randomColor()
