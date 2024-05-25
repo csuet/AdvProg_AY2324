@@ -40,7 +40,7 @@ void Painter::turnRight(double degree)
 
 void Painter::randomColor()
 {
-    srand(time(NULL);
+    srand(time(NULL));
     SDL_Color randomColor;
     randomColor.r = std::rand() % 256;
     randomColor.g = std::rand() % 256;
