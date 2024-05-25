@@ -12,8 +12,8 @@ void Painter::setColor(SDL_Color color)
 void Painter::jumpForward(int numPixel)
 {
     double rad = (angle / 180.0) * M_PI;
-    x += static_cast<int>(numPixel * cos(rad));
-    y -= static_cast<int>(numPixel * sin(rad)); // SDL's y-axis goes downwards, so we subtract
+    x += numPixel * cos(rad);
+    y -= numPixel * sin(rad);
 }
 
 void Painter::jumpBackward(int numPixel)
