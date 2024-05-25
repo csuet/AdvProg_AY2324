@@ -24,7 +24,7 @@ void Painter::jumpBackward(int numPixel)
 
 void Painter::turnLeft(double degree)
 {
-    angle = angle - degree;
+    angle = angle + degree;
     
 }
 
