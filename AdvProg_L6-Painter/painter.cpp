@@ -32,9 +32,9 @@ void Painter::turnLeft(double degree)
 
 void Painter::turnRight(double degree)
 {
-    angle += degree;
-    if (angle >= 360) {
-        angle -= 360;
+    angle -= degree;
+    if (angle < 360) {
+        angle += 360;
     }
 }
 
