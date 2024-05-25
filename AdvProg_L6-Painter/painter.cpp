@@ -1,4 +1,5 @@
 #include "painter.h"
+using namespace std;
 void Painter::setColor(SDL_Color color) 
 { 
     this->color = color;
@@ -35,12 +36,12 @@ void Painter::turnRight(double degree)
 
 void Painter::randomColor()
 {
-    std::srand(static_cast<unsigned>(std::time(0)));
+    srand(time(NULL);
     SDL_Color randomColor;
     randomColor.r = std::rand() % 256;
     randomColor.g = std::rand() % 256;
     randomColor.b = std::rand() % 256;
-    randomColor.a = 255; // Fully opaque
+    randomColor.a = 255;
     setColor(randomColor);
 }
 void Painter::clearWithBgColor(SDL_Color bgColor)
