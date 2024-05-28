@@ -21,8 +21,8 @@ void Painter::setColor(SDL_Color color)
 void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
-    float x_biendoi = numPixel * cos(angle);
-    float y_biendoi = numPixel * sin(angle);
+    float x_biendoi = numPixel * cos(angle) ;
+    float y_biendoi = numPixel * sin(angle) ;
 
     posX += x_biendoi;
     posY += y_biendoi;
