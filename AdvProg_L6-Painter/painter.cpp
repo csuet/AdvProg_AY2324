@@ -24,8 +24,8 @@ void Painter::jumpForward(int numPixel)
     float x_biendoi = numPixel * cos(angle) ;
     float y_biendoi = numPixel * sin(angle) ;
 
-    posX += x_biendoi;
-    posY += y_biendoi;
+    posX += x_biendoi ;
+    posY += y_biendoi ;
 
     SDL_RenderDrawLine(renderer, posX - x_biendoi, posY - y_biendoi, posX, posY);
 }
