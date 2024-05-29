@@ -9,7 +9,8 @@
 void Painter::setColor(SDL_Color color)
 {
     // TODO: set the color value for the Painter and set Render Draw Color
-    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+    this->color = color;
+    SDL_SetRenderDrawColor(this->renderer, color.r, color.g, color.b, 0);
 }
 
 /***
@@ -21,13 +22,9 @@ void Painter::setColor(SDL_Color color)
 void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
-    float x_change = numPixel * cos(angle * M_PI / 180.0);
-    float y_change = numPixel * sin(angle * M_PI / 180.0);
-
-    posX += x_change;
-    posY -= y_change;
-
-    SDL_RenderDrawLine(renderer, posX - x_change, posY + y_change, posX, posY);
+    double rad = (angle / 180) * M_PI;
+    this->x += cos(rad) * numPixel;
+    this->y -= sin(rad) * numPixel;
 }
 
 /***
@@ -39,13 +36,7 @@ void Painter::jumpForward(int numPixel)
 void Painter::jumpBackward(int numPixel)
 {
     // TODO: jump the painter backward
-    float x_change = numPixel * cos(angle * M_PI / 180.0);
-    float y_change = numPixel * sin(angle * M_PI / 180.0);
-
-    posX -= x_change;
-    posY += y_change;
-
-    SDL_RenderDrawLine(renderer, posX + x_change, posY - y_change, posX, posY);
+   jumpForward(-numPixel);
 }
 
 /***
@@ -57,7 +48,9 @@ void Painter::jumpBackward(int numPixel)
 void Painter::turnLeft(double degree)
 {
     // TODO: rotate left the painter
-     angle -= degree;
+     this->angle += degree;
+    if (this->angle >= 0) this->angle -= floor(angle / 360) * 360;
+    else this->angle += ceil(angle / 360) * 360;
 }
 
 /***
@@ -69,7 +62,7 @@ void Painter::turnLeft(double degree)
 void Painter::turnRight(double degree)
 {
     // TODO: rotate right the painter
-      angle += degree;
+     turnLeft(-degree);
 }
 
 /***
@@ -81,17 +74,11 @@ void Painter::turnRight(double degree)
 void Painter::randomColor()
 {
     // TODO: set random color
-    random_device rd;
-    mt19937 gen(rd());
-    uniform_int_distribution<int> dis(0, 255);
-
-    Uint8 r = dis(gen);
-    Uint8 g = dis(gen);
-    Uint8 b = dis(gen);
-    Uint8 a = 255;
-
-    SDL_Color randomColor = { r, g, b, a };
-    setColor(randomColor);
+   Uint8 r = rand() % 256;
+    Uint8 g = rand() % 256;
+    Uint8 b = rand() % 256;
+    SDL_Color color = { r, g, b };
+    setColor(color);
 }
 
 /***
