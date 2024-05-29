@@ -48,9 +48,15 @@ vector<string> filterWordsByLen(int wordLen, const vector<string> &vocabulary)
 
 char nextCharWhenWordIsNotInDictionary(const set<char> &selectedChars)
 {
-    char answer;
-    // Write your code here
-    cin >> answer;
+    char answer = 'a';
+    for (char ch = 'a'; ch <= 'z'; ++ch)
+    {
+        if (selectedChars.find(ch) == selectedChars.end())
+        {
+            answer = ch;
+            break;
+        }
+    }
     return answer;
 }
 
@@ -140,18 +146,14 @@ string getWordMask(char nextChar)
 
 bool isCorrectChar(char ch, const string &mask)
 {
-    bool answer;
-    // Write your code here
-    answer = 0;
-    for (auto i : mask)
+    for (char c : mask)
     {
-        if (ch == i)
+        if (ch == c)
         {
-            answer = true;
-            break;
+            return true;
         }
     }
-    return answer;
+    return false;
 }
 
 /***
@@ -175,7 +177,7 @@ bool isWholeWord(const string &mask)
             break;
         }
     }
-    
+
     return answer;
 }
 
@@ -193,25 +195,19 @@ bool isWholeWord(const string &mask)
 ***/
 bool wordConformToMask(const string &word, const string &mask, char ch)
 {
-    bool answer;
-    // Write your code here
-    int dem = 0, dem1 = 0;
-    for (int i = 0; i < (int)word.size(); i++)
+     bool hasChar = false;
+    for (int i = 0; i < word.size(); ++i)
     {
-        if (word[i] == ch)
-            dem++;
+        if (mask[i] == '-' || (mask[i] == ch && word[i] == ch))
+        {
+            hasChar = true;
+        }
+        else if (mask[i] != '-' && word[i] != mask[i])
+        {
+            return false;
+        }
     }
-    for (auto i : mask)
-    {
-        if (i == ch)
-            dem1++;
-    }
-    if (dem >= 1 && dem1 >= 1)
-        answer = true;
-    else
-        answer = 0;
-
-    return answer;
+    return hasChar;
 }
 
 /***
