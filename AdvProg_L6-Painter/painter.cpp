@@ -21,13 +21,13 @@ void Painter::setColor(SDL_Color color)
 void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
-    float x_biendoi = numPixel * cos(angle) ;
-    float y_biendoi = numPixel * sin(angle) ;
+    float x_change = numPixel * cos(angle * M_PI / 180.0);
+    float y_change = numPixel * sin(angle * M_PI / 180.0);
 
-    posX += x_biendoi ;
-    posY += y_biendoi ;
+    posX += x_change;
+    posY -= y_change;
 
-    SDL_RenderDrawLine(renderer, posX - x_biendoi, posY - y_biendoi, posX, posY);
+    SDL_RenderDrawLine(renderer, posX - x_change, posY + y_change, posX, posY);
 }
 
 /***
@@ -39,13 +39,13 @@ void Painter::jumpForward(int numPixel)
 void Painter::jumpBackward(int numPixel)
 {
     // TODO: jump the painter backward
-    float x_biendoi = numPixel * cos(angle);
-    float y_biendoi = numPixel * sin(angle);
+    float x_change = numPixel * cos(angle * M_PI / 180.0);
+    float y_change = numPixel * sin(angle * M_PI / 180.0);
 
-    posX -= x_biendoi;
-    posY -= y_biendoi;
+    posX -= x_change;
+    posY += y_change;
 
-    SDL_RenderDrawLine(renderer, posX + x_biendoi, posY + y_biendoi, posX, posY);
+    SDL_RenderDrawLine(renderer, posX + x_change, posY - y_change, posX, posY);
 }
 
 /***
@@ -57,8 +57,7 @@ void Painter::jumpBackward(int numPixel)
 void Painter::turnLeft(double degree)
 {
     // TODO: rotate left the painter
-    angle -= degree;
-
+     angle -= degree;
 }
 
 /***
@@ -70,7 +69,7 @@ void Painter::turnLeft(double degree)
 void Painter::turnRight(double degree)
 {
     // TODO: rotate right the painter
-    angle += degree;
+      angle += degree;
 }
 
 /***
@@ -82,16 +81,17 @@ void Painter::turnRight(double degree)
 void Painter::randomColor()
 {
     // TODO: set random color
-    srand(time(nullptr));
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<int> dis(0, 255);
 
-    Uint8 r = rand() % 256;
-    Uint8 g = rand() % 256;
-    Uint8 b = rand() % 256;
-    Uint8 a = 255; 
+    Uint8 r = dis(gen);
+    Uint8 g = dis(gen);
+    Uint8 b = dis(gen);
+    Uint8 a = 255;
 
     SDL_Color randomColor = { r, g, b, a };
     setColor(randomColor);
-    
 }
 
 /***
@@ -184,6 +184,5 @@ void Painter::moveForward(int numPixel)
 
 void Painter::moveBackward(int numPixel)
 {
-                 moveForward(-numPixel);
+    moveForward(-numPixel);
 }
-
