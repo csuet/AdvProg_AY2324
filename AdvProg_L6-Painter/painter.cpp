@@ -58,7 +58,7 @@ void Painter::turnLeft(double degree)
 {
     // TODO: rotate left the painter
     angle -= degree;
-    
+
 }
 
 /***
@@ -184,5 +184,6 @@ void Painter::moveForward(int numPixel)
 
 void Painter::moveBackward(int numPixel)
 {
-    moveForward(-numPixel);
+                 moveForward(-numPixel);
 }
+
