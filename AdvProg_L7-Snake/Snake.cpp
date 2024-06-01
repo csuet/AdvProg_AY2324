@@ -160,7 +160,6 @@ void Snake::eatCherry()
 void Snake::move(Direction direction)
 {
     Position newPosition = head->position.move(direction);
-    Position newPosition = head->position.move(direction);
 
     /* YOUR CODE HERE */
 
