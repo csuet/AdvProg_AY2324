@@ -159,7 +159,7 @@ void Snake::move(Direction direction)
     /* YOUR CODE HERE */
     game.snakeMoveTo(newPosition);
     // If gameOver, return ;
-    if(game.gameOver()) return;
+    if(game.isGameOver()) return;
     /* YOUR CODE HERE */
     
     // If cherry > 0, cherry descrease one and growAtFront() with newPosition
