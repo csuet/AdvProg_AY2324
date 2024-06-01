@@ -18,7 +18,7 @@ Snake::~Snake()
 {
     /*
         Loop: SnakeNode p = tail; p != nullptr;
-        
+
         Do:
             SnakeNode* nextNode = p->next;
             // delete p;
@@ -30,6 +30,7 @@ Snake::~Snake()
         SnakeNode* nextNode = p->next;
         delete p;
         p = nextNode;
+    }
 }
 
 // DO NOT CHANGE METHOD
