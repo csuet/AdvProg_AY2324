@@ -16,15 +16,6 @@ Snake::Snake(Game& _game, Position start)
 
 Snake::~Snake()
 {
-    /*
-        Loop: SnakeNode p = tail; p != nullptr;
-
-        Do:
-            SnakeNode* nextNode = p->next;
-            // delete p;
-            p = nextNode;
-    }
-    */
     SnakeNode* p = tail;
     while (p != nullptr) {
         SnakeNode* nextNode = p->next;
@@ -91,22 +82,14 @@ void Snake::growAtFront(Position newPosition)
 // hàm này để di chuyển con rắn
 void Snake::slideTo(Position newPosition)
 {
-	if (tail->next == nullptr) { 
-        // position is assigned by new position.
-		/* YOUR CODE HERE */
-	}
-	else {
-        SnakeNode* oldTailNode = tail;
-        head = oldTailNode;
-	}
     if (tail->next == nullptr) { // snake has only one node
         tail->position = newPosition;
     }
     else {
         SnakeNode* oldTailNode = tail;
-        tail = tail->next; 
+        tail = tail->next; // cut the old tail off the snake
         oldTailNode->next = nullptr;
-        oldTailNode->position = newPosition; 
+        oldTailNode->position = newPosition; // move it to the head of the snake
         head->next = oldTailNode;
         head = oldTailNode;
     }
@@ -125,11 +108,11 @@ void Snake::slideTo(Position newPosition)
  * 
 ***/
 // tăng số lượng cherry
-void Snake::eatCherry()
-{
+ void Snake::eatCherry()
+ {
 	/* YOUR CODE HERE */
     cherry++;
-}
+ }
 
 /*** 
  * PLEASE UPDATE THIS METHOD
@@ -181,8 +164,6 @@ void Snake::move(Direction direction)
         growAtFront(newPosition);
     }
     else {
-        game.snakeLeave(tail->position);
-        /* YOUR CODE HERE */
         // Otherwise, slide to the new position
         slideTo(newPosition);
     }
