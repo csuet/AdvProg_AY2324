@@ -25,6 +25,11 @@ Snake::~Snake()
             p = nextNode;
     }
     */
+    SnakeNode* p = tail;
+    while (p != nullptr) {
+        SnakeNode* nextNode = p->next;
+        delete p;
+        p = nextNode;
 }
 
 // DO NOT CHANGE METHOD
@@ -57,7 +62,6 @@ void Snake::growAtFront(Position newPosition)
     SnakeNode* newHead = new SnakeNode(newPosition);
     newHead->next = head;
     head = newHead;
-
     /* YOUR CODE HERE */
 }
 
@@ -89,20 +93,22 @@ void Snake::slideTo(Position newPosition)
 	if (tail->next == nullptr) { 
         // position is assigned by new position.
 		/* YOUR CODE HERE */
-        tail->position = newPosition;
 	}
 	else {
-		SnakeNode *oldTailNode = tail;
-        tail = tail->next;
-
-        oldTailNode->next = nullptr;
-
-        oldTailNode->position = newPosition;
-
-        head->next = oldTailNode;
-
-		head = oldTailNode;
+        SnakeNode* oldTailNode = tail;
+        head = oldTailNode;
 	}
+    if (tail->next == nullptr) { // snake has only one node
+        tail->position = newPosition;
+    }
+    else {
+        SnakeNode* oldTailNode = tail;
+        tail = tail->next; 
+        oldTailNode->next = nullptr;
+        oldTailNode->position = newPosition; 
+        head->next = oldTailNode;
+        head = oldTailNode;
+    }
 }
 
 /*** 
@@ -153,23 +159,31 @@ void Snake::eatCherry()
 void Snake::move(Direction direction)
 {
     Position newPosition = head->position.move(direction);
-    game.snakeMoveTo(newPosition);
+    Position newPosition = head->position.move(direction);
+
     /* YOUR CODE HERE */
-    if (game.isGameOver()) {
-        return;
-    }
 
     // If gameOver, return ; 
     /* YOUR CODE HERE */
+    // Move the snake to the new position
+    game.snakeMoveTo(newPosition);
+
+    // If game over, return
+    if (game.getGameStatus() == GAME_OVER) {
+        return;
+    }
 
     // If cherry > 0, cherry descrease one and growAtFront() with newPosition
     if (cherry > 0) {
         /* YOUR CODE HERE */
-        cherry--; 
-        growAtFront(newPosition); 
-    } else {
-    	game.snakeLeave(tail->position);
-        /* YOUR CODE HERE */        
+        // If cherry > 0, decrease cherry count and grow at the front
+        cherry--;
+        growAtFront(newPosition);
+    }
+    else {
+        game.snakeLeave(tail->position);
+        /* YOUR CODE HERE */
+        // Otherwise, slide to the new position
         slideTo(newPosition);
     }
 }
