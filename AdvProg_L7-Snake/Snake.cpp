@@ -2,6 +2,7 @@
 #include "Game.h"
 #include <iostream>
 
+
 // set some attributes as default value
 // DO NOT CHANGE THIS CONSTRUCTOR
 Snake::Snake(Game& _game, Position start)
