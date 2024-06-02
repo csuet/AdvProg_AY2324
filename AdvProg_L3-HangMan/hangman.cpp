@@ -7,6 +7,7 @@ using std::ifstream;
 using std::domain_error;
 using std::cin;
 
+
 /***
     Args:
         min (int): left margin of a range
