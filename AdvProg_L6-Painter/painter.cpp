@@ -1,169 +1,129 @@
-#include "painter.h"
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include "guessit.h"
 
-/***
-    Args: color (SDL_Color): color value 
-        
-    Returns:
-        None
-***/
-void Painter::setColor(SDL_Color color) 
-{ 
-    // TODO: set the color value for the Painter and set Render Draw Color
-}
+using namespace std;
 
-
-/***
-    Args: numPixel (int): number of pixel for jumping forward
-        
-    Returns:
-        None
-***/
-void Painter::jumpForward(int numPixel)
+int run()
 {
-    // TODO: jump the painter forward
-}
-
-
-/***
-    Args: numPixel (int): number of pixel for jumping backward
-        
-    Returns:
-        None
-***/
-void Painter::jumpBackward(int numPixel)
-{
-    // TODO: jump the painter backward
-}
-
-
-/***
-    Args: degree (double): the value of rotation angle
-        
-    Returns:
-        None
-***/       
-void Painter::turnLeft(double degree)
-{
-    // TODO: rotate left the painter   
-}
-
-
-/***
-    Args: degree (double): the value of rotation angle
-        
-    Returns:
-        None
-***/     
-void Painter::turnRight(double degree)
-{
-    // TODO: rotate right the painter   
-}
-
-/***  
-    Args: 
-        None
-    Returns:
-        None
-***/
-void Painter::randomColor()
-{
-    // TODO: set random color    
-}
-
-
-/***
-Part of code that not need to be implemented
-***/
-void Painter::clearWithBgColor(SDL_Color bgColor)
-{
-    SDL_Color curColor = color;
-    setColor(bgColor);
-	SDL_RenderClear(renderer);    
-    setColor(curColor);
-}
-
-
-Painter::Painter(SDL_Window* window, SDL_Renderer *renderer)
-{
-    SDL_RenderGetLogicalSize(renderer, &width, &height);
-    if (width == 0 && height == 0) {
-        SDL_GetWindowSize(window, &width, &height);
-    }
-    this->renderer = renderer;
-    setPosition(width/2, height/2);
-    setAngle(0);
-    setColor(WHITE_COLOR);
-    clearWithBgColor(BLUE_COLOR);
-}
-
-
-void Painter::createCircle(int radius)
-{
-    double rad = (angle / 180) * M_PI;
-    int centerX = x + (int) (cos(rad) * (double) radius);;
-    int centerY = y - (int) (sin(rad) * (double) radius);;
-
-    int dx = radius;
-    int dy = 0;
-    int err = 0;
-
-    while (dx >= dy)
+    srand(time(0));
+    char isContinued;
+    do
     {
-        SDL_RenderDrawPoint(renderer, centerX + dx, centerY + dy);
-        SDL_RenderDrawPoint(renderer, centerX + dy, centerY + dx);
-        SDL_RenderDrawPoint(renderer, centerX - dy, centerY + dx);
-        SDL_RenderDrawPoint(renderer, centerX - dx, centerY + dy);
-        SDL_RenderDrawPoint(renderer, centerX - dx, centerY - dy);
-        SDL_RenderDrawPoint(renderer, centerX - dy, centerY - dx);
-        SDL_RenderDrawPoint(renderer, centerX + dy, centerY - dx);
-        SDL_RenderDrawPoint(renderer, centerX + dx, centerY - dy);
-
-        if (err <= 0)
-        {
-            dy += 1;
-            err += 2*dy + 1;
-        }
-        if (err > 0)
-        {
-            dx -= 1;
-            err -= 2*dx + 1;
-        }
-    }
+        playGuessIt();
+        isContinued = getPlayerOpinion();
+    } while (checkContinuePlaying(isContinued));
+    return 0;
 }
 
+/***
+    Args:
 
-
-void Painter::createParallelogram(int size)
+    Returns:
+        number (int) : random number in range 1-100
+***/
+int generateRandomNumber()
 {
-	for (int i = 0; i < 2; ++i) {
-        moveForward(size);
-        turnLeft(60);
-        moveForward(size);
-        turnLeft(120);
-    }	
+    // TODO: Return the random number in range 1 to 100
+    return rand() % 100 + 1;
 }
 
+/***
+    Args:
 
-
-void Painter::createSquare(int size)
+    Returns:
+        number (int) : the number that player guessed
+***/
+int getPlayerGuess()
 {
-	for (int i = 0; i < 4; ++i) {
-        moveForward(size);
-	    turnLeft(90);
-    }
+    // TODO: Ask the player guest and return the player's number
+    int n;
+    cin >> n;
+    return n;
 }
 
-
-void Painter::moveForward(int numPixel)
+/***
+    Args:
+        number (int): answer number from player
+        randomNumber (int): the true number
+    Returns:
+        answer (string) : answer of computer after checking result
+***/
+string getAnswer(int number, int randomNumber)
 {
-    int preX = x, preY = y;
-    jumpForward(numPixel);
-    SDL_RenderDrawLine(renderer, preX, preY, x, y);
+    /***
+        TODO: check number with randomNumber and return the result.
+              If number is higher than randomNumber, the answer is "Your number is higher."
+              If number is lower than randomNumber, the answer is "Your number is lower."
+              If number is equal randomNumber, the answer is "Congratulation! You win."
+    ***/
+    string answer;
+    if (number > randomNumber)
+        answer = "Your number is higher.";
+    if (number < randomNumber)
+        answer = "Your number is lower.";
+    if (number == randomNumber)
+        answer = "Congratulation! You win.";
+    return answer;
 }
 
-
-void Painter::moveBackward(int numPixel)
+/***
+    Args:
+        answer (string): answer from computer after compare numbers
+    Returns:
+        result (bool) : player win or not
+***/
+bool checkSuccess(string answer)
 {
-    moveForward(-numPixel);
+    // TODO: return the result after checking that player guessed right or wrong
+    if (answer == "Congratulation! You win.")
+        return true;
+    else
+        return false;
 }
 
+/***
+    Args:
+        isContinued (char): player's choice
+    Returns:
+        result (bool) : continue playing or not
+***/
+
+bool checkContinuePlaying(char isContinued)
+{
+    // TODO: return result after checking player continue playing or not
+    bool result = false;
+    // cin>>isContinued;
+    if (isContinued == 'y' || isContinued == 'Y')
+        result = true;
+    return result;
+}
+
+/***
+    Args:
+
+    Returns:
+        isContinues (char) : player's choice (continue playing or not)
+***/
+char getPlayerOpinion()
+{
+    // TODO: Ask the player about continue playing and return the player's choice
+    char isContinued;
+    cin >> isContinued;
+    return isContinued;
+}
+
+void playGuessIt()
+{
+    int randomNumber = generateRandomNumber();
+    int number;
+    string answer;
+
+    do
+    {
+        number = getPlayerGuess();
+        answer = getAnswer(number, randomNumber);
+        cout << answer << endl;
+    } while (!checkSuccess(answer));
+}

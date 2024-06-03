@@ -53,8 +53,10 @@ vector<string> readWordListFromFile(const string &filePath)
 bool isCharInWord(const char ch, const string &word)
 {
     // TODO: return true if ch is in word else return false
-    for (auto &i : word) {
-        if (i == ch) {
+    for (auto &i : word)
+    {
+        if (i == ch)
+        {
             return true;
         }
     }
@@ -75,7 +77,7 @@ string chooseWordFromList(const vector<string> &wordList, int index)
     string answer;
     answer = wordList[index];
     std::transform(answer.begin(), answer.end(), answer.begin(), [](char c)
-                   { return std::tolower(c); });
+                   { return tolower(c); });
     return answer;
 }
 
@@ -112,8 +114,10 @@ void updateSecretWord(string &secretWord, const char ch, const string &word)
 {
     // TODO: Update the secret word if the character ch is in the answer word.
     int n = word.size();
-    for (int i = 0; i < n; i++) {
-        if (word[i] == ch) {
+    for (int i = 0; i < n; i++)
+    {
+        if (word[i] == ch)
+        {
             secretWord[i] = ch;
         }
     }
@@ -129,7 +133,8 @@ void updateSecretWord(string &secretWord, const char ch, const string &word)
 void updateEnteredChars(const char ch, string &chars)
 {
     // TODO: append the character ch is in end of the text chars
-    chars += ch + " ";
+    chars += ch;
+    chars += ' ';
 }
 
 /***
@@ -169,12 +174,14 @@ void processData(const char ch, const string &word,
             update incorrectChars: call updateEnteredChars() function
     ***/
 
-   if (isCharInWord(ch, word)) {
-       updateSecretWord(secretWord, ch, word);
-       updateEnteredChars(ch, correctChars);
-   }
-   else {
-       updateIncorrectGuess(incorrectGuess);
-       updateEnteredChars(ch, incorrectChars);
-   }
+    if (isCharInWord(ch, word))
+    {
+        updateSecretWord(secretWord, ch, word);
+        updateEnteredChars(ch, correctChars);
+    }
+    else
+    {
+        updateIncorrectGuess(incorrectGuess);
+        updateEnteredChars(ch, incorrectChars);
+    }
 }
