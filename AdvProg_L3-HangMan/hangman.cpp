@@ -17,7 +17,8 @@ using std::cin;
 int generateRandomNumber(const int min, const int max)
 {
     // TODO: Return a random integer number between min and max
-    return rand()%(max - min + 1) + min;
+    int r = min + rand() % (max + 1 - min);
+    return r;
 }
 
 vector<string> readWordListFromFile(const string& filePath)
@@ -69,6 +70,11 @@ string chooseWordFromList(const vector<string>& wordList, int index)
     // TODO: Return a lowercase word in the index position of the vector wordList.
     string answer;
     answer = wordList[index];
+    for(int i = 0; i < answer.size(); i++){
+        if(answer[i] >= 'A' && answer[i] <= 'Z'){
+            answer[i] += 'a' - 'A';
+        }
+    }
     return answer;
 }
 
@@ -81,7 +87,7 @@ string chooseWordFromList(const vector<string>& wordList, int index)
 string generateHiddenCharacters(string answerWord){
     // TODO: Based on answerWord's length, generate hidden characters in form of "---"
     string secretWord;
-    for(int i = 0; i < answerWord.size(); i++){
+    for(int i = 0; i < int(answerWord.length()); i++){
         secretWord += '-';
     }
     return secretWord;
@@ -104,8 +110,8 @@ char getInputCharacter() {
 void updateSecretWord(string& secretWord, const char ch, const string& word)
 {
     // TODO: Update the secret word if the character ch is in the answer word.
-    for(int i = 0; i < word.size(); i++){
-        if (ch == word[i])    secretWord[i] = ch;
+    for (int i = 0; i< secretWord.length(); i++){
+        if (ch == word[i]) secretWord[i] = ch;
     }
 }
 
@@ -119,6 +125,7 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 void updateEnteredChars(const char ch, string& chars){
     // TODO: append the character ch is in end of the text chars
     chars += ch;
+    chars += ' ';
 }
 
 /***
@@ -155,14 +162,14 @@ void processData(const char ch, const string& word,
         else:
             update incorrectGuess: call updateIncorrectGuess() function
             update incorrectChars: call updateEnteredChars() function
-    ***/  
-    if (isCharInWord(ch, word)){
-        updateSecretWord(secretWord, ch, word);
-        updateEnteredChars(ch, correctChars);
-    }
-    else{
-        updateIncorrectGuess(incorrectGuess);
-        updateEnteredChars(ch, incorrectChars);
-    }
+    ***/
+   if(isCharInWord(ch,word)){
+    updateSecretWord(secretWord,ch,word);
+    updateEnteredChars(ch,correctChars);
+   }
+   else {
+    updateIncorrectGuess(incorrectGuess);
+    updateEnteredChars(ch,incorrectChars);
+   }
+    
 }
-
