@@ -27,7 +27,6 @@ Snake::~Snake()
     */
    for(SnakeNode* p = tail;p != nullptr;){
         SnakeNode* nextNode = p->next;
-        free(p);
         p = nextNode;
    }
 }
