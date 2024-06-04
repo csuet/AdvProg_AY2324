@@ -99,7 +99,7 @@ void Snake::slideTo(Position newPosition)
         oldTailNode->next = nullptr;
 		// move it to the head of the snake
         /* YOUR CODE HERE */
-		head = oldTailNode;
+		oldTailNode->position = newPosition;
         head->next = oldTailNode;
 	}
 }
