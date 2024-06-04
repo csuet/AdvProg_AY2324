@@ -112,9 +112,7 @@ bool Game::canChange(Direction current, Direction next) const {
 	if (current == UP || current == DOWN){
 		return !(next == UP || next == DOWN);
 	}
-	if (current == LEFT || current == RIGHT){
 		return !(next == LEFT || next == RIGHT);
-	}
 }
 
 
