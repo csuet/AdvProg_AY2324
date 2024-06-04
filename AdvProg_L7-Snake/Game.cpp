@@ -175,8 +175,8 @@ void Game::addCherry()
 		// Suggestion: use rand() function
 
         Position randomPos; // YOUR CODE HERE
-		randomPos.x = rand() % 30 + 1;
-		randomPos.y = rand() % 20 + 1;
+		randomPos.x = rand() % 28 + 1;
+		randomPos.y = rand() % 18 + 1;
 		// check if the randomPos is EMPTY 
         if (getCellType(randomPos) == CELL_EMPTY) {
 
