@@ -157,18 +157,17 @@ void Snake::move(Direction direction)
     // If gameOver, return ; 
     /* YOUR CODE HERE */
     if (game.isGameOver()) {
-        cout << "cac\n";
         return;
     }
     // If cherry > 0, cherry descrease one and growAtFront() with newPosition
     else if (cherry > 0) {
         /* YOUR CODE HERE */
         --cherry;
-        game.getSnake().growAtFront(newPosition);
+        growAtFront(newPosition);
     } else {
     	game.snakeLeave(tail->position);
         /* YOUR CODE HERE */
-        game.getSnake().slideTo(newPosition);        
+        slideTo(newPosition);        
     }
 }
 
