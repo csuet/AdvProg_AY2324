@@ -8,12 +8,13 @@ using namespace std;
 
 /***
     Args:
-        
+
     Returns:
         number (int) : random number in range 1-100
 ***/
 int generateRandomNumber() {
     // TODO: Return the random number in range 1 to 100
+    srand(time(0));
     int randNum = rand() % 100 + 1;
     return randNum;
 }
@@ -21,12 +22,13 @@ int generateRandomNumber() {
 
 /***
     Args:
-        
+
     Returns:
         number (int) : the number that player guessed
 ***/
 int getPlayerGuess() {
-    // TODO: Ask the player guest and return the player's number    
+    // TODO: Ask the player guest and return the player's number
+    cout << "Choose your number:" << endl;
     int n; cin >> n;
     return n;
 }
@@ -40,7 +42,7 @@ int getPlayerGuess() {
         answer (string) : answer of computer after checking result
 ***/
 string getAnswer(int number, int randomNumber) {
-    /*** 
+    /***
         TODO: check number with randomNumber and return the result.
               If number is higher than randomNumber, the answer is "Your number is higher."
               If number is lower than randomNumber, the answer is "Your number is lower."
@@ -48,15 +50,15 @@ string getAnswer(int number, int randomNumber) {
     ***/
     string answer;
 
-    if(number < randomNumber)
+    if(number > randomNumber)
     {
         answer = "Your number is higher.";
     }
-    else if(number > randomNumber)
+    else if(number < randomNumber)
     {
         answer = "Your number is lower.";
     }
-    else 
+    else
     {
         answer = "Congratulation! You win.";
     }
@@ -93,7 +95,7 @@ bool checkContinuePlaying(char isContinued) {
     // TODO: return result after checking player continue playing or not
     bool result = false;
 
-    if(isContinued == 'y') result = true;
+    if(isContinued == 'y'||isContinued == 'Y') result = true;
 
     return result;
 }
@@ -101,7 +103,7 @@ bool checkContinuePlaying(char isContinued) {
 
 /***
     Args:
-        
+
     Returns:
         isContinues (char) : player's choice (continue playing or not)
 ***/
@@ -121,7 +123,7 @@ void playGuessIt() {
     int randomNumber = generateRandomNumber();
     int number;
     string answer;
-    
+
     do {
         number = getPlayerGuess();
         answer = getAnswer(number, randomNumber);
