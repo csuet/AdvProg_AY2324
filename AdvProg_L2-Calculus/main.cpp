@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
     double x = stod(argv[2]);
     cout << "Computed by this program:  " << callFunction(func, x) << endl;
     cout << "Computed by C/C++ library: " << callFunction(PREFIX + func, x) << endl;
-    
+
     return 0;
 }
 
@@ -46,3 +46,10 @@ double callFunction(string func, double x)
         exit(1);
     }
 }
+
+
+
+
+
+
+

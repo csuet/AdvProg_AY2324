@@ -1,4 +1,4 @@
-#include "painter.h"
+﻿#include "painter.h"
 
 /***
     Args: color (SDL_Color): color value 
@@ -8,7 +8,10 @@
 ***/
 void Painter::setColor(SDL_Color color) 
 { 
+    // hàm này để thiết lập màu cho Painter
     // TODO: set the color value for the Painter and set Render Draw Color
+    this->color = color;
+    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 }
 
 
@@ -20,7 +23,11 @@ void Painter::setColor(SDL_Color color)
 ***/
 void Painter::jumpForward(int numPixel)
 {
+    // di chuyển đối tượng Painter về phía trc một số pixel đc chỉ định bời numPixel
     // TODO: jump the painter forward
+    double rad = (angle / 180) * M_PI;
+    x += cos(rad) * numPixel;
+    y -= sin(rad) * numPixel;
 }
 
 
@@ -32,7 +39,11 @@ void Painter::jumpForward(int numPixel)
 ***/
 void Painter::jumpBackward(int numPixel)
 {
+    // di chuyển đối tượng Painter về phía sau một số pixel đc chỉ định bời numPixel
     // TODO: jump the painter backward
+    double rad = (angle / 180) * M_PI;
+    x -= cos(rad) * numPixel;
+    y += sin(rad) * numPixel;
 }
 
 
@@ -44,10 +55,12 @@ void Painter::jumpBackward(int numPixel)
 ***/       
 void Painter::turnLeft(double degree)
 {
+    // xoay sang trái một góc đc chỉ định
     // TODO: rotate left the painter   
+    this->angle += degree;
+    this->angle = fmod(this->angle, 360);
 }
-
-
+        
 /***
     Args: degree (double): the value of rotation angle
         
@@ -56,7 +69,10 @@ void Painter::turnLeft(double degree)
 ***/     
 void Painter::turnRight(double degree)
 {
-    // TODO: rotate right the painter   
+    // xoay sang phải một góc degree
+    // TODO: rotate right the painter
+    this->angle -= degree;
+    this->angle = fmod(this->angle, 360);
 }
 
 /***  
@@ -66,8 +82,12 @@ void Painter::turnRight(double degree)
         None
 ***/
 void Painter::randomColor()
-{
+{    // thiết lập màu ngẫu nhiên từ số ngẫu nhiên
     // TODO: set random color    
+    Uint8 r = rand() % 256;
+    Uint8 g = rand() % 256;
+    Uint8 b = rand() % 256;
+    setColor(SDL_Color{ r, g, b, 255 });
 }
 
 
@@ -75,7 +95,8 @@ void Painter::randomColor()
 Part of code that not need to be implemented
 ***/
 void Painter::clearWithBgColor(SDL_Color bgColor)
-{
+{ 
+    // xóa toàn bộ nội dung của Renderer bằng màu nền mới
     SDL_Color curColor = color;
     setColor(bgColor);
 	SDL_RenderClear(renderer);    

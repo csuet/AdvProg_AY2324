@@ -1,4 +1,4 @@
-#include "Snake.h"
+﻿#include "Snake.h"
 #include "Game.h"
 #include <iostream>
 
@@ -16,15 +16,12 @@ Snake::Snake(Game& _game, Position start)
 
 Snake::~Snake()
 {
-    /*
-        Loop: SnakeNode p = tail; p != nullptr;
-        
-        Do:
-            SnakeNode* nextNode = p->next;
-            // delete p;
-            p = nextNode;
+    SnakeNode* p = tail;
+    while (p != nullptr) {
+        SnakeNode* nextNode = p->next;
+        delete p;
+        p = nextNode;
     }
-    */
 }
 
 // DO NOT CHANGE METHOD
@@ -49,10 +46,14 @@ vector<Position> Snake::getPositions() const
  * 		// none
  * 
 ***/
+// thêm nút mới vào trước con rắn để mở rộng chiều dài
 void Snake::growAtFront(Position newPosition)
 {
     // head of snake grow at new position
 	
+    SnakeNode* newHead = new SnakeNode(newPosition);
+    newHead->next = head;
+    head = newHead;
     /* YOUR CODE HERE */
 }
 
@@ -78,22 +79,20 @@ void Snake::growAtFront(Position newPosition)
  * 		// none
  * 
 ***/
-
+// hàm này để di chuyển con rắn
 void Snake::slideTo(Position newPosition)
 {
-	if (tail->next == nullptr) { 
-        // position is assigned by new position.
-		/* YOUR CODE HERE */
-	}
-	else {
-		SnakeNode *oldTailNode = tail;
-		//cut the old tail off the snake
-        /* YOUR CODE HERE */
-		
-		// move it to the head of the snake
-        /* YOUR CODE HERE */
-		head = oldTailNode;
-	}
+    if (tail->next == nullptr) { // snake has only one node
+        tail->position = newPosition;
+    }
+    else {
+        SnakeNode* oldTailNode = tail;
+        tail = tail->next; // cut the old tail off the snake
+        oldTailNode->next = nullptr;
+        oldTailNode->position = newPosition; // move it to the head of the snake
+        head->next = oldTailNode;
+        head = oldTailNode;
+    }
 }
 
 /*** 
@@ -108,10 +107,12 @@ void Snake::slideTo(Position newPosition)
  * 		// none
  * 
 ***/
-void Snake::eatCherry()
-{
+// tăng số lượng cherry
+ void Snake::eatCherry()
+ {
 	/* YOUR CODE HERE */
-}
+    cherry++;
+ }
 
 /*** 
  * PLEASE UPDATE THIS METHOD
@@ -138,22 +139,33 @@ void Snake::eatCherry()
  * 		// none
  * 
 ***/
-
+// xử lý con rắn đựa trên hướng đi dc cung cấp
 void Snake::move(Direction direction)
 {
     Position newPosition = head->position.move(direction);
 
     /* YOUR CODE HERE */
-    
+
     // If gameOver, return ; 
     /* YOUR CODE HERE */
+    // Move the snake to the new position
+    game.snakeMoveTo(newPosition);
+
+    // If game over, return
+    if (game.getGameStatus() == GAME_OVER) {
+        return;
+    }
 
     // If cherry > 0, cherry descrease one and growAtFront() with newPosition
     if (cherry > 0) {
         /* YOUR CODE HERE */
-    } else {
-    	game.snakeLeave(tail->position);
-        /* YOUR CODE HERE */        
+        // If cherry > 0, decrease cherry count and grow at the front
+        cherry--;
+        growAtFront(newPosition);
+    }
+    else {
+        // Otherwise, slide to the new position
+        slideTo(newPosition);
     }
 }
 
